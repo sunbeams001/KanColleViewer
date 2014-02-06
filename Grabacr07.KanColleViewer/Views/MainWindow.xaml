@@ -17,6 +17,7 @@
 				   Title="{Binding Title}"
 				   Width="1440"
 				   MinWidth="{Binding ElementName=WebBrowser, Path=Width}"
+                   MaxWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth}"
                    Height="525"
 				   MinHeight="525"
 				   Topmost="{Binding TopMost}"
@@ -110,7 +111,7 @@
 				</i:Interaction.Triggers>
 			</WebBrowser>
 
-			<DockPanel Grid.Column="1">
+            <DockPanel Grid.Column="1">
 				<ScrollViewer HorizontalScrollBarVisibility="Auto"
 							  VerticalScrollBarVisibility="Disabled">
 					<ContentControl Content="{Binding Content}">
