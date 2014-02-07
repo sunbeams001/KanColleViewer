@@ -17,15 +17,16 @@
 			 Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=ActualWidth}">
 	<Grid>
 		<Grid Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="5*" />
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="4*" />
-			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
 				<RowDefinition />
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
+            <Grid Name="QuestContent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
 
 			<Grid>
 				<Grid.RowDefinitions>
@@ -168,11 +169,11 @@
 					</TabItem.Header>
 					<ItemsControl ItemsSource="{Binding Source={StaticResource WeeklyQuestSourceKey}}" />
 				</TabItem>
-			</TabControl>
+                </TabControl>
+            </Grid>
 
-			<TextBlock Grid.Row="1"
-					   Grid.Column="0"
-					   Grid.ColumnSpan="3"
+            <TextBlock Grid.Row="1"
+                       MaxWidth="{Binding ElementName=QuestContent, Path=ActualWidth}"
 					   Text="{Binding Source={x:Static properties:Resources.Quests_Notice}, Mode=OneWay}"
 					   FontSize="10.5"
 					   TextTrimming="None"
