@@ -27,7 +27,8 @@
 		<ItemsControl ItemsSource="{Binding Docks}"
 					  Margin="5,0"
 					  d:DataContext="{d:DesignData /SampleData/RepairyardViewModelSampleData.xaml}"
-					  Grid.IsSharedSizeScope="True" MinWidth="481">
+					  Grid.IsSharedSizeScope="True"
+                      MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth}">
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
 					<Border Margin="5,0,5,10"

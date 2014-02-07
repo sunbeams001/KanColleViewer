@@ -40,7 +40,8 @@
 
 				<ItemsControl Grid.Row="1"
 							  ItemsSource="{Binding Current}"
-							  Margin="10,0" MinWidth="500">
+							  Margin="10,0"
+                              MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth}">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate>
 							<controls:Quest IsUntaken="{Binding IsUntaken}"

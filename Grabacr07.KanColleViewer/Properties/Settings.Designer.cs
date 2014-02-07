@@ -71,7 +71,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1366")]
+        [global::System.Configuration.DefaultSettingValueAttribute("481")]
         public string UIContentWidth {
             get {
                 return ((string)(this["UIContentWidth"]));
