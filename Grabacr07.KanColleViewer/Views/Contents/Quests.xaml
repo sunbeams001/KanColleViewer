@@ -30,8 +30,8 @@
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
 					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 
 				<TextBlock Text="{Binding Source={StaticResource LocalizeResourcesKey}, Path=Quests_CurrentQuestList}"
@@ -40,7 +40,7 @@
 
 				<ItemsControl Grid.Row="1"
 							  ItemsSource="{Binding Current}"
-							  Margin="10,0" MinWidth="500">
+							  Margin="10,0">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate>
 							<controls:Quest IsUntaken="{Binding IsUntaken}"

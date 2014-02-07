@@ -19,15 +19,15 @@
 			 d:DataContext="{d:DesignInstance docks1:RepairyardViewModel}">
 	<Grid VerticalAlignment="Top">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="Auto" />
-			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
 
 		<ItemsControl ItemsSource="{Binding Docks}"
 					  Margin="5,0"
 					  d:DataContext="{d:DesignData /SampleData/RepairyardViewModelSampleData.xaml}"
-					  Grid.IsSharedSizeScope="True" MinWidth="481">
+					  Grid.IsSharedSizeScope="True">
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
 					<Border Margin="5,0,5,10"
