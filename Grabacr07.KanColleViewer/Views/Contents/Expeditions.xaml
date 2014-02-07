@@ -29,8 +29,7 @@
 		<ItemsControl ItemsSource="{Binding Fleets}"
 					  Margin="5,0"
 					  Grid.IsSharedSizeScope="True"
-					  d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}"
-                      MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth}">
+					  d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}" MinWidth="481">
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
 					<Border x:Name="Root"

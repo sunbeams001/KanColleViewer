@@ -17,7 +17,7 @@
 				   Title="{Binding Title}"
 				   Width="1440"
 				   MinWidth="{Binding ElementName=WebBrowser, Path=Width}"
-                   MaxWidth="{x:Static SystemParameters.FullPrimaryScreenWidth}"
+                   MaxWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth}"
                    Height="525"
 				   MinHeight="525"
 				   Topmost="{Binding TopMost}"
