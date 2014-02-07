@@ -16,7 +16,7 @@
 			 d:DataContext="{d:DesignInstance vmContents:QuestsViewModel}"
 			 Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=ActualWidth}">
 	<Grid>
-		<Grid Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
+        <Grid Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
 			<Grid.RowDefinitions>
 				<RowDefinition />
 				<RowDefinition Height="Auto" />
@@ -181,8 +181,7 @@
 					   Margin="10" />
 		</Grid>
 
-		<TextBlock Grid.ColumnSpan="3"
-				   Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
+		<TextBlock Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
 				   TextWrapping="Wrap"
 				   FontSize="16"
 				   Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
