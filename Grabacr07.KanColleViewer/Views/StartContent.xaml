@@ -108,18 +108,8 @@
 	</UserControl.Resources>
 
 	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
 
-		<Border ClipToBounds="True"
-				Width="Auto">
-			<views:BrowserNavigator Margin="6,-4,6,10"
-									VerticalAlignment="Top" />
-		</Border>
-
-		<Grid Grid.Row="1">
+		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />

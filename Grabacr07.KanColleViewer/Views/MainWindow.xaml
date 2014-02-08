@@ -85,7 +85,12 @@
 
         <ContentControl Grid.Row="1" Content="{Binding Content}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}" />
+                <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
+                    <Border ClipToBounds="True" Width="Auto">
+                        <views:BrowserNavigator Margin="6,2,6,8"
+									VerticalAlignment="Top" />
+                    </Border>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
                     <views:Info />
                 </DataTemplate>
@@ -120,7 +125,7 @@
                 </i:Interaction.Triggers>
             </WebBrowser>
 
-            <DockPanel Grid.Column="1">
+            <DockPanel Grid.Column="1" MaxHeight="{Binding ElementName=WebBrowser, Path=Height}">
                 <ContentControl Content="{Binding Content}">
                     <ContentControl.Resources>
                         <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
