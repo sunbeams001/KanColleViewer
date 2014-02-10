@@ -25,10 +25,10 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 				.FirstOrDefault();
 			if (dock == null)
 			{
-				return "Ships are currently being repaired.";
+				return Properties.Resources.MessageBar_Repairing_Null;
 			}
 			var remaining = dock.CompleteTime.Value.LocalDateTime - DateTimeOffset.Now - TimeSpan.FromMinutes(1.0);
-			return string.Format(@"Ships are currently being repaired until {0:MM/dd HH\:mm} and will be complete in {1}:{2:mm\:ss}",
+			return string.Format(@Properties.Resources.MessageBar_Repairing,
 				dock.CompleteTime.Value.LocalDateTime, (int)remaining.TotalHours, remaining);
 		}
 	}

@@ -124,7 +124,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 		{
 			if (this.source.CanReSortie)
 			{
-				this.Message = "Ready to sortie!";
+				this.Message = Properties.Resources.MessageBar_ReSortie_CanReSortie;
 				this.CanReSortie = true;
 				return;
 			}
@@ -133,24 +133,24 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 			if (this.source.Reason.HasFlag(CanReSortieReason.Wounded))
 			{
-				list.Add("severely damaged");
+				list.Add(Properties.Resources.MessageBar_ReSortie_Wounded);
 			}
 			if (this.source.Reason.HasFlag(CanReSortieReason.LackForResources))
 			{
-				list.Add("inadequate supplies");
+				list.Add(Properties.Resources.MessageBar_ReSortie_LackForResources);
 			}
 			if (this.source.Reason.HasFlag(CanReSortieReason.BadCondition))
 			{
-				list.Add("low morale");
+				list.Add(Properties.Resources.MessageBar_ReSortie_BadCondition);
 			}
 
-			this.Message = string.Format("Active condition: {0}.", list.ToString(", "));
+			this.Message = string.Format(Properties.Resources.MessageBar_ReSortie_CanNotReSortie, list.ToString(Properties.Resources.MessageBar_ReSortie_Separator));
 			this.CanReSortie = false;
 		}
 
 		private void UpdateRemaining()
 		{
-			this.Remaining = this.source.Remaining.HasValue ? "\nMorale will be fully restored in: " + this.source.Remaining.Value.ToString(@"mm\:ss") : "";
+			this.Remaining = this.source.Remaining.HasValue ? Properties.Resources.MessageBar_ReSortie_Remaining + this.source.Remaining.Value.ToString(@"mm\:ss") : "";
 		}
 	}
 }

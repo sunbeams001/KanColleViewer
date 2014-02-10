@@ -2,14 +2,14 @@
 12.7cm連装砲,12.7cm Twin Cannon
 10cm連装高角砲,10cm Twin High-Angle Cannon
 14cm単装砲,14cm Single Cannon
-15.5cm三連装砲(主砲),15.5cm Three-Barrelled Gun (Main)
+15.5cm三連装砲,15.5cm Triple Cannon
 20.3cm連装砲,20.3cm Twin Cannon
 35.6cm連装砲,35.6cm Twin Cannon
 41cm連装砲,41cm Twin Cannon
 46cm三連装砲,46cm Triple Cannon
 12.7cm連装高角砲,12.7cm Twin High-Angle Cannon
 15.2cm単装砲,15.2cm Single Cannon
-15.5cm三連装副砲,15.5cm Triple Cannon (Secondary)
+15.5cm三連装副砲,15.5cm Triple Cannon
 61cm三連装魚雷,61cm Triple Torpedo
 61cm四連装魚雷,61cm Quad Torpedo
 61cm四連装(酸素)魚雷,61cm Quad (Oxygen) Torpedo
@@ -57,7 +57,7 @@
 彗星一二型甲,Suisei Model 12A
 61cm五連装(酸素)魚雷,61cm Quintuple (Oxygen) Torpedo
 零式水上観測機,Zero Observation Seaplane
-零式艦戦62型,Type 62 Zero Fighter-Bomber
+零式艦戦62型(爆戦),Type 62 Zero Fighter-Bomber
 二式艦上偵察機,Type 2 Recon Plane
 試製晴嵐,Prototype Seiran
 12.7cm連装砲B型改二,12.7cm Twin Cannon Type B Kai2

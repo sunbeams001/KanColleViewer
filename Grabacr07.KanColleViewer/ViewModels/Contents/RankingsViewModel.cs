@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Grabacr07.KanColleViewer.Properties;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
 using Livet.EventListeners;
@@ -10,6 +11,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 {
     public class RankingsViewModel : TabItemViewModel
     {
+        public override string Name
+        {
+            get { return Resources.Rankings; }
+            protected set { throw new NotImplementedException(); }
+        }
+
         #region Rankings
 
         private RankingViewModel[] _Rankings;
@@ -96,7 +103,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
         public RankingsViewModel()
         {
-            this.Name = Properties.Resources.ViewModel_Rankings;
             this.Rankings = KanColleClient.Current.Homeport.Rankings.Current.Select(x => new RankingViewModel(x)).ToArray();
             this.TotalRanked = KanColleClient.Current.Homeport.Rankings.TotalRanked;
             this.TotalPages = KanColleClient.Current.Homeport.Rankings.TotalPages;

@@ -2,6 +2,22 @@
 	KCV Change Log
 ========================
 
+v2.1.0 r272 - 2/10/2014
+	* *NEW* Equipment List! Shows all your current equipment, how many you own, and 
+		who currently has them equipped! Huge amount of detail. (Based Grabacr07)
+	* *NEW* UI language select at start up. You can now choose between English, 
+		Chinese, and Japanese only during start up. 
+		* This does NOT change the functionality of ship, equip, and quest translations.
+		* Rankings page does not currently have a translation for JP and CN.
+	* Fixes for a few equipment names.
+
+v2.0.0 r252 - 2/4/2014
+	* *Fix* Quest paging bug - When the pages change from one less than before, it'd 
+		break the quest log.
+	* Fix for "serious damage" indicator now shows at 25% rather than 50%.
+	* Kingusa Kai2 added
+	* B20 - Missing Asashio
+
 v2.0.0 r242 - 1/31/2014
 	* *NEW* Rankings! New rankings tab brought in from m-kc. Visit your HQ and bring up 
 		the rankings for it to update.
