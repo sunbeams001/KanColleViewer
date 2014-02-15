@@ -188,6 +188,7 @@
 				       FontSize="16"
 				       Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 				       HorizontalAlignment="Center"
+                       TextAlignment="Center"
 				       Margin="20,40" />
         </Grid>
     </Grid>
