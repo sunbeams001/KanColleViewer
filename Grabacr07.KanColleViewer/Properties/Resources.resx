@@ -465,4 +465,10 @@
   <data name="Rankings_RankingsList" xml:space="preserve">
     <value>Current Rankings</value>
   </data>
+  <data name="StartContent_SetRegionCookieButton" xml:space="preserve">
+    <value>Set Cookie Region</value>
+  </data>
+  <data name="StartContent_SetRegionCookieMessage" xml:space="preserve">
+    <value>Cookie has been set</value>
+  </data>
 </root>

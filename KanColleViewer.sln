@@ -26,6 +26,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Translations", "Translations", "{74D8B001-9382-4515-8709-5A09B55EB540}"
 	ProjectSection(SolutionItems) = preProject
 		resources\translations\equipment.txt = resources\translations\equipment.txt
+		resources\translations\operation.txt = resources\translations\operation.txt
 		resources\translations\quest.txt = resources\translations\quest.txt
 		resources\translations\ship.txt = resources\translations\ship.txt
 	EndProjectSection

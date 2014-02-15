@@ -465,4 +465,10 @@
   <data name="Settings_Logging_Enable" xml:space="preserve">
     <value>Log drops and crafting results to file</value>
   </data>
+  <data name="StartContent_SetRegionCookieButton" xml:space="preserve">
+    <value>Set Region Cookie</value>
+  </data>
+  <data name="StartContent_SetRegionCookieMessage" xml:space="preserve">
+    <value>Cookie has been set</value>
+  </data>
 </root>

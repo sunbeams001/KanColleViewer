@@ -8,10 +8,10 @@ using System.Windows;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("KanColleViewer!")]
-[assembly: AssemblyDescription("KanColleViewer! r272")]
+[assembly: AssemblyDescription("KanColleViewer! r281")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("grabacr.net")]
-[assembly: AssemblyProduct("KanColleViewer! r272")]
+[assembly: AssemblyProduct("KanColleViewer! r281")]
 [assembly: AssemblyCopyright("Copyright © 2013 Grabacr07")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

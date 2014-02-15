@@ -100,10 +100,9 @@ G1;はじめての「近代化改修」！;First Modernization;任意の艦を�
 G2;艦の「近代化改修」を実施せよ！;Daily Modernization;近代化改修を実施して、２回以上これを成功させよ！;Perform 2 successful modernizations within the same day.
 G3;「近代化改修」を進め、戦備を整えよ！;Weekly Modernization;一週間の間に、近代化改修を１5回成功させよ！;Perform 15 successful modernizations within the same week.
 G4;「大型艦建造」の準備！(その壱);Preparation for LSC (Part 1);大型艦/新型艦建造のための準備を行う。任意の艦で近代化改修を4回成功させよ！;Perform 4 successful modernizations.
-MB01;謎の潜水艦「イオナ」と接触せよ！;Contact the Mysterious Submarine Iona!;敵潜水艦を捕捉、これを複数撃滅し、謎の潜水艦「イオナ」との接触を図れ！;Sink an enemy submarine in order to contact 'Iona'.
-MB02;観音崎沖の霧の艦隊を迎撃せよ！;Intercept the Fleet of Fog off the Coast of Kannonzaki!;観音崎沖海域に襲来した霧の艦隊を捕捉、これを邀撃し、敵戦力ゲージを破砕せよ！;Clear E-1 (Kannonzaki Littoral Interception Operation).
-MB03;霧の艦隊重巡「タカオ」と接触せよ！;Contact the Tsundere Cruiser Takao!;なるべく多くの敵主力艦隊を捕捉、これを多数撃滅し、「タカオ」との接触を図れ！;Defeat 4 bosses with A or S rank.
-MB04;硫黄島周辺の霧の艦隊を撃破せよ！;Defeat the Fleet of Fog Surrounding Iwo Jima!;硫黄島周辺海域に遊弋する霧の艦隊と交戦、これを撃滅し、敵戦力ゲージを破砕せよ！;Clear E-2 (Battle off the coast of Iwo Jima)
-MB05;霧の艦隊大戦艦「ハルナ」と接触せよ！;Contact the Fleet of Fog Battleship Haruna!;敵機動部隊を捕捉、これを邀撃！敵空母を多数撃滅し、「ハルナ」との接触を図れ！;Sink 8 aircraft carriers.
-MC01;対霧の艦隊「演習」を実施せよ！;Analysis of the Fleet of Fog in Exercises!;対霧の艦隊演習を実施する！本日中に「演習」で4回以上「勝利」をおさめよう！;Get 4 victories in practice mode.
-MD01;情報収集！ツンデレ重巡を探せ！;Intelligence Gathering! Find the Tsundere Cruiser!;艦隊を遠征させ情報収集にあたる！本日中に「遠征」を6回成功させよう！;Perform 6 successful expeditions within the same day.
+WF01;式の準備！(その壱);In Preparation of Love! (Part 1);式の準備をします！「工廠」で装備アイテムを2回「廃棄」して身の回りの整理を！;Scrap 2 pieces of equipment tp show your love!.
+WC01;式の準備！(その弐);In Preparation of Love! (Part 2);本日中に「演習」で2回以上「勝利」をおさめ、式への気持ちを整理しよう！;Show your love by getting 2 victories in practice mode!
+WA01;式の準備！(その参);In Preparation of Love! (Part 3);第一艦隊旗艦に練度の高い(Lv.90以上～99以下)艦娘を配備して気持ちを整理せよ！;Organize your feelings and deploy your fleet with a high level flagship (Lv.90~99)!
+WB01;式の準備！(最終);In Preparation of Love! (Final);練度の高い(Lv.90以上～99以下）第一艦隊旗艦で出撃し、オリョール海の暁に勝利を刻め！;Deploy a fleet with a high level (Lv.90~99) flagship to 2-3 obtain an S victory or higher against the boss.
+WA02;新たなる旅立ち！;Journey Anew!;第一艦隊旗艦に強い絆を結んだLv.100以上の艦娘を配備した6隻の艦隊を編成せよ！;Organize a fleet of 6 ships with your newly bonded ship of Lv.100 or more as flagship!
+WB02;二人でする初めての任務！;Your First Mission Together!;強い絆を結んだ艦娘を旗艦とした第一艦隊でリランカ島へ出撃、敵中枢を撃滅せよ！;Deploy a fleet to 4-3 with a bonded ship of Lv.100 or more as flagship and score an S vectory or higher against the boss.

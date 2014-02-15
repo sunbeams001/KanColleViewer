@@ -1,0 +1,74 @@
+﻿鎮守府正面海域,World 1-1
+南西諸島沖,World 1-2
+製油所地帯沿岸,World 1-3
+南西諸島防衛線,World 1-4
+カムラン半島,World 2-1
+バシー島沖,World 2-2
+東部オリョール海,World 2-3
+沖ノ島海域,World 2-4
+モーレイ海哨戒,World 3-1
+キス島沖,World 3-2
+アルフォンシーノ方面,World 3-3
+北方海域全域,World 3-4
+ジャム島攻略作戦,World 4-1
+カレー洋制圧戦,World 4-2
+リランカ島空襲,World 4-3
+カスガダマ沖海戦,World 4-4
+南方海域前面,World 5-1
+珊瑚諸島沖,World 5-2
+サブ島沖海域,World 5-3
+---,---
+渦潮,Whirlpool
+うずしお,Whirlpool
+うずしお(弾薬),Whirlpool (Ammo)
+鋼材,Steel Node
+燃料,Fuel Node
+弾薬,Ammo Node
+ボーキサイト,Bauxite Node
+敵偵察艦,Reconnaissance Ship
+敵はぐれ艦隊,Stray Fleet
+敵主力艦隊,Main Fleet (Boss)
+敵前衛艦隊,Vanguard Fleet
+敵主力部隊,Main Force (Boss)
+敵支援艦隊,Support Fleet
+敵偵察艦隊,Reconnaissance Fleet
+敵機動部隊,Task Force (Boss)
+敵護衛空母群,Escort Carrier Group
+敵水雷戦隊,Torpedo Squadron
+敵運送船団,Transport Fleet
+敵通商破壊艦隊,Trade Destruction Fleet (Boss)
+敵巡洋艦隊,Cruiser Corps
+敵強襲揚陸艦隊,Amphibious Assault Fleet
+敵主力打撃群,Main Strike Group (Boss)
+敵水上打撃艦隊,Aquatic Strike Fleet
+敵空母機動部隊,Aircraft Carrier Task Force
+敵精鋭水雷戦隊,Elite Torpedo Squadron
+敵侵攻中核艦隊,Core Invasion Fleet (Boss)
+敵哨戒艦隊,Patrol Fleet
+敵北方侵攻艦隊,Northern Invasion Fleet (Boss)
+敵キス島包囲艦隊,Kis Island Siege Fleet (Boss)
+深海棲艦泊地艦隊,Alfonsiones Deep-Sea Fleet (Boss)
+深海棲艦泊地防衛艦隊,Deep-Sea Fleet
+深海棲艦北方艦隊中枢,Central Deep-Sea Northern Fleet (Boss)
+深海棲艦水上打撃艦隊,Deep-Sea Aquatic Strike Fleet
+東方潜水艦隊,Eastern Diving Fleet
+東方艦隊,Eastern Fleet
+東方派遣艦隊,Eastern Dispatch Fleet (Boss)
+敵潜水教導艦隊,Kyoudou Submarine Fleet
+東方主力艦隊,Eastern Main Fleet (Boss)
+敵補給船団,Supply Convoy
+敵潜水艦隊,Submarine Fleet
+敵東方艦隊残存部隊,Remaining Eastern Fleet
+敵潜水艦哨戒線,Submarine Patrol Fleet
+敵東方中枢艦隊,East Central Fleet (Boss)
+敵前線哨戒艦隊,Front Line Patrol Fleet
+敵水上打撃部隊,Aquatic Strike Force
+敵前線司令艦隊,Front Line Commander Fleet (Boss)
+敵任務部隊,Task Force
+敵機動部隊本隊,Main Task Force (Boss)
+敵補給部隊,Supply Convoy
+敵潜水警戒艦隊,Warning Submarine Fleet
+敵前衛警戒艦隊,Warning Vanguard Fleet
+敵泊地護衛主力艦隊,Main Fleet Anchorage Escort
+敵泊投錨中輸送船団,Anchored Night Convoy
+敵サーモン方面主力艦隊,Main Fleet Headquarters (Boss)

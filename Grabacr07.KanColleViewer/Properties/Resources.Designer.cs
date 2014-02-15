@@ -1033,6 +1033,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set Cookie Region.
+        /// </summary>
+        public static string StartContent_SetRegionCookieButton {
+            get {
+                return ResourceManager.GetString("StartContent_SetRegionCookieButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cookie has been set.
+        /// </summary>
+        public static string StartContent_SetRegionCookieMessage {
+            get {
+                return ResourceManager.GetString("StartContent_SetRegionCookieMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Air Superiority Potential:.
         /// </summary>
         public static string StatusBar_AirSuperiorityPotential {

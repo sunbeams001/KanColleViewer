@@ -2,6 +2,15 @@
 	KCV Change Log
 ========================
 
+v2.1.0 r281 - 2/14/2014 Valentines Day Update
+	* *NEW* Set Cookie Region button now on the start of the program. This allows
+		you to log into DMM.com without VPN! Just press it once and login!
+	* All logging is now in CSV format and broken up.
+		* All ships, operations, and enemy fleets are now translated.
+	* Added new quests to the quest list. Not 100% tested. Please inform me of
+		missing translations!
+	* Vertical - Tightened the space used in the overview page.
+
 v2.1.0 r272 - 2/10/2014
 	* *NEW* Equipment List! Shows all your current equipment, how many you own, and 
 		who currently has them equipped! Huge amount of detail. (Based Grabacr07)

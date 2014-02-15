@@ -2,7 +2,7 @@ KanColleViewer! (提督業も忙しい！)
 --
 **--This is the horizontal branch for those on computers not vertically endowed. Max width must be under 1440px**
 
-A browser utility that makes it easy to play Kantai Collection.
+KCV is a browser utility that makes it easy to play Kantai Collection.
 This is the translation project of the original [KanColleViewer](http://grabacr.net/kancolleviewer)
 
 ##### Main Contributors
@@ -13,12 +13,12 @@ This is the translation project of the original [KanColleViewer](http://grabacr.
 * [m-kc](https://github.com/m-kc) -- Rankings section
 * [taihou](https://github.com/taihou) -- Logging option
 
-### Downloads
+## Downloads
 All builds can be found in the following links below.
 
 * [SkyDrive](http://sdrv.ms/1b01S24) -- Major revision binaries
 
-### About This Project
+## About This Project
 KanColleViewer uses the web browser component of the Windows Presentation Foundation (WPF) in combination of [FiddlerCore](http://fiddler2.com/fiddlercore) to capture communication packets inbetween the server and the page itself.
 
 Of course, we do not change the contents of the packets in anyway and is used to provide information to the program's components.
@@ -36,7 +36,6 @@ The way the translation works is that it manually loads the translation from sev
 * List of all quests currently active as well as a listing of available daily and weekly quests.
 * Screenshot saving
 * Sound muting
-
 
 ### Requirements
 * Windows 8 or later
