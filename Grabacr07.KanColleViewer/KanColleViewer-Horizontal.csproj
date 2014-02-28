@@ -248,6 +248,8 @@
     </Compile>
     <Compile Include="Views\Info.xaml.cs">
       <DependentUpon>Info.xaml</DependentUpon>
+    <Compile Include="Views\Settings\Language.xaml.cs">
+      <DependentUpon>Language.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\Operation.xaml.cs">
       <DependentUpon>Operation.xaml</DependentUpon>
@@ -406,6 +408,10 @@
     <Page Include="Views\Settings\Common.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Language.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Settings\Operation.xaml">
       <SubType>Designer</SubType>
@@ -587,16 +593,20 @@ xcopy /Y "$(TargetDir)KanColleViewer.exe.config" "$(SolutionDir)KanColleViewer-C
 rename "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe" "KanColleViewer-Horizontal.exe"
 rename "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe.config" "KanColleViewer-Horizontal.exe.config"
 xcopy /Y "$(TargetDir)*.dll" "$(SolutionDir)KanColleViewer-Compiled\lib"
-xcopy /Y /E /I  "$(TargetDir)ja-JP" "$(SolutionDir)KanColleViewer-Compiled\lib\ja-JP"
+xcopy /Y /E /I "$(TargetDir)ja-JP" "$(SolutionDir)KanColleViewer-Compiled\lib\ja-JP"
 xcopy /Y /E /I "$(TargetDir)zh-CN" "$(SolutionDir)KanColleViewer-Compiled\lib\zh-CN"
-xcopy /Y "$(SolutionDir)resources\translations\*.txt" "$(SolutionDir)KanColleViewer-Compiled"
-xcopy /Y "$(SolutionDir)resources\translations\*.txt" "$(TargetDir)"</PostBuildEvent>
+xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(SolutionDir)KanColleViewer-Compiled\Translations"
+xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(TargetDir)Translations"
+ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe" "KanColleViewer-Horizontal.exe"
+ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe.config" "KanColleViewer-Horizontal.exe.config"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>del /Q "$(TargetDir)*.txt"
+    <PreBuildEvent>rd /S /Q "$(TargetDir)Translations"
 rd /S /Q "$(SolutionDir)KanColleViewer-Compiled"
 md "$(SolutionDir)KanColleViewer-Compiled"
-md "$(SolutionDir)KanColleViewer-Compiled\lib"</PreBuildEvent>
+md "$(SolutionDir)KanColleViewer-Compiled\lib"
+md "$(SolutionDir)KanColleViewer-Compiled\Translations"
+md "$(TargetDir)Translations"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

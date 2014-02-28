@@ -168,6 +168,7 @@
     <Compile Include="Rankings.cs" />
     <Compile Include="Repairyard.cs" />
     <Compile Include="TimerNotificator.cs" />
+    <Compile Include="Translations.cs" />
     <Compile Include="Win32\INTERNET_PROXY_INFO.cs" />
     <Compile Include="Win32\NativeMethods.cs" />
   </ItemGroup>

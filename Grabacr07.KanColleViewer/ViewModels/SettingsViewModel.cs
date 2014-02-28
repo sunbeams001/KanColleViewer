@@ -275,7 +275,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
-		#region Culture 変更通知プロパティ
+        #region Culture 変更通知プロパティ
 
 		/// <summary>
 		/// カルチャを取得または設定します。
@@ -288,12 +288,49 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				if (Settings.Current.Culture != value)
 				{
 					ResourceService.Current.ChangeCulture(value);
+                    KanColleClient.Current.Homeport.Translations.ChangeCulture(value);
 					this.RaisePropertyChanged();
 				}
 			}
 		}
 
-		#endregion
+        #endregion
+
+        #region EnableTranslations 変更通知プロパティ
+
+        public bool EnableTranslations
+        {
+            get { return Settings.Current.EnableTranslations; }
+            set
+            {
+                if (Settings.Current.EnableTranslations != value)
+                {
+                    Settings.Current.EnableTranslations = value;
+                    KanColleClient.Current.Homeport.Translations.EnableTranslations = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region EnableAddUntranslated 変更通知プロパティ
+
+        public bool EnableAddUntranslated
+        {
+            get { return Settings.Current.EnableAddUntranslated; }
+            set
+            {
+                if (Settings.Current.EnableAddUntranslated != value)
+                {
+                    Settings.Current.EnableAddUntranslated = value;
+                    KanColleClient.Current.Homeport.Translations.EnableAddUntranslated = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
 
 		public bool HasErrors
 		{

@@ -20,6 +20,8 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
+        private static readonly string CurrentSettingsVersion = "1.0";
+
 		public static Settings Current { get; set; }
 
 		public static void Load()
@@ -27,6 +29,8 @@ namespace Grabacr07.KanColleViewer.Models
 			try
 			{
 				Current = filePath.ReadXml<Settings>();
+                if (Current.SettingsVersion != CurrentSettingsVersion)
+                    Current = GetInitialSettings();
 			}
 			catch (Exception ex)
 			{
@@ -39,20 +43,40 @@ namespace Grabacr07.KanColleViewer.Models
 		{
 			return new Settings
 			{
-				ScreenshotFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+				SettingsVersion = CurrentSettingsVersion,
+                ScreenshotFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
 				ScreenshotFilename = "KanColle-{0:d04}.png",
 				ScreenshotImageFormat = SupportedImageFormat.Png,
 				CanDisplayBuildingShipName = false,
-                EnableLogging = false,
+				EnableLogging = false,
+				EnableTranslations = true,
+				EnableAddUntranslated = true
 			};
 		}
 
 		#endregion
 
+        #region SettingsVersion 変更通知プロパティ
+        
+        private string _SettingsVersion;
 
-		#region ScreenshotFolder 変更通知プロパティ
+        public string SettingsVersion
+        {
+            get { return this._SettingsVersion; }
+            set
+            {
+                if (this._SettingsVersion != value)
+                {
+                    this._SettingsVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
 
-		private string _ScreenshotFolder;
+        #region ScreenshotFolder 変更通知プロパティ
+
+        private string _ScreenshotFolder;
 
 		/// <summary>
 		/// スクリーンショットの保存先フォルダーを取得または設定します。
@@ -361,26 +385,62 @@ namespace Grabacr07.KanColleViewer.Models
 
 		#endregion
 
-        #region EnableLogging 変更通知プロパティ
+		#region EnableLogging 変更通知プロパティ
 
-        private bool _EnableLogging;
+		private bool _EnableLogging;
 
-        public bool EnableLogging
-        {
-            get { return this._EnableLogging; }
-            set
-            {
-                if (this._EnableLogging != value)
-                {
-                    this._EnableLogging = value;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
+		public bool EnableLogging
+		{
+			get { return this._EnableLogging; }
+			set
+			{
+				if (this._EnableLogging != value)
+				{
+					this._EnableLogging = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
 
-        #endregion
+		#endregion
 
-        public void Save()
+		#region EnableTranslations 変更通知プロパティ
+
+		private bool _EnableTranslations;
+
+		public bool EnableTranslations
+		{ 
+			get { return this._EnableTranslations; }
+			set
+			{
+				if (this._EnableTranslations != value)
+				{
+					this._EnableTranslations = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region EnableAddUntranslated 変更通知プロパティ
+
+		private bool _EnableAddUntranslated;
+
+		public bool EnableAddUntranslated
+		{
+			get { return this._EnableAddUntranslated; }
+			set
+			{
+				if (this._EnableAddUntranslated != value)
+				{
+					this._EnableAddUntranslated = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		public void Save()
 		{
 			try
 			{

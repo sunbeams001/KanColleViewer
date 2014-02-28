@@ -50,28 +50,6 @@ namespace Grabacr07.KanColleWrapper
                 .TryParse<kcsapi_battleresult>()
                 .Subscribe(this.BattleResult);
         }
-
-        private string GetTranslation(string JPTerm, string FileName)
-        {
-            System.IO.StreamReader filereader = new System.IO.StreamReader(FileName, System.Text.Encoding.UTF8, true);
-            string read_line = null;
-            string jap_name = null;
-            string eng_name = null;
-            while (true)
-            {
-                read_line = filereader.ReadLine();
-                if (String.IsNullOrEmpty(read_line)) { filereader.Close(); break; }
-                else
-                {
-                    char[] delimiter = { ';', ',' };
-                    jap_name = read_line.Split(delimiter)[0];
-                    eng_name = read_line.Split(delimiter)[1];
-                    if (String.Equals(JPTerm, jap_name)) { filereader.Close(); return eng_name; }
-                }
-            }
-            return JPTerm;
-        }
-
         private void CreateItem(kcsapi_createitem item, NameValueCollection req)
         {
             Log(LogType.BuildItem, "{0},{1},{2},{3},{4},{5},{6}", item.api_create_flag == 1 ? KanColleClient.Current.Master.SlotItems[item.api_slotitem_id].Name : "Penguin",
@@ -104,7 +82,10 @@ namespace Grabacr07.KanColleWrapper
 
         private void BattleResult(kcsapi_battleresult br)
         {
-            Log(LogType.ShipDrop, "{0},{1},{2},{3},{4}", br.api_get_ship != null ? GetTranslation(br.api_get_ship.api_ship_name, "ship.txt") : "None", GetTranslation(br.api_quest_name, "operation.txt"), GetTranslation(br.api_enemy_info.api_deck_name, "operation.txt"), br.api_win_rank, DateTime.Now.ToString("M/d/yyyy H:mm"));
+            Log(LogType.ShipDrop, "{0},{1},{2},{3},{4}", br.api_get_ship != null ? KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_get_ship.api_ship_name, Translations.TransType.Ships, br)  : "", 
+                KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_quest_name, Translations.TransType.OperationMaps, br),
+                KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_enemy_info.api_deck_name, Translations.TransType.OperationSortie, br),
+                br.api_win_rank, DateTime.Now.ToString("M/d/yyyy H:mm"));
         }
 
         private void Log(LogType Type, string format, params object[] args)

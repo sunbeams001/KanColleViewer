@@ -237,82 +237,81 @@
 
 			<Rectangle x:Name="Dummy"
 					   Grid.Column="1" />
-
-			<Border Grid.Column="1">
-				<FlowDocumentScrollViewer Padding="0,-18,0,0">
-					<FlowDocument FontSize="12"
-								  Foreground="{DynamicResource ForegroundBrushKey}"
-								  FontFamily="Meiryo UI"
-								  TextAlignment="Left">
-						<Paragraph>
-							<Run Foreground="White"
-								 FontSize="20"
-								 Text="Welcome" />
-						</Paragraph>
-						<Paragraph>
-							<Run Text="KanColleViewer is a tool to play Kantai Collection." />
-							<LineBreak />
-							<Run Text="This program uses Internet Explorer (IE) and does not change the communication to the servers, extract from Flash, nor use macro cheats." />
-						</Paragraph>
-						<Paragraph>
-							<Run Text="If you keep getting in game errors, please delete IE's cache. If this does not improve, check whether Flash works on IE." />
-						</Paragraph>
-						<Table CellSpacing="5">
-							<Table.Columns>
-								<TableColumn/>
-							</Table.Columns>
+				<Border Grid.Column="1">
+					<FlowDocumentScrollViewer Padding="0,-18,0,0">
+						<FlowDocument FontSize="12"
+									  Foreground="{DynamicResource ForegroundBrushKey}"
+									  FontFamily="Meiryo UI"
+									  TextAlignment="Left">
+							<Paragraph>
+								<Run Foreground="White"
+									 FontSize="20"
+									 Text="Welcome" />
+							</Paragraph>
+							<Paragraph>
+								<Run Text="KanColleViewer is a tool to play Kantai Collection." />
+								<LineBreak />
+								<Run Text="This program uses Internet Explorer (IE) and does not change the communication to the servers, extract from Flash, nor use macro cheats." />
+							</Paragraph>
+							<Paragraph>
+								<Run Text="If you keep getting in game errors, please delete IE's cache. If this does not improve, check whether Flash works on IE." />
+							</Paragraph>
+							<Table CellSpacing="5">
+								<Table.Columns>
+									<TableColumn/>
+								</Table.Columns>
+								
+								<TableRowGroup>
+                                    <TableRow>
+                                        <TableCell>
+                                            <BlockUIContainer>
+                                                <metro2:CallMethodButton Content="{Binding DeleteInternetCacheButtonContent}"
+																		 MethodName="DeleteInternetCache"
+																		 IsEnabled="{Binding CanDeleteInternetCache}"
+																		 HorizontalAlignment="Center"
+																		 Padding="30,5"
+																		 SnapsToDevicePixels="True" />
+                                            </BlockUIContainer>
+                                        </TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>
+											<BlockUIContainer>
+                                                <metro2:CallMethodButton Content="{Binding SetRegionCookieButtonContent}"
+																		 MethodName="SetRegionCookie"
+																		 IsEnabled="{Binding CanSetRegionCookie}"
+																		 HorizontalAlignment="Center"
+																		 Padding="30,5"
+																		 SnapsToDevicePixels="True" />
+											</BlockUIContainer>
+										</TableCell> 
+									</TableRow>
+								</TableRowGroup>
+							</Table>
+							<BlockUIContainer>
+								<Rectangle Height="1"
+										   Style="{DynamicResource SeparatorRectangleStyleKey}"
+										   SnapsToDevicePixels="True" />
+							</BlockUIContainer>
 							
-							<TableRowGroup>
-								<TableRow>
-									<TableCell>
-										<BlockUIContainer>
-											<metro2:CallMethodButton Content="{Binding DeleteInternetCacheButtonContent}"
-																	 MethodName="DeleteInternetCache"
-																	 IsEnabled="{Binding CanDeleteInternetCache}"
-																	 HorizontalAlignment="Center"
-																	 Padding="30,5"
-																	 SnapsToDevicePixels="True" />
-										</BlockUIContainer>
-									</TableCell>
-								</TableRow>
-								<TableRow>
-									<TableCell>
-										<BlockUIContainer>
-											<metro2:CallMethodButton Content="{Binding SetRegionCookieButtonContent}"
-																	 MethodName="SetRegionCookie"
-																	 IsEnabled="{Binding CanSetRegionCookie}"
-																	 HorizontalAlignment="Center"
-																	 Padding="30,5"
-																	 SnapsToDevicePixels="True" />
-										</BlockUIContainer>
-									</TableCell> 
-								</TableRow>
-							</TableRowGroup>
-						</Table>
-						<BlockUIContainer>
-							<Rectangle Height="1"
-									   Style="{DynamicResource SeparatorRectangleStyleKey}"
-									   SnapsToDevicePixels="True" />
-						</BlockUIContainer>
-						
-						<Paragraph>
-							<Run Text="This program is updated often. Please check below for updates." />
-							<LineBreak />
-							<LineBreak />
-							<Run Text="Project home:" />
-							<metro2:HyperlinkEx Uri="http://grabacr.net/kancolleviewer">
-								<Run Text="http://grabacr.net/kancolleviewer" />
-							</metro2:HyperlinkEx>
-							<LineBreak />
-							<Run Text="English Project:" />
-							<metro2:HyperlinkEx Uri="https://github.com/Zharay/KanColleViewer">
-								<Run Text="https://github.com/Zharay/KanColleViewer" />
-							</metro2:HyperlinkEx>
-						</Paragraph>
-					</FlowDocument>
-				</FlowDocumentScrollViewer>
-			</Border>
-		</Grid>
+							<Paragraph>
+								<Run Text="This program is updated often. Please check below for updates." />
+								<LineBreak />
+								<LineBreak />
+								<Run Text="Project home:" />
+								<metro2:HyperlinkEx Uri="http://grabacr.net/kancolleviewer">
+									<Run Text="http://grabacr.net/kancolleviewer" />
+								</metro2:HyperlinkEx>
+								<LineBreak />
+								<Run Text="English Project:" />
+								<metro2:HyperlinkEx Uri="https://github.com/Zharay/KanColleViewer">
+									<Run Text="https://github.com/Zharay/KanColleViewer" />
+								</metro2:HyperlinkEx>
+							</Paragraph>
+						</FlowDocument>
+					</FlowDocumentScrollViewer>
+				</Border>
+			</Grid>
 
 
 		<Border Grid.Column="1"
@@ -354,17 +353,27 @@
 									   Margin="12,0"
 									   FontSize="14" />
 						</TabItem.Header>
+							<settings:Network Margin="10,9" />
+                        </TabItem>
 
-						<settings:Network Margin="10,9" />
-					</TabItem>
+                        <TabItem>
+                            <TabItem.Header>
+                                <TextBlock Text="{Binding Resources.Settings_Language, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
+										   Margin="12,0"
+										   FontSize="14" />
+                            </TabItem.Header>
 
-					<TabItem>
-						<TabItem.Header>
-							<TextBlock Text="{Binding Resources.Settings_Other, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-									   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
-									   Margin="12,0"
-									   FontSize="14" />
-						</TabItem.Header>
+                            <settings:Language Margin="10,9" />
+                        </TabItem>
+
+                        <TabItem>
+							<TabItem.Header>
+								<TextBlock Text="{Binding Resources.Settings_Other, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
+										   Margin="12,0"
+										   FontSize="14" />
+							</TabItem.Header>
 
 						<settings:Others Margin="10,9" />
 					</TabItem>

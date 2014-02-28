@@ -471,4 +471,13 @@
   <data name="StartContent_SetRegionCookieMessage" xml:space="preserve">
     <value>Cookie has been set</value>
   </data>
+  <data name="Settings_Translations" xml:space="preserve">
+    <value>Translations</value>
+  </data>
+  <data name="Settings_Translations_Add_Enable" xml:space="preserve">
+    <value>Append untranslated items to the translation files?</value>
+  </data>
+  <data name="Settings_Translations_Enable" xml:space="preserve">
+    <value>Translate game items, ships, and quests to selected language?</value>
+  </data>
 </root>

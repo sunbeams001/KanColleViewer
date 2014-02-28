@@ -45,7 +45,11 @@ namespace Grabacr07.KanColleViewer
 			KanColleClient.Current.Proxy.UpstreamProxyHost = Settings.Current.ProxyHost;
 			KanColleClient.Current.Proxy.UpstreamProxyPort = Settings.Current.ProxyPort;
 
+            KanColleClient.Current.Homeport.Translations.EnableTranslations = Settings.Current.EnableTranslations;
+            KanColleClient.Current.Homeport.Translations.EnableAddUntranslated = Settings.Current.EnableAddUntranslated;
+
 			ResourceService.Current.ChangeCulture(Settings.Current.Culture);
+            KanColleClient.Current.Homeport.Translations.ChangeCulture(Settings.Current.Culture);
 
             KanColleClient.Current.Homeport.Logger.EnableLogging = Settings.Current.EnableLogging;
 

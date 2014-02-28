@@ -2,6 +2,20 @@
 	KCV Change Log
 ========================
 
+v2.1.0 r295 - 2/26/2014 Translation Update
+	* Settings have been reset with this version! Please make sure to setup
+		yourself accordingly.
+	* Translations have been redone for all ships, items, quests, and more.
+	* Now translations are dependant on what language you are currently set to.
+	* Language select now has its own tab in options along with the below options.
+	* Options to disable translations if you wish to.
+	* Option to enable the saving untranslated text to corresponding XML files.
+		This was made to allow anyone to translate anything that is missing in
+		whatever version they are in right now.
+	* Logging - No drops now a blank entry for ship name.
+	* Region Cookie - Dynamic expiration date. +4 years from current year.
+	* Translations - New quests, new items, new operations (but not the new fleets.)
+
 v2.1.0 r281 - 2/14/2014 Valentines Day Update
 	* *NEW* Set Cookie Region button now on the start of the program. This allows
 		you to log into DMM.com without VPN! Just press it once and login!
