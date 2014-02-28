@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -248,6 +248,7 @@
     </Compile>
     <Compile Include="Views\Info.xaml.cs">
       <DependentUpon>Info.xaml</DependentUpon>
+	</Compile>
     <Compile Include="Views\Settings\Language.xaml.cs">
       <DependentUpon>Language.xaml</DependentUpon>
     </Compile>
