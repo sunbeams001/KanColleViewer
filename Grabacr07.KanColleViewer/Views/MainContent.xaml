@@ -59,7 +59,15 @@
 
                 <metro:TabView Grid.Column="2"
 							   ItemsSource="{Binding SystemTabItems}"
-							   SelectedValue="{Binding SelectedItem}"/>
+							   SelectedValue="{Binding SelectedItem}">
+                    <metro:TabView.Template>
+                        <ControlTemplate TargetType="{x:Type metro:TabView}">
+                            <StackPanel Background="{TemplateBinding Background}">
+                                <StackPanel Orientation="Horizontal" IsItemsHost="True"></StackPanel>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </metro:TabView.Template>
+                </metro:TabView>
             </Grid>
         </ScrollViewer>
 
