@@ -16,6 +16,7 @@ This is the translation project of the original [KanColleViewer](http://grabacr.
 ## Downloads
 All builds can be found in the following links below.
 
+* [GitHub Releases](https://github.com/Zharay/KanColleViewer/releases) -- Major revision binaries
 * [SkyDrive](http://sdrv.ms/1b01S24) -- Major revision binaries
 
 ## Frequently Asked Questions

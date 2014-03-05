@@ -142,7 +142,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\BrowserZoomFactor.cs" />
     <Compile Include="Models\IWindowsNotifier.cs" />
+    <Compile Include="Models\IZoomFactor.cs" />
     <Compile Include="Models\ProductInfo.cs" />
     <Compile Include="Models\Data\Xml\XmlFileReader.cs" />
     <Compile Include="Models\Data\Xml\XmlFileWriter.cs" />
@@ -193,21 +195,23 @@
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\Contents\ShipsViewModel.cs" />
     <Compile Include="ViewModels\Contents\SlotItemsViewModel.cs" />
-    <Compile Include="ViewModels\StatusBarItemViewModel.cs" />
     <Compile Include="ViewModels\StatusBarViewModel.cs" />
     <Compile Include="ViewModels\TabItemViewModel.cs" />
     <Compile Include="ViewModels\VolumeViewModel.cs" />
     <Compile Include="Views\Behaviors\CountdownBehavior.cs" />
+    <Compile Include="Views\Behaviors\FlickFleetsAction.cs" />
+    <Compile Include="Views\Behaviors\FlickTrigger.cs" />
     <Compile Include="Views\Behaviors\NavigatorBehavior.cs" />
     <Compile Include="Views\Behaviors\ScreenshotAction.cs" />
     <Compile Include="Views\Behaviors\SetStyleSheetBehavior.cs" />
     <Compile Include="Views\Behaviors\SetWindowLocationAction.cs" />
     <Compile Include="Views\Behaviors\TimerBehavior.cs" />
+    <Compile Include="Views\Controls\KanColleHost.cs" />
+    <Compile Include="Views\Controls\WebBrowserHelper.cs" />
     <Compile Include="Views\Behaviors\ZoomAction.cs" />
     <Compile Include="Views\Contents\Rankings.xaml.cs">
       <DependentUpon>Rankings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\WebBrowserHelper.cs" />
     <Compile Include="Views\BrowserNavigator.xaml.cs">
       <DependentUpon>BrowserNavigator.xaml</DependentUpon>
     </Compile>
@@ -240,6 +244,9 @@
     </Compile>
     <Compile Include="Views\Contents\Expeditions.xaml.cs">
       <DependentUpon>Expeditions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ZoomFactorSelector.xaml.cs">
+      <DependentUpon>ZoomFactorSelector.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Converters\QuestCategoryToColorConverter.cs" />
     <Compile Include="Views\Dev\DebugTab.xaml.cs">
@@ -332,6 +339,11 @@
       <Generator>MSBuild:Compile</Generator>
       <DependentUpon>Generic.xaml</DependentUpon>
     </Page>
+    <Page Include="Themes\Generic.KanColleHost.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <DependentUpon>Generic.xaml</DependentUpon>
+    </Page>
     <Page Include="Themes\Generic.Modernizable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -392,6 +404,10 @@
     <Page Include="Views\Contents\Rankings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+	</Page>
+    <Page Include="Views\Controls\ZoomFactorSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dev\DebugTab.xaml">
       <SubType>Designer</SubType>
@@ -502,11 +518,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.ja-JP.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
-    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Properties\Resources.ko-KR.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -588,6 +602,7 @@ xcopy /Y "$(TargetDir)KanColleViewer.exe.config" "$(SolutionDir)KanColleViewer-C
 xcopy /Y "$(TargetDir)*.dll" "$(SolutionDir)KanColleViewer-Compiled\lib"
 xcopy /Y /E /I "$(TargetDir)ja-JP" "$(SolutionDir)KanColleViewer-Compiled\lib\ja-JP"
 xcopy /Y /E /I "$(TargetDir)zh-CN" "$(SolutionDir)KanColleViewer-Compiled\lib\zh-CN"
+xcopy /Y /E /I "$(TargetDir)ko-KR" "$(SolutionDir)KanColleViewer-Compiled\lib\ko-KR"
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(SolutionDir)KanColleViewer-Compiled\Translations"
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(TargetDir)Translations"</PostBuildEvent>
   </PropertyGroup>

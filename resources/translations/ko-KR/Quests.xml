@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Quests>
   <Quest>
     <ID>A1</ID>
@@ -571,7 +571,7 @@
     <ID>D6</ID>
     <JP-Name>第二次潜水艦派遣作戦</JP-Name>
     <TR-Name>The Second Submarine Operation</TR-Name>
-    <JP-Detail>第２次潜水艦派遣作戦を成功させよう！</JP-Detail>
+    <JP-Detail>第2次潜水艦派遣作戦を成功させよう！</JP-Detail>
     <TR-Detail>Complete Expedition 30 one more time.</TR-Detail>
   </Quest>
   <Quest>
@@ -679,20 +679,6 @@
     <JP-Detail>大型艦建造の準備をします！「工廠」で装備アイテムを4回「廃棄」してみてください！</JP-Detail>
     <TR-Detail>Scrap 4 pieces of equipment.</TR-Detail>
   </Quest>
-    <Quest>
-    <ID>F11</ID>
-    <JP-Name>輸送用ドラム缶の準備</JP-Name>
-    <TR-Name>Preparation for Transport Drum Canisters</TR-Name>
-    <JP-Detail>「工廠」で装備アイテムを3回「廃棄」して、輸送用ドラム缶を準備します。</JP-Detail>
-    <TR-Detail>Scrap 3 pieces of equipment.</TR-Detail>
-  </Quest>
-    <Quest>
-    <ID>F12</ID>
-    <JP-Name>資源の再利用</JP-Name>
-    <TR-Name>Weekly Dismantlement</TR-Name>
-    <JP-Detail>「工廠」で余剰の装備アイテムをなるべく多く「廃棄」して、鋼材の再利用に努めよう！</JP-Detail>
-    <TR-Detail>Scrap 24 pieces of equipment.</TR-Detail>
-  </Quest>
   <Quest>
     <ID>G1</ID>
     <JP-Name>はじめての「近代化改修」！</JP-Name>
@@ -762,12 +748,5 @@
     <TR-Name>Your First Mission Together!</TR-Name>
     <JP-Detail>強い絆を結んだ艦娘を旗艦とした第一艦隊でリランカ島へ出撃、敵中枢を撃滅せよ！</JP-Detail>
     <TR-Detail>Deploy a fleet to 4-3 with a bonded ship of Lv.100 or more as flagship and score an S vectory or higher against the boss.</TR-Detail>
-  </Quest>
-  <Quest>
-    <ID>612</ID>
-    <JP-Name>輸送用ドラム缶の準備</JP-Name>
-    <TR-Name>Prepare the shipping barrel</TR-Name>
-    <JP-Detail>「工廠」で装備アイテムを3回「廃棄」して、輸送用のドラム缶を準備します。</JP-Detail>
-    <TR-Detail>Scrap 3 pieces of equipment to acquire a shipping barrel</TR-Detail>
   </Quest>
 </Quests>

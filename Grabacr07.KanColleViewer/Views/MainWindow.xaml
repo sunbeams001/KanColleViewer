@@ -17,7 +17,7 @@
 				   d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
 				   Title="{Binding Title}"
 				   Width="1440"
-				   MinWidth="{Binding ElementName=WebBrowser, Path=Width}"
+				   MinWidth="{Binding ElementName=KanColleHost, Path=MinWidth}"
                    MaxWidth="{x:Static SystemParameters.FullPrimaryScreenWidth}"
                    Height="575"
 				   MinHeight="575"
@@ -74,7 +74,11 @@
                 <StackPanel Grid.Column="2"
 							Orientation="Horizontal"
 							HorizontalAlignment="Right"
-							VerticalAlignment="Top">
+							VerticalAlignment="Top"
+							WindowChrome.IsHitTestVisibleInChrome="True">
+					<controls:ZoomFactorSelector ZoomFactor="{Binding Settings.BrowserZoomFactor, Mode=OneWay}"
+												 ToolTip="Adjust game display size"
+												 Margin="4,0" />
 					<metro:CaptionButton IsChecked="{Binding TopMost, Mode=TwoWay}"
 										 ToolTip="{Binding Resources.Settings_Window_TopMost, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										 Style="{DynamicResource PinButtonStyleKey}" />
@@ -97,34 +101,28 @@
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
-
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <WebBrowser x:Name="WebBrowser"
-						Grid.Column="0"
-						Width="800"
-						controls:WebBrowserHelper.ScriptErrorsSuppressed="True">
-                <i:Interaction.Behaviors>
-                    <behaviors:SetStyleSheetBehavior />
-                    <behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
-                    <livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
-															   Property="Source" />
-                </i:Interaction.Behaviors>
-                <i:Interaction.Triggers>
-                    <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
-													 MessageKey="Screenshot/Save">
-                        <behaviors:ScreenshotAction />
-                    </livet:InteractionMessageTrigger>
-                    <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
+			<controls:KanColleHost x:Name="KanColleHost"
+								   ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}">
+				<i:Interaction.Triggers>
+					<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 													 MessageKey="WebBrowser/Zoom">
-                        <behaviors:ZoomAction />
-                    </livet:InteractionMessageTrigger>
-                </i:Interaction.Triggers>
-            </WebBrowser>
+						<behaviors:ZoomAction />
+					</livet:InteractionMessageTrigger>
+				</i:Interaction.Triggers>
+				<WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True">
+					<i:Interaction.Behaviors>
+						<behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
+						<livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
+																   Property="Source" />
+					</i:Interaction.Behaviors>
+					<i:Interaction.Triggers>
+						<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
+														 MessageKey="Screenshot/Save">
+							<behaviors:ScreenshotAction />
+						</livet:InteractionMessageTrigger>
+					</i:Interaction.Triggers>
+				</WebBrowser>
+			</controls:KanColleHost>
 
             <DockPanel Grid.Column="1" MaxHeight="{Binding ElementName=WebBrowser, Path=Height}">
                 <ContentControl Content="{Binding Content}">
