@@ -17,6 +17,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
             protected set { throw new NotImplementedException(); }
         }
 
+        public override string Icon
+        {
+            get { return Resources.Rankings2; }
+            protected set { throw new NotImplementedException(); }
+        }
+
         #region Rankings
 
         private RankingViewModel[] _Rankings;

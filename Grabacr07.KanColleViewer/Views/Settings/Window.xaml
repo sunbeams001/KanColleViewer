@@ -54,7 +54,19 @@
 			</StackPanel>
 		</metro2:CallMethodButton>
 
-		<Rectangle Height="1"
+        <metro2:CallMethodButton MethodName="SetWindowsSize"
+								 Padding="20,4"
+								 Margin="15,0,0,10"
+								 HorizontalAlignment="Left">
+            <StackPanel>
+                <TextBlock Text="{Binding Resources.Settings_WindowControl_SizeFitContent, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type metro2:CallMethodButton}}, Path=Foreground}"
+						   FontSize="13"
+						   HorizontalAlignment="Center" />
+            </StackPanel>
+        </metro2:CallMethodButton>
+
+        <Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 	</StackPanel>

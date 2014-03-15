@@ -31,6 +31,12 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			protected set { throw new NotImplementedException(); }
 		}
 
+        public override string Icon
+        {
+            get { return Resources.Settings2; }
+            protected set { throw new NotImplementedException(); }
+        }
+
 		#region ScreenshotFolder 変更通知プロパティ
 
 		public string ScreenshotFolder
@@ -443,6 +449,16 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		{
 			App.ViewModelRoot.Messenger.Raise(new SetWindowLocationMessage { MessageKey = "Window/Location", Left = 0.0 });
 		}
+
+        public void SetWindowsSize()
+        {
+            var window = System.Windows.Application.Current.MainWindow;
+            if (window != null && window.WindowState == System.Windows.WindowState.Normal)
+            {
+                window.SizeToContent = System.Windows.SizeToContent.Height;
+                window.SizeToContent = System.Windows.SizeToContent.Manual;
+            }
+        }
 
 
 		public IEnumerable GetErrors(string propertyName)

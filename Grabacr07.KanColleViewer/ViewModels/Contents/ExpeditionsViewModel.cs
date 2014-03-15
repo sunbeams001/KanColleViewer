@@ -15,6 +15,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 			protected set { throw new NotImplementedException(); }
 		}
 
+        public override string Icon
+        {
+            get { return Properties.Resources.Expedition2; }
+            protected set { throw new NotImplementedException(); }
+        }
+
 		public FleetsViewModel Fleets { get; private set; }
 
 		public ExpeditionsViewModel(FleetsViewModel fleets)

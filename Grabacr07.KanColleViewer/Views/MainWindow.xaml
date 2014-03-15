@@ -13,6 +13,7 @@
 				   xmlns:behaviors="clr-namespace:Grabacr07.KanColleViewer.Views.Behaviors"
 				   xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 				   xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
+			       xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
 				   Title="{Binding Title}"
@@ -20,7 +21,6 @@
 				   MinWidth="{Binding ElementName=KanColleHost, Path=MinWidth}"
                    MaxWidth="{x:Static SystemParameters.FullPrimaryScreenWidth}"
                    Height="575"
-				   MinHeight="575"
 				   Topmost="{Binding TopMost}"
 				   FontSize="12"
 				   Background="{DynamicResource ThemeBrushKey}"
@@ -28,6 +28,17 @@
 				   IsRestoringWindowPlacement="True"
 				   SnapsToDevicePixels="True"
 				   TextOptions.TextFormattingMode="Display">
+
+    <metro:MetroWindow.Resources>
+        <converters:MainWindowHeightConverter x:Key="MainWindowHeightConverter" />
+    </metro:MetroWindow.Resources>
+
+    <metro:MetroWindow.MinHeight>
+        <Binding ElementName="KancolleBrowser"
+                 Path="ActualHeight"
+                 Converter="{StaticResource MainWindowHeightConverter}"
+                 Mode="OneWay" />
+    </metro:MetroWindow.MinHeight>
 
     <i:Interaction.Triggers>
         <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
@@ -88,7 +99,7 @@
         </Border>
         <!-- #endregion -->
 
-        <ContentControl Grid.Row="1" Content="{Binding Content}">
+        <ContentControl Grid.Row="1" Content="{Binding Content}" Name="Info">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
                     <Border ClipToBounds="True" Width="Auto">
@@ -115,7 +126,7 @@
                         <behaviors:ZoomAction />
                     </livet:InteractionMessageTrigger>
                 </i:Interaction.Triggers>
-                <WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True">
+                <WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True" Name="KancolleBrowser">
                     <i:Interaction.Behaviors>
                         <behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
                         <livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
@@ -130,7 +141,7 @@
                 </WebBrowser>
             </controls:KanColleHost>
 
-            <DockPanel Grid.Column="1" MaxHeight="{Binding ElementName=KanColleHost, Path=Height}">
+            <DockPanel Grid.Column="1" MaxHeight="{Binding ElementName=KancolleBrowser, Path=Height}">
                 <ContentControl Content="{Binding Content}">
                     <ContentControl.Resources>
                         <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">

@@ -180,6 +180,9 @@
   <data name="Settings_WindowControl_LocationLeftButton" xml:space="preserve">
     <value>Dock window to left of screen.</value>
   </data>
+  <data name="Settings_WindowControl_SizeFitContent" xml:space="preserve">
+    <value>Set window size to fit content.</value>
+  </data>
   <data name="Settings_WindowControl_LocationLeftButton_Sub" xml:space="preserve">
     <value>For use with 8 inch tablets (800x1280)</value>
   </data>
@@ -342,20 +345,38 @@
   <data name="Dockyard" xml:space="preserve">
     <value>Construction</value>
   </data>
+  <data name="Dockyard2" xml:space="preserve">
+    <value>🔨</value>
+  </data>
   <data name="Expedition" xml:space="preserve">
     <value>Expeditions</value>
+  </data>
+  <data name="Expedition2" xml:space="preserve">
+    <value>🔦</value>
   </data>
   <data name="Fleets" xml:space="preserve">
     <value>Fleets</value>
   </data>
+  <data name="Fleets2" xml:space="preserve">
+    <value>🚢</value>
+  </data>
   <data name="Quests" xml:space="preserve">
     <value>Quests</value>
+  </data>
+  <data name="Quests2" xml:space="preserve">
+    <value>📖</value>
   </data>
   <data name="Repairyard" xml:space="preserve">
     <value>Repair</value>
   </data>
+  <data name="Repairyard2" xml:space="preserve">
+    <value>🔩</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="Settings2" xml:space="preserve">
+    <value>🔧</value>
   </data>
   <data name="Dockyard_Display_Reveal" xml:space="preserve">
     <value>Reveal Ship Names</value>
@@ -371,6 +392,9 @@
   </data>
   <data name="IntegratedView" xml:space="preserve">
     <value>Overview</value>
+  </data>
+  <data name="IntegratedView2" xml:space="preserve">
+    <value>👓</value>
   </data>
   <data name="Dockyard_NotificationMessage" xml:space="preserve">
     <value>Construction of {1} in Dock {0} has been completed.</value>
@@ -461,6 +485,9 @@
   </data>
   <data name="Rankings" xml:space="preserve">
     <value>Rankings</value>
+  </data>
+  <data name="Rankings2" xml:space="preserve">
+    <value>⚑</value>
   </data>
   <data name="Rankings_RankingsList" xml:space="preserve">
     <value>Current Rankings</value>

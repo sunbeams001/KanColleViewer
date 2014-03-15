@@ -41,15 +41,7 @@
                 </Grid.ColumnDefinitions>
 
                 <metro:TabView ItemsSource="{Binding TabItems}"
-							   SelectedValue="{Binding SelectedItem}" >
-                    <metro:TabView.Template>
-                        <ControlTemplate TargetType="{x:Type metro:TabView}">
-                            <StackPanel Background="{TemplateBinding Background}">
-                                <StackPanel Orientation="Horizontal" IsItemsHost="True"></StackPanel>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </metro:TabView.Template>
-                </metro:TabView>
+							   SelectedValue="{Binding SelectedItem}" />
 
                 <Rectangle Grid.Column="1"
 						   Width="1"
@@ -59,15 +51,7 @@
 
                 <metro:TabView Grid.Column="2"
 							   ItemsSource="{Binding SystemTabItems}"
-							   SelectedValue="{Binding SelectedItem}">
-                    <metro:TabView.Template>
-                        <ControlTemplate TargetType="{x:Type metro:TabView}">
-                            <StackPanel Background="{TemplateBinding Background}">
-                                <StackPanel Orientation="Horizontal" IsItemsHost="True"></StackPanel>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </metro:TabView.Template>
-                </metro:TabView>
+							   SelectedValue="{Binding SelectedItem}" />
             </Grid>
         </ScrollViewer>
 

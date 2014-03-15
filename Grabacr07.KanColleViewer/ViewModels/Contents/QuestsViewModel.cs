@@ -16,6 +16,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 			get { return Resources.Quests; }
 			protected set { throw new NotImplementedException(); }
 		}
+
+        public override string Icon
+        {
+            get { return Resources.Quests2; }
+            protected set { throw new NotImplementedException(); }
+        }
 	
 		#region Current 変更通知プロパティ
 
