@@ -2,6 +2,12 @@
 	KCV Change Log
 ========================
 
+v2.3.0 r328 - 3/9/2014 **Minor Update**
+	* In fleet view we now have both total fleet level and and the average.
+	* Vertical - Tightened middle column to by 20px.
+	* Tool tip for the Regional Cookie button for some additional help.
+	* Translations - Quests with scrap equipment have had their lines changed.	
+
 v2.3.0 r320 - 3/5/2014
 	* Horizontal - *Fix* - Window no longer resizes to the browser width.
 	* Translations - Added Jintsuu Kai2

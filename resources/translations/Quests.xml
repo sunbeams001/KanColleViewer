@@ -46,7 +46,7 @@
     <ID>A7</ID>
     <JP-Name>「重巡戦隊」を編成せよ！</JP-Name>
     <TR-Name>Form a Heavy Cruiser Squadron!</TR-Name>
-    <JP-Detail>重巡洋艦2隻を擁する重巡艦隊を編成せよ！</JP-Detail>
+    <JP-Detail>重巡洋艦２隻を擁する重巡艦隊を編成せよ！</JP-Detail>
     <TR-Detail>Have 2 CA in your main fleet.</TR-Detail>
   </Quest>
   <Quest>
@@ -291,7 +291,7 @@
     <ID>B9</ID>
     <JP-Name>「空母機動部隊」出撃せよ！</JP-Name>
     <TR-Name>Sortie a Carrier Task Force!</TR-Name>
-    <JP-Detail>空母1隻とその護衛艦艇で編成した空母機動部隊を出撃させよ！</JP-Detail>
+    <JP-Detail>空母1隻とその護衛艦艇で構成した空母機動部隊を出撃させよ！</JP-Detail>
     <TR-Detail>Deply a fleet with CV(L) as flagship and 5 DD/CL/AV for the escorts.</TR-Detail>
   </Quest>
   <Quest>
@@ -769,5 +769,19 @@
     <TR-Name>Prepare the shipping barrel</TR-Name>
     <JP-Detail>「工廠」で装備アイテムを3回「廃棄」して、輸送用のドラム缶を準備します。</JP-Detail>
     <TR-Detail>Scrap equipment 3 times to acquire a shipping barrel</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>410</ID>
+    <JP-Name>南方への輸送作戦を成功させよ！</JP-Name>
+    <TR-Name>南方への輸送作戦を成功させよ！</TR-Name>
+    <JP-Detail>激戦海域である南方海域への「東京急行」系遠征を敢行、これを成功させよ！</JP-Detail>
+    <TR-Detail>激戦海域である南方海域への「東京急行」系遠征を敢行、これを成功させよ！ [Complete 37]</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>411</ID>
+    <JP-Name>南方への鼠輸送を継続実施せよ！</JP-Name>
+    <TR-Name>南方への鼠輸送を継続実施せよ！</TR-Name>
+    <JP-Detail>今週中に「東京急行」系遠征を継続的に実施、同種作戦を7回成功せさよう！</JP-Detail>
+    <TR-Detail>今週中に「東京急行」系遠征を継続的に実施、同種作戦を7回成功せさよう！</TR-Detail>
   </Quest>
 </Quests>
