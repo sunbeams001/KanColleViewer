@@ -141,7 +141,7 @@
                 </WebBrowser>
             </controls:KanColleHost>
 
-            <DockPanel Grid.Column="1" MaxHeight="{Binding ElementName=KancolleBrowser, Path=Height}">
+            <DockPanel Grid.Column="1" Height="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}">
                 <ContentControl Content="{Binding Content}">
                     <ContentControl.Resources>
                         <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
