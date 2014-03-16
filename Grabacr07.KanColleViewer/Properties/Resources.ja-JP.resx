@@ -480,4 +480,10 @@
   <data name="Settings_Translations_Enable" xml:space="preserve">
     <value>Translate game items, ships, and quests to selected language?</value>
   </data>
+  <data name="StartContent_SetRegionCookieToolTip" xml:space="preserve">
+    <value>Make sure DMM.com is set to Japanese (日本語)</value>
+  </data>
+  <data name="StatusBar_TotalAverageLevel" xml:space="preserve">
+    <value>総レベル (平均):</value>
+  </data>
 </root>

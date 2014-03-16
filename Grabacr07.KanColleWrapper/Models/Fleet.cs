@@ -96,6 +96,25 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+		#region TotalLevel 変更通知プロパティ
+
+		private int _TotalLevel;
+
+		public int TotalLevel
+		{ 
+			get { return this._TotalLevel; }
+			private set
+			{
+				if (this._TotalLevel != value)
+				{
+					this._TotalLevel = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		#region AirSuperiorityPotential 変更通知プロパティ
 
 		private int _AirSuperiorityPotential;
@@ -178,6 +197,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.Name = rawData.api_name;
 			this.Ships = rawData.api_ship.Select(id => this.homeport.Ships[id]).Where(x => x != null).ToArray();
 			this.AverageLevel = this.Ships.HasValue() ? this.Ships.Average(s => s.Level) : 0.0;
+			this.TotalLevel = this.Ships.HasValue() ? this.Ships.Sum(s => s.Level) : 0;
 			this.AirSuperiorityPotential = this.Ships.Sum(s => s.CalcAirSuperiorityPotential());
 			this.Speed = this.Ships.All(s => s.Info.Speed == Speed.Fast) ? Speed.Fast : Speed.Low;
 			this.ReSortie.Update(this.Ships);

@@ -277,12 +277,13 @@
                                     <TableRow>
                                         <TableCell>
 											<BlockUIContainer>
-                                                <metro2:CallMethodButton Content="{Binding SetRegionCookieButtonContent}"
+												<metro2:CallMethodButton Content="{Binding SetRegionCookieButtonContent}"
 																		 MethodName="SetRegionCookie"
 																		 IsEnabled="{Binding CanSetRegionCookie}"
 																		 HorizontalAlignment="Center"
 																		 Padding="30,5"
-																		 SnapsToDevicePixels="True" />
+																		 SnapsToDevicePixels="True"
+																		 ToolTip="{Binding Resources.StartContent_SetRegionCookieToolTip, Source={x:Static models:ResourceService.Current}}"/>
 											</BlockUIContainer>
 										</TableCell> 
 									</TableRow>
@@ -354,20 +355,20 @@
 									   FontSize="14" />
 						</TabItem.Header>
 							<settings:Network Margin="10,9" />
-                        </TabItem>
+						</TabItem>
 
-                        <TabItem>
-                            <TabItem.Header>
-                                <TextBlock Text="{Binding Resources.Settings_Language, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						<TabItem>
+							<TabItem.Header>
+								<TextBlock Text="{Binding Resources.Settings_Language, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
 										   Margin="12,0"
 										   FontSize="14" />
-                            </TabItem.Header>
+							</TabItem.Header>
 
-                            <settings:Language Margin="10,9" />
-                        </TabItem>
+							<settings:Language Margin="10,9" />
+						</TabItem>
 
-                        <TabItem>
+						<TabItem>
 							<TabItem.Header>
 								<TextBlock Text="{Binding Resources.Settings_Other, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"

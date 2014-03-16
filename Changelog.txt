@@ -2,10 +2,14 @@
 	KCV Change Log
 ========================
 
+v2.3.0 r320 - 3/5/2014
+	* Horizontal - *Fix* - Window no longer resizes to the browser width.
+	* Translations - Added Jintsuu Kai2
+
 v2.3.0 r319 - 3/4/2014
 	* New icons and support for the new transport barrel and searchlight.
 	* Korean UI language support along with game translation stand-ins.
-	* *NEW* You can set the browser/game zoom size.
+	* *NEW* You can set the browser/game zoom size (doesn't affect screenshots!)
 	* *NEW* Flick the fleets in the overview page to change fleets! (Touch screen only?)
 	* Logging - We no longer add lines for battles that do not drop any ships.
 	* Translations - 2 missing quests added 

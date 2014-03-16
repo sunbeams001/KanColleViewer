@@ -677,21 +677,21 @@
     <JP-Name>「大型艦建造」の準備！(その弐)</JP-Name>
     <TR-Name>Preparation for LCS (Part 2)</TR-Name>
     <JP-Detail>大型艦建造の準備をします！「工廠」で装備アイテムを4回「廃棄」してみてください！</JP-Detail>
-    <TR-Detail>Scrap 4 pieces of equipment.</TR-Detail>
+    <TR-Detail>Scrap equipment 4 times.</TR-Detail>
   </Quest>
     <Quest>
     <ID>F11</ID>
     <JP-Name>輸送用ドラム缶の準備</JP-Name>
     <TR-Name>Preparation for Transport Drum Canisters</TR-Name>
     <JP-Detail>「工廠」で装備アイテムを3回「廃棄」して、輸送用ドラム缶を準備します。</JP-Detail>
-    <TR-Detail>Scrap 3 pieces of equipment.</TR-Detail>
+    <TR-Detail>Scrap equipment 3 times.</TR-Detail>
   </Quest>
     <Quest>
     <ID>F12</ID>
     <JP-Name>資源の再利用</JP-Name>
     <TR-Name>Weekly Dismantlement</TR-Name>
     <JP-Detail>「工廠」で余剰の装備アイテムをなるべく多く「廃棄」して、鋼材の再利用に努めよう！</JP-Detail>
-    <TR-Detail>Scrap 24 pieces of equipment.</TR-Detail>
+    <TR-Detail>Scrap equipment 24 times.</TR-Detail>
   </Quest>
   <Quest>
     <ID>G1</ID>
@@ -726,7 +726,7 @@
     <JP-Name>式の準備！(その壱)</JP-Name>
     <TR-Name>In Preparation of Love! (Part 1)</TR-Name>
     <JP-Detail>式の準備をします！「工廠」で装備アイテムを2回「廃棄」して身の回りの整理を！</JP-Detail>
-    <TR-Detail>Scrap 2 pieces of equipment tp show your love!.</TR-Detail>
+    <TR-Detail>Scrap equipment 2 times to show your love!.</TR-Detail>
   </Quest>
   <Quest>
     <ID>WC01</ID>
@@ -768,6 +768,6 @@
     <JP-Name>輸送用ドラム缶の準備</JP-Name>
     <TR-Name>Prepare the shipping barrel</TR-Name>
     <JP-Detail>「工廠」で装備アイテムを3回「廃棄」して、輸送用のドラム缶を準備します。</JP-Detail>
-    <TR-Detail>Scrap 3 pieces of equipment to acquire a shipping barrel</TR-Detail>
+    <TR-Detail>Scrap equipment 3 times to acquire a shipping barrel</TR-Detail>
   </Quest>
 </Quests>
