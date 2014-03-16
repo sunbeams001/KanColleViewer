@@ -17,7 +17,7 @@
 		<Setter Property="ItemTemplate">
 			<Setter.Value>
 				<DataTemplate DataType="{x:Type metro:ITabItem}">
-					<Grid>
+                    <Grid ToolTip="{Binding Name}">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="20" />
 							<ColumnDefinition Width="*" />
@@ -25,7 +25,6 @@
 						</Grid.ColumnDefinitions>
 						<TextBlock Grid.Column="1"
 								   Text="{Binding Icon}"
-								   ToolTip="{Binding Name}"
 								   FontSize="18"
 								   Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
 								   VerticalAlignment="Center"
