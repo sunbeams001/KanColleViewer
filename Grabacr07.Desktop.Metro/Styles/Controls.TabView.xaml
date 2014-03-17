@@ -17,7 +17,7 @@
 		<Setter Property="ItemTemplate">
 			<Setter.Value>
 				<DataTemplate DataType="{x:Type metro:ITabItem}">
-                    <Grid ToolTip="{Binding Name}">
+                    <Grid>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="20" />
 							<ColumnDefinition Width="*" />
@@ -40,6 +40,47 @@
 				</DataTemplate>
 			</Setter.Value>
 		</Setter>
-	</Style>
+
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="ToolTip" Value="{Binding Name}" />
+                    <Setter Property="Foreground"
+Value="{DynamicResource ActiveForegroundBrushKey}" />
+                    <Setter Property="Height"
+Value="38" />
+                    <Setter Property="IsSelected"
+Value="{Binding IsSelected}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="FocusVisualStyle"
+Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver"
+Value="True">
+                            <Setter Property="Background"
+Value="{DynamicResource AccentHighlightBrushKey}" />
+                            <Setter Property="Foreground"
+Value="{DynamicResource AccentForegroundBrushKey}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected"
+Value="True">
+                            <Setter Property="Background"
+Value="{DynamicResource AccentBrushKey}" />
+                            <Setter Property="Foreground"
+Value="{DynamicResource AccentForegroundBrushKey}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>
