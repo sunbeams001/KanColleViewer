@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ShipTypes>
+<ShipTypes Version="1.0.0">
   <Type>
     <JP-Name>水上機母艦</JP-Name>
     <TR-Name>AV</TR-Name>

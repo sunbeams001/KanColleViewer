@@ -42,11 +42,14 @@ You need to have [.NET Framework 4.5](http://www.microsoft.com/en-us/download/de
 Easiest way is to just delete the text file corrisponding to the things you don't wish to be translated. You are also encouraged to use the [original version of KCV](http://grabacr.net/kancolleviewer) as it has an english UI now.
 
 #### What is the difference between this and the original?
-* Horizontal version is unique (for now) to this project. 
+* Horizontal version is unique to this project. 
 * The translation of all equipment, ships, and quests
+* Detailed equipment information (for now)
 * Logging features (for now)
-* Regional cookie setting.
 * Ranking information (for now)
+* Calculator (for now)
+* Auto updating and version checking.
+* Regional cookie setting.
 
 Other than the above, this version is the same with just some minor tweaks to make it fit for an English translation. The plan is to hopefully add some features into the main project for all to enjoy.
 

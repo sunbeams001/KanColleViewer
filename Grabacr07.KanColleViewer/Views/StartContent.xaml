@@ -146,6 +146,23 @@
 							  VerticalAlignment="Bottom"
 							  Margin="0,0,30,-4"
 							  Opacity="0.25" />
+			<StackPanel Margin="0,8,10,8"
+						TextOptions.TextFormattingMode="Ideal">
+				<RadioButton x:Name="InformationTab"
+							 Style="{StaticResource TabLikeRadioButtonStyleKey}"
+							 IsChecked="True"
+                             ToolTip="In memory of 'Horiztonal'">
+					<TextBlock Text="About"
+							   FontSize="18"
+							   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}, Path=Foreground}" />
+				</RadioButton>
+				<RadioButton x:Name="SettingsTab"
+							 Style="{StaticResource TabLikeRadioButtonStyleKey}">
+					<TextBlock Text="Settings"
+							   FontSize="18"
+							   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}, Path=Foreground}" />
+				</RadioButton>
+			</StackPanel>
 
 			<Border Grid.Column="0"
 					BorderBrush="{DynamicResource BorderBrushKey}"
@@ -375,11 +392,21 @@
 										   Margin="12,0"
 										   FontSize="14" />
 							</TabItem.Header>
+							<settings:Others Margin="10,9" />
+						</TabItem>
 
-						<settings:Others Margin="10,9" />
-					</TabItem>
-				</TabControl>
-			</ScrollViewer>
-		</Border>
+						<TabItem>
+							<TabItem.Header>
+								<TextBlock Text="{Binding Resources.Settings_Updates, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
+										   Margin="12,0"
+										   FontSize="14" />
+							</TabItem.Header>
+
+							<settings:Updates Margin="10,9" />
+						</TabItem>
+					</TabControl>
+				</ScrollViewer>
+			</Border>
 	</Grid>
 </UserControl>

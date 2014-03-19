@@ -128,11 +128,13 @@
     <Compile Include="Models\Raw\kcsapi_stype.cs" />
     <Compile Include="Models\RepairingDock.cs" />
     <Compile Include="Models\RepairingDockState.cs" />
+    <Compile Include="Models\ShipCriticalConditionEventArgs.cs" />
     <Compile Include="Models\ShipType.cs" />
     <Compile Include="Models\ShipTypeId.cs" />
     <Compile Include="Models\SlotItemType.cs" />
     <Compile Include="Models\Speed.cs" />
     <Compile Include="Models\ModernizableStatus.cs" />
+    <Compile Include="Models\TranslationType.cs" />
     <Compile Include="Models\UseItemInfo.cs" />
     <Compile Include="Models\Raw\kcsapi_ship2.cs" />
     <Compile Include="Models\Raw\svdata.cs" />
@@ -169,6 +171,7 @@
     <Compile Include="Repairyard.cs" />
     <Compile Include="TimerNotificator.cs" />
     <Compile Include="Translations.cs" />
+    <Compile Include="Updater.cs" />
     <Compile Include="Win32\INTERNET_PROXY_INFO.cs" />
     <Compile Include="Win32\NativeMethods.cs" />
   </ItemGroup>

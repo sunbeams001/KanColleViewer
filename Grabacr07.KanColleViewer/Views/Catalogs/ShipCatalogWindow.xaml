@@ -247,7 +247,7 @@
 					</ListView.Resources>
 					<ListView.View>
 						<GridView>
-							<GridViewColumn Width="50">
+							<GridViewColumn Width="40">
 								<GridViewColumn.Header>
 									<metro2:SortButton Direction="{Binding SortWorker.IdColumn.Direction}"
 													   MethodName="Update">

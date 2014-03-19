@@ -22,7 +22,7 @@
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
 		</docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="December 29, 2006"
+		<docks:RepairingDockViewModel CompleteTime="December 29, 2006"
 									  Id="10"
 									  IsNotifyCompleted="True"
 									  Remaining="7:06:05 AM"
@@ -35,8 +35,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="January 19, 2004"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="January 19, 2004"
 									  Id="39"
 									  IsNotifyCompleted="True"
 									  Remaining="4:26:00 PM"
@@ -49,8 +49,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="December 22, 2007"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="December 22, 2007"
 									  Id="18"
 									  IsNotifyCompleted="True"
 									  Remaining="7:13:04 AM"
@@ -63,8 +63,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="August 23, 2003"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="August 23, 2003"
 									  Id="55"
 									  IsNotifyCompleted="True"
 									  Remaining="5:44:29 PM"
@@ -77,8 +77,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="May 27, 2007"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="May 27, 2007"
 									  Id="75"
 									  IsNotifyCompleted="True"
 									  Remaining="11:38:50 PM"
@@ -91,8 +91,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="May 24, 2006"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="May 24, 2006"
 									  Id="12"
 									  IsNotifyCompleted="True"
 									  Remaining="8:33:47 AM"
@@ -105,8 +105,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="September 19, 2004"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="September 19, 2004"
 									  Id="15"
 									  IsNotifyCompleted="True"
 									  Remaining="7:13:20 AM"
@@ -119,8 +119,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="August 10, 2003"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="August 10, 2003"
 									  Id="48"
 									  IsNotifyCompleted="True"
 									  Remaining="11:05:39 PM"
@@ -133,8 +133,8 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
-		<Docks:RepairingDockViewModel CompleteTime="September 20, 2007"
+		</docks:RepairingDockViewModel>
+		<docks:RepairingDockViewModel CompleteTime="September 20, 2007"
 									  Id="79"
 									  IsNotifyCompleted="True"
 									  Remaining="5:25:58 AM"
@@ -147,9 +147,9 @@
 			<docks:RepairingDockViewModel.Messenger>
 				<Messaging:InteractionMessenger />
 			</docks:RepairingDockViewModel.Messenger>
-		</Docks:RepairingDockViewModel>
+		</docks:RepairingDockViewModel>
 	</docks:RepairyardViewModel.Docks>
 	<docks:RepairyardViewModel.Messenger>
 		<Messaging:InteractionMessenger />
 	</docks:RepairyardViewModel.Messenger>
-	</>
+	</docks:RepairyardViewModel >

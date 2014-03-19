@@ -1,15 +1,15 @@
-<contents:RankingsViewModel xmlns:Livet="clr-namespace:Livet;assembly=Livet"
+<tools:RankingsViewModel xmlns:Livet="clr-namespace:Livet;assembly=Livet"
                             xmlns:Models="clr-namespace:Grabacr07.KanColleWrapper.Models;assembly=KanColleWrapper"
-                            xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
+                            xmlns:tools="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Tools"
                             TotalRanked="64301"
                             TotalPages="6431"
                             CurrentPage="3">
-    <!-- <contents:RankingsViewModel.CompositeDisposable>
+    <!-- <tools:RankingsViewModel.CompositeDisposable>
         <Livet:LivetCompositeDisposable IsReadOnly="False" />
-    </contents:RankingsViewModel.CompositeDisposable> -->
-    <contents:RankingsViewModel.Rankings>
+    </tools:RankingsViewModel.CompositeDisposable> -->
+    <tools:RankingsViewModel.Rankings>
 
-        <contents:RankingViewModel
+        <tools:RankingViewModel
             Id="1"
             NickName="a"
             Comment="long comment"
@@ -19,9 +19,9 @@
             Experience="5022270"
             Flag="0"
             >
-        </contents:RankingViewModel>
+        </tools:RankingViewModel>
 
-        <contents:RankingViewModel
+        <tools:RankingViewModel
             Id="2"
             NickName="longname"
             Comment=":)"
@@ -31,9 +31,9 @@
             Experience="3000"
             Flag="0"
             >
-        </contents:RankingViewModel>
-        
-        <contents:RankingViewModel
+        </tools:RankingViewModel>
+
+        <tools:RankingViewModel
             Id="3"
             NickName="norm"
             Comment="norm"
@@ -43,7 +43,7 @@
             Experience="764340"
             Flag="0"
             >
-        </contents:RankingViewModel>
+        </tools:RankingViewModel>
 
-    </contents:RankingsViewModel.Rankings>
-</contents:RankingsViewModel>
+    </tools:RankingsViewModel.Rankings>
+</tools:RankingsViewModel>

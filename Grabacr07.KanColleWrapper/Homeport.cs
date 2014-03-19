@@ -50,11 +50,20 @@ namespace Grabacr07.KanColleWrapper
 		/// </summary>
 		public Quests Quests { get; private set; }
 
+		/// <summary>
+		/// Gets ranking information.
+		/// </summary>
 		public Rankings Rankings { get; private set; }
 
+		/// <summary>
+		/// Logs events such as ship drops, crafts, and item developments.
+		/// </summary>
 		public Logger Logger { get; private set; }
 
-        public Translations Translations { get; private set; }
+		/// <summary>
+		/// Translation engine for ships, equipment, quests, and sorties.
+		/// </summary>
+		public Translations Translations { get; private set; }
 
 		#region Admiral 変更通知プロパティ
 
@@ -220,7 +229,7 @@ namespace Grabacr07.KanColleWrapper
 			this.Quests = new Quests(proxy);
 			this.Rankings = new Rankings(proxy);
 			this.Logger = new Logger(proxy);
-            this.Translations = new Translations();
+			this.Translations = new Translations();
 		}
 
 

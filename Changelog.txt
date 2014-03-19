@@ -2,6 +2,40 @@
 	KCV Change Log
 ========================
 
+v2.3.0 r350 - 3/17/2014 M-M-Monster Update
+The following is all new things only available to this fork of KCV (for now).
+	* *NEW* Equipment Info - Mousing over equipment and in the equipment page
+		will now show extended equipment info such as firepower and more.
+	* *NEW* Tools Menu - Contains a reworked rankings and calculator page.
+	* *NEW* Calculator - Found under the Tools menu. Select a ship or type in
+		a base level, set the target level, set the map and any other params
+		and it will calculate the total number of times you must run a map to
+		get there.
+	* *NEW* Option to notify you when a ship hits critical condition. Found in
+		the Behaviour tab in settings.
+	* *NEW* Option to change the window accent color when a ship hits critical
+		condition. The color will only revert back when the ship is healed, removed,
+		or sunk.
+	* *NEW* Updater - Check for updates online for both the app and the translations.
+		Download new translations at a click of a button.
+	* *NEW* Check for updates to the program on startup.
+	* *NEW* Automatically download the latest translations on startup.
+	* *NEW* Horizontal - Horizontal tab menu and reworked Overview page. Now it is even 
+		tighter!
+	* Ship List - It will now correctly sort by ship name rather than Card Number.
+	* Fixed bug with non-updating fleet total level text.
+	* Updated to newest ships, items, and quests (3/13 update)
+Notes:
+	* All your options will reset with this update. Please re-do anything that needs doing.
+	* Updater will only obtain translations for your currently selected UI language.
+	* As of right now, there is no way to quickly revert the window color when a ship is
+		in critical condition other than to go to options and turn it off and on.
+	* Calculator is built to correct your mistake of choosing a target level lower than 
+		your current level.
+	* Calculator can take your ship's current exp count to do calculations by default
+	* Updater will not write over your current translations until it can determine if the 
+		file is error free.
+		
 v2.3.0 r328 - 3/9/2014 **Minor Update**
 	* In fleet view we now have both total fleet level and and the average.
 	* Vertical - Tightened middle column to by 20px.

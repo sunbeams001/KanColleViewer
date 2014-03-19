@@ -459,4 +459,43 @@
   <data name="StatusBar_TotalAverageLevel" xml:space="preserve">
     <value>Total Level (Average):</value>
   </data>
+  <data name="Stats_Accuracy" xml:space="preserve">
+    <value>Accuracy</value>
+  </data>
+  <data name="Stats_AntiAir" xml:space="preserve">
+    <value>Anti-Air</value>
+  </data>
+  <data name="Stats_AntiSub" xml:space="preserve">
+    <value>Anti-Sub</value>
+  </data>
+  <data name="Stats_Armor" xml:space="preserve">
+    <value>Armor</value>
+  </data>
+  <data name="Stats_AttackRange" xml:space="preserve">
+    <value>Attack Rng</value>
+  </data>
+  <data name="Stats_DiveBomb" xml:space="preserve">
+    <value>Bombing</value>
+  </data>
+  <data name="Stats_Evasion" xml:space="preserve">
+    <value>Evasion</value>
+  </data>
+  <data name="Stats_Firepower" xml:space="preserve">
+    <value>Firepower</value>
+  </data>
+  <data name="Stats_Health" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="Stats_Luck" xml:space="preserve">
+    <value>Luck</value>
+  </data>
+  <data name="Stats_SightRange" xml:space="preserve">
+    <value>Sight Rng</value>
+  </data>
+  <data name="Stats_Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="Stats_Torpedo" xml:space="preserve">
+    <value>Torpedo</value>
+  </data>
 </root>

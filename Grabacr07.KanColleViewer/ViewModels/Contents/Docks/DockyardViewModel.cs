@@ -75,7 +75,45 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Docks
 			}
 		}
 
-		#endregion
+        #endregion
+
+        #region HalfDocks1 変更通知プロパティ
+
+        private BuildingDockViewModel[] _HalfDocks1;
+
+        public BuildingDockViewModel[] HalfDocks1
+        {
+            get { return this._HalfDocks1; }
+            set
+            {
+                if (!Equals(this._HalfDocks1, value))
+                {
+                    this._HalfDocks1 = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region HalfDocks2 変更通知プロパティ
+
+        private BuildingDockViewModel[] _HalfDocks2;
+
+        public BuildingDockViewModel[] HalfDocks2
+        {
+            get { return this._HalfDocks2; }
+            set
+            {
+                if (!Equals(this._HalfDocks2, value))
+                {
+                    this._HalfDocks2 = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
 
 		public bool IsSupportedNotification
 		{
@@ -100,6 +138,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Docks
 				x.CanDisplayShipName = this.CanDisplayShipName;
 				x.IsNotifyCompleted = this.IsNotifyCompleted;
 			});
+
+            this.HalfDocks1 = this.Docks.Take(this.Docks.Length / 2).ToArray();
+            this.HalfDocks2 = this.Docks.Skip(this.Docks.Length / 2).ToArray();
 		}
 	}
 }

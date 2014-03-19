@@ -53,7 +53,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			get
 			{
-				return KanColleClient.Current.Homeport.Translations.GetTranslation(RawData.api_title, Translations.TransType.QuestTitle, this.RawData);
+				return KanColleClient.Current.Homeport.Translations.GetTranslation(RawData.api_title, TranslationType.QuestTitle, this.RawData);
 			}
 		}
 
@@ -64,7 +64,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			get
 			{
-				return KanColleClient.Current.Homeport.Translations.GetTranslation(RawData.api_detail, Translations.TransType.QuestDetail, this.RawData);
+				return KanColleClient.Current.Homeport.Translations.GetTranslation(RawData.api_detail, TranslationType.QuestDetail, this.RawData);
 			}
 		}
 

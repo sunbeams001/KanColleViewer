@@ -150,7 +150,18 @@
 			<settings:Others Margin="10,0" />
 		</TabItem>
 
-		<TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock Text="{Binding Resources.Settings_Updates, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
+						   Margin="12,0"
+						   FontSize="14" />
+            </TabItem.Header>
+
+            <settings:Updates Margin="10,0" />
+        </TabItem>
+
+        <TabItem>
 			<TabItem.Header>
 				<TextBlock Text="{Binding Resources.Settings_VersionInfo, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"

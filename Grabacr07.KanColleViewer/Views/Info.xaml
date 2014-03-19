@@ -25,7 +25,7 @@
 			 d:DataContext="{d:DesignInstance vm:MainContentViewModel}"
 			 Background="{DynamicResource ThemeBrushKey}">
 
-    <Grid Margin="4,3">
+    <Grid Margin="4,0,4,3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />

@@ -16,6 +16,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		private bool notificated;
 		private int minCondition;
+		private Ship[] prevShips = new Ship[0];
 
 		#region ReadyTime 変更通知プロパティ
 
@@ -92,6 +93,8 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// </summary>
 		public event EventHandler Readied;
 
+		public event EventHandler<ShipCriticalConditionEventArgs> CriticalCondition;
+		public event EventHandler CriticalCleared;
 
 		/// <summary>
 		/// 艦隊に編成されている艦娘の状態から、再出撃可能かどうかを判定します。
@@ -103,6 +106,8 @@ namespace Grabacr07.KanColleWrapper.Models
 			{
 				this.ReadyTime = null;
 				this.UpdateCore();
+				if (this.prevShips.Length > 0)
+                    this.prevShips = new Ship[0];
 				return;
 			}
 
@@ -111,6 +116,19 @@ namespace Grabacr07.KanColleWrapper.Models
 			if (ships.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25))
 			{
 				reason |= CanReSortieReason.Wounded;
+
+				// We only send out the event once, when the ships has reached critical from its previous state.
+				IEnumerable<Ship> CriticalShips = ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25);
+				foreach (Ship s in CriticalShips)
+				{
+					if (this.prevShips.Length > 0 && this.prevShips.First(p => p.Id == s.Id).HP.Current != s.HP.Current)
+						this.CriticalCondition(this, new ShipCriticalConditionEventArgs(s));
+				}
+			}
+			else if (this.prevShips.Length > 0 && this.prevShips.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25))
+			{
+				Array.Clear(this.prevShips, 0, this.prevShips.Length);
+				this.CriticalCleared(this, new EventArgs());
 			}
 
 			if (ships.Any(s => s.Fuel.Current < s.Fuel.Maximum || s.Bull.Current < s.Bull.Maximum))
@@ -139,6 +157,11 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.Reason = reason;
 
 			this.UpdateCore();
+
+            if (this.prevShips.Length > 0)
+                this.prevShips = new Ship[0];
+
+            this.prevShips = ships;
 		}
 
 		private void UpdateCore()

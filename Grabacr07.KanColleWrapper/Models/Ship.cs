@@ -123,6 +123,23 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return ConditionTypeHelper.ToConditionType(this.RawData.api_cond); }
 		}
 
+        /// <summary>
+        /// For visually generated elements. "[Lv.00]   Name"
+        /// </summary>
+        public string LvName
+        {
+            get { return "[Lv." + this.Level + "]  \t" + this.Info.Name; }
+        }
+
+        /// <summary>
+        /// For visually generated elements. 
+        /// "Name           [Lv.00]"
+        /// "Long Name      [Lv.00]"    
+        /// </summary>
+        public string NameLv
+        {
+            get { return string.Format("{0, -20} [Lv.{1}]", this.Info.Name, this.Level); }
+        }
 
 		public SlotItem[] SlotItems { get; private set; }
 		public int[] OnSlot { get; private set; }

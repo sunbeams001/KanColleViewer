@@ -117,6 +117,25 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 						() => App.ViewModelRoot.Activate());
 				}
 			};
+
+            reSortie.CriticalCondition += (sender, args) =>
+            {
+                if (Models.Settings.Current.EnableCriticalNotify)
+                {
+                    WindowsNotification.Notifier.Show(
+                        Resources.ReSortie_CriticalConditionMessage_Title,
+                        string.Format(Resources.ReSortie_CriticalConditionMessage, args.Ship.Info.Name, parent.Name),
+                        () => App.ViewModelRoot.Activate());
+                }
+
+                if (Models.Settings.Current.EnableCriticalAccent)
+                    App.ViewModelRoot.Mode = Mode.CriticalCondition;
+            };
+
+            reSortie.CriticalCleared += (sender, args) =>
+            {
+                App.ViewModelRoot.Mode = Mode.Started;
+            };
 		}
 
 

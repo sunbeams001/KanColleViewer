@@ -82,5 +82,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Docks
 				}
 			};
 		}
+
+		public RepairingDockViewModel() { }
 	}
 }

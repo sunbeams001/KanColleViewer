@@ -165,19 +165,27 @@
 					</StackPanel>
 				</Grid>
 			</metroControls:CallMethodButton>
-			<metroControls:CallMethodButton Grid.Row="1"
-										    Grid.Column="0"
-										    Style="{StaticResource JumbButtonStyleKey}"
-										    MethodName="Jump"
-										    MethodParameter="Quests">
-				<StackPanel DataContext="{Binding Content.Quests}">
-					<TextBlock TextWrapping="Wrap">
-					<Run Text="{Binding Name}" />
+
+			<metroControls:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
+											MethodName="Jump"
+											MethodParameter="Dockyard"
+											Grid.Row="1"
+											Grid.Column="0"
+											Margin="5,0">
+				<StackPanel DataContext="{Binding Content.Dockyard}">
+					<TextBlock>
+						<Run Text="{Binding Name, Mode=OneWay}" />
 					</TextBlock>
 
 					<Rectangle Height="1"
-							Margin="0,7,0,3"
-							Style="{DynamicResource SeparatorRectangleStyleKey}" />
+							   Margin="0,3,0,0"
+							   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+					
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
 
                     <TextBlock MaxWidth="{Binding Path=ActualWidth, ElementName=OverViewFleetContent}"
                                Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
@@ -187,43 +195,149 @@
                                TextAlignment="Center"
                                Margin="0,5,0,0" />
 
-					<ItemsControl ItemsSource="{Binding Current}"
-								Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
+						<ItemsControl ItemsSource="{Binding HalfDocks1}"
+									  Grid.Column="0">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Margin="0,4,0,0"
+											   Grid.Column="0">
+									<Run x:Name="ShipName"
+										 Text="{Binding Ship, Mode=OneWay}"
+										 Style="{DynamicResource PickupTextElementStyleKey}" />
+									<Run x:Name="Remaining"
+										 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
+									</TextBlock>
+									<DataTemplate.Triggers>
+										<DataTrigger Binding="{Binding CanDisplayShipName}"
+												 Value="False">
+											<Setter TargetName="ShipName"
+												Property="Text"
+												Value="???" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding State}"
+												 Value="Locked">
+											<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Locked, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+											<Setter TargetName="ShipName"
+												Property="Text"
+												Value="" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding State}"
+												 Value="Unlocked">
+											<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Unused, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+											<Setter TargetName="ShipName"
+												Property="Text"
+												Value="" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding State}"
+												 Value="Completed">
+											<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Complete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+										</DataTrigger>
+									</DataTemplate.Triggers>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+
+						<ItemsControl ItemsSource="{Binding HalfDocks2}"
+									  Grid.Column="1">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Margin="0,4,0,0"
+											   Grid.Column="1">
+									<Run x:Name="ShipName"
+										 Text="{Binding Ship, Mode=OneWay}"
+										 Style="{DynamicResource PickupTextElementStyleKey}" />
+									<Run x:Name="Remaining"
+										 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
+									</TextBlock>
+									<DataTemplate.Triggers>
+										<DataTrigger Binding="{Binding CanDisplayShipName}"
+												 Value="False">
+											<Setter TargetName="ShipName"
+												Property="Text"
+												Value="???" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding State}"
+												 Value="Locked">
+											<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Locked, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+											<Setter TargetName="ShipName"
+												Property="Text"
+												Value="" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding State}"
+												 Value="Unlocked">
+											<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Unused, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+											<Setter TargetName="ShipName"
+												Property="Text"
+												Value="" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding State}"
+												 Value="Completed">
+											<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Complete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+										</DataTrigger>
+									</DataTemplate.Triggers>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+
+					</Grid>
+
+				   <!--  <ItemsControl ItemsSource="{Binding Docks}">
 						<ItemsControl.ItemTemplate>
 							<DataTemplate>
-								<Grid Margin="0,4,0,0">
-									<Grid.Resources>
-										<converters:QuestCategoryToColorConverter x:Key="QuestCategoryToColorConverterKey" />
-									</Grid.Resources>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="Auto" />
-										<ColumnDefinition Width="*" />
-									</Grid.ColumnDefinitions>
-									<Rectangle Width="10"
-											Height="10"
-											VerticalAlignment="Center">
-										<Rectangle.Fill>
-											<SolidColorBrush Color="{Binding Category, Converter={StaticResource QuestCategoryToColorConverterKey}, Mode=OneWay}" />
-										</Rectangle.Fill>
-									</Rectangle>
-									<TextBlock Grid.Column="1"
-											VerticalAlignment="Center"
-											Margin="4,0,0,0">
-									<Run x:Name="Title"
-											Text="{Binding Title, Mode=OneWay}" />
-									</TextBlock>
-								</Grid>
+								<TextBlock Margin="0,4,0,0">
+									<Run x:Name="ShipName"
+										 Text="{Binding Ship, Mode=OneWay}"
+										 Style="{DynamicResource PickupTextElementStyleKey}" />
+									<Run x:Name="Remaining"
+										 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
+								</TextBlock>
 								<DataTemplate.Triggers>
-									<DataTrigger Binding="{Binding IsUntaken}"
-												Value="True">
-										<Setter TargetName="Title"
-											Property="Text"
-											Value="{Binding Source={x:Static properties:Resources.Quest_Title_Untaken}, Mode=OneWay}" />
+									<DataTrigger Binding="{Binding CanDisplayShipName}"
+												 Value="False">
+										<Setter TargetName="ShipName"
+												Property="Text"
+												Value="???" />
+									</DataTrigger>
+									<DataTrigger Binding="{Binding State}"
+												 Value="Locked">
+										<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Locked, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+										<Setter TargetName="ShipName"
+												Property="Text"
+												Value="" />
+									</DataTrigger>
+									<DataTrigger Binding="{Binding State}"
+												 Value="Unlocked">
+										<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Unused, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+										<Setter TargetName="ShipName"
+												Property="Text"
+												Value="" />
+									</DataTrigger>
+									<DataTrigger Binding="{Binding State}"
+												 Value="Completed">
+										<Setter TargetName="Remaining"
+												Property="Text"
+												Value="{Binding Resources.Dockyard_Complete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									</DataTrigger>
 								</DataTemplate.Triggers>
 							</DataTemplate>
 						</ItemsControl.ItemTemplate>
-					</ItemsControl>
+					</ItemsControl> -->
 				</StackPanel>
 			</metroControls:CallMethodButton>
 		</StackPanel>
@@ -235,19 +349,19 @@
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
 			<Border Grid.Row="0"
-					Grid.Column="0">
+					Grid.Column="1">
 				<StackPanel>
 					<TextBlock>
 						<Run Text="Inventory" />
 					</TextBlock>
 
 					<Rectangle Height="1"
-							   Margin="0,7,0,3"
+							   Margin="0,3,0,0"
 							   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 					<metroControls:CallMethodButton Content="Ship List"
@@ -262,7 +376,7 @@
 			</Border>
 
 			<metroControls:CallMethodButton Grid.Row="0"
-											Grid.Column="1"
+											Grid.Column="0"
 											Style="{StaticResource JumbButtonStyleKey}"
 											MethodName="Jump"
 											MethodParameter="Expeditions">
@@ -272,7 +386,7 @@
 					</TextBlock>
 
 					<Rectangle Height="1"
-							   Margin="0,7,0,3"
+							   Margin="0,3,0,0"
 							   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 					<ItemsControl ItemsSource="{Binding Fleets.Fleets}">
@@ -316,7 +430,7 @@
 					</TextBlock>
 
 					<Rectangle Height="1"
-							   Margin="0,7,0,3"
+							   Margin="0,3,0,0"
 							   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 					<ItemsControl ItemsSource="{Binding Docks}">
@@ -351,61 +465,61 @@
 					</ItemsControl>
 				</StackPanel>
 			</metroControls:CallMethodButton>
-			
-			<metroControls:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
+
+
+			<metroControls:CallMethodButton Grid.Row="2"
+											Grid.ColumnSpan="2"
+											Style="{StaticResource JumbButtonStyleKey}"
 											MethodName="Jump"
-											MethodParameter="Dockyard"
-											Grid.Row="2"
-											Grid.ColumnSpan="2">
-				<StackPanel DataContext="{Binding Content.Dockyard}">
-					<TextBlock>
-						<Run Text="{Binding Name, Mode=OneWay}" />
+											MethodParameter="Quests"
+											Margin="5,0">
+				<StackPanel DataContext="{Binding Content.Quests}">
+					<TextBlock TextWrapping="Wrap">
+					<Run Text="{Binding Name}" />
 					</TextBlock>
 
 					<Rectangle Height="1"
-							   Margin="0,7,0,3"
-							   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+							Margin="0,3,0,0"
+							Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-					<ItemsControl ItemsSource="{Binding Docks}">
+					<TextBlock Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
+							TextWrapping="Wrap"
+							Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
+							HorizontalAlignment="Center"
+							Margin="0,5,0,0" />
+
+					<ItemsControl ItemsSource="{Binding Current}"
+								Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
 						<ItemsControl.ItemTemplate>
 							<DataTemplate>
-								<TextBlock Margin="0,4,0,0">
-									<Run x:Name="ShipName"
-										 Text="{Binding Ship, Mode=OneWay}"
-										 Style="{DynamicResource PickupTextElementStyleKey}" />
-									<Run x:Name="Remaining"
-										 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
-								</TextBlock>
+								<Grid Margin="0,4,0,0">
+									<Grid.Resources>
+										<converters:QuestCategoryToColorConverter x:Key="QuestCategoryToColorConverterKey" />
+									</Grid.Resources>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<Rectangle Width="10"
+											Height="10"
+											VerticalAlignment="Center">
+										<Rectangle.Fill>
+											<SolidColorBrush Color="{Binding Category, Converter={StaticResource QuestCategoryToColorConverterKey}, Mode=OneWay}" />
+										</Rectangle.Fill>
+									</Rectangle>
+									<TextBlock Grid.Column="1"
+											VerticalAlignment="Center"
+											Margin="4,0,0,0">
+									<Run x:Name="Title"
+											Text="{Binding Title, Mode=OneWay}" />
+									</TextBlock>
+								</Grid>
 								<DataTemplate.Triggers>
-									<DataTrigger Binding="{Binding CanDisplayShipName}"
-												 Value="False">
-										<Setter TargetName="ShipName"
-												Property="Text"
-												Value="???" />
-									</DataTrigger>
-									<DataTrigger Binding="{Binding State}"
-												 Value="Locked">
-										<Setter TargetName="Remaining"
-												Property="Text"
-												Value="{Binding Resources.Dockyard_Locked, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-										<Setter TargetName="ShipName"
-												Property="Text"
-												Value="" />
-									</DataTrigger>
-									<DataTrigger Binding="{Binding State}"
-												 Value="Unlocked">
-										<Setter TargetName="Remaining"
-												Property="Text"
-												Value="{Binding Resources.Dockyard_Unused, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-										<Setter TargetName="ShipName"
-												Property="Text"
-												Value="" />
-									</DataTrigger>
-									<DataTrigger Binding="{Binding State}"
-												 Value="Completed">
-										<Setter TargetName="Remaining"
-												Property="Text"
-												Value="{Binding Resources.Dockyard_Complete, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+									<DataTrigger Binding="{Binding IsUntaken}"
+												Value="True">
+										<Setter TargetName="Title"
+											Property="Text"
+											Value="{Binding Source={x:Static properties:Resources.Quest_Title_Untaken}, Mode=OneWay}" />
 									</DataTrigger>
 								</DataTemplate.Triggers>
 							</DataTemplate>

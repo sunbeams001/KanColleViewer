@@ -653,25 +653,7 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ResourceManager.GetString("Rankings", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Current Rankings.
-        /// </summary>
-        public static string Rankings_RankingsList {
-            get {
-                return ResourceManager.GetString("Rankings_RankingsList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ⚑.
-        /// </summary>
-        public static string Rankings2 {
-            get {
-                return ResourceManager.GetString("Rankings2", resourceCulture);
-            }
-        }
-        
+                
         /// <summary>
         ///   Looks up a localized string similar to Repair.
         /// </summary>
@@ -772,6 +754,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 「{0}」 in {1} is in critical condition!.
+        /// </summary>
+        public static string ReSortie_CriticalConditionMessage {
+            get {
+                return ResourceManager.GetString("ReSortie_CriticalConditionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Critical Ship Warning.
+        /// </summary>
+        public static string ReSortie_CriticalConditionMessage_Title {
+            get {
+                return ResourceManager.GetString("ReSortie_CriticalConditionMessage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All ships in 「{0}」 have fully recovered from fatigue..
         /// </summary>
         public static string ReSortie_NotificationMessage {
@@ -813,6 +813,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change window color when a ship is in critical condition.
+        /// </summary>
+        public static string Settings_Accent_CriticalCondition {
+            get {
+                return ResourceManager.GetString("Settings_Accent_CriticalCondition", resourceCulture);
             }
         }
         
@@ -862,6 +871,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fleet Condition.
+        /// </summary>
+        public static string Settings_FleetCondition {
+            get {
+                return ResourceManager.GetString("Settings_FleetCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string Settings_Language {
@@ -894,6 +912,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Network {
             get {
                 return ResourceManager.GetString("Settings_Network", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Give a notification for ships in critical condition.
+        /// </summary>
+        public static string Settings_Notify_CriticalCondition {
+            get {
+                return ResourceManager.GetString("Settings_Notify_CriticalCondition", resourceCulture);
             }
         }
         
@@ -1051,6 +1078,87 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updates.
+        /// </summary>
+        public static string Settings_Updates {
+            get {
+                return ResourceManager.GetString("Settings_Updates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically update translations on startup.
+        /// </summary>
+        public static string Settings_Updates_AutoUpdateTrans {
+            get {
+                return ResourceManager.GetString("Settings_Updates_AutoUpdateTrans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for the latest program and translation versions.
+        /// </summary>
+        public static string Settings_Updates_CheckUpdateButn_ToolTip {
+            get {
+                return ResourceManager.GetString("Settings_Updates_CheckUpdateButn_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for Updates.
+        /// </summary>
+        public static string Settings_Updates_CheckUpdatesBtn {
+            get {
+                return ResourceManager.GetString("Settings_Updates_CheckUpdatesBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currently.
+        /// </summary>
+        public static string Settings_Updates_CurrentVersion {
+            get {
+                return ResourceManager.GetString("Settings_Updates_CurrentVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online.
+        /// </summary>
+        public static string Settings_Updates_OnlineVersion {
+            get {
+                return ResourceManager.GetString("Settings_Updates_OnlineVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates on startup.
+        /// </summary>
+        public static string Settings_Updates_UpdateOnStartup {
+            get {
+                return ResourceManager.GetString("Settings_Updates_UpdateOnStartup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download Translations.
+        /// </summary>
+        public static string Settings_Updates_UpdateTransBtn {
+            get {
+                return ResourceManager.GetString("Settings_Updates_UpdateTransBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloads translations only for selected UI language!.
+        /// </summary>
+        public static string Settings_Updates_UpdateTransBtn_ToolTip {
+            get {
+                return ResourceManager.GetString("Settings_Updates_UpdateTransBtn_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version Info.
         /// </summary>
         public static string Settings_VersionInfo {
@@ -1168,6 +1276,123 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accuracy.
+        /// </summary>
+        public static string Stats_Accuracy {
+            get {
+                return ResourceManager.GetString("Stats_Accuracy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anti-Air.
+        /// </summary>
+        public static string Stats_AntiAir {
+            get {
+                return ResourceManager.GetString("Stats_AntiAir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anti-Sub.
+        /// </summary>
+        public static string Stats_AntiSub {
+            get {
+                return ResourceManager.GetString("Stats_AntiSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Armor.
+        /// </summary>
+        public static string Stats_Armor {
+            get {
+                return ResourceManager.GetString("Stats_Armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Rng.
+        /// </summary>
+        public static string Stats_AttackRange {
+            get {
+                return ResourceManager.GetString("Stats_AttackRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bombing.
+        /// </summary>
+        public static string Stats_DiveBomb {
+            get {
+                return ResourceManager.GetString("Stats_DiveBomb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evasion.
+        /// </summary>
+        public static string Stats_Evasion {
+            get {
+                return ResourceManager.GetString("Stats_Evasion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firepower.
+        /// </summary>
+        public static string Stats_Firepower {
+            get {
+                return ResourceManager.GetString("Stats_Firepower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Health.
+        /// </summary>
+        public static string Stats_Health {
+            get {
+                return ResourceManager.GetString("Stats_Health", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Luck.
+        /// </summary>
+        public static string Stats_Luck {
+            get {
+                return ResourceManager.GetString("Stats_Luck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sight Rng.
+        /// </summary>
+        public static string Stats_SightRange {
+            get {
+                return ResourceManager.GetString("Stats_SightRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed.
+        /// </summary>
+        public static string Stats_Speed {
+            get {
+                return ResourceManager.GetString("Stats_Speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torpedo.
+        /// </summary>
+        public static string Stats_Torpedo {
+            get {
+                return ResourceManager.GetString("Stats_Torpedo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Air Superiority Potential:.
         /// </summary>
         public static string StatusBar_AirSuperiorityPotential {
@@ -1227,6 +1452,240 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string StatusBar_TotalAverageLevel {
             get {
                 return ResourceManager.GetString("StatusBar_TotalAverageLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculator.
+        /// </summary>
+        public static string Tools_Calculator {
+            get {
+                return ResourceManager.GetString("Tools_Calculator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Level.
+        /// </summary>
+        public static string Tools_Calculator_CurrentLevel {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_CurrentLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flagship.
+        /// </summary>
+        public static string Tools_Calculator_Flagship {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_Flagship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Ship Girl.
+        /// </summary>
+        public static string Tools_Calculator_ListPrompt {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_ListPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map.
+        /// </summary>
+        public static string Tools_Calculator_Map {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_Map", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MVP.
+        /// </summary>
+        public static string Tools_Calculator_MVP {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_MVP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining.
+        /// </summary>
+        public static string Tools_Calculator_RemainingExp {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_RemainingExp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string Tools_Calculator_Result {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sortie Exp.
+        /// </summary>
+        public static string Tools_Calculator_SortieExp {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_SortieExp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target Level.
+        /// </summary>
+        public static string Tools_Calculator_TargetLevel {
+            get {
+                return ResourceManager.GetString("Tools_Calculator_TargetLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rankings.
+        /// </summary>
+        public static string Tools_Rankings {
+            get {
+                return ResourceManager.GetString("Tools_Rankings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string Tools_Rankings_Comment {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experience.
+        /// </summary>
+        public static string Tools_Rankings_Experience {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_Experience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        public static string Tools_Rankings_Level {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page:.
+        /// </summary>
+        public static string Tools_Rankings_Page {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank.
+        /// </summary>
+        public static string Tools_Rankings_Rank {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_Rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Rankings.
+        /// </summary>
+        public static string Tools_Rankings_RankingsList {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_RankingsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string Tools_Rankings_Rate {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Ranked:.
+        /// </summary>
+        public static string Tools_Rankings_TotalRanked {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_TotalRanked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string Tools_Rankings_User {
+            get {
+                return ResourceManager.GetString("Tools_Rankings_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KCV was unable to check for updates!.
+        /// </summary>
+        public static string Updater_Notification_CheckFailed {
+            get {
+                return ResourceManager.GetString("Updater_Notification_CheckFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Version of KCV is available! 「v{0}」.
+        /// </summary>
+        public static string Updater_Notification_NewAppVersion {
+            get {
+                return ResourceManager.GetString("Updater_Notification_NewAppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KanColleViewer Updater.
+        /// </summary>
+        public static string Updater_Notification_Title {
+            get {
+                return ResourceManager.GetString("Updater_Notification_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KCV was unable to download the translations!.
+        /// </summary>
+        public static string Updater_Notification_TransUpdate_Fail {
+            get {
+                return ResourceManager.GetString("Updater_Notification_TransUpdate_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translations are already up-to-date.
+        /// </summary>
+        public static string Updater_Notification_TransUpdate_Same {
+            get {
+                return ResourceManager.GetString("Updater_Notification_TransUpdate_Same", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation files have been updated!.
+        /// </summary>
+        public static string Updater_Notification_TransUpdate_Success {
+            get {
+                return ResourceManager.GetString("Updater_Notification_TransUpdate_Success", resourceCulture);
             }
         }
         

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Operations>
+<Operations Version="1.0.0">
   <Map>
     <JP-Name>鎮守府正面海域</JP-Name>
     <TR-Name>World 1-1</TR-Name>
@@ -75,6 +75,10 @@
   <Map>
     <JP-Name>サブ島沖海域</JP-Name>
     <TR-Name>World 5-3</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>サーモン海域</JP-Name>
+    <TR-Name>World 5-4</TR-Name>
   </Map>
   
   <Sortie>

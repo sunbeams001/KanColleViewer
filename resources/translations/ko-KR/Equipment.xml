@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment>
+<Equipment Version="1.0.0">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -291,5 +291,13 @@
   <Item>
     <JP-Name>増設バルジ（大型艦）</JP-Name>
     <TR-Name>Anti-Torpedo Bulge (L)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>探照灯</JP-Name>
+    <TR-Name>Searchlight</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>ドラム缶(輸送用)</JP-Name>
+    <TR-Name>Drum (Transport)</TR-Name>
   </Item>
 </Equipment>

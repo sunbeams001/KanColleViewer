@@ -42,6 +42,11 @@ namespace Grabacr07.KanColleWrapper
 		/// </summary>
 		public ObservableSynchronizedCollection<KanColleError> Errors { get; private set; }
 
+        /// <summary>
+        /// Application update notifications and downloads.
+        /// </summary>
+        public Updater Updater { get; private set; }
+
 		#region IsStarted 変更通知プロパティ
 
 		private bool _IsStarted;
@@ -71,6 +76,7 @@ namespace Grabacr07.KanColleWrapper
 			this.Proxy = new KanColleProxy();
 			this.Master = new Master(this.Proxy);
 			this.Homeport = new Homeport(this.Proxy);
+            this.Updater = new Updater();
 
 			this.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_start")
 				.TryParse()

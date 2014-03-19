@@ -483,13 +483,10 @@
   <data name="Settings_Logging_Enable" xml:space="preserve">
     <value>Log drops and crafting results to file</value>
   </data>
-  <data name="Rankings" xml:space="preserve">
+  <data name="Tools_Rankings" xml:space="preserve">
     <value>Rankings</value>
   </data>
-  <data name="Rankings2" xml:space="preserve">
-    <value>⚑</value>
-  </data>
-  <data name="Rankings_RankingsList" xml:space="preserve">
+  <data name="Tools_Rankings_RankingsList" xml:space="preserve">
     <value>Current Rankings</value>
   </data>
   <data name="StartContent_SetRegionCookieButton" xml:space="preserve">
@@ -512,5 +509,158 @@
   </data>
   <data name="StatusBar_TotalAverageLevel" xml:space="preserve">
     <value>Total Level (Average):</value>
+  </data>
+  <data name="Stats_Accuracy" xml:space="preserve">
+    <value>Accuracy</value>
+  </data>
+  <data name="Stats_AntiAir" xml:space="preserve">
+    <value>Anti-Air</value>
+  </data>
+  <data name="Stats_AntiSub" xml:space="preserve">
+    <value>Anti-Sub</value>
+  </data>
+  <data name="Stats_Armor" xml:space="preserve">
+    <value>Armor</value>
+  </data>
+  <data name="Stats_DiveBomb" xml:space="preserve">
+    <value>Bombing</value>
+  </data>
+  <data name="Stats_Evasion" xml:space="preserve">
+    <value>Evasion</value>
+  </data>
+  <data name="Stats_Firepower" xml:space="preserve">
+    <value>Firepower</value>
+  </data>
+  <data name="Stats_Health" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="Stats_Luck" xml:space="preserve">
+    <value>Luck</value>
+  </data>
+  <data name="Stats_SightRange" xml:space="preserve">
+    <value>Sight Rng</value>
+  </data>
+  <data name="Stats_Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="Stats_Torpedo" xml:space="preserve">
+    <value>Torpedo</value>
+  </data>
+  <data name="Stats_AttackRange" xml:space="preserve">
+    <value>Attack Rng</value>
+  </data>
+  <data name="ReSortie_CriticalConditionMessage" xml:space="preserve">
+    <value>「{0}」 in {1} is in critical condition!</value>
+  </data>
+  <data name="ReSortie_CriticalConditionMessage_Title" xml:space="preserve">
+    <value>Critical Ship Warning</value>
+  </data>
+  <data name="Settings_FleetCondition" xml:space="preserve">
+    <value>Fleet Condition</value>
+  </data>
+  <data name="Settings_Notify_CriticalCondition" xml:space="preserve">
+    <value>Give a notification for ships in critical condition</value>
+  </data>
+  <data name="Settings_Accent_CriticalCondition" xml:space="preserve">
+    <value>Change window color when a ship is in critical condition</value>
+  </data>
+  <data name="Tools_Calculator" xml:space="preserve">
+    <value>Calculator</value>
+  </data>
+  <data name="Tools_Calculator_CurrentLevel" xml:space="preserve">
+    <value>Current Level</value>
+  </data>
+  <data name="Tools_Calculator_Flagship" xml:space="preserve">
+    <value>Flagship</value>
+  </data>
+  <data name="Tools_Calculator_ListPrompt" xml:space="preserve">
+    <value>Select a Ship Girl</value>
+  </data>
+  <data name="Tools_Calculator_Map" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="Tools_Calculator_MVP" xml:space="preserve">
+    <value>MVP</value>
+  </data>
+  <data name="Tools_Calculator_RemainingExp" xml:space="preserve">
+    <value>Remaining</value>
+  </data>
+  <data name="Tools_Calculator_Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Tools_Calculator_SortieExp" xml:space="preserve">
+    <value>Sortie Exp</value>
+  </data>
+  <data name="Tools_Calculator_TargetLevel" xml:space="preserve">
+    <value>Target Level</value>
+  </data>
+  <data name="Tools_Rankings_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Tools_Rankings_Experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="Tools_Rankings_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Tools_Rankings_Page" xml:space="preserve">
+    <value>Page:</value>
+  </data>
+  <data name="Tools_Rankings_Rank" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="Tools_Rankings_Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Tools_Rankings_TotalRanked" xml:space="preserve">
+    <value>Total Ranked:</value>
+  </data>
+  <data name="Tools_Rankings_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Settings_Updates" xml:space="preserve">
+    <value>Updates</value>
+  </data>
+  <data name="Settings_Updates_AutoUpdateTrans" xml:space="preserve">
+    <value>Automatically update translations on startup</value>
+  </data>
+  <data name="Settings_Updates_CheckUpdateButn_ToolTip" xml:space="preserve">
+    <value>Check for the latest program and translation versions</value>
+  </data>
+  <data name="Settings_Updates_CheckUpdatesBtn" xml:space="preserve">
+    <value>Check for Updates</value>
+  </data>
+  <data name="Settings_Updates_CurrentVersion" xml:space="preserve">
+    <value>Currently</value>
+  </data>
+  <data name="Settings_Updates_OnlineVersion" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Settings_Updates_UpdateOnStartup" xml:space="preserve">
+    <value>Check for updates on startup</value>
+  </data>
+  <data name="Settings_Updates_UpdateTransBtn" xml:space="preserve">
+    <value>Download Translations</value>
+  </data>
+  <data name="Settings_Updates_UpdateTransBtn_ToolTip" xml:space="preserve">
+    <value>Downloads translations only for selected UI language!</value>
+  </data>
+  <data name="Updater_Notification_CheckFailed" xml:space="preserve">
+    <value>KCV was unable to check for updates!</value>
+  </data>
+  <data name="Updater_Notification_TransUpdate_Success" xml:space="preserve">
+    <value>Translation files have been updated!</value>
+  </data>
+  <data name="Updater_Notification_NewAppVersion" xml:space="preserve">
+    <value>New Version of KCV is available! 「v{0}」</value>
+  </data>
+  <data name="Updater_Notification_Title" xml:space="preserve">
+    <value>KanColleViewer Updater</value>
+  </data>
+  <data name="Updater_Notification_TransUpdate_Fail" xml:space="preserve">
+    <value>KCV was unable to download the translations!</value>
+  </data>
+  <data name="Updater_Notification_TransUpdate_Same" xml:space="preserve">
+    <value>Translations are already up-to-date</value>
   </data>
 </root>

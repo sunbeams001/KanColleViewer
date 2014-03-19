@@ -19,12 +19,120 @@ namespace Grabacr07.KanColleWrapper
         private XDocument EquipmentXML;
         private XDocument OperationsXML;
         private XDocument QuestsXML;
+        private string CurrentCulture;
 
-        public enum TransType { Ships, ShipTypes, Equipment, OperationMaps, OperationSortie, Quests, QuestDetail, QuestTitle };
         public bool EnableTranslations { get; set; }
         public bool EnableAddUntranslated { get; set; }
+        
+        #region EquipmentVersion 変更通知プロパティ
 
-        private string CurrentCulture;
+        private string _EquipmentVersion;
+
+        public string EquipmentVersion
+        {
+            get { return _EquipmentVersion; }
+            set
+            {
+                if (_EquipmentVersion != value)
+                {
+                    _EquipmentVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region OperationsVersion 変更通知プロパティ
+
+        private string _OperationsVersion;
+
+        public string OperationsVersion
+        {
+            get { return _OperationsVersion; }
+            set
+            {
+                if (_OperationsVersion != value)
+                {
+                    _OperationsVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region QuestsVersion 変更通知プロパティ
+
+        private string _QuestsVersion;
+
+        public string QuestsVersion
+        {
+            get { return _QuestsVersion; }
+            set
+            {
+                if (_QuestsVersion != value)
+                {
+                    _QuestsVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region ShipsVersion 変更通知プロパティ
+
+        private string _ShipsVersion;
+
+        public string ShipsVersion
+        {
+            get { return _ShipsVersion; }
+            set
+            {
+                if (_ShipsVersion != value)
+                {
+                    _ShipsVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        #region ShipTypesVersion 変更通知プロパティ
+
+        private string _ShipTypesVersion;
+
+        public string ShipTypesVersion
+        {
+            get { return _ShipTypesVersion; }
+            set
+            {
+                if (_ShipTypesVersion != value)
+                {
+                    _ShipTypesVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
+        // Item Stat Translations
+        public string Firepower { get; set; }
+        public string AntiAir { get; set; }
+        public string Accuracy { get; set; }
+        public string Torpedo { get; set; }
+        public string AntiSub { get; set; }
+        public string DiveBomb { get; set; }
+        public string Evasion { get; set; }
+        public string AttackRange { get; set; }
+        public string SightRange { get; set; }
+        public string Luck { get; set; }
+        public string Speed { get; set; }
+        public string Armor { get; set; }
+        public string Health { get; set; }
 
         internal Translations()
         {
@@ -35,6 +143,17 @@ namespace Grabacr07.KanColleWrapper
                 if (File.Exists("Translations\\Equipment.xml")) EquipmentXML = XDocument.Load("Translations\\Equipment.xml");
                 if (File.Exists("Translations\\Operations.xml")) OperationsXML = XDocument.Load("Translations\\Operations.xml");
                 if (File.Exists("Translations\\Quests.xml")) QuestsXML = XDocument.Load("Translations\\Quests.xml");
+
+                if (ShipsXML != null)
+                    ShipsVersion = ShipsXML.Root.Attribute("Version").Value;
+                if (ShipTypesXML != null)
+                    ShipTypesVersion = ShipTypesXML.Root.Attribute("Version").Value;
+                if (EquipmentXML != null)
+                    EquipmentVersion = EquipmentXML.Root.Attribute("Version").Value;
+                if (OperationsXML != null)
+                    OperationsVersion = OperationsXML.Root.Attribute("Version").Value;
+                if (QuestsXML != null)
+                    QuestsVersion = QuestsXML.Root.Attribute("Version").Value;
             }
             catch { }
         }
@@ -61,37 +180,48 @@ namespace Grabacr07.KanColleWrapper
                 if (File.Exists("Translations\\" + CurrentCulture + "Equipment.xml")) EquipmentXML = XDocument.Load("Translations\\" + CurrentCulture + "Equipment.xml");
                 if (File.Exists("Translations\\" + CurrentCulture + "Operations.xml")) OperationsXML = XDocument.Load("Translations\\" + CurrentCulture + "Operations.xml");
                 if (File.Exists("Translations\\" + CurrentCulture + "Quests.xml")) QuestsXML = XDocument.Load("Translations\\" + CurrentCulture + "Quests.xml");
+
+                if (ShipsXML != null)
+                    ShipsVersion = ShipsXML.Root.Attribute("Version").Value;
+                if (ShipTypesXML != null)
+                    ShipTypesVersion = ShipTypesXML.Root.Attribute("Version").Value;
+                if (EquipmentXML != null)
+                    EquipmentVersion = EquipmentXML.Root.Attribute("Version").Value;
+                if (OperationsXML != null)
+                    OperationsVersion = OperationsXML.Root.Attribute("Version").Value;
+                if (QuestsXML != null)
+                    QuestsVersion = QuestsXML.Root.Attribute("Version").Value;
             }
             catch { }
         }
 
-        private IEnumerable<XElement> GetTranslationList(TransType Type)
+        private IEnumerable<XElement> GetTranslationList(TranslationType Type)
         {
             switch(Type)
             {
-                case TransType.Ships:
+                case TranslationType.Ships:
                     if (ShipsXML != null) 
                         return ShipsXML.Descendants("Ship");
                     break;
-                case TransType.ShipTypes:
+                case TranslationType.ShipTypes:
                     if (ShipTypesXML != null) 
                         return ShipTypesXML.Descendants("Type");
                     break;
-                case TransType.Equipment:
+                case TranslationType.Equipment:
                     if (EquipmentXML != null) 
                         return EquipmentXML.Descendants("Item");
                     break;
-                case TransType.OperationMaps:
+                case TranslationType.OperationMaps:
                     if (OperationsXML != null) 
                         return OperationsXML.Descendants("Map");
                     break;
-                case TransType.OperationSortie:
+                case TranslationType.OperationSortie:
                     if (OperationsXML != null) 
                         return OperationsXML.Descendants("Sortie");
                     break;
-                case TransType.Quests:
-                case TransType.QuestTitle:
-                case TransType.QuestDetail:
+                case TranslationType.Quests:
+                case TranslationType.QuestTitle:
+                case TranslationType.QuestDetail:
                     if (QuestsXML != null) 
                         return QuestsXML.Descendants("Quest");
                     break;
@@ -100,7 +230,7 @@ namespace Grabacr07.KanColleWrapper
             return null;
         }
 
-        public string GetTranslation(string JPString, TransType Type, Object RawData)
+        public string GetTranslation(string JPString, TranslationType Type, Object RawData)
         {
             if (!EnableTranslations || CurrentCulture == "ja-JP")
                 return JPString;
@@ -118,7 +248,7 @@ namespace Grabacr07.KanColleWrapper
                 string JPChildElement = "JP-Name";
                 string TRChildElement = "TR-Name";
 
-                if (Type == TransType.QuestDetail)
+                if (Type == TranslationType.QuestDetail)
                 {
                     JPChildElement = "JP-Detail";
                     TRChildElement = "TR-Detail";
@@ -136,7 +266,7 @@ namespace Grabacr07.KanColleWrapper
             return JPString;
         }
 
-        public void AddTranslation(Object RawData, TransType Type)
+        public void AddTranslation(Object RawData, TranslationType Type)
         {
             if (RawData == null || !EnableAddUntranslated)
                 return;
@@ -145,7 +275,7 @@ namespace Grabacr07.KanColleWrapper
             {
                 switch (Type)
                 {
-                    case TransType.Ships:
+                    case TranslationType.Ships:
                         if (ShipsXML == null)
                         {
                             ShipsXML = new XDocument();
@@ -165,7 +295,7 @@ namespace Grabacr07.KanColleWrapper
                         ShipsXML.Save("Translations\\" + CurrentCulture + "Ships.xml");
                         break;
 
-                    case TransType.ShipTypes:
+                    case TranslationType.ShipTypes:
                         if (ShipTypesXML == null)
                         {
                             ShipTypesXML = new XDocument();
@@ -185,7 +315,7 @@ namespace Grabacr07.KanColleWrapper
                         ShipTypesXML.Save("Translations\\" + CurrentCulture + "ShipTypes.xml");
                         break;
 
-                    case TransType.Equipment:
+                    case TranslationType.Equipment:
                         if (EquipmentXML == null)
                         {
                             EquipmentXML = new XDocument();
@@ -205,8 +335,8 @@ namespace Grabacr07.KanColleWrapper
                         EquipmentXML.Save("Translations\\" + CurrentCulture + "Equipment.xml");
                         break;
 
-                    case TransType.OperationMaps:
-                    case TransType.OperationSortie:
+                    case TranslationType.OperationMaps:
+                    case TranslationType.OperationSortie:
                         if (OperationsXML == null)
                         {
                             OperationsXML = new XDocument();
@@ -218,7 +348,7 @@ namespace Grabacr07.KanColleWrapper
                         if (OperationsData == null)
                             return;
 
-                        if (Type == TransType.OperationMaps)
+                        if (Type == TranslationType.OperationMaps)
                         {
                             OperationsXML.Root.Add(new XElement("Map",
                                 new XElement("JP-Name", OperationsData.api_quest_name),
@@ -236,9 +366,9 @@ namespace Grabacr07.KanColleWrapper
                         OperationsXML.Save("Translations\\" + CurrentCulture + "Operations.xml");
                         break;
 
-                    case TransType.Quests:
-                    case TransType.QuestTitle:
-                    case TransType.QuestDetail:
+                    case TranslationType.Quests:
+                    case TranslationType.QuestTitle:
+                    case TranslationType.QuestDetail:
                         if (QuestsXML == null)
                         {
                             QuestsXML = new XDocument();
@@ -254,14 +384,14 @@ namespace Grabacr07.KanColleWrapper
                         IEnumerable<XElement> FoundTranslationTitle = QuestsXML.Descendants("Quest").Where(b => b.Element("JP-Name").Value.Equals(QuestData.api_title));
 
                         // Check the current list for any errors and fix them before writing a whole new element.
-                        if (Type == TransType.QuestTitle && FoundTranslationDetail != null && FoundTranslationDetail.Any())
+                        if (Type == TranslationType.QuestTitle && FoundTranslationDetail != null && FoundTranslationDetail.Any())
                         {
                             // The title is wrong, but the detail is right. Fix the title.
                             foreach (XElement el in FoundTranslationDetail)
                                 el.Element("JP-Name").Value = QuestData.api_title;
 
                         }
-                        else if (Type == TransType.QuestDetail && FoundTranslationTitle != null && FoundTranslationTitle.Any())
+                        else if (Type == TranslationType.QuestDetail && FoundTranslationTitle != null && FoundTranslationTitle.Any())
                         {
                             // We found an existing detail, the title must be broken. Fix it.
                             foreach (XElement el in FoundTranslationTitle)

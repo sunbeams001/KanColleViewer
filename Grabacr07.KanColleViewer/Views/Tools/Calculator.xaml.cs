@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Grabacr07.KanColleViewer.Views.Contents
+namespace Grabacr07.KanColleViewer.Views.Tools
 {
     /// <summary>
-    /// Missions.xaml ?????????
+    /// Interaction logic for Calculator.xaml
     /// </summary>
-    public partial class Rankings : UserControl
+    public partial class Calculator : UserControl
     {
-        public Rankings()
+        public Calculator()
         {
             InitializeComponent();
         }

@@ -85,9 +85,9 @@ namespace Grabacr07.KanColleWrapper
             if (br.api_get_ship == null)
                 return;
 
-            Log(LogType.ShipDrop, "{0},{1},{2},{3},{4}", KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_get_ship.api_ship_name, Translations.TransType.Ships, br), 
-                KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_quest_name, Translations.TransType.OperationMaps, br),
-                KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_enemy_info.api_deck_name, Translations.TransType.OperationSortie, br),
+            Log(LogType.ShipDrop, "{0},{1},{2},{3},{4}", KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_get_ship.api_ship_name, TranslationType.Ships, br),
+                KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_quest_name, TranslationType.OperationMaps, br),
+                KanColleClient.Current.Homeport.Translations.GetTranslation(br.api_enemy_info.api_deck_name, TranslationType.OperationSortie, br),
                 br.api_win_rank, DateTime.Now.ToString("M/d/yyyy H:mm"));
         }
 

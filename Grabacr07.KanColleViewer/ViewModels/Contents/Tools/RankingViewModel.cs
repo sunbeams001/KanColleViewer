@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Models;
 using Livet;
 
-namespace Grabacr07.KanColleViewer.ViewModels.Contents
+namespace Grabacr07.KanColleViewer.ViewModels.Contents.Tools
 {
     public class RankingViewModel : ViewModel
     {
@@ -175,5 +175,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
             this.Experience = rank.Experience;
             this.Flag       = rank.Flag;
         }
+
+        public RankingViewModel() {}
     }
 }

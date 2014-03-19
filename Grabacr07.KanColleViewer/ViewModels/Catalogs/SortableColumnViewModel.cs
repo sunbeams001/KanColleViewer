@@ -76,13 +76,13 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 			if (this.Direction == SortDirection.Ascending)
 			{
 				return list.OrderBy(x => x.Ship.Info.ShipType.Id)
-					.ThenBy(x => x.Ship.Info.SortId)
+                    .ThenBy(x => x.Ship.Info.Name)
 					.ThenBy(x => x.Ship.Id);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
 				return list.OrderByDescending(x => x.Ship.Info.ShipType.Id)
-					.ThenByDescending(x => x.Ship.Info.SortId)
+                    .ThenByDescending(x => x.Ship.Info.Name)
 					.ThenByDescending(x => x.Ship.Id);
 			}
 			return list;
@@ -97,12 +97,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			if (this.Direction == SortDirection.Ascending)
 			{
-				return list.OrderBy(x => x.Ship.Info.SortId)
+				return list.OrderBy(x => x.Ship.Info.Name)
 					.ThenBy(x => x.Ship.Id);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
-				return list.OrderByDescending(x => x.Ship.Info.SortId)
+                return list.OrderByDescending(x => x.Ship.Info.Name)
 					.ThenByDescending(x => x.Ship.Id);
 			}
 			return list;
@@ -118,13 +118,13 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 			if (this.Direction == SortDirection.Ascending)
 			{
 				return list.OrderByDescending(x => x.Ship.Level)
-					.ThenBy(x => x.Ship.Info.SortId)
+                    .ThenBy(x => x.Ship.Info.Name)
 					.ThenBy(x => x.Ship.Id);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
 				return list.OrderBy(x => x.Ship.Level)
-					.ThenByDescending(x => x.Ship.Info.SortId)
+                    .ThenByDescending(x => x.Ship.Info.Name)
 					.ThenByDescending(x => x.Ship.Id);
 			}
 			return list;
@@ -142,14 +142,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				return list.OrderByDescending(x => x.Ship.Condition)
 					.ThenBy(x => x.Ship.Info.ShipType.Id)
 					.ThenBy(x => x.Ship.Level)
-					.ThenBy(x => x.Ship.Info.SortId);
+                    .ThenBy(x => x.Ship.Info.Name);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
 				return list.OrderBy(x => x.Ship.Condition)
 					.ThenByDescending(x => x.Ship.Info.ShipType.Id)
 					.ThenByDescending(x => x.Ship.Level)
-					.ThenByDescending(x => x.Ship.Info.SortId);
+                    .ThenByDescending(x => x.Ship.Info.Name);
 			}
 			return list;
 		}
