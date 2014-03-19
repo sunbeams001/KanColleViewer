@@ -773,22 +773,15 @@
   <Quest>
     <ID>410</ID>
     <JP-Name>南方への輸送作戦を成功させよ！</JP-Name>
-    <TR-Name>Perform Southern Expedition Operation!</TR-Name>
+    <TR-Name>南方への輸送作戦を成功させよ！</TR-Name>
     <JP-Detail>激戦海域である南方海域への「東京急行」系遠征を敢行、これを成功させよ！</JP-Detail>
-    <TR-Detail>Complete Expedition 37 or 38</TR-Detail>
+    <TR-Detail>激戦海域である南方海域への「東京急行」系遠征を敢行、これを成功させよ！ [Complete 37]</TR-Detail>
   </Quest>
   <Quest>
     <ID>411</ID>
     <JP-Name>南方への鼠輸送を継続実施せよ！</JP-Name>
-    <TR-Name>Weekly Expeditions 2</TR-Name>
-    <JP-Detail>今週中に「東京急行」系遠征を継続的に実施、同種作戦を7回成功させよう！</JP-Detail>
-    <TR-Detail>Complete Expedition 37 or 38 a total of 7 times this week</TR-Detail>
-  </Quest>
-  <Quest>
-    <ID>412</ID><!-- not sure quest id -->
-    <JP-Name>(続)航空火力艦の運用を強化せよ！</JP-Name>
-    <TR-Name>Weekly Expeditions 2</TR-Name>
-    <JP-Detail>「航空戦艦運用演習」を継続実施し、航空火力艦の運用の強化に引き続き努めよ！</JP-Detail>
-    <TR-Detail>Complete Expedition 23 4 times</TR-Detail>
+    <TR-Name>南方への鼠輸送を継続実施せよ！</TR-Name>
+    <JP-Detail>今週中に「東京急行」系遠征を継続的に実施、同種作戦を7回成功せさよう！</JP-Detail>
+    <TR-Detail>今週中に「東京急行」系遠征を継続的に実施、同種作戦を7回成功せさよう！</TR-Detail>
   </Quest>
 </Quests>
