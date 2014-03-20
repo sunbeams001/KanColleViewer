@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +10,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 {
     public class ToolsViewModel : TabItemViewModel
     {
+        public override string Icon
+        {
+            get { return Properties.Resources.Tools_Icon; }
+            protected set { throw new NotImplementedException(); }
+        }
+
         public CalculatorViewModel Calculator { get; private set; }
         public RankingsViewModel Rankings { get; private set; }
 
@@ -38,7 +44,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
         public override string Name
         {
-            get { return "Tools"; }
+            get { return Properties.Resources.Tools; }
             protected set { throw new NotImplementedException(); }
         }
 

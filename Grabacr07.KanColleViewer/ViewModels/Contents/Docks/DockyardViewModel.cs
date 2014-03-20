@@ -18,7 +18,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Docks
 
         public override string Icon
         {
-            get { return Properties.Resources.Dockyard2; }
+            get { return Properties.Resources.Dockyard_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 

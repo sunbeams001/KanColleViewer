@@ -17,7 +17,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
         public override string Icon
         {
-            get { return Properties.Resources.Expedition2; }
+            get { return Properties.Resources.Expedition_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 

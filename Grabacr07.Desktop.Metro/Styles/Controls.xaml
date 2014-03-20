@@ -4,7 +4,6 @@
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="pack://application:,,,/Desktop.Metro;component/Styles/Controls.FlatSlider.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/Desktop.Metro;component/Styles/Controls.MetroDialog.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Desktop.Metro;component/Styles/Controls.TabView.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

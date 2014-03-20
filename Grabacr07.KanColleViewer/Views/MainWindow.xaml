@@ -30,13 +30,15 @@
 				   TextOptions.TextFormattingMode="Display">
 
     <metro:MetroWindow.Resources>
-        <converters:MainWindowHeightConverter x:Key="MainWindowHeightConverter" />
+        <converters:AdjustConverter x:Key="AdjustConverter" />
+        <converters:PreviewSizeConverter x:Key="PreviewSizeConverter" />
     </metro:MetroWindow.Resources>
 
     <metro:MetroWindow.MinHeight>
         <Binding ElementName="KancolleBrowser"
                  Path="ActualHeight"
-                 Converter="{StaticResource MainWindowHeightConverter}"
+                 Converter="{StaticResource AdjustConverter}"
+                 ConverterParameter="94"
                  Mode="OneWay" />
     </metro:MetroWindow.MinHeight>
 
@@ -119,7 +121,8 @@
             </Grid.ColumnDefinitions>
 
             <controls:KanColleHost x:Name="KanColleHost"
-								   ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}">
+								   ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}"
+                                   VerticalAlignment="Top">
                 <i:Interaction.Triggers>
                     <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 													 MessageKey="WebBrowser/Zoom">
@@ -173,4 +176,17 @@
         </Grid>
         <!-- endregion -->
     </Grid>
+
+    <metro:MetroWindow.TaskbarItemInfo>
+        <TaskbarItemInfo x:Name="taskBarItem">
+            <TaskbarItemInfo.ThumbnailClipMargin>
+                <MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,72">
+                    <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualWidth" Mode="OneWay"/>
+                    <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualHeight" Mode="OneWay"/>
+                    <Binding ElementName="KancolleBrowser" Path="ActualWidth" Mode="OneWay"/>
+                    <Binding ElementName="KancolleBrowser" Path="ActualHeight" Mode="OneWay"/>
+                </MultiBinding>
+            </TaskbarItemInfo.ThumbnailClipMargin>
+        </TaskbarItemInfo>
+    </metro:MetroWindow.TaskbarItemInfo>
 </metro:MetroWindow>

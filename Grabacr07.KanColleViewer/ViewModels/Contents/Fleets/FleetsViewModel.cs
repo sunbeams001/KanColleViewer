@@ -19,7 +19,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
         public override string Icon
         {
-            get { return Properties.Resources.Fleets2; }
+            get { return Properties.Resources.Fleets_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 

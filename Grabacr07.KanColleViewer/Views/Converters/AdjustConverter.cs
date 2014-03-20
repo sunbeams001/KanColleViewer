@@ -10,17 +10,20 @@ using Grabacr07.KanColleWrapper.Models;
 
 namespace Grabacr07.KanColleViewer.Views.Converters
 {
-    public class MainWindowHeightConverter : IValueConverter
+    public class AdjustConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var height = Double.Parse(value.ToString());
-            return height + 94; // 26 + 50 + 18
+            var number = Double.Parse(value.ToString());
+            var plus = Double.Parse(parameter.ToString());
+            return number + plus;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            var number = Double.Parse(value.ToString());
+            var plus = Double.Parse(parameter.ToString());
+            return number - plus;
         }
     }
 }

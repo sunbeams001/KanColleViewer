@@ -36,7 +36,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
         public override string Icon
         {
-            get { return Resources.Settings2; }
+            get { return Resources.Settings_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 

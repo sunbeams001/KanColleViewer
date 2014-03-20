@@ -19,7 +19,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Docks
 
         public override string Icon
         {
-            get { return Properties.Resources.Repairyard2; }
+            get { return Properties.Resources.Repairyard_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 

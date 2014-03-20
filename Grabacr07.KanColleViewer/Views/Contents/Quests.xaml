@@ -16,12 +16,12 @@
 			 d:DesignHeight="300"
 			 d:DataContext="{d:DesignInstance vmContents:QuestsViewModel}"
 			 Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=ActualWidth}">
-	<Grid>
+    <Grid>
         <Grid Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
-			<Grid.RowDefinitions>
-				<RowDefinition />
-				<RowDefinition Height="Auto" />
-			</Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <Grid Name="QuestContent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" />
@@ -29,23 +29,23 @@
                     <ColumnDefinition Width="4*" />
                 </Grid.ColumnDefinitions>
 
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="Auto" />
-				</Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-				<TextBlock Text="{Binding Resources.Quests_CurrentQuestList, Source={x:Static models:ResourceService.Current}}"
+                    <TextBlock Text="{Binding Resources.Quests_CurrentQuestList, Source={x:Static models:ResourceService.Current}}"
 						   Margin="10,0,10,10"
 						   FontSize="14" />
 
-				<ItemsControl Grid.Row="1"
+                    <ItemsControl Grid.Row="1"
 							  ItemsSource="{Binding Current}"
 							  Margin="10,0">
-					<ItemsControl.ItemTemplate>
-						<DataTemplate>
-							<controls:Quest IsUntaken="{Binding IsUntaken}"
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <controls:Quest IsUntaken="{Binding IsUntaken}"
 											Title="{Binding Title}"
 											Detail="{Binding Detail}"
 											Category="{Binding Category}"
@@ -53,81 +53,81 @@
 											State="{Binding State}"
 											IsDetailView="True"
 											Margin="0,0,0,12" />
-						</DataTemplate>
-					</ItemsControl.ItemTemplate>
-				</ItemsControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
-				<TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
 						   Text="There are no current missions."
 						   HorizontalAlignment="Center"
 						   Visibility="{Binding IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"
 						   Margin="10" />
-			</Grid>
+                </Grid>
 
-			<Rectangle Grid.Row="0"
+                <Rectangle Grid.Row="0"
 					   Grid.Column="1"
 					   Width="1"
 					   Margin="0,3"
 					   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-			<TabControl Grid.Row="0"
+                <TabControl Grid.Row="0"
 						Grid.Column="2">
-				<TabControl.Template>
-					<ControlTemplate TargetType="{x:Type TabControl}">
-						<Grid>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto" />
-								<RowDefinition Height="*" />
-							</Grid.RowDefinitions>
-							<WrapPanel IsItemsHost="True" />
-							<ContentPresenter x:Name="PART_SelectedContentHost"
+                    <TabControl.Template>
+                        <ControlTemplate TargetType="{x:Type TabControl}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <WrapPanel IsItemsHost="True" />
+                                <ContentPresenter x:Name="PART_SelectedContentHost"
 											  Grid.Row="1"
 											  ContentSource="SelectedContent" />
-						</Grid>
-					</ControlTemplate>
-				</TabControl.Template>
-				<TabControl.Resources>
-					<Style TargetType="{x:Type TabItem}">
-						<Setter Property="OverridesDefaultStyle"
+                            </Grid>
+                        </ControlTemplate>
+                    </TabControl.Template>
+                    <TabControl.Resources>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="OverridesDefaultStyle"
 								Value="True" />
-						<Setter Property="Foreground"
+                            <Setter Property="Foreground"
 								Value="{DynamicResource InactiveForegroundBrushKey}" />
-						<Setter Property="Template">
-							<Setter.Value>
-								<ControlTemplate TargetType="{x:Type TabItem}">
-									<Border x:Name="Border"
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Border x:Name="Border"
 											Background="Transparent">
-										<ContentPresenter x:Name="ContentSite"
+                                            <ContentPresenter x:Name="ContentSite"
 														  ContentSource="Header" />
-									</Border>
-									<ControlTemplate.Triggers>
-										<Trigger Property="IsSelected"
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected"
 												 Value="True">
-											<Setter Property="Foreground"
+                                                <Setter Property="Foreground"
 													Value="{DynamicResource ForegroundBrushKey}" />
-										</Trigger>
-										<Trigger SourceName="Border"
+                                            </Trigger>
+                                            <Trigger SourceName="Border"
 												 Property="IsMouseOver"
 												 Value="True">
-											<Setter Property="Foreground"
+                                                <Setter Property="Foreground"
 													Value="{DynamicResource AccentHighlightBrushKey}" />
-										</Trigger>
-									</ControlTemplate.Triggers>
-								</ControlTemplate>
-							</Setter.Value>
-						</Setter>
-					</Style>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
 
-					<Style TargetType="{x:Type ItemsControl}">
-						<Setter Property="Margin"
+                        <Style TargetType="{x:Type ItemsControl}">
+                            <Setter Property="Margin"
 								Value="10,0,10,5" />
-						<Setter Property="ItemTemplate">
-							<Setter.Value>
-								<DataTemplate DataType="{x:Type vmContents:QuestViewModel}">
-									<ToggleButton>
-										<ToggleButton.Template>
-											<ControlTemplate TargetType="{x:Type ToggleButton}">
-												<controls:Quest IsUntaken="{Binding IsUntaken}"
+                            <Setter Property="ItemTemplate">
+                                <Setter.Value>
+                                    <DataTemplate DataType="{x:Type vmContents:QuestViewModel}">
+                                        <ToggleButton>
+                                            <ToggleButton.Template>
+                                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                    <controls:Quest IsUntaken="{Binding IsUntaken}"
 																Title="{Binding Title}"
 																Detail="{Binding Detail}"
 																Category="{Binding Category}"
@@ -135,41 +135,41 @@
 																State="{Binding State}"
 																IsDetailView="{TemplateBinding IsChecked}"
 																Margin="0,0,0,10" />
-											</ControlTemplate>
-										</ToggleButton.Template>
-									</ToggleButton>
-								</DataTemplate>
-							</Setter.Value>
-						</Setter>
-					</Style>
+                                                </ControlTemplate>
+                                            </ToggleButton.Template>
+                                        </ToggleButton>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
 
-					<vContents:QuestViewSource x:Key="DailyQuestSourceKey"
+                        <vContents:QuestViewSource x:Key="DailyQuestSourceKey"
 											   Source="{Binding Quests}"
 											   Type="Daily" />
-					<vContents:QuestViewSource x:Key="WeeklyQuestSourceKey"
+                        <vContents:QuestViewSource x:Key="WeeklyQuestSourceKey"
 											   Source="{Binding Quests}"
 											   Type="Weekly" />
-				</TabControl.Resources>
+                    </TabControl.Resources>
 
-				<TabItem>
-					<TabItem.Header>
-						<TextBlock Text="{Binding Resources.Quests_Daily, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="{Binding Resources.Quests_Daily, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 								   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
 								   Margin="10,0,10,10"
 								   FontSize="14" />
-					</TabItem.Header>
-					<ItemsControl ItemsSource="{Binding Source={StaticResource DailyQuestSourceKey}}" />
-				</TabItem>
+                        </TabItem.Header>
+                        <ItemsControl ItemsSource="{Binding Source={StaticResource DailyQuestSourceKey}}" />
+                    </TabItem>
 
-				<TabItem>
-					<TabItem.Header>
-						<TextBlock Text="{Binding Resources.Quests_Weekly, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+                    <TabItem>
+                        <TabItem.Header>
+                            <TextBlock Text="{Binding Resources.Quests_Weekly, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 								   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
 								   Margin="10,0,10,10"
 								   FontSize="14" />
-					</TabItem.Header>
-					<ItemsControl ItemsSource="{Binding Source={StaticResource WeeklyQuestSourceKey}}" />
-				</TabItem>
+                        </TabItem.Header>
+                        <ItemsControl ItemsSource="{Binding Source={StaticResource WeeklyQuestSourceKey}}" />
+                    </TabItem>
                 </TabControl>
             </Grid>
 
@@ -180,10 +180,10 @@
 					   TextTrimming="None"
 					   TextWrapping="Wrap"
 					   Padding="10" />
-		</Grid>
+        </Grid>
 
         <Grid MaxWidth="{Binding ElementName=QuestContent, Path=ActualWidth}">
-                <TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+            <TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 				       TextWrapping="Wrap"
 				       FontSize="16"
 				       Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"

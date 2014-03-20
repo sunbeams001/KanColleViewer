@@ -14,6 +14,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Tools
 {
 	public class CalculatorViewModel : TabItemViewModel
 	{
+        public override string Icon
+        {
+            get { throw new NotImplementedException(); }
+            protected set { throw new NotImplementedException(); }
+        }
+
 		/// <summary>
 		/// Completely experience table from 1 to 150. Each line = 20 levels
 		/// </summary>

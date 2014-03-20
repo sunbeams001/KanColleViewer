@@ -345,37 +345,37 @@
   <data name="Dockyard" xml:space="preserve">
     <value>Construction</value>
   </data>
-  <data name="Dockyard2" xml:space="preserve">
+  <data name="Dockyard_Icon" xml:space="preserve">
     <value>🔨</value>
   </data>
   <data name="Expedition" xml:space="preserve">
     <value>Expeditions</value>
   </data>
-  <data name="Expedition2" xml:space="preserve">
+  <data name="Expedition_Icon" xml:space="preserve">
     <value>🔦</value>
   </data>
   <data name="Fleets" xml:space="preserve">
     <value>Fleets</value>
   </data>
-  <data name="Fleets2" xml:space="preserve">
+  <data name="Fleets_Icon" xml:space="preserve">
     <value>🚢</value>
   </data>
   <data name="Quests" xml:space="preserve">
     <value>Quests</value>
   </data>
-  <data name="Quests2" xml:space="preserve">
+  <data name="Quests_Icon" xml:space="preserve">
     <value>📖</value>
   </data>
   <data name="Repairyard" xml:space="preserve">
     <value>Repair</value>
   </data>
-  <data name="Repairyard2" xml:space="preserve">
+  <data name="Repairyard_Icon" xml:space="preserve">
     <value>⚓</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Settings2" xml:space="preserve">
+  <data name="Settings_Icon" xml:space="preserve">
     <value>🔧</value>
   </data>
   <data name="Dockyard_Display_Reveal" xml:space="preserve">
@@ -393,7 +393,7 @@
   <data name="IntegratedView" xml:space="preserve">
     <value>Overview</value>
   </data>
-  <data name="IntegratedView2" xml:space="preserve">
+  <data name="IntegratedView_Icon" xml:space="preserve">
     <value>👓</value>
   </data>
   <data name="Dockyard_NotificationMessage" xml:space="preserve">
@@ -563,6 +563,12 @@
   </data>
   <data name="Settings_Accent_CriticalCondition" xml:space="preserve">
     <value>Change window color when a ship is in critical condition</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Tools_Icon" xml:space="preserve">
+    <value>📝</value>
   </data>
   <data name="Tools_Calculator" xml:space="preserve">
     <value>Calculator</value>

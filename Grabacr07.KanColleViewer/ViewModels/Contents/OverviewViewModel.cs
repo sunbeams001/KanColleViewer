@@ -20,7 +20,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
         public override string Icon
         {
-            get { return Resources.IntegratedView2; }
+            get { return Resources.IntegratedView_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 	

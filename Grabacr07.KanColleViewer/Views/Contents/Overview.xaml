@@ -187,14 +187,6 @@
 							<ColumnDefinition />
 						</Grid.ColumnDefinitions>
 
-                    <TextBlock MaxWidth="{Binding Path=ActualWidth, ElementName=OverViewFleetContent}"
-                               Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
-                               HorizontalAlignment="Center"
-                               TextAlignment="Center"
-                               Margin="0,5,0,0" />
-
 						<ItemsControl ItemsSource="{Binding HalfDocks1}"
 									  Grid.Column="0">
 							<ItemsControl.ItemTemplate>
@@ -482,7 +474,7 @@
 							Margin="0,3,0,0"
 							Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-					<TextBlock Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
+                    <TextBlock Text="{Binding Source={x:Static properties:Resources.Quests_Untaken}, Mode=OneWay}"
 							TextWrapping="Wrap"
 							Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 							HorizontalAlignment="Center"
