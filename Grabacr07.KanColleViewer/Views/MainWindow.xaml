@@ -38,7 +38,7 @@
         <Binding ElementName="KancolleBrowser"
                  Path="ActualHeight"
                  Converter="{StaticResource AdjustConverter}"
-                 ConverterParameter="94"
+                 ConverterParameter="98"
                  Mode="OneWay" />
     </metro:MetroWindow.MinHeight>
 
@@ -90,7 +90,7 @@
 							VerticalAlignment="Top"
 							WindowChrome.IsHitTestVisibleInChrome="True">
                     <controls:ZoomFactorSelector ZoomFactor="{Binding Settings.BrowserZoomFactor, Mode=OneWay}"
-												 ToolTip="Adjust game display size"
+												 ToolTip="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.ZoomFactorSelector_Tooltip}"
 												 Margin="4,0" />
                     <metro:CaptionButton IsChecked="{Binding TopMost, Mode=TwoWay}"
 										 ToolTip="{Binding Resources.Settings_Window_TopMost, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
@@ -105,12 +105,12 @@
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
                     <Border ClipToBounds="True" Width="Auto">
-                        <views:BrowserNavigator Margin="6,2,6,8"
+                        <views:BrowserNavigator Margin="6,4,6,8"
 									VerticalAlignment="Top" />
                     </Border>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
-                    <views:Info />
+                    <views:Info Margin="4,5" />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
@@ -180,7 +180,7 @@
     <metro:MetroWindow.TaskbarItemInfo>
         <TaskbarItemInfo x:Name="taskBarItem">
             <TaskbarItemInfo.ThumbnailClipMargin>
-                <MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,72">
+                <MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,78">
                     <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualWidth" Mode="OneWay"/>
                     <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualHeight" Mode="OneWay"/>
                     <Binding ElementName="KancolleBrowser" Path="ActualWidth" Mode="OneWay"/>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Operations Version="1.0.0">
+<Operations Version="1.0.1">
   <Map>
     <JP-Name>鎮守府正面海域</JP-Name>
     <TR-Name>World 1-1</TR-Name>
@@ -306,7 +306,75 @@
     <TR-Name>Reconnaissance Submarine</TR-Name>
   </Sortie>
   <Sortie>
+    <JP-Name>敵潜水艦隊A群</JP-Name>
+    <TR-Name>Submarine Fleet Group A</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵潜水艦隊B群</JP-Name>
+    <TR-Name>Submarine Fleet Group B</TR-Name>
+  </Sortie>
+  <Sortie>
     <JP-Name>敵潜水艦隊C群</JP-Name>
     <TR-Name>Submarine Fleet Group C</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵侵攻打撃艦隊A群</JP-Name>
+    <TR-Name>Invasion Strike Fleet Group A</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵侵攻打撃艦隊B群</JP-Name>
+    <TR-Name>Invasion Strike Fleet Group B</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵通商破壊主力艦隊</JP-Name>
+    <TR-Name>Main Trade Attack Fleet (Boss)</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵ピケット艦隊</JP-Name>
+    <TR-Name>Picket Fleet</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵遊撃部隊</JP-Name>
+    <TR-Name>Guerilla Force</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵遊撃部隊</JP-Name>
+    <TR-Name>Guerilla Force</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵任務艦隊</JP-Name>
+    <TR-Name>Mission Fleet</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵機動部隊主力</JP-Name>
+    <TR-Name>Main Task Force</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵新鋭戦艦部隊</JP-Name>
+    <TR-Name>State-of-the-art Battleship Troops</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵機動部隊支隊A群</JP-Name>
+    <TR-Name>Detached Task Force Group A</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵補給部隊本体</JP-Name>
+    <TR-Name>Main Supply Convoy (Boss)</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵前衛警戒部隊</JP-Name>
+    <TR-Name>Detached Security Vanguard</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵任務部隊前衛</JP-Name>
+    <TR-Name>Vanguard Task Force</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵対潜警戒部隊</JP-Name>
+    <TR-Name>Security Detachment</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵任務部隊本隊</JP-Name>
+    <TR-Name>Main Task Force(Boss)</TR-Name>
   </Sortie>
 </Operations>

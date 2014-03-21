@@ -1,4 +1,4 @@
-KanColleViewer! (提督業も忙しい！)
+﻿KanColleViewer! (提督業も忙しい！)
 --
 **--This is the horizontal branch for those on computers not vertically endowed. Max width must be under 1440px**
 

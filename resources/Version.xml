@@ -2,8 +2,8 @@
 <Versions>
 	<Item>
 		<Name>App</Name>
-		<Version>2.3.0.350</Version>
-		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.3.0r350</URL>
+		<Version>2.3.0.352</Version>
+		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.3.0r352</URL>
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
@@ -12,7 +12,7 @@
 	</Item>
 	<Item>
 		<Name>Operations</Name>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<URL>https://raw.github.com/Zharay/KanColleViewer/master/resources/translations/Operations.xml</URL>
 	</Item>
 	<Item>

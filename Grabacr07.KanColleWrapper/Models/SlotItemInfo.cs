@@ -71,8 +71,8 @@ namespace Grabacr07.KanColleWrapper.Models
 					AddDetail += (AddDetail != "" ? "\n" : "") + " +" + this.RawData.api_baku + " " + KanColleClient.Current.Homeport.Translations.DiveBomb;
 // 				if (this.RawData.api_raik > 0)
 // 					AddDetail += (AddDetail != "" ? "\n" : "") + " +" + this.RawData.api_raik + " api_raik";
-				if (this.RawData.api_raim > 0)
-					AddDetail += (AddDetail != "" ? "\n" : "") + " +" + this.RawData.api_raim + " api_raim";
+//				if (this.RawData.api_raim > 0)
+//					AddDetail += (AddDetail != "" ? "\n" : "") + " +" + this.RawData.api_raim + " api_raim";
 // 				if (this.RawData.api_sakb > 0)
 // 					AddDetail += (AddDetail != "" ? "\n" : "") + " +" + this.RawData.api_sakb + " api_sakb";
 // 				if (this.RawData.api_atap > 0)

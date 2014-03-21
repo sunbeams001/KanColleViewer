@@ -2,6 +2,10 @@
 	KCV Change Log
 ========================
 
+v2.3.0 r352 - 3/18/2014
+	* Removed api_raim. It is either not used or used only for representing graphs.
+	* Added equipment info on the ship list equips.
+
 v2.3.0 r350 - 3/17/2014 M-M-Monster Update
 The following is all new things only available to this fork of KCV (for now).
 	* *NEW* Equipment Info - Mousing over equipment and in the equipment page

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Grabacr07.KanColleViewer.Properties;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
 using Livet;
@@ -29,19 +30,19 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 			get { return string.IsNullOrEmpty(this.source.Name.Trim()) ? "(First " + this.source.Id + " Fleet)" : this.source.Name; }
 		}
 
+		public string TotalLevel
+		{
+			get { return this.source.TotalLevel.ToString("####"); }
+		}
+
 		public string AverageLevel
 		{
 			get { return this.source.AverageLevel.ToString("##.##"); }
 		}
 
-		public string TotalLevel
-		{
-			get { return this.source.TotalLevel.ToString(); }
-		}
-
 		public string Speed
 		{
-			get { return this.source.Speed == KanColleWrapper.Models.Speed.Fast ? Properties.Resources.StatusBar_Speed_Fast : Properties.Resources.StatusBar_Speed_Slow; }
+			get { return this.source.Speed == KanColleWrapper.Models.Speed.Fast ? Resources.Fleets_Speed_Fast : Resources.Fleets_Speed_Slow; }
 		}
 
 		public int AirSuperiorityPotential
@@ -96,6 +97,26 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 				return this.ReSortie;
 			}
 		}
+
+		#region IsSelected 変更通知プロパティ
+
+		private bool _IsSelected;
+
+		public bool IsSelected
+		{
+			get { return this._IsSelected; }
+			set
+			{
+				if (this._IsSelected != value)
+				{
+					this._IsSelected = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 
 		public FleetViewModel(Fleet fleet)
 		{

@@ -61,7 +61,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ※ To be implemented.
+        ///   Looks up a localized string similar to ※近日実装予定.
         /// </summary>
         public static string Common_Implement_Oncoming {
             get {
@@ -70,7 +70,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Notifications.
+        ///   Looks up a localized string similar to 通知しない.
         /// </summary>
         public static string Common_Notifications_Disable {
             get {
@@ -79,7 +79,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to (未実装).
         /// </summary>
         public static string Common_Notifications_NotImplemented {
             get {
@@ -88,7 +88,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notifications.
+        ///   Looks up a localized string similar to 通知設定.
         /// </summary>
         public static string Common_Notifications_Title {
             get {
@@ -97,7 +97,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Windows 8+).
+        ///   Looks up a localized string similar to (Windows 8 以降).
         /// </summary>
         public static string Common_Notifications_Windows8 {
             get {
@@ -106,7 +106,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipgirl.
+        ///   Looks up a localized string similar to 艦娘.
         /// </summary>
         public static string Common_ShipGirl {
             get {
@@ -124,7 +124,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This is a test notification..
+        ///   Looks up a localized string similar to これはテスト通知です。.
         /// </summary>
         public static string Debug_NotificationMessage {
             get {
@@ -133,7 +133,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test.
+        ///   Looks up a localized string similar to テスト.
         /// </summary>
         public static string Debug_NotificationMessage_Title {
             get {
@@ -142,7 +142,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Construction.
+        ///   Looks up a localized string similar to 建造ドック.
         /// </summary>
         public static string Dockyard {
             get {
@@ -151,7 +151,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Complete!.
+        ///   Looks up a localized string similar to 完成！.
         /// </summary>
         public static string Dockyard_Complete {
             get {
@@ -160,7 +160,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reveal Ship Names.
+        ///   Looks up a localized string similar to 建造中の艦名をネタバレする.
         /// </summary>
         public static string Dockyard_Display_Reveal {
             get {
@@ -169,7 +169,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display Settings.
+        ///   Looks up a localized string similar to 表示設定.
         /// </summary>
         public static string Dockyard_Display_Title {
             get {
@@ -187,7 +187,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locked.
+        ///   Looks up a localized string similar to ロックされています.
         /// </summary>
         public static string Dockyard_Locked {
             get {
@@ -196,7 +196,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Construction of {1} in Dock {0} has been completed..
+        ///   Looks up a localized string similar to 工廠第 {0} ドックでの{1}の建造が完了しました。.
         /// </summary>
         public static string Dockyard_NotificationMessage {
             get {
@@ -205,7 +205,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Construction Completed.
+        ///   Looks up a localized string similar to 建造完了.
         /// </summary>
         public static string Dockyard_NotificationMessage_Title {
             get {
@@ -214,7 +214,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notify Upon Completion.
+        ///   Looks up a localized string similar to 建造完了時に通知を表示する.
         /// </summary>
         public static string Dockyard_Notifications_Enable {
             get {
@@ -223,7 +223,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Individual Dock Settings.
+        ///   Looks up a localized string similar to ドックごとに個別に設定する.
         /// </summary>
         public static string Dockyard_Notifications_Individual {
             get {
@@ -232,7 +232,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ship In Progress.
+        ///   Looks up a localized string similar to 建造中の艦.
         /// </summary>
         public static string Dockyard_ShipName {
             get {
@@ -241,7 +241,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Completion.
+        ///   Looks up a localized string similar to 完成時刻.
         /// </summary>
         public static string Dockyard_TimeComplete {
             get {
@@ -250,7 +250,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remaining.
+        ///   Looks up a localized string similar to 建造完了まで.
         /// </summary>
         public static string Dockyard_TimeRemaining {
             get {
@@ -259,7 +259,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Empty.
+        ///   Looks up a localized string similar to 未使用.
         /// </summary>
         public static string Dockyard_Unused {
             get {
@@ -268,7 +268,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expeditions.
+        ///   Looks up a localized string similar to 遠征.
         /// </summary>
         public static string Expedition {
             get {
@@ -286,7 +286,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not on an Expedition..
+        ///   Looks up a localized string similar to 遠征に出ていません。.
         /// </summary>
         public static string Expedition_NoExpedition {
             get {
@@ -295,7 +295,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 「{0}」 has returned from an expedition..
+        ///   Looks up a localized string similar to 「{0}」が遠征から帰投しました。.
         /// </summary>
         public static string Expedition_NotificationMessage {
             get {
@@ -304,7 +304,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expedition Completed.
+        ///   Looks up a localized string similar to 遠征完了.
         /// </summary>
         public static string Expedition_NotificationMessage_Title {
             get {
@@ -313,7 +313,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notify Upon Completion.
+        ///   Looks up a localized string similar to 遠征帰投時に通知を表示する.
         /// </summary>
         public static string Expedition_Notifications_Enable {
             get {
@@ -349,11 +349,29 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fleets.
+        ///   Looks up a localized string similar to 艦隊.
         /// </summary>
         public static string Fleets {
             get {
                 return ResourceManager.GetString("Fleets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 制空戦力.
+        /// </summary>
+        public static string Fleets_AirSuperiorityPotential {
+            get {
+                return ResourceManager.GetString("Fleets_AirSuperiorityPotential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 平均.
+        /// </summary>
+        public static string Fleets_Average {
+            get {
+                return ResourceManager.GetString("Fleets_Average", resourceCulture);
             }
         }
         
@@ -367,7 +385,43 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fleet HQ.
+        ///   Looks up a localized string similar to レベル.
+        /// </summary>
+        public static string Fleets_Level {
+            get {
+                return ResourceManager.GetString("Fleets_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 高速艦隊.
+        /// </summary>
+        public static string Fleets_Speed_Fast {
+            get {
+                return ResourceManager.GetString("Fleets_Speed_Fast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 低速艦隊.
+        /// </summary>
+        public static string Fleets_Speed_Slow {
+            get {
+                return ResourceManager.GetString("Fleets_Speed_Slow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 合計.
+        /// </summary>
+        public static string Fleets_Total {
+            get {
+                return ResourceManager.GetString("Fleets_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 司令部.
         /// </summary>
         public static string Homeport_FleetHQ {
             get {
@@ -376,7 +430,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instant Build:  .
+        ///   Looks up a localized string similar to 高速建造材:.
         /// </summary>
         public static string Homeport_InstantBuild {
             get {
@@ -385,7 +439,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instant Repair:.
+        ///   Looks up a localized string similar to 高速修復材:.
         /// </summary>
         public static string Homeport_InstantRepair {
             get {
@@ -394,7 +448,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equipment:.
+        ///   Looks up a localized string similar to 保有装備:.
         /// </summary>
         public static string Homeport_NoOfEquipment {
             get {
@@ -403,7 +457,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ship Girls:  .
+        ///   Looks up a localized string similar to 所属艦娘:.
         /// </summary>
         public static string Homeport_NoOfShips {
             get {
@@ -412,7 +466,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Overview.
+        ///   Looks up a localized string similar to 総合.
         /// </summary>
         public static string IntegratedView {
             get {
@@ -430,7 +484,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This fleet is on an expedition..
+        ///   Looks up a localized string similar to この艦隊は遠征中です。.
         /// </summary>
         public static string MessageBar_Expedition {
             get {
@@ -439,7 +493,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Completion Time:.
+        ///   Looks up a localized string similar to  完了時刻:.
         /// </summary>
         public static string MessageBar_Expedition_TimeCompletion {
             get {
@@ -448,7 +502,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Remaining Time:.
+        ///   Looks up a localized string similar to  帰投まで:.
         /// </summary>
         public static string MessageBar_Expedition_TimeRemaining {
             get {
@@ -457,7 +511,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are ships in your fleet currently docked for repairs. Completion Time: {0:MM/dd HH\:mm}  Remaining Time: {1}:{2:mm\:ss}.
+        ///   Looks up a localized string similar to 艦隊に入渠中の艦娘がいます。 完了時刻: {0:MM/dd HH\:mm} 完了まで: {1}:{2:mm\:ss}.
         /// </summary>
         public static string MessageBar_Repairing {
             get {
@@ -466,7 +520,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are ships in your fleet currently docked for repairs..
+        ///   Looks up a localized string similar to 艦隊に入渠中の艦娘がいます。.
         /// </summary>
         public static string MessageBar_Repairing_Null {
             get {
@@ -475,7 +529,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to are fatigued.
+        ///   Looks up a localized string similar to 疲労中の艦娘.
         /// </summary>
         public static string MessageBar_ReSortie_BadCondition {
             get {
@@ -484,7 +538,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are ships in your fleet that {0}..
+        ///   Looks up a localized string similar to 艦隊に{0}がいます。.
         /// </summary>
         public static string MessageBar_ReSortie_CanNotReSortie {
             get {
@@ -493,7 +547,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ready to sortie!.
+        ///   Looks up a localized string similar to 出撃可能！.
         /// </summary>
         public static string MessageBar_ReSortie_CanReSortie {
             get {
@@ -502,7 +556,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to need resupplying.
+        ///   Looks up a localized string similar to 未補給の艦娘.
         /// </summary>
         public static string MessageBar_ReSortie_LackForResources {
             get {
@@ -511,7 +565,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time until ready again: .
+        ///   Looks up a localized string similar to 再出撃までの目安: .
         /// </summary>
         public static string MessageBar_ReSortie_Remaining {
             get {
@@ -520,7 +574,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to , .
+        ///   Looks up a localized string similar to ・.
         /// </summary>
         public static string MessageBar_ReSortie_Separator {
             get {
@@ -529,7 +583,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to are heavily damaged.
+        ///   Looks up a localized string similar to 中破以上の艦娘.
         /// </summary>
         public static string MessageBar_ReSortie_Wounded {
             get {
@@ -538,7 +592,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please visit all of the quest pages..
+        ///   Looks up a localized string similar to 任務画面の全ページにアクセスしてください。.
         /// </summary>
         public static string Quest_Detail_Untaken {
             get {
@@ -547,7 +601,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  50% .
+        ///   Looks up a localized string similar to  50 % .
         /// </summary>
         public static string Quest_Progress_50 {
             get {
@@ -556,7 +610,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  80% .
+        ///   Looks up a localized string similar to  80 % .
         /// </summary>
         public static string Quest_Progress_80 {
             get {
@@ -565,7 +619,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Complete .
+        ///   Looks up a localized string similar to  完了 .
         /// </summary>
         public static string Quest_State_Accomplished {
             get {
@@ -574,7 +628,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Unknown quest).
+        ///   Looks up a localized string similar to (未取得の任務).
         /// </summary>
         public static string Quest_Title_Untaken {
             get {
@@ -583,7 +637,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quests.
+        ///   Looks up a localized string similar to 任務.
         /// </summary>
         public static string Quests {
             get {
@@ -592,7 +646,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active Quests.
+        ///   Looks up a localized string similar to 現在遂行中の任務.
         /// </summary>
         public static string Quests_CurrentQuestList {
             get {
@@ -601,7 +655,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Daily Quests.
+        ///   Looks up a localized string similar to デイリー任務.
         /// </summary>
         public static string Quests_Daily {
             get {
@@ -619,7 +673,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ※ The indicators (50%, 80%) mirror in-game indicators. Enemy fleet kills, successful expeditions, etc are not actively counted..
+        ///   Looks up a localized string similar to ※進捗状況 (50 %, 80 %) はゲーム内の表示と同じです。敵艦隊の撃破数や遠征の成功回数のカウント等は行っていません。.
         /// </summary>
         public static string Quests_Notice {
             get {
@@ -628,7 +682,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please open the in-game Quests menu to populate the Quest list..
+        ///   Looks up a localized string similar to ゲーム内で [任務 (クエスト)] 画面を開いて、任務一覧を取得してください。.
         /// </summary>
         public static string Quests_Untaken {
             get {
@@ -637,7 +691,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weekly Quests.
+        ///   Looks up a localized string similar to ウィークリー任務.
         /// </summary>
         public static string Quests_Weekly {
             get {
@@ -646,7 +700,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Repair.
+        ///   Looks up a localized string similar to 入渠ドック.
         /// </summary>
         public static string Repairyard {
             get {
@@ -673,7 +727,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Repairs on {1} in Dock {0} have been completed..
+        ///   Looks up a localized string similar to 入渠第 {0} ドックでの「{1}」の整備が完了しました。.
         /// </summary>
         public static string Repairyard_NotificationMessage {
             get {
@@ -682,7 +736,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Repairs Completed.
+        ///   Looks up a localized string similar to 整備完了.
         /// </summary>
         public static string Repairyard_NotificationMessage_Title {
             get {
@@ -691,7 +745,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notify Upon Completion.
+        ///   Looks up a localized string similar to 整備完了時に通知を表示する.
         /// </summary>
         public static string Repairyard_Notifications_Enable {
             get {
@@ -700,7 +754,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Individual Dock Settings.
+        ///   Looks up a localized string similar to ドックごとに個別に設定する.
         /// </summary>
         public static string Repairyard_Notifications_Individual {
             get {
@@ -709,7 +763,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Docked Ship.
+        ///   Looks up a localized string similar to 入渠中の艦.
         /// </summary>
         public static string Repairyard_ShipName {
             get {
@@ -736,7 +790,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Empty.
+        ///   Looks up a localized string similar to 未使用.
         /// </summary>
         public static string Reparyard_Unused {
             get {
@@ -763,7 +817,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All ships in 「{0}」 have fully recovered from fatigue..
+        ///   Looks up a localized string similar to 「{0}」の全艦娘の疲労が回復しました。.
         /// </summary>
         public static string ReSortie_NotificationMessage {
             get {
@@ -772,7 +826,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fatigue Recovery Completed.
+        ///   Looks up a localized string similar to 疲労回復完了.
         /// </summary>
         public static string ReSortie_NotificationMessage_Title {
             get {
@@ -781,7 +835,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Screenshot save failed: .
+        ///   Looks up a localized string similar to スクリーンショットの保存に失敗しました: .
         /// </summary>
         public static string Screenshot_Failed {
             get {
@@ -790,7 +844,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Screenshot saved: .
+        ///   Looks up a localized string similar to スクリーンショットを保存しました: .
         /// </summary>
         public static string Screenshot_Saved {
             get {
@@ -799,7 +853,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
+        ///   Looks up a localized string similar to 設定.
         /// </summary>
         public static string Settings {
             get {
@@ -817,7 +871,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browser.
+        ///   Looks up a localized string similar to ブラウザー操作.
         /// </summary>
         public static string Settings_BrowserControl {
             get {
@@ -826,7 +880,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset zoom to 100%.
+        ///   Looks up a localized string similar to ズーム倍率を 100 % に戻す.
         /// </summary>
         public static string Settings_BrowserControl_ClearZoomFactorButton {
             get {
@@ -835,7 +889,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Display).
+        ///   Looks up a localized string similar to (表示).
         /// </summary>
         public static string Settings_BrowserControl_Display {
             get {
@@ -844,7 +898,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ※ This will leave the game, so use with caution.
+        ///   Looks up a localized string similar to ※ゲームのページから移動します。ご注意ください.
         /// </summary>
         public static string Settings_BrowserControl_Notice {
             get {
@@ -853,7 +907,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display Settings.
+        ///   Looks up a localized string similar to 表示設定.
         /// </summary>
         public static string Settings_Display {
             get {
@@ -880,7 +934,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language.
+        ///   Looks up a localized string similar to 言語.
         /// </summary>
         public static string Settings_Language {
             get {
@@ -907,7 +961,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Network.
+        ///   Looks up a localized string similar to 通信設定.
         /// </summary>
         public static string Settings_Network {
             get {
@@ -925,7 +979,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Behaviour.
+        ///   Looks up a localized string similar to 動作設定.
         /// </summary>
         public static string Settings_Operation {
             get {
@@ -934,7 +988,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Other.
+        ///   Looks up a localized string similar to その他.
         /// </summary>
         public static string Settings_Other {
             get {
@@ -943,7 +997,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Proxy Settings.
+        ///   Looks up a localized string similar to プロキシ設定.
         /// </summary>
         public static string Settings_Proxy {
             get {
@@ -952,7 +1006,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a proxy to connect the server.
+        ///   Looks up a localized string similar to 通信にプロキシ サーバーを使用する.
         /// </summary>
         public static string Settings_Proxy_Enable {
             get {
@@ -961,7 +1015,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use the proxy for SSL connections.
+        ///   Looks up a localized string similar to SSL 接続時もプロキシサーバーを使用する.
         /// </summary>
         public static string Settings_Proxy_Enable_4_SSL {
             get {
@@ -970,7 +1024,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Host.
+        ///   Looks up a localized string similar to サーバー.
         /// </summary>
         public static string Settings_Proxy_Host {
             get {
@@ -979,7 +1033,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Port.
+        ///   Looks up a localized string similar to ポート.
         /// </summary>
         public static string Settings_Proxy_Port {
             get {
@@ -988,7 +1042,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Screenshot Settings.
+        ///   Looks up a localized string similar to スクリーンショット.
         /// </summary>
         public static string Settings_Screenshot {
             get {
@@ -997,7 +1051,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browse.
+        ///   Looks up a localized string similar to 選択.
         /// </summary>
         public static string Settings_Screenshot_FolderSelectionDialog_OpenButton {
             get {
@@ -1006,7 +1060,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select a location to save screenshots.
+        ///   Looks up a localized string similar to スクリーンショットの保存先を指定.
         /// </summary>
         public static string Settings_Screenshot_FolderSelectionDialog_Title {
             get {
@@ -1015,7 +1069,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Destination.
+        ///   Looks up a localized string similar to 保存先.
         /// </summary>
         public static string Settings_Screenshot_FolderTextBox_Label {
             get {
@@ -1024,7 +1078,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Destination Folder Path.
+        ///   Looks up a localized string similar to 保存先フォルダーのパス.
         /// </summary>
         public static string Settings_Screenshot_FolderTextBox_Prompt {
             get {
@@ -1033,7 +1087,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Image Format.
+        ///   Looks up a localized string similar to 画像形式.
         /// </summary>
         public static string Settings_Screenshot_ImageFormat_Label {
             get {
@@ -1042,7 +1096,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open Folder.
+        ///   Looks up a localized string similar to フォルダーを開く.
         /// </summary>
         public static string Settings_Screenshot_OpenFolderButton {
             get {
@@ -1159,7 +1213,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version Info.
+        ///   Looks up a localized string similar to バージョン情報.
         /// </summary>
         public static string Settings_VersionInfo {
             get {
@@ -1168,7 +1222,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Window.
+        ///   Looks up a localized string similar to ウィンドウ設定.
         /// </summary>
         public static string Settings_Window {
             get {
@@ -1177,7 +1231,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keep window on top.
+        ///   Looks up a localized string similar to ウィンドウを常に最前面に表示する.
         /// </summary>
         public static string Settings_Window_TopMost {
             get {
@@ -1186,7 +1240,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Window Controls.
+        ///   Looks up a localized string similar to ウィンドウ操作.
         /// </summary>
         public static string Settings_WindowControl {
             get {
@@ -1195,7 +1249,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dock window to left of screen..
+        ///   Looks up a localized string similar to ウィンドウをモニターの左端に寄せる.
         /// </summary>
         public static string Settings_WindowControl_LocationLeftButton {
             get {
@@ -1204,7 +1258,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For use with 8 inch tablets (800x1280).
+        ///   Looks up a localized string similar to 8 インチタブレット (800 x 1280) 用.
         /// </summary>
         public static string Settings_WindowControl_LocationLeftButton_Sub {
             get {
@@ -1222,7 +1276,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Clear cache.
+        ///   Looks up a localized string similar to キャッシュの削除.
         /// </summary>
         public static string StartContent_ClearCacheButton {
             get {
@@ -1231,11 +1285,20 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browser cache cleared.
+        ///   Looks up a localized string similar to キャッシュを削除しました.
         /// </summary>
         public static string StartContent_ClearCacheButtonMessage {
             get {
                 return ResourceManager.GetString("StartContent_ClearCacheButtonMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 「提督業も忙しい！」は、艦これを遊びやすくするためのツールです。.
+        /// </summary>
+        public static string StartContent_Introduction1 {
+            get {
+                return ResourceManager.GetString("StartContent_Introduction1", resourceCulture);
             }
         }
         
@@ -1263,6 +1326,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string StartContent_SetRegionCookieToolTip {
             get {
                 return ResourceManager.GetString("StartContent_SetRegionCookieToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ようこそ.
+        /// </summary>
+        public static string StartContent_Welcom {
+            get {
+                return ResourceManager.GetString("StartContent_Welcom", resourceCulture);
             }
         }
         
@@ -1384,25 +1456,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Air Superiority Potential:.
-        /// </summary>
-        public static string StatusBar_AirSuperiorityPotential {
-            get {
-                return ResourceManager.GetString("StatusBar_AirSuperiorityPotential", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Average Level:.
-        /// </summary>
-        public static string StatusBar_AverageLevel {
-            get {
-                return ResourceManager.GetString("StatusBar_AverageLevel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Waiting for KanColle to start.
+        ///   Looks up a localized string similar to 艦これの起動を待っています.
         /// </summary>
         public static string StatusBar_NotStarted {
             get {
@@ -1411,38 +1465,11 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ready.
+        ///   Looks up a localized string similar to 準備完了.
         /// </summary>
         public static string StatusBar_Ready {
             get {
                 return ResourceManager.GetString("StatusBar_Ready", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fast Fleet.
-        /// </summary>
-        public static string StatusBar_Speed_Fast {
-            get {
-                return ResourceManager.GetString("StatusBar_Speed_Fast", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Slow Fleet.
-        /// </summary>
-        public static string StatusBar_Speed_Slow {
-            get {
-                return ResourceManager.GetString("StatusBar_Speed_Slow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Level (Average):.
-        /// </summary>
-        public static string StatusBar_TotalAverageLevel {
-            get {
-                return ResourceManager.GetString("StatusBar_TotalAverageLevel", resourceCulture);
             }
         }
         
@@ -1699,7 +1726,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}% zoom is not supported..
+        ///   Looks up a localized string similar to ズーム {0} % はサポートされていません。.
         /// </summary>
         public static string ZoomAction_OutOfRange {
             get {
@@ -1708,11 +1735,29 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zoom Failed: {0}.
+        ///   Looks up a localized string similar to ズームに失敗しました: {0}.
         /// </summary>
         public static string ZoomAction_ZoomFailed {
             get {
                 return ResourceManager.GetString("ZoomAction_ZoomFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ゲーム画面の表示サイズ.
+        /// </summary>
+        public static string ZoomFactorSelector {
+            get {
+                return ResourceManager.GetString("ZoomFactorSelector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ゲーム画面の表示サイズを調整.
+        /// </summary>
+        public static string ZoomFactorSelector_Tooltip {
+            get {
+                return ResourceManager.GetString("ZoomFactorSelector_Tooltip", resourceCulture);
             }
         }
     }

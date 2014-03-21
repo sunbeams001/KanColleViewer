@@ -377,11 +377,11 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Tools
 
 		private void UpdateCore()
 		{
-			var list = this.homeport.Ships
-				.Where(x => x.Value.Level != 1)
-				.Select(x => new ShipViewModel(x.Value));
+			var list = this.homeport.Ships.Values
+				.Where(x => x.Level != 1);
 
-			this.Ships = this.SortWorker.Sort(list).ToList();
+			this.Ships = this.SortWorker.Sort(list)
+				.Select(x => new ShipViewModel(x)).ToList();
 		}
 
 		/// <summary>

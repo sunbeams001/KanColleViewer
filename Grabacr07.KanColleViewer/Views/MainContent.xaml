@@ -5,6 +5,7 @@
 			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
 			 xmlns:livet="http://schemas.livet-mvvm.net/2011/wpf"
 			 xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
 			 xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro"
@@ -81,20 +82,20 @@
                 <ScrollViewer Grid.Row="1"
 						  VerticalScrollBarVisibility="Auto"
 						  VerticalAlignment="Top"
-						  Padding="4,10">
+						  Padding="4,5,4,0">
                     <ContentControl DataContext="{Binding SelectedItem}"
-								Content="{Binding}"
-								MinHeight="{Binding ElementName=KancolleBrowser,
-                                                    Converter={StaticResource AdjustConverter},
-                                                    ConverterParameter=-63,
-                                                    Path=Height,
-                                                    Mode=OneWay}">
+                                    Content="{Binding}"
+                                    MinHeight="{Binding ElementName=KancolleBrowser,
+                                                        Converter={StaticResource AdjustConverter},
+                                                        ConverterParameter=-63,
+                                                        Path=Height,
+                                                        Mode=OneWay}">
                         <ContentControl.Resources>
                             <DataTemplate DataType="{x:Type vmContents:OverviewViewModel}">
                                 <contents:Overview />
                             </DataTemplate>
                             <DataTemplate DataType="{x:Type vmFleets:FleetsViewModel}">
-                                <views:Fleets />
+                                <contents:Fleets />
                             </DataTemplate>
                             <DataTemplate DataType="{x:Type vmDocks:RepairyardViewModel}">
                                 <contents:Repairyard />

@@ -50,7 +50,7 @@ namespace Grabacr07.KanColleWrapper
         {
             using (WebClient Client = new WebClient())
             {
-                string CurrentCulture = (Culture == "en-US" && Culture == "ja-JP") ? "" : Culture;
+                string CurrentCulture = (Culture == "en-US" || Culture == "ja-JP" || Culture == "en") ? "" : Culture;
                 string CurrentCultureDir = (CurrentCulture != "" ? CurrentCulture + "\\" : "");
                 XDocument TestXML;
                 int ReturnValue = 0;

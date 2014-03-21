@@ -58,6 +58,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		/// <summary>
 		/// 艦隊に所属している艦娘 (空いている枠は null) の配列を取得します。
+		/// null を含まない、所属している艦娘のみのコレクションを取得する場合は、<seealso cref="Extensions.GetShips(Fleet)"/> メソッドを使用してください。
 		/// </summary>
 		public Ship[] Ships
 		{
@@ -86,7 +87,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this._AverageLevel; }
 			private set
 			{
-				if (this._AverageLevel != value)
+				if (!this._AverageLevel.Equals(value))
 				{
 					this._AverageLevel = value;
 					this.RaisePropertyChanged();
@@ -196,8 +197,8 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.Id = rawData.api_id;
 			this.Name = rawData.api_name;
 			this.Ships = rawData.api_ship.Select(id => this.homeport.Ships[id]).Where(x => x != null).ToArray();
-			this.AverageLevel = this.Ships.HasValue() ? this.Ships.Average(s => s.Level) : 0.0;
-			this.TotalLevel = this.Ships.HasValue() ? this.Ships.Sum(s => s.Level) : 0;
+			this.TotalLevel = this.Ships.HasItems() ? this.Ships.Sum(x => x.Level) : 0;
+			this.AverageLevel = this.Ships.HasItems() ? (double)this.TotalLevel / this.Ships.Length : 0.0;
 			this.AirSuperiorityPotential = this.Ships.Sum(s => s.CalcAirSuperiorityPotential());
 			this.Speed = this.Ships.All(s => s.Info.Speed == Speed.Fast) ? Speed.Fast : Speed.Low;
 			this.ReSortie.Update(this.Ships);

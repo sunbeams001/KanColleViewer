@@ -144,23 +144,14 @@ namespace Grabacr07.KanColleWrapper
                 if (File.Exists("Translations\\Operations.xml")) OperationsXML = XDocument.Load("Translations\\Operations.xml");
                 if (File.Exists("Translations\\Quests.xml")) QuestsXML = XDocument.Load("Translations\\Quests.xml");
 
-                if (ShipsXML != null)
-                    ShipsVersion = ShipsXML.Root.Attribute("Version").Value;
-                if (ShipTypesXML != null)
-                    ShipTypesVersion = ShipTypesXML.Root.Attribute("Version").Value;
-                if (EquipmentXML != null)
-                    EquipmentVersion = EquipmentXML.Root.Attribute("Version").Value;
-                if (OperationsXML != null)
-                    OperationsVersion = OperationsXML.Root.Attribute("Version").Value;
-                if (QuestsXML != null)
-                    QuestsVersion = QuestsXML.Root.Attribute("Version").Value;
+                GetVersions();
             }
             catch { }
         }
 
         public void ChangeCulture(string Culture)
         {
-            CurrentCulture = Culture == "en-US" ? "" : (Culture + "\\");
+            CurrentCulture = Culture == "en-US" || Culture == "en" ? "" : (Culture + "\\");
 
             ShipsXML = null;
             ShipTypesXML = null;
@@ -181,18 +172,33 @@ namespace Grabacr07.KanColleWrapper
                 if (File.Exists("Translations\\" + CurrentCulture + "Operations.xml")) OperationsXML = XDocument.Load("Translations\\" + CurrentCulture + "Operations.xml");
                 if (File.Exists("Translations\\" + CurrentCulture + "Quests.xml")) QuestsXML = XDocument.Load("Translations\\" + CurrentCulture + "Quests.xml");
 
-                if (ShipsXML != null)
-                    ShipsVersion = ShipsXML.Root.Attribute("Version").Value;
-                if (ShipTypesXML != null)
-                    ShipTypesVersion = ShipTypesXML.Root.Attribute("Version").Value;
-                if (EquipmentXML != null)
-                    EquipmentVersion = EquipmentXML.Root.Attribute("Version").Value;
-                if (OperationsXML != null)
-                    OperationsVersion = OperationsXML.Root.Attribute("Version").Value;
-                if (QuestsXML != null)
-                    QuestsVersion = QuestsXML.Root.Attribute("Version").Value;
+                GetVersions();
             }
             catch { }
+        }
+
+        private void GetVersions()
+        {
+            if (ShipsXML != null)
+                ShipsVersion = ShipsXML.Root.Attribute("Version").Value;
+            else
+                ShipsVersion = "0.0.0";
+            if (ShipTypesXML != null)
+                ShipTypesVersion = ShipTypesXML.Root.Attribute("Version").Value;
+            else
+                ShipTypesVersion = "0.0.0";
+            if (EquipmentXML != null)
+                EquipmentVersion = EquipmentXML.Root.Attribute("Version").Value;
+            else
+                EquipmentVersion = "0.0.0";
+            if (OperationsXML != null)
+                OperationsVersion = OperationsXML.Root.Attribute("Version").Value;
+            else
+                OperationsVersion = "0.0.0";
+            if (QuestsXML != null)
+                QuestsVersion = QuestsXML.Root.Attribute("Version").Value;
+            else
+                QuestsVersion = "0.0.0";
         }
 
         private IEnumerable<XElement> GetTranslationList(TranslationType Type)
@@ -280,6 +286,8 @@ namespace Grabacr07.KanColleWrapper
                         {
                             ShipsXML = new XDocument();
                             ShipsXML.Add(new XElement("Ships"));
+                            ShipsXML.Root.SetAttributeValue("Version", "0.0.0");
+                            ShipsVersion = "0.0.0";
                         }
 
                         kcsapi_master_ship ShipData = RawData as kcsapi_master_ship;
@@ -300,6 +308,8 @@ namespace Grabacr07.KanColleWrapper
                         {
                             ShipTypesXML = new XDocument();
                             ShipTypesXML.Add(new XElement("ShipTypes"));
+                            ShipTypesXML.Root.SetAttributeValue("Version", "0.0.0");
+                            ShipTypesVersion = "0.0.0";
                         }
 
                         kcsapi_stype TypeData = RawData as kcsapi_stype;
@@ -320,6 +330,8 @@ namespace Grabacr07.KanColleWrapper
                         {
                             EquipmentXML = new XDocument();
                             EquipmentXML.Add(new XElement("Equipment"));
+                            EquipmentXML.Root.SetAttributeValue("Version", "0.0.0");
+                            EquipmentVersion = "0.0.0";
                         }
 
                         kcsapi_master_slotitem EqiupData = RawData as kcsapi_master_slotitem;
@@ -341,6 +353,8 @@ namespace Grabacr07.KanColleWrapper
                         {
                             OperationsXML = new XDocument();
                             OperationsXML.Add(new XElement("Operations"));
+                            OperationsXML.Root.SetAttributeValue("Version", "0.0.0");
+                            OperationsVersion = "0.0.0";
                         }
 
                         kcsapi_battleresult OperationsData = RawData as kcsapi_battleresult;
@@ -373,6 +387,8 @@ namespace Grabacr07.KanColleWrapper
                         {
                             QuestsXML = new XDocument();
                             QuestsXML.Add(new XElement("Quests"));
+                            QuestsXML.Root.SetAttributeValue("Version", "0.0.0");
+                            QuestsVersion = "0.0.0";
                         }
 
                         kcsapi_quest QuestData = RawData as kcsapi_quest;
