@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ShipTypes Version="1.0.1">
   <Type>
+<<<<<<< HEAD
+    <JP-Name>水上機母艦</JP-Name>
+    <TR-Name>AV</TR-Name>
+=======
     <ID>1</ID>
     <JP-Name>海防艦</JP-Name>
     <TR-Name>DE</TR-Name>
+>>>>>>> cea091f38aec302768437ddeeb90a8285f564725
   </Type>
   <Type>
     <ID>2</ID>

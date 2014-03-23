@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -236,7 +237,7 @@ namespace Grabacr07.KanColleWrapper
             return null;
         }
 
-        public string GetTranslation(string JPString, TranslationType Type, Object RawData)
+        public string GetTranslation(string JPString, TranslationType Type, Object RawData, int ID = -1)
         {
             if (!EnableTranslations || CurrentCulture == "ja-JP")
                 return JPString;
@@ -263,7 +264,20 @@ namespace Grabacr07.KanColleWrapper
                 IEnumerable<XElement> FoundTranslation = TranslationList.Where(b => b.Element(JPChildElement).Value.Equals(JPString));
 
                 foreach (XElement el in FoundTranslation)
-                    return el.Element(TRChildElement).Value;
+                {
+#if DEBUG
+                    if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+                        Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
+#endif
+                    if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+                        return el.Element(TRChildElement).Value;
+                    else if (ID < 0)
+                        return el.Element(TRChildElement).Value;
+
+                }
+#if DEBUG
+                Debug.WriteLine(string.Format("Can't find Translation: {0,-20} {1}", JPString, ID));
+#endif
             }
             catch { }
 
@@ -318,6 +332,7 @@ namespace Grabacr07.KanColleWrapper
                             return;
 
                         ShipTypesXML.Root.Add(new XElement("Type",
+                            new XElement("ID", TypeData.api_id),
                             new XElement("JP-Name", TypeData.api_name),
                             new XElement("TR-Name", TypeData.api_name)
                             ));

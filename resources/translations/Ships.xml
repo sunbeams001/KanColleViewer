@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Ships Version="1.0.0">
+<Ships Version="1.0.1">
   <Ship>
     <JP-Name>長門</JP-Name>
     <TR-Name>Nagato</TR-Name>
@@ -1098,6 +1098,14 @@
   </Ship>
   <Ship>
     <JP-Name>ビスマルク改</JP-Name>
+    <TR-Name>Bismarck Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>Bismarck</JP-Name>
+    <TR-Name>Bismarck</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>Bismarck改</JP-Name>
     <TR-Name>Bismarck Kai</TR-Name>
   </Ship>
   <Ship>

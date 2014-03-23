@@ -2,6 +2,12 @@
 	KCV Change Log
 ========================
 
+v2.4.0 r370 - 3/21/2014 [BATTLECRUISER OPERATIONAL]
+	* Fast battleship types have been given a new hull type - CC. This stands for
+		Battlecruiser (a fast battleship with lighter armor).
+	* Ship types have been fixed up (AVs and CVs have been separated)
+	* Ship List filter buttons have had some ship types added to fill in the gaps.
+
 v2.4.0 r364 - 3/20/2014
 Merge from the original KCV (Grabacr07):
 	* Overview page now allows the user to switch between fleets and see their status.

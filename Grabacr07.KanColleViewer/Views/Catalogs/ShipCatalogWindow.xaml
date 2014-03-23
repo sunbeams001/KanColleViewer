@@ -163,8 +163,9 @@
 								<!-- これっきりボタン -->
 								<metro2:CallMethodButton Content="Destroyers">
 									<metro2:CallMethodButton.MethodParameter>
-										<x:Array Type="s:Int32">
-											<s:Int32>2</s:Int32>
+                                        <x:Array Type="s:Int32">
+                                            <s:Int32>1</s:Int32>
+                                            <s:Int32>2</s:Int32>
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>
@@ -216,6 +217,7 @@
 										<x:Array Type="s:Int32">
 											<s:Int32>6</s:Int32>
 											<s:Int32>10</s:Int32>
+											<s:Int32>16</s:Int32>
 										</x:Array>
 									</metro2:CallMethodButton.MethodParameter>
 								</metro2:CallMethodButton>

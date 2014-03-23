@@ -25,7 +25,7 @@ All builds can be found in the following links below.
 Before or after logging in, press the "Set Regional Cookie" button. This will change your status from being an IP from outside Japan to being a Japanese native one. It doesn't change your IP or do anything else except change a flag value on your visitor cookie.
 
 #### Is this cookie safe?
-By all means it is. But it does mean that it makes playing Kancolle a ton more easier for regions that DMM does not support. From their twitter responses, they are alright with foreigners playing the game, but they will not provide any support for those outside of Japan. Until they change this rather open method of delegating foreigners from non-foreigners, this is probably the easiest way to play (and possible register for) the game itself.
+By all means it is. But it does mean that it makes playing Kancolle a ton easier for regions that DMM does not support. From their twitter responses, they are alright with foreigners playing the game, but they will not provide any support for those outside of Japan. Until they change this rather open method of delegating foreigners from non-foreigners, this is probably the easiest way to play (and possibly register for) the game itself.
 
 #### My game is choppy when it plays fine in Chrome/Firefox/Flash Projector
 Update Internet Explorer to the latest version available for your build of Windows. Windows 7 can go all the way to [Internet Explorer 11](http://windows.microsoft.com/en-us/internet-explorer/ie-11-worldwide-languages) which is by far the fastest version of IE they've made in years.
@@ -39,7 +39,10 @@ Install [Flash for Internet Explorer](http://get.adobe.com/flashplayer/othervers
 You need to have [.NET Framework 4.5](http://www.microsoft.com/en-us/download/details.aspx?id=30653) installed for your version of Windows. Those on Windows 8 do not have to do this.
 
 #### I want the original Japanese names for ships/items/etc.
-Easiest way is to just delete the text file corrisponding to the things you don't wish to be translated. You are also encouraged to use the [original version of KCV](http://grabacr.net/kancolleviewer) as it has an english UI now.
+Easiest way is to just disable translations in the options menu. You can also set the UI's language to Japanese which will disable all translations by default. If you only want certain things translated, deleting the corresponding XML file in the translation folder is your best bet (just be sure to disable auto update).
+
+#### I'm mising XXXX translations! (XXXX is in Japanese)
+Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me through pastebin on twitter (@Zharay) or as a bug in GitHub.
 
 #### What is the difference between this and the original?
 * Horizontal version is unique to this project. 
