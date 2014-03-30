@@ -2,6 +2,9 @@
 	KCV Change Log
 ========================
 
+v2.4.0 r390 - 3/29/2014 "Why do I not test these things more?"
+	* Speed up the new stat generation by 3x. 
+
 v2.4.0 r381 - 3/29/2014
 	* Minor change of "44 Base:26" to "44 (26)" in the ship catalogue.
 

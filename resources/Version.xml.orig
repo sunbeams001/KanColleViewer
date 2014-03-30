@@ -3,12 +3,12 @@
 	<Item>
 		<Name>App</Name>
 <<<<<<< HEAD
-		<Version>2.4.0.370</Version>
-		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.4.0r370</URL>
-=======
 		<Version>2.4.0.381</Version>
-		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.4.0r381</URL>
->>>>>>> 1b1ae132f60581e0d5c80b5ef181730c84e84767
+		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.4.0r381</URL>
+=======
+		<Version>2.4.0.390</Version>
+		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.4.0r390</URL>
+>>>>>>> 347ea0e07fdb93cc8c62b5d4a0e72803f3414185
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
@@ -32,7 +32,7 @@
 	</Item>
 	<Item>
 		<Name>ShipTypes</Name>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<URL>https://raw.github.com/Zharay/KanColleViewer/master/resources/translations/ShipTypes.xml</URL>
 	</Item>
 </Versions>
