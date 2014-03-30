@@ -100,7 +100,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// 艦隊に編成されている艦娘の状態から、再出撃可能かどうかを判定します。
 		/// </summary>
 		/// <param name="ships">艦隊に編成されている艦娘。</param>
-		internal void Update(Ship[] ships)
+		internal void Update(Ship[] ships, Repairyard repairyard)
 		{
 			if (ships.Length == 0)
 			{
@@ -123,7 +123,13 @@ namespace Grabacr07.KanColleWrapper.Models
 				{
 					if (this.prevShips.Length > 0 && this.prevShips.First(p => p.Id == s.Id).HP.Current != s.HP.Current)
 						this.CriticalCondition(this, new ShipCriticalConditionEventArgs(s));
+
 				}
+
+                var RepairingCritShips = ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25 && repairyard.CheckRepairing(s.Id)).Count();
+
+                if (ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25).Count() == RepairingCritShips)
+                    this.CriticalCleared(this, new EventArgs());
 			}
 			else if (this.prevShips.Length > 0 && this.prevShips.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25))
 			{
@@ -152,7 +158,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			{
 				this.ReadyTime = null;
 			}
-
+            
 			this.minCondition = min;
 			this.Reason = reason;
 

@@ -2,6 +2,15 @@
 	KCV Change Log
 ========================
 
+v2.4.0 r381 - 3/29/2014
+	* Minor change of "44 Base:26" to "44 (26)" in the ship catalogue.
+
+v2.4.0 r380 - 3/29/2014
+	* We now clear the critical window status when all critical ships in a single fleet
+		are docked.
+	* Ship list now show the following stats: Evasion, Anti-Sub, Line of Sight.
+		These show both with and without equips (Ex: Anti-Sub DD "44 Base:26")
+
 v2.4.0 r370 - 3/21/2014 [BATTLECRUISER OPERATIONAL]
 	* Fast battleship types have been given a new hull type - CC. This stands for
 		Battlecruiser (a fast battleship with lighter armor).

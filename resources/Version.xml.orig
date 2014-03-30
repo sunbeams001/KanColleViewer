@@ -3,12 +3,12 @@
 	<Item>
 		<Name>App</Name>
 <<<<<<< HEAD
-		<Version>2.4.0.364</Version>
-		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.4.0r364</URL>
-=======
 		<Version>2.4.0.370</Version>
-		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.4.0r370</URL>
->>>>>>> cea091f38aec302768437ddeeb90a8285f564725
+		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.4.0r370</URL>
+=======
+		<Version>2.4.0.381</Version>
+		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.4.0r381</URL>
+>>>>>>> 1b1ae132f60581e0d5c80b5ef181730c84e84767
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
@@ -22,12 +22,12 @@
 	</Item>
 	<Item>
 		<Name>Quests</Name>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<URL>https://raw.github.com/Zharay/KanColleViewer/master/resources/translations/Quests.xml</URL>
 	</Item>
 	<Item>
 		<Name>Ships</Name>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<URL>https://raw.github.com/Zharay/KanColleViewer/master/resources/translations/Ships.xml</URL>
 	</Item>
 	<Item>

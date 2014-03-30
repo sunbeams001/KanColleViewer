@@ -201,7 +201,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.AverageLevel = this.Ships.HasItems() ? (double)this.TotalLevel / this.Ships.Length : 0.0;
 			this.AirSuperiorityPotential = this.Ships.Sum(s => s.CalcAirSuperiorityPotential());
 			this.Speed = this.Ships.All(s => s.Info.Speed == Speed.Fast) ? Speed.Fast : Speed.Low;
-			this.ReSortie.Update(this.Ships);
+			this.ReSortie.Update(this.Ships, this.homeport.Repairyard);
 			this.Expedition.Update(rawData.api_mission);
 
 			this.UpdateStatus();

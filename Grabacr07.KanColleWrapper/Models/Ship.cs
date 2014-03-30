@@ -108,6 +108,21 @@ namespace Grabacr07.KanColleWrapper.Models
 		public ModernizableStatus Luck { get; private set; }
 
 		/// <summary>
+		/// Anti-Submarine stat with and without equipment.
+		/// </summary>
+		public LimitedValue AntiSub { get; private set; }
+
+		/// <summary>
+		/// Line of Sight stat with and without equipment.
+		/// </summary>
+		public LimitedValue LineOfSight { get; private set; }
+
+		/// <summary>
+		/// Evasion stat with and without equipment.
+		/// </summary>
+		public LimitedValue Evasion { get; private set; }
+
+		/// <summary>
 		/// 火力・雷装・対空・装甲のすべてのステータス値が最大値に達しているかどうかを示す値を取得します。
 		/// </summary>
 		public bool IsMaxModernized
@@ -131,23 +146,23 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return ConditionTypeHelper.ToConditionType(this.RawData.api_cond); }
 		}
 
-        /// <summary>
-        /// For visually generated elements. "[Lv.00]   Name"
-        /// </summary>
-        public string LvName
-        {
-            get { return "[Lv." + this.Level + "]  \t" + this.Info.Name; }
-        }
+		/// <summary>
+		/// For visually generated elements. "[Lv.00]   Name"
+		/// </summary>
+		public string LvName
+		{
+			get { return "[Lv." + this.Level + "]  \t" + this.Info.Name; }
+		}
 
-        /// <summary>
-        /// For visually generated elements. 
-        /// "Name           [Lv.00]"
-        /// "Long Name      [Lv.00]"    
-        /// </summary>
-        public string NameLv
-        {
-            get { return string.Format("{0, -20} [Lv.{1}]", this.Info.Name, this.Level); }
-        }
+		/// <summary>
+		/// For visually generated elements. 
+		/// "Name           [Lv.00]"
+		/// "Long Name      [Lv.00]"    
+		/// </summary>
+		public string NameLv
+		{
+			get { return string.Format("{0, -20} [Lv.{1}]", this.Info.Name, this.Level); }
+		}
 
 		public SlotItem[] SlotItems { get; private set; }
 		public int[] OnSlot { get; private set; }
@@ -173,6 +188,23 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			this.SlotItems = this.RawData.api_slot.Select(id => this.homeport.SlotItems[id]).Where(x => x != null).ToArray();
 			this.OnSlot = this.RawData.api_onslot;
+
+			// Minimum removes equipped values.
+			int EqAntiSub = 0, EqEvasion = 0, EqLineOfSight = 0;
+
+			foreach (SlotItem item in this.SlotItems)
+			{
+				if (item == null)
+					continue;
+
+				EqAntiSub += item.Info.RawData.api_tais;
+				EqEvasion += item.Info.RawData.api_houk;
+				EqLineOfSight += item.Info.RawData.api_saku;
+			}
+
+			this.AntiSub = new LimitedValue(this.RawData.api_taisen[0], this.RawData.api_taisen[1], this.RawData.api_taisen[0] - EqAntiSub);
+			this.Evasion = new LimitedValue(this.RawData.api_kaihi[0], this.RawData.api_kaihi[1], this.RawData.api_kaihi[0] - EqEvasion);
+			this.LineOfSight = new LimitedValue(this.RawData.api_sakuteki[0], this.RawData.api_sakuteki[1], this.RawData.api_sakuteki[0] - EqLineOfSight);
 		}
 
 
