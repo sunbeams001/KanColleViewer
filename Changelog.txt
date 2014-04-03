@@ -2,6 +2,14 @@
 	KCV Change Log
 ========================
 
+v2.4.0 r398 - 4/02/2014
+	* Vertical Overview - 3rd column now has a fixed max width. Any text will word wrap 
+		within the Repair and Construction sections if they are too long.
+	* Ship Roster - You can now save your filter settings by enabling an option.
+		NOTE - This does NOT save ship types.
+	* Ship Roster - You can now show/hide the additional ship stats.
+	* Ship Roster - Reset Filter button to reset all your filters to their defaults.
+
 v2.4.0 r390 - 3/29/2014 "Why do I not test these things more?"
 	* Speed up the new stat generation by 3x. 
 
