@@ -207,6 +207,7 @@
     <Compile Include="ViewModels\TabItemViewModel.cs" />
     <Compile Include="ViewModels\Contents\ToolsViewModel.cs" />
     <Compile Include="ViewModels\VolumeViewModel.cs" />
+    <Compile Include="Views\Behaviors\GridViewBehaviors.cs" />
     <Compile Include="Views\Behaviors\CountdownBehavior.cs" />
     <Compile Include="Views\Behaviors\FlickFleetsAction.cs" />
     <Compile Include="Views\Behaviors\FlickTrigger.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Views\Behaviors\SetStyleSheetBehavior.cs" />
     <Compile Include="Views\Behaviors\SetWindowLocationAction.cs" />
     <Compile Include="Views\Behaviors\TimerBehavior.cs" />
+    <Compile Include="Views\Converters\BooleanToWidthConverter.cs" />
     <Compile Include="Views\Controls\KanColleHost.cs" />
     <Compile Include="Views\Controls\WebBrowserHelper.cs" />
     <Compile Include="Views\Behaviors\ZoomAction.cs" />

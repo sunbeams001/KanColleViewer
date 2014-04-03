@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Grabacr07.KanColleViewer.ViewModels.Contents;
 using Grabacr07.KanColleWrapper;
 using Livet.EventListeners;
+using Settings = Grabacr07.KanColleViewer.Models.Settings;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 {
@@ -94,6 +95,63 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#endregion
 
+		#region SaveFilters 変更通知プロパティ
+
+		public bool SaveFilters
+		{
+			get { return Settings.Current.ShipCatalog_SaveFilters; }
+			set
+			{
+				if (Settings.Current.ShipCatalog_SaveFilters != value)
+				{
+					Settings.Current.ShipCatalog_SaveFilters = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region ShowMoreStats 変更通知プロパティ
+
+		public bool ShowMoreStats
+		{
+			get { return Settings.Current.ShipCatalog_ShowMoreStats; }
+			set
+			{
+				if (Settings.Current.ShipCatalog_ShowMoreStats != value)
+				{
+					Settings.Current.ShipCatalog_ShowMoreStats = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		public void ResetFilters ()
+		{
+			this.ShipLevelFilter.Level2OrMore = true;
+			this.ShipLevelFilter.Both = this.ShipLevelFilter.Level1 = false;
+
+			this.ShipLockFilter.Locked = true;
+			this.ShipLockFilter.Both = this.ShipLockFilter.Unlocked = false;
+
+			this.ShipSpeedFilter.Both = true;
+			this.ShipSpeedFilter.Fast = this.ShipSpeedFilter.Low = false;
+
+			this.ShipModernizeFilter.Both = true;
+			this.ShipModernizeFilter.MaxModernized = this.ShipModernizeFilter.NotMaxModernized = false;
+
+			this.ShipRemodelingFilter.Both = true;
+			this.ShipRemodelingFilter.AlreadyRemodeling = this.ShipRemodelingFilter.NotAlreadyRemodeling = false;
+
+			this.ShipExpeditionFilter.WithoutExpedition = false;
+
+			this.CheckAllShipTypes = true;
+
+			this.Update();
+		}
 
 		public ShipCatalogWindowViewModel()
 		{
@@ -168,6 +226,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			this.ShipTypes.ForEach(x => x.Set(ids.Any(id => x.Id == id)));
 			this.Update();
+		}
+
+		public void AdditionalStats(bool bShow)
+		{
+			if (bShow)
+			{
+
+			}
 		}
 	}
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
 using Livet;
+using Settings = Grabacr07.KanColleViewer.Models.Settings;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 {
@@ -30,16 +31,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region Both 変更通知プロパティ
 
-		private bool _Both;
-
 		public bool Both
 		{
-			get { return this._Both; }
+			get { return Settings.Current.ShipCatalog_LevelFilter_Both; }
 			set
 			{
-				if (this._Both != value)
+				if (Settings.Current.ShipCatalog_LevelFilter_Both != value)
 				{
-					this._Both = value;
+					Settings.Current.ShipCatalog_LevelFilter_Both = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -50,16 +49,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region Level1 変更通知プロパティ
 
-		private bool _Level1;
-
 		public bool Level1
 		{
-			get { return this._Level1; }
+			get { return Settings.Current.ShipCatalog_LevelFilter_Level1; }
 			set
 			{
-				if (this._Level1 != value)
+				if (Settings.Current.ShipCatalog_LevelFilter_Level1 != value)
 				{
-					this._Level1 = value;
+					Settings.Current.ShipCatalog_LevelFilter_Level1 = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -70,16 +67,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region Level2OrMore 変更通知プロパティ
 
-		private bool _Level2OrMore;
-
 		public bool Level2OrMore
 		{
-			get { return this._Level2OrMore; }
+			get { return Settings.Current.ShipCatalog_LevelFilter_Level2OrMore; }
 			set
 			{
-				if (this._Level2OrMore != value)
+				if (Settings.Current.ShipCatalog_LevelFilter_Level2OrMore != value)
 				{
-					this._Level2OrMore = value;
+					Settings.Current.ShipCatalog_LevelFilter_Level2OrMore = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -91,7 +86,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public ShipLevelFilter(Action updateAction)
 			: base(updateAction)
 		{
-			this._Level2OrMore = true;
+			//this._Level2OrMore = true;
 		}
 
 		public override bool Predicate(Ship ship)
@@ -108,16 +103,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region Both 変更通知プロパティ
 
-		private bool _Both;
-
 		public bool Both
 		{
-			get { return this._Both; }
+			get { return Settings.Current.ShipCatalog_LockFilter_Both; }
 			set
 			{
-				if (this._Both != value)
+				if (Settings.Current.ShipCatalog_LockFilter_Both != value)
 				{
-					this._Both = value;
+					Settings.Current.ShipCatalog_LockFilter_Both = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -128,16 +121,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region Locked 変更通知プロパティ
 
-		private bool _Locked;
-
 		public bool Locked
 		{
-			get { return this._Locked; }
+			get { return Settings.Current.ShipCatalog_LockFilter_Locked; }
 			set
 			{
-				if (this._Locked != value)
+				if (Settings.Current.ShipCatalog_LockFilter_Locked != value)
 				{
-					this._Locked = value;
+					Settings.Current.ShipCatalog_LockFilter_Locked = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -148,16 +139,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region Unlocked 変更通知プロパティ
 
-		private bool _Unlocked;
-
 		public bool Unlocked
 		{
-			get { return this._Unlocked; }
+			get { return Settings.Current.ShipCatalog_LockFilter_Unlocked; }
 			set
 			{
-				if (this._Unlocked != value)
+				if (Settings.Current.ShipCatalog_LockFilter_Unlocked != value)
 				{
-					this._Unlocked = value;
+					Settings.Current.ShipCatalog_LockFilter_Unlocked = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -169,7 +158,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public ShipLockFilter(Action updateAction)
 			: base(updateAction)
 		{
-			this._Locked = true;
+			//this._Locked = true;
 		}
 
 		public override bool Predicate(Ship ship)
@@ -186,16 +175,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region Both 変更通知プロパティ
 
-		private bool _Both;
-
 		public bool Both
 		{
-			get { return this._Both; }
+			get { return Settings.Current.ShipCatalog_SpeedFilter_Both; }
 			set
 			{
-				if (this._Both != value)
+				if (Settings.Current.ShipCatalog_SpeedFilter_Both != value)
 				{
-					this._Both = value;
+					Settings.Current.ShipCatalog_SpeedFilter_Both = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -206,16 +193,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region Fast 変更通知プロパティ
 
-		private bool _Fast;
-
 		public bool Fast
 		{
-			get { return this._Fast; }
+			get { return Settings.Current.ShipCatalog_SpeedFilter_Fast; }
 			set
 			{
-				if (this._Fast != value)
+				if (Settings.Current.ShipCatalog_SpeedFilter_Fast != value)
 				{
-					this._Fast = value;
+					Settings.Current.ShipCatalog_SpeedFilter_Fast = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -226,16 +211,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region Low 変更通知プロパティ
 
-		private bool _Low;
-
 		public bool Low
 		{
-			get { return this._Low; }
+			get { return Settings.Current.ShipCatalog_SpeedFilter_Low; }
 			set
 			{
-				if (this._Low != value)
+				if (Settings.Current.ShipCatalog_SpeedFilter_Low != value)
 				{
-					this._Low = value;
+					Settings.Current.ShipCatalog_SpeedFilter_Low = value;
 					this.RaisePropertyChanged();
 				}
 			}
@@ -247,7 +230,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public ShipSpeedFilter(Action updateAction)
 			: base(updateAction)
 		{
-			this._Both = true;
+			//this._Both = true;
 		}
 
 		public override bool Predicate(Ship ship)
@@ -264,16 +247,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region Both 変更通知プロパティ
 
-		private bool _Both;
-
 		public bool Both
 		{
-			get { return this._Both; }
+			get { return Settings.Current.ShipCatalog_ModernFilter_Both; }
 			set
 			{
-				if (this._Both != value)
+				if (Settings.Current.ShipCatalog_ModernFilter_Both != value)
 				{
-					this._Both = value;
+					Settings.Current.ShipCatalog_ModernFilter_Both = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -284,16 +265,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region MaxModernized 変更通知プロパティ
 
-		private bool _MaxModernized;
-
 		public bool MaxModernized
 		{
-			get { return this._MaxModernized; }
+			get { return Settings.Current.ShipCatalog_ModernFilter_MaxModernized; }
 			set
 			{
-				if (this._MaxModernized != value)
+				if (Settings.Current.ShipCatalog_ModernFilter_MaxModernized != value)
 				{
-					this._MaxModernized = value;
+					Settings.Current.ShipCatalog_ModernFilter_MaxModernized = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -304,16 +283,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region NotMaxModernized 変更通知プロパティ
 
-		private bool _NotMaxModernized;
-
 		public bool NotMaxModernized
 		{
-			get { return this._NotMaxModernized; }
+			get { return Settings.Current.ShipCatalog_ModernFilter_NotMaxModernized; }
 			set
 			{
-				if (this._NotMaxModernized != value)
+				if (Settings.Current.ShipCatalog_ModernFilter_NotMaxModernized != value)
 				{
-					this._NotMaxModernized = value;
+					Settings.Current.ShipCatalog_ModernFilter_NotMaxModernized = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -325,7 +302,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public ShipModernizeFilter(Action updateAction)
 			: base(updateAction)
 		{
-			this._Both = true;
+			//this._Both = true;
 		}
 
 		public override bool Predicate(Ship ship)
@@ -342,16 +319,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region Both 変更通知プロパティ
 
-		private bool _Both;
-
 		public bool Both
 		{
-			get { return this._Both; }
+			get { return Settings.Current.ShipCatalog_RemodelFilter_Both; }
 			set
 			{
-				if (this._Both != value)
+				if (Settings.Current.ShipCatalog_RemodelFilter_Both != value)
 				{
-					this._Both = value;
+					Settings.Current.ShipCatalog_RemodelFilter_Both = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -362,16 +337,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region AlreadyRemodeling 変更通知プロパティ
 
-		private bool _AlreadyRemodeling;
-
 		public bool AlreadyRemodeling
 		{
-			get { return this._AlreadyRemodeling; }
+			get { return Settings.Current.ShipCatalog_RemodelFilter_AlreadyRemodeling; }
 			set
 			{
-				if (this._AlreadyRemodeling != value)
+				if (Settings.Current.ShipCatalog_RemodelFilter_AlreadyRemodeling != value)
 				{
-					this._AlreadyRemodeling = value;
+					Settings.Current.ShipCatalog_RemodelFilter_AlreadyRemodeling = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -382,16 +355,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region NotAlreadyRemodeling 変更通知プロパティ
 
-		private bool _NotAlreadyRemodeling;
-
 		public bool NotAlreadyRemodeling
 		{
-			get { return this._NotAlreadyRemodeling; }
+			get { return Settings.Current.ShipCatalog_RemodelFilter_NotAlreadyRemodeling; }
 			set
 			{
-				if (this._NotAlreadyRemodeling != value)
+				if (Settings.Current.ShipCatalog_RemodelFilter_NotAlreadyRemodeling != value)
 				{
-					this._NotAlreadyRemodeling = value;
+					Settings.Current.ShipCatalog_RemodelFilter_NotAlreadyRemodeling = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -403,7 +374,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public ShipRemodelingFilter(Action updateAction)
 			: base(updateAction)
 		{
-			this._Both = true;
+			//this._Both = true;
 		}
 
 		public override bool Predicate(Ship ship)
@@ -422,16 +393,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#region WithoutExpedition 変更通知プロパティ
 
-		private bool _WithoutExpedition;
-
 		public bool WithoutExpedition
 		{
-			get { return this._WithoutExpedition; }
+			get { return Settings.Current.ShipCatalog_ExpeditionFilter_WithoutExpedition; }
 			set
 			{
-				if (this._WithoutExpedition != value)
+				if (Settings.Current.ShipCatalog_ExpeditionFilter_WithoutExpedition != value)
 				{
-					this._WithoutExpedition = value;
+					Settings.Current.ShipCatalog_ExpeditionFilter_WithoutExpedition = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}

@@ -45,53 +45,53 @@ namespace Grabacr07.KanColleViewer
 			KanColleClient.Current.Proxy.UpstreamProxyHost = Settings.Current.ProxyHost;
 			KanColleClient.Current.Proxy.UpstreamProxyPort = Settings.Current.ProxyPort;
 
-            ResourceService.Current.ChangeCulture(Settings.Current.Culture);
+			ResourceService.Current.ChangeCulture(Settings.Current.Culture);
 
-            // Initialize translations
-            KanColleClient.Current.Homeport.Translations.EnableTranslations = Settings.Current.EnableTranslations;
-            KanColleClient.Current.Homeport.Translations.EnableAddUntranslated = Settings.Current.EnableAddUntranslated;
-            KanColleClient.Current.Homeport.Translations.ChangeCulture(Settings.Current.Culture);
+			// Initialize translations
+			KanColleClient.Current.Homeport.Translations.EnableTranslations = Settings.Current.EnableTranslations;
+			KanColleClient.Current.Homeport.Translations.EnableAddUntranslated = Settings.Current.EnableAddUntranslated;
+			KanColleClient.Current.Homeport.Translations.ChangeCulture(Settings.Current.Culture);
 
-            // Update notification and download new translations (if enabled)
-            if (KanColleClient.Current.Updater.LoadVersion(AppSettings.Default.KCVUpdateUrl.AbsoluteUri))
-            {
-                if (Settings.Current.EnableUpdateNotification && KanColleClient.Current.Updater.IsOnlineVersionGreater(0, ProductInfo.VersionString))
-                {
-                    WindowsNotification.Notifier.Show(
-                        KanColleViewer.Properties.Resources.Updater_Notification_Title,
-                        string.Format(KanColleViewer.Properties.Resources.Updater_Notification_NewAppVersion, KanColleClient.Current.Updater.GetOnlineVersion(0)),
-                        () => App.ViewModelRoot.Activate());
-                }
+			// Update notification and download new translations (if enabled)
+			if (KanColleClient.Current.Updater.LoadVersion(AppSettings.Default.KCVUpdateUrl.AbsoluteUri))
+			{
+				if (Settings.Current.EnableUpdateNotification && KanColleClient.Current.Updater.IsOnlineVersionGreater(0, ProductInfo.VersionString))
+				{
+					WindowsNotification.Notifier.Show(
+						KanColleViewer.Properties.Resources.Updater_Notification_Title,
+						string.Format(KanColleViewer.Properties.Resources.Updater_Notification_NewAppVersion, KanColleClient.Current.Updater.GetOnlineVersion(0)),
+						() => App.ViewModelRoot.Activate());
+				}
 
-                if (Settings.Current.EnableUpdateTransOnStart)
-                {
-                    if (KanColleClient.Current.Updater.UpdateTranslations(AppSettings.Default.XMLTransUrl.AbsoluteUri, Settings.Current.Culture, KanColleClient.Current.Homeport.Translations) > 0)
-                    {
-                        WindowsNotification.Notifier.Show(
-                            KanColleViewer.Properties.Resources.Updater_Notification_Title,
-                            KanColleViewer.Properties.Resources.Updater_Notification_TransUpdate_Success,
-                            () => App.ViewModelRoot.Activate());
+				if (Settings.Current.EnableUpdateTransOnStart)
+				{
+					if (KanColleClient.Current.Updater.UpdateTranslations(AppSettings.Default.XMLTransUrl.AbsoluteUri, Settings.Current.Culture, KanColleClient.Current.Homeport.Translations) > 0)
+					{
+						WindowsNotification.Notifier.Show(
+							KanColleViewer.Properties.Resources.Updater_Notification_Title,
+							KanColleViewer.Properties.Resources.Updater_Notification_TransUpdate_Success,
+							() => App.ViewModelRoot.Activate());
 
-                        KanColleClient.Current.Homeport.Translations.ChangeCulture(Settings.Current.Culture);
-                    }
-                }
-            }
+						KanColleClient.Current.Homeport.Translations.ChangeCulture(Settings.Current.Culture);
+					}
+				}
+			}
 
-            KanColleClient.Current.Homeport.Translations.Firepower = KanColleViewer.Properties.Resources.Stats_Firepower;
-            KanColleClient.Current.Homeport.Translations.AntiAir = KanColleViewer.Properties.Resources.Stats_AntiAir;
-            KanColleClient.Current.Homeport.Translations.Accuracy = KanColleViewer.Properties.Resources.Stats_Accuracy;
-            KanColleClient.Current.Homeport.Translations.Torpedo = KanColleViewer.Properties.Resources.Stats_Torpedo;
-            KanColleClient.Current.Homeport.Translations.AntiSub = KanColleViewer.Properties.Resources.Stats_AntiSub;
-            KanColleClient.Current.Homeport.Translations.Evasion = KanColleViewer.Properties.Resources.Stats_Evasion;
-            KanColleClient.Current.Homeport.Translations.SightRange = KanColleViewer.Properties.Resources.Stats_SightRange;
-            KanColleClient.Current.Homeport.Translations.Luck = KanColleViewer.Properties.Resources.Stats_Luck;
-            KanColleClient.Current.Homeport.Translations.Speed = KanColleViewer.Properties.Resources.Stats_Speed;
-            KanColleClient.Current.Homeport.Translations.Armor = KanColleViewer.Properties.Resources.Stats_Armor;
-            KanColleClient.Current.Homeport.Translations.Health = KanColleViewer.Properties.Resources.Stats_Health;
-            KanColleClient.Current.Homeport.Translations.AttackRange = KanColleViewer.Properties.Resources.Stats_AttackRange;
-            KanColleClient.Current.Homeport.Translations.DiveBomb = KanColleViewer.Properties.Resources.Stats_DiveBomb;
+			KanColleClient.Current.Homeport.Translations.Firepower = KanColleViewer.Properties.Resources.Stats_Firepower;
+			KanColleClient.Current.Homeport.Translations.AntiAir = KanColleViewer.Properties.Resources.Stats_AntiAir;
+			KanColleClient.Current.Homeport.Translations.Accuracy = KanColleViewer.Properties.Resources.Stats_Accuracy;
+			KanColleClient.Current.Homeport.Translations.Torpedo = KanColleViewer.Properties.Resources.Stats_Torpedo;
+			KanColleClient.Current.Homeport.Translations.AntiSub = KanColleViewer.Properties.Resources.Stats_AntiSub;
+			KanColleClient.Current.Homeport.Translations.Evasion = KanColleViewer.Properties.Resources.Stats_Evasion;
+			KanColleClient.Current.Homeport.Translations.SightRange = KanColleViewer.Properties.Resources.Stats_SightRange;
+			KanColleClient.Current.Homeport.Translations.Luck = KanColleViewer.Properties.Resources.Stats_Luck;
+			KanColleClient.Current.Homeport.Translations.Speed = KanColleViewer.Properties.Resources.Stats_Speed;
+			KanColleClient.Current.Homeport.Translations.Armor = KanColleViewer.Properties.Resources.Stats_Armor;
+			KanColleClient.Current.Homeport.Translations.Health = KanColleViewer.Properties.Resources.Stats_Health;
+			KanColleClient.Current.Homeport.Translations.AttackRange = KanColleViewer.Properties.Resources.Stats_AttackRange;
+			KanColleClient.Current.Homeport.Translations.DiveBomb = KanColleViewer.Properties.Resources.Stats_DiveBomb;
 
-            KanColleClient.Current.Homeport.Logger.EnableLogging = Settings.Current.EnableLogging;
+			KanColleClient.Current.Homeport.Logger.EnableLogging = Settings.Current.EnableLogging;
 
 			ThemeService.Current.Initialize(this, Theme.Dark, Accent.Purple);
 

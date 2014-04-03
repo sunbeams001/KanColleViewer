@@ -360,13 +360,13 @@
 							   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 					<metro2:CallMethodButton Content="Ship List"
-													Padding="12,8"
-													Margin="0,5,0,8"
-													MethodName="ShowShipCatalog" />
+											 Padding="12,8"
+											 Margin="0,5,0,8"
+											 MethodName="ShowShipCatalog" />
 
                     <metro2:CallMethodButton Content="Eq. List"
-													Padding="12,8"
-													MethodName="ShowSlotItemCatalog" />
+											 Padding="12,8"
+											 MethodName="ShowSlotItemCatalog" />
 				</StackPanel>
 			</Border>
 
@@ -431,7 +431,8 @@
 					<ItemsControl ItemsSource="{Binding Docks}">
 						<ItemsControl.ItemTemplate>
 							<DataTemplate>
-								<TextBlock Margin="0,4,0,0">
+								<TextBlock Margin="0,4,0,0"
+										   TextWrapping="Wrap">
 									<Run x:Name="ShipName"
 										 Text="{Binding Ship, Mode=OneWay}"
 										 Style="{DynamicResource PickupTextElementStyleKey}" />

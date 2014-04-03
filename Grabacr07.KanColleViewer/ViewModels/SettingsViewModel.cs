@@ -700,10 +700,10 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			});
 			this.BrowserZoomFactor = zoomFactor;
 
-            this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Translations)
-            {
-                (sender, args) => this.RaisePropertyChanged(args.PropertyName),
-            });
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Translations)
+			{
+				(sender, args) => this.RaisePropertyChanged(args.PropertyName),
+			});
 		}
 
 
@@ -804,44 +804,44 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				OperationsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations);
 				QuestsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests);
 				ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
-                ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
+				ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
 			}
 			else
-            {
-                WindowsNotification.Notifier.Show(
-                    Resources.Updater_Notification_Title,
-                    Resources.Updater_Notification_CheckFailed,
-                    () => App.ViewModelRoot.Activate());
+			{
+				WindowsNotification.Notifier.Show(
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_CheckFailed,
+					() => App.ViewModelRoot.Activate());
 			}
 		}
 
 		public void UpdateTranslations()
 		{
-            int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(Properties.Settings.Default.XMLTransUrl.AbsoluteUri, Culture, KanColleClient.Current.Homeport.Translations);
+			int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(Properties.Settings.Default.XMLTransUrl.AbsoluteUri, Culture, KanColleClient.Current.Homeport.Translations);
 			
-            if (UpdateStatus > 0)
-            {
-                WindowsNotification.Notifier.Show(
-                    Resources.Updater_Notification_Title,
-                    Resources.Updater_Notification_TransUpdate_Success,
-                    () => App.ViewModelRoot.Activate());
-            }
-            else if (UpdateStatus < 0)
-            {
-                WindowsNotification.Notifier.Show(
-                    Resources.Updater_Notification_Title,
-                    Resources.Updater_Notification_TransUpdate_Fail,
-                    () => App.ViewModelRoot.Activate());
+			if (UpdateStatus > 0)
+			{
+				WindowsNotification.Notifier.Show(
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Success,
+					() => App.ViewModelRoot.Activate());
 			}
-            else
-            {
-                WindowsNotification.Notifier.Show(
-                    Resources.Updater_Notification_Title,
-                    Resources.Updater_Notification_TransUpdate_Same,
-                    () => App.ViewModelRoot.Activate());
-            }
+			else if (UpdateStatus < 0)
+			{
+				WindowsNotification.Notifier.Show(
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Fail,
+					() => App.ViewModelRoot.Activate());
+			}
+			else
+			{
+				WindowsNotification.Notifier.Show(
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Same,
+					() => App.ViewModelRoot.Activate());
+			}
 				
-            KanColleClient.Current.Homeport.Translations.ChangeCulture(Culture);
+			KanColleClient.Current.Homeport.Translations.ChangeCulture(Culture);
 		}
 	}
 }

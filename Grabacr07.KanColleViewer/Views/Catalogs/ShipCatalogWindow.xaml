@@ -19,6 +19,7 @@
 				   xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
 				   xmlns:catalogs="clr-namespace:Grabacr07.KanColleViewer.Views.Catalogs"
 				   xmlns:contentsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
+				   xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:ShipCatalogWindowViewModel}"
 				   Title="{Binding Title}"
@@ -96,7 +97,7 @@
 			<Expander Margin="8"
 					  IsExpanded="{Binding IsOpenSettings, Mode=TwoWay}">
 				<Expander.Header>
-					<TextBlock Text="Filter"
+					<TextBlock Text="Filter &amp; Settings"
 							   FontSize="14" />
 				</Expander.Header>
 				<StackPanel Grid.IsSharedSizeScope="True">
@@ -398,6 +399,77 @@
 							</StackPanel>
 						</WrapPanel>
 					</Border>
+
+					<Border BorderThickness="1"
+							BorderBrush="{DynamicResource BorderBrushKey}"
+							Margin="0,8,0,0"
+							Padding="5">
+						<WrapPanel>
+							<WrapPanel.Resources>
+								<Style TargetType="{x:Type RadioButton}"
+									   BasedOn="{StaticResource {x:Type RadioButton}}">
+									<Setter Property="Margin"
+											Value="0,2,12,2" />
+								</Style>
+								<Style TargetType="{x:Type CheckBox}"
+									   BasedOn="{StaticResource {x:Type CheckBox}}">
+									<Setter Property="Margin"
+											Value="0,2,12,2" />
+								</Style>
+								<Style TargetType="{x:Type StackPanel}">
+									<Setter Property="Margin"
+											Value="0,0,40,0" />
+									<Setter Property="Grid.IsSharedSizeScope"
+											Value="True" />
+								</Style>
+							</WrapPanel.Resources>
+
+							<StackPanel VerticalAlignment="Center">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"
+														  SharedSizeGroup="FilterName" />
+										<ColumnDefinition Width="10" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<TextBlock Margin="0,2"
+											   HorizontalAlignment="Right">
+										<Run Text="Save Filter Settings" />
+										<Run Text=":" />
+									</TextBlock>
+									<WrapPanel Grid.Column="2">
+										<CheckBox IsChecked="{Binding SaveFilters, Mode=TwoWay}"
+												  ToolTip="Does not include ship types!" />
+									</WrapPanel>
+								</Grid>
+							</StackPanel>
+
+							<StackPanel VerticalAlignment="Center">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"
+														  SharedSizeGroup="FilterName" />
+										<ColumnDefinition Width="10" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<TextBlock Margin="0,2"
+											   HorizontalAlignment="Right">
+										<Run Text="Show Additional Ship Stats" />
+										<Run Text=":" />
+									</TextBlock>
+									<WrapPanel Grid.Column="2">
+										<CheckBox IsChecked="{Binding ShowMoreStats, Mode=TwoWay}" />
+									</WrapPanel>
+								</Grid>
+							</StackPanel>
+
+							<StackPanel VerticalAlignment="Center">
+								<metro2:CallMethodButton Content="Reset Filters"
+														 Padding="12,4"
+														 MethodName="ResetFilters"/>
+							</StackPanel>
+						</WrapPanel>
+					</Border>
 				</StackPanel>
 			</Expander>
 
@@ -413,7 +485,8 @@
 							<Setter Property="Margin"
 									Value="5,4" />
 						</Style>
-						<Style TargetType="{x:Type GridViewColumnHeader}">
+						<Style TargetType="{x:Type GridViewColumnHeader}"
+							   x:Key="BaseColumnHeader">
 							<Setter Property="OverridesDefaultStyle"
 									Value="True" />
 							<Setter Property="BorderThickness"
@@ -450,6 +523,7 @@
 								</Setter.Value>
 							</Setter>
 						</Style>
+						<converters:BooleanToVisibilityConverter x:Key="BooleanToVsibilityConverterKey" />
 					</ListView.Resources>
 					<ListView.View>
 						<GridView>
@@ -645,10 +719,11 @@
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>
 
-							<GridViewColumn Width="68">
-								<GridViewColumn.Header>
+							<GridViewColumn Width="64">
+								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
+													  behaviors:GridViewBehaviors.CollapseableColumn="True">
 									<TextBlock Text="Evasion" />
-								</GridViewColumn.Header>
+								</GridViewColumnHeader>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
 										<TextBlock FontSize="9">
@@ -662,10 +737,11 @@
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>
 
-							<GridViewColumn Width="68">
-								<GridViewColumn.Header>
+							<GridViewColumn Width="64">
+								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
+													  behaviors:GridViewBehaviors.CollapseableColumn="True">
 									<TextBlock Text="Anti-Sub" />
-								</GridViewColumn.Header>
+								</GridViewColumnHeader>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
 										<TextBlock FontSize="9">
@@ -680,9 +756,10 @@
 							</GridViewColumn>
 
 							<GridViewColumn Width="64">
-								<GridViewColumn.Header>
+								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
+													  behaviors:GridViewBehaviors.CollapseableColumn="True">
 									<TextBlock Text="LoS" />
-								</GridViewColumn.Header>
+								</GridViewColumnHeader>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
 										<TextBlock FontSize="9">
