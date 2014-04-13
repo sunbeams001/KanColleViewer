@@ -41,11 +41,13 @@
 									 Text="{TemplateBinding Title}"
 									 Style="{DynamicResource PickupTextElementStyleKey}" />
 								<Run Text=" " />
-								<Run x:Name="State"
+                                <TextBlock TextWrapping="NoWrap">
+								    <Run x:Name="State"
 									 Text=""
 									 FontSize="13"
 									 Style="{DynamicResource PickupTextElementStyleKey}"
 									 Background="Transparent" />
+                                </TextBlock>
 							</TextBlock>
 							<Border x:Name="DetailView"
 									Grid.Row="1"
