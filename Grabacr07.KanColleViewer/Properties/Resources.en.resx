@@ -668,7 +668,7 @@
   </data>
   <data name="Settings_Flash_Window_ToolTip" xml:space="preserve">
     <value>Opaque: Default (Old IE has no HW accel)
-Direct: Fastest rendering speed (HW accelled)
+Direct: Fastest rendering speed (HW accel)
 GPU: Slow! GPU optimization for tablets.</value>
   </data>
   <data name="Settings_Flash_Window" xml:space="preserve">
@@ -678,8 +678,8 @@ GPU: Slow! GPU optimization for tablets.</value>
     <value>Best: Anti-Aliasing enabled on all images (Slowest)
 High: Default.
 Auto-High: Automatically lowers quality when needed.
-Medium: Avg Performance
-AutoLow: Will emphesize speed when needed
+Medium: Average Performance
+AutoLow: Will emphasize speed when needed
 Low: Performance over quality. Ugliest setting.</value>
   </data>
 </root>

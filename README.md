@@ -41,7 +41,7 @@ You need to have [.NET Framework 4.5](http://www.microsoft.com/en-us/download/de
 #### I want the original Japanese names for ships/items/etc.
 Easiest way is to just disable translations in the options menu. You can also set the UI's language to Japanese which will disable all translations by default. If you only want certain things translated, deleting the corresponding XML file in the translation folder is your best bet (just be sure to disable auto update).
 
-#### I'm mising XXXX translations! (XXXX is in Japanese)
+#### I'm missing XXXX translations! (XXXX is in Japanese)
 Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me through pastebin on twitter (@Zharay) or as a bug in GitHub.
 
 #### What is the difference between this and the original?
@@ -57,7 +57,7 @@ Please help me with these when you run into them. The translation engine has the
 Other than the above, this version is the same with just some minor tweaks to make it fit for an English translation. The plan is to hopefully add some features into the main project for all to enjoy.
 
 ## About This Project
-KanColleViewer uses the web browser component of the Windows Presentation Foundation (WPF) in combination of [FiddlerCore](http://fiddler2.com/fiddlercore) to capture communication packets inbetween the server and the page itself.
+KanColleViewer uses the web browser component of the Windows Presentation Foundation (WPF) in combination of [FiddlerCore](http://fiddler2.com/fiddlercore) to capture communication packets in-between the server and the page itself.
 
 Of course, we do not change the contents of the packets in anyway and is used to provide information to the program's components.
 
@@ -95,7 +95,7 @@ This was mainly developed using C# + WPF in Windows 8.1 Pro and Visual Studio Pr
 * [FiddlerCore](http://fiddler2.com/fiddlercore) (Network capture)
 
 
-#### Liscense
+#### License
 * MIT License
 
 To be released under the MIT license as an open source / free software.

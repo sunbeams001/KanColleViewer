@@ -947,8 +947,8 @@ namespace Grabacr07.KanColleViewer.Properties {
         ///   Looks up a localized string similar to Best: Anti-Aliasing enabled on all images (Slowest)
         ///High: Default.
         ///Auto-High: Automatically lowers quality when needed.
-        ///Medium: Avg Performance
-        ///AutoLow: Will emphesize speed when needed
+        ///Medium: Average Performance
+        ///AutoLow: Will emphasize speed when needed
         ///Low: Performance over quality. Ugliest setting..
         /// </summary>
         public static string Settings_Flash_Quality_ToolTip {
@@ -968,7 +968,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Opaque: Default (Old IE has no HW accel)
-        ///Direct: Fastest rendering speed (HW accelled)
+        ///Direct: Fastest rendering speed (HW accel)
         ///GPU: Slow! GPU optimization for tablets..
         /// </summary>
         public static string Settings_Flash_Window_ToolTip {

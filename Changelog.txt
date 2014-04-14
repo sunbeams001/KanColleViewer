@@ -2,13 +2,33 @@
 	KCV Change Log
 ========================
 
+v2.4.0 r403 - 4/12/2014
+Note: Setting have been reset with this version! Please review them.
+	* *New* Flash quality select option - Choose from Low to Best and anything inbetween.
+	* *New* Flash window select option - Choose the rendering method in the browser.
+	* *New* Mousing over a ship name in the overview tab, fleet tab, or equipment list 
+		window will show the base ship stats.
+	* *Fix* OSAPI links now properly display in KCV.
+	* Browser settings now available in the start up settings menu
+	* Tweaked margins in the overview tab. Scrollbars shouldn't appear until content doesn't
+		fit the page.
+
+Side Notes:
+	* None of the flash settings work on SWF/API links.
+	* You can however use the OSAPI link if you are still using it for the flash settings.
+	* Do NOT use GPU window method! Its built for tablets and phones that have specialized 
+		optimizations needed for flash. Do use it if you use the lowest quality setting though.
+	* Ship stat info is on a longer delay than normal tooltips (600ms instead of 400ms default)
+
 v2.4.0 r398 - 4/02/2014
+Note: Setting have been reset with this version! Please review them.
 	* Vertical Overview - 3rd column now has a fixed max width. Any text will word wrap 
 		within the Repair and Construction sections if they are too long.
 	* Ship Roster - You can now save your filter settings by enabling an option.
 		NOTE - This does NOT save ship types.
 	* Ship Roster - You can now show/hide the additional ship stats.
 	* Ship Roster - Reset Filter button to reset all your filters to their defaults.
+	* Settings - Notifications for repairs, construction, and expeditions have been made default.
 
 v2.4.0 r390 - 3/29/2014 "Why do I not test these things more?"
 	* Speed up the new stat generation by 3x. 

@@ -3,12 +3,12 @@
 	<Item>
 		<Name>App</Name>
 <<<<<<< HEAD
-		<Version>2.4.0.390</Version>
-		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.4.0r390</URL>
-=======
 		<Version>2.4.0.398</Version>
-		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.4.0r398</URL>
->>>>>>> a979af310c6736c4c079b64c35d8cc0027aa34e2
+		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.4.0r398</URL>
+=======
+		<Version>2.4.0.403</Version>
+		<URL>https://github.com/Zharay/KanColleViewer/releases/tag/v2.4.0r403</URL>
+>>>>>>> 71567e96bf7bd5d326874688594e9cfdc1786d5f
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
