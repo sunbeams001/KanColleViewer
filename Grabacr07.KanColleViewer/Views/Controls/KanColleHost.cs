@@ -13,6 +13,7 @@ using mshtml;
 using SHDocVw;
 using IServiceProvider = Grabacr07.KanColleViewer.Win32.IServiceProvider;
 using WebBrowser = System.Windows.Controls.WebBrowser;
+using KCVSettings = Grabacr07.KanColleViewer.Models.Settings;
 
 namespace Grabacr07.KanColleViewer.Views.Controls
 {
@@ -52,10 +53,12 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
 			if (oldBrowser != null)
 			{
+				oldBrowser.LoadCompleted -= instance.ApplyFlashQualityScript;
 				oldBrowser.LoadCompleted -= instance.ApplyStyleSheet;
 			}
 			if (newBrowser != null)
 			{
+				newBrowser.LoadCompleted += instance.ApplyFlashQualityScript;
 				newBrowser.LoadCompleted += instance.ApplyStyleSheet;
 			}
 			if (instance.scrollViewer != null)
@@ -172,7 +175,11 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 				var gameFrame = document.getElementById("game_frame");
 				if (gameFrame == null)
 				{
-					if (document.url.Contains(".swf?"))
+					if (document.getElementById("flashWrap") != null)
+					{
+						gameFrame = document.documentElement;
+					}
+					else if (document.url.Contains(".swf?"))
 					{
 						gameFrame = document.body;
 					}
@@ -200,6 +207,38 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 // 			{
 // 				window.Width = this.WebBrowser.Width;
 // 			}
+		}
+
+		public void ApplyFlashQualityScript(object sender, NavigationEventArgs e)
+		{
+			try
+			{
+				var doc = this.WebBrowser.Document as HTMLDocument;
+				FramesCollection frames = doc.frames;
+				HTMLDocument mainFrame = null;
+				for (int i = 0; i < frames.length; i++)
+				{
+					object refIndex = i;
+					IHTMLDocument2 frame = CrossFrameIE.GetDocumentFromWindow((IHTMLWindow2)frames.item(ref refIndex));
+					if (frame != null && ((HTMLDocument)frame).getElementById("flashWrap") != null)
+						mainFrame = (HTMLDocument)frame;
+					else
+						mainFrame = doc;
+				}
+
+				if (mainFrame != null)
+				{
+					IHTMLElement head = (IHTMLElement)((IHTMLElementCollection)mainFrame.all.tags("head")).item(null, 0);
+					IHTMLScriptElement scriptOjbect = (IHTMLScriptElement)mainFrame.createElement("script");
+					scriptOjbect.type = @"text/javascript";
+					scriptOjbect.text = string.Format(Properties.Settings.Default.FlashQualityJS, KCVSettings.Current.FlashQuality, KCVSettings.Current.FlashWindow);
+					((HTMLHeadElement)head).appendChild((IHTMLDOMNode)scriptOjbect);
+				}
+			}
+			catch (Exception ex)
+			{
+				StatusService.Current.Notify("Failed to apply quality setting: " + ex.Message);
+			}
 		}
 	}
 }

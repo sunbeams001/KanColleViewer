@@ -164,6 +164,22 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return string.Format("{0, -20} [Lv.{1}]", this.Info.Name, this.Level); }
 		}
 
+		public string Detail
+		{
+			get
+			{
+				string AddDetail = "";
+
+				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.Firepower, this.Firepower.Current, (this.Firepower.IsMax ? @"MAX" : "+" + (this.Firepower.Max - this.Firepower.Current).ToString()));
+				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.Torpedo, this.Torpedo.Current, (this.Torpedo.IsMax ? @"MAX" : "+" + (this.Torpedo.Max - this.Torpedo.Current).ToString()));
+				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.AntiAir, this.AA.Current, (this.AA.IsMax ? @"MAX" : "+" + (this.AA.Max - this.AA.Current).ToString()));
+				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.Armor, this.Armer.Current, (this.Armer.IsMax ? @"MAX" : "+" + (this.Armer.Max - this.Armer.Current).ToString()));
+				AddDetail += string.Format("{0}: {1} ({2})", KanColleClient.Current.Homeport.Translations.Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
+
+				return AddDetail;
+			}
+		}
+
 		public SlotItem[] SlotItems { get; private set; }
 		public int[] OnSlot { get; private set; }
 

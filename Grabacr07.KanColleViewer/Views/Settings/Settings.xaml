@@ -84,13 +84,62 @@
 					<TextBlock Margin="8,0,10,0"
 							   TextWrapping="Wrap">
 						<Run Text="You can change the display size of the game (IE) with the zoom button at the top of the window." />
-                        <LineBreak />
+						<LineBreak />
 						<Run Text="Screenshots will always capture at 100% screen size." />
 					</TextBlock>
 				</DockPanel>
 
-				<Rectangle Height="1"
+				<Rectangle Height="1" 
 						   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+
+				<TextBlock Text="{Binding Resources.Settings_Flash, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
+						   Style="{DynamicResource HeaderTextBlockStyleKey}"
+						   Margin="0,10,0,0"/>
+
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Text="{Binding Resources.Settings_Flash_Quality, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
+
+					<metro:PromptComboBox Margin="8"
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding FlashQualityList}"
+										  SelectedValue="{Binding FlashQuality, Mode=TwoWay}"
+										  ToolTip="{Binding Resources.Settings_Flash_Quality_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"/>
+
+					<TextBlock Grid.Row="1"
+							   Text="{Binding Resources.Settings_Flash_Window, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
+
+					<metro:PromptComboBox Margin="8"
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding FlashWindowList}"
+										  SelectedValue="{Binding FlashWindow, Mode=TwoWay}"
+										  ToolTip="{Binding Resources.Settings_Flash_Window_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"
+										  Grid.Row="1"/>
+					
+					<TextBlock Grid.Column="2"
+							   Grid.RowSpan="2"
+							   TextWrapping="Wrap"
+							   Padding="10"
+							   Text="{Binding Resources.Settings_Flash_Message, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+					
+				</Grid>
 
 			</StackPanel>
 		</TabItem>
@@ -126,20 +175,20 @@
 			</TabItem.Header>
 
 			<settings:Network Margin="10,0" />
-        </TabItem>
+		</TabItem>
 
-        <TabItem>
-            <TabItem.Header>
-                <TextBlock Text="{Binding Resources.Settings_Language, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+		<TabItem>
+			<TabItem.Header>
+				<TextBlock Text="{Binding Resources.Settings_Language, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
 						   Margin="12,0"
 						   FontSize="14" />
-            </TabItem.Header>
+			</TabItem.Header>
 
-            <settings:Language Margin="10,0" />
-        </TabItem>
+			<settings:Language Margin="10,0" />
+		</TabItem>
 
-        <TabItem>
+		<TabItem>
 			<TabItem.Header>
 				<TextBlock Text="{Binding Resources.Settings_Other, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
@@ -150,18 +199,18 @@
 			<settings:Others Margin="10,0" />
 		</TabItem>
 
-        <TabItem>
-            <TabItem.Header>
-                <TextBlock Text="{Binding Resources.Settings_Updates, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+		<TabItem>
+			<TabItem.Header>
+				<TextBlock Text="{Binding Resources.Settings_Updates, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
 						   Margin="12,0"
 						   FontSize="14" />
-            </TabItem.Header>
+			</TabItem.Header>
 
-            <settings:Updates Margin="10,0" />
-        </TabItem>
+			<settings:Updates Margin="10,0" />
+		</TabItem>
 
-        <TabItem>
+		<TabItem>
 			<TabItem.Header>
 				<TextBlock Text="{Binding Resources.Settings_VersionInfo, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
@@ -231,12 +280,12 @@
 						</metro2:HyperlinkEx>
 
 						<LineBreak />
-                        
+						
 						<Run Text="Horizontal / Translation:" />
 						<metro2:HyperlinkEx Uri="https://twitter.com/Zharay">
 							<Run Text="@Zharay" />
 						</metro2:HyperlinkEx>
-                        
+						
 						<LineBreak />
 
 						<Run Text="Icon design:" />

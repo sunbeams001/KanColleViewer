@@ -43,10 +43,10 @@
 								<Run Text=" " />
                                 <TextBlock TextWrapping="NoWrap">
 								    <Run x:Name="State"
-									 Text=""
-									 FontSize="13"
-									 Style="{DynamicResource PickupTextElementStyleKey}"
-									 Background="Transparent" />
+									     Text=""
+									     FontSize="13"
+									     Style="{DynamicResource PickupTextElementStyleKey}"
+									     Background="Transparent" />
                                 </TextBlock>
 							</TextBlock>
 							<Border x:Name="DetailView"

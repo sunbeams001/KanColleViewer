@@ -11,7 +11,7 @@
     <Setting Name="OverrideStyleSheet" Type="System.String" Scope="Application">
       <Value Profile="(Default)">body {
     margin:0;
-    overflow:hidden
+    overflow:hidden;
 }
 
 #game_frame {
@@ -19,7 +19,19 @@
     left:50%;
     top:-16px;
     margin-left:-450px;
-    z-index:1
+    z-index:1;
+}
+
+#flashWrap {
+    position:fixed;
+    z-index:1;
+    margin:0;
+}
+
+#spacing_top, #sectionWrap {
+    visibility: hidden !important;
+    height:0 !important;
+    display: none !important;
 }</Value>
     </Setting>
     <Setting Name="UIContentHight" Type="System.Double" Scope="Application">
@@ -33,6 +45,70 @@
     </Setting>
     <Setting Name="KCVUpdateUrl" Type="System.Uri" Scope="Application">
       <Value Profile="(Default)">https://raw.github.com/Zharay/KanColleViewer/master/resources/Version.xml</Value>
+    </Setting>
+    <Setting Name="FlashQualityJS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">var flashQuality = function () {{
+    for (var objs = document.embeds, i = objs.length - 1; i &gt;= 0; i--) {{
+        
+        if (objs[i].getAttribute('quality') == '{0}') 
+            continue;
+			
+        var embedElem = document.createElement('embed');
+        var parentElem = objs[i].parentNode;
+        embedElem.setAttribute('quality', '{0}');
+        embedElem.setAttribute('wmode', '{1}');
+        embedElem.setAttribute('type', 'application/x-shockwave-flash');
+        embedElem.setAttribute('id', objs[i].getAttribute('id'));
+        embedElem.setAttribute('width', objs[i].getAttribute('width'));
+        embedElem.setAttribute('height', objs[i].getAttribute('height'));
+        embedElem.setAttribute('src', objs[i].getAttribute('src'));
+        embedElem.setAttribute('bgcolor', objs[i].getAttribute('bgcolor'));
+        embedElem.setAttribute('allowScriptAccess', objs[i].getAttribute('allowScriptAccess'));
+        embedElem.setAttribute('base', objs[i].getAttribute('base'));
+        parentElem.removeChild(objs[i]);
+        parentElem.appendChild(embedElem);
+    }}
+    
+    for (objs = document.getElementsByTagName('object'), i = objs.length - 1; i &gt;= 0; i--) {{
+        var embedElem = document.createElement('embed');
+        var parentElem = objs[i].parentNode;
+        embedElem.setAttribute('quality', '{0}');
+        embedElem.setAttribute('wmode', '{1}');
+        embedElem.setAttribute('id', objs[i].getAttribute('id'));
+        embedElem.setAttribute('type', 'application/x-shockwave-flash'); 
+        embedElem.setAttribute('width', objs[i].getAttribute('width'));
+        embedElem.setAttribute('height', objs[i].getAttribute('height'));       
+        
+        for (var c = objs[i].childNodes, j = c.length - 1, set = false; j &gt;= 0; j--) {{
+            if ((c[j].tagName == 'PARAM') &amp;&amp; (c[j].getAttribute('name').toLowerCase() == 'src'))
+                embedElem.setAttribute('src', c[j].getAttribute('value'));
+            else if ((c[j].tagName == 'PARAM') &amp;&amp; (c[j].getAttribute('name').toLowerCase() == 'movie'))
+                embedElem.setAttribute('src', c[j].getAttribute('value'));
+            else if ((c[j].tagName == 'PARAM') &amp;&amp; (c[j].getAttribute('name').toLowerCase() == 'bgcolor'))
+                embedElem.setAttribute('bgcolor', c[j].getAttribute('value'));
+            else if ((c[j].tagName == 'PARAM') &amp;&amp; (c[j].getAttribute('name').toLowerCase() == 'allowscriptaccess'))
+                embedElem.setAttribute('allowScriptAccess', c[j].getAttribute('value'));
+            else if ((c[j].tagName == 'PARAM') &amp;&amp; (c[j].getAttribute('name').toLowerCase() == 'base'))
+                embedElem.setAttribute('base', c[j].getAttribute('value'));
+        }}
+        
+        parentElem.removeChild(objs[i]);
+        parentElem.appendChild(embedElem);
+    }}
+}};
+
+var TimedInject = setInterval(function () {{
+    CheckChange();
+}}, 100);
+
+function CheckChange() {{
+    if (document.getElementById('flashWrap').innerHTML.length &gt; 10) {{
+        flashQuality();
+        clearInterval(TimedInject);
+    }}
+    else if (!document.getElementById('flashWrap'))
+        clearInterval(TimedInject);
+}}</Value>
     </Setting>
   </Settings>
 </SettingsFile>

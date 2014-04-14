@@ -282,7 +282,8 @@
 																		 HorizontalAlignment="Center"
 																		 Padding="30,5"
 																		 SnapsToDevicePixels="True"
-																		 ToolTip="{Binding Resources.StartContent_SetRegionCookieToolTip, Source={x:Static models:ResourceService.Current}}"/>
+																		 ToolTip="{Binding Resources.StartContent_SetRegionCookieToolTip, Source={x:Static models:ResourceService.Current}}"
+																		 ToolTipService.ShowOnDisabled="True"/>
                                         </BlockUIContainer>
                                     </TableCell>
                                 </TableRow>
@@ -324,6 +325,16 @@
                 <TabControl Width="530"
 							HorizontalAlignment="Left"
 							Style="{StaticResource TabControlStyleKey}">
+						<TabItem>
+							<TabItem.Header>
+								<TextBlock Text="{Binding Resources.Settings_BrowserControl, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
+										   Margin="12,0"
+										   FontSize="14" />
+							</TabItem.Header>
+
+							<settings:Browser Margin="10,9" />
+						</TabItem>
                     <TabItem>
                         <TabItem.Header>
                             <TextBlock Text="{Binding Resources.Settings_Window, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"

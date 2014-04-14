@@ -39,6 +39,11 @@ namespace Grabacr07.KanColleViewer.ViewModels
             get { return Resources.Settings_Icon; }
             protected set { throw new NotImplementedException(); }
         }
+		public IEnumerable<string> FlashQualityList {get; private set;}
+		public string[] FlashQualities = { "Best", "High", "AutoHigh",  "Medium", "AutoLow", "Low" };
+
+		public IEnumerable<string> FlashWindowList { get; private set; }
+		public string[] FlashWindows = { "Opaque", "Direct", "GPU" };
 
 		#region ScreenshotFolder 変更通知プロパティ
 
@@ -657,6 +662,40 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region FlashQuality 変更通知プロパティ
+
+		public string FlashQuality
+		{
+			get { return Settings.Current.FlashQuality; }
+			set
+			{
+				if (Settings.Current.FlashQuality != value)
+				{
+					Settings.Current.FlashQuality = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region FlashWindow 変更通知プロパティ
+
+		public string FlashWindow
+		{
+			get { return Settings.Current.FlashWindow; }
+			set
+			{
+				if (Settings.Current.FlashWindow != value)
+				{
+					Settings.Current.FlashWindow = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		public bool HasErrors
 		{
 			get { return this.reSortieConditionError != null; }
@@ -668,6 +707,9 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		public SettingsViewModel()
 		{
 			if (Helper.IsInDesignMode) return;
+
+			this.FlashQualityList = FlashQualities.ToList();
+			this.FlashWindowList = FlashWindows.ToList();
 
 			this.Libraries = App.ProductInfo.Libraries.Aggregate(
 				new List<BindableTextViewModel>(),
