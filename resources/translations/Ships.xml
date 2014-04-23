@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Ships Version="1.0.3">
+<Ships Version="1.0.4">
   <Ship>
     <JP-Name>長門</JP-Name>
     <TR-Name>Nagato</TR-Name>
@@ -573,12 +573,20 @@
     <TR-Name>Tone Kai</TR-Name>
   </Ship>
   <Ship>
+    <JP-Name>利根改二</JP-Name>
+    <TR-Name>Tone Kai2</TR-Name>
+  </Ship>
+  <Ship>
     <JP-Name>筑摩</JP-Name>
     <TR-Name>Chikuma</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>筑摩改</JP-Name>
     <TR-Name>Chikuma Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>筑摩改二</JP-Name>
+    <TR-Name>Chikuma Kai2</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>飛鷹</JP-Name>
@@ -1105,6 +1113,10 @@
     <TR-Name>Bismarck Kai</TR-Name>
   </Ship>
   <Ship>
+    <JP-Name>Bismarck zwei</JP-Name>
+    <TR-Name>Bismarck zwei</TR-Name>
+  </Ship>
+  <Ship>
     <JP-Name>Z1</JP-Name>
     <TR-Name>Z1</TR-Name>
   </Ship>
@@ -1135,5 +1147,37 @@
   <Ship>
     <JP-Name>浜風改</JP-Name>
     <TR-Name>Hamakaze Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>天津風</JP-Name>
+    <TR-Name>Amatsukaze</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>天津風改</JP-Name>
+    <TR-Name>Amatsukaze Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>谷風</JP-Name>
+    <TR-Name>Tanikaze</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>谷風改</JP-Name>
+    <TR-Name>Tanikaze Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>明石</JP-Name>
+    <TR-Name>Akashi</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>明石改</JP-Name>
+    <TR-Name>Akashi Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>酒匂</JP-Name>
+    <TR-Name>Sakawa</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>酒匂改</JP-Name>
+    <TR-Name>Sakawa Kai</TR-Name>
   </Ship>
 </Ships>

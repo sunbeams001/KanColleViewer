@@ -2,6 +2,23 @@
 	KCV Change Log
 ========================
 
+v2.5.0 r420 - 4/22/2014 The Spring Event
+Note: Setting have been reset with this version! Please review them.
+	* *New* Custom sound alerts. Works on all versions of windows. Will randomly pick
+		an appropriate sound file under the "Sounds" folder. Acceptable formats are wav
+		and mp3. There are also options to change it's playback volume.
+	* *New* Fatigue notifications. When your fleet is suppose to recover their fatigue, you
+		are notified. This is not 100% accurate and off by default.
+	* Status bar now shows the information that is normally found in the fleet tab on the 
+		overview tab as well.
+	* Line of Sight calculation is shown in the status bar in both fleet and overview.
+	* You can now sort the ship catalog by the extra stats.
+	* There is no longer a minimum height set in vertical KCV. Scrollbars will only appear if
+		you cover content in the window.
+	* There is now a button in the update menu that takes you directly to the latest found
+		version of KCV. The hyperlinks still work of course.
+	* Translations will come as they are found/needed. Auto-update is our friend!
+
 v2.4.0 r403 - 4/12/2014 "To die for"
 Note: Setting have been reset with this version! Please review them.
 	* *New* Flash quality select option - Choose from Low to Best and anything inbetween.

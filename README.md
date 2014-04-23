@@ -44,6 +44,14 @@ Easiest way is to just disable translations in the options menu. You can also se
 #### I'm missing XXXX translations! (XXXX is in Japanese)
 Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me through pastebin on twitter (@Zharay) or as a bug in GitHub.
 
+#### I have a white screen!
+Please let me know if this is happening and tell me what OS you are using and the version of IE. My suspicion is an outdated version of IE.
+
+#### Custom Sound Notifications - What?
+These are sounds that play immediately when a normal windows notification is to be displayed. Supported formats are WAV and MP3. You must place them in the "Sounds" and under the subdirectory corresponding to the notification you require. It doesn't matter the name or the number you have; a random file will be chosen to be played every time.
+
+Note! For those not in English UI, you may need to place them in the folders that are generated *after* a notification is played once. Any missing folders will be created for you.
+
 #### What is the difference between this and the original?
 * Horizontal version is unique to this project. 
 * The translation of all equipment, ships, and quests
@@ -53,6 +61,8 @@ Please help me with these when you run into them. The translation engine has the
 * Calculator (for now)
 * Auto updating and version checking.
 * Regional cookie setting.
+* Flash quality settings
+* Custom sound notifications
 
 Other than the above, this version is the same with just some minor tweaks to make it fit for an English translation. The plan is to hopefully add some features into the main project for all to enjoy.
 
