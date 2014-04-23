@@ -12,7 +12,7 @@ namespace Grabacr07.KanColleWrapper.Models
 	/// <summary>
 	/// 艦種を表します。
 	/// </summary>
-	public class ShipType : RawDataWrapper<kcsapi_stype>, IIdentifiable
+	public class ShipType : RawDataWrapper<kcsapi_mst_stype>, IIdentifiable
 	{
 		public int Id
 		{
@@ -32,7 +32,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_sortno; }
 		}
 
-		public ShipType(kcsapi_stype rawData) : base(rawData) { }
+		public ShipType(kcsapi_mst_stype rawData) : base(rawData) { }
 
 		public override string ToString()
 		{
@@ -41,7 +41,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#region static members
 
-		private static readonly ShipType dummy = new ShipType(new kcsapi_stype
+		private static readonly ShipType dummy = new ShipType(new kcsapi_mst_stype
 		{
 			api_id = 999,
 			api_sortno = 999,

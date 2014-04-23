@@ -40,6 +40,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release %28beta%29|AnyCPU'">
+    <OutputPath>bin\Release %28beta%29\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FiddlerCore4, Version=4.4.5.3, Culture=neutral, PublicKeyToken=67cb91587178ac5a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -100,15 +109,18 @@
     <Compile Include="Models\QuestState.cs" />
     <Compile Include="Models\QuestType.cs" />
     <Compile Include="Models\Ranking.cs" />
+    <Compile Include="Models\Raw\kcsapi_charge.cs" />
     <Compile Include="Models\Raw\kcsapi_battleresult.cs" />
     <Compile Include="Models\Raw\kcsapi_createitem.cs" />
     <Compile Include="Models\Raw\kcsapi_createship.cs" />
+    <Compile Include="Models\Raw\kcsapi_port.cs" />
     <Compile Include="Models\Raw\kcsapi_quest.cs" />
     <Compile Include="Models\Raw\kcsapi_questlist.cs" />
     <Compile Include="Models\Raw\kcsapi_ranking.cs" />
     <Compile Include="Models\Raw\kcsapi_ranking_getlist.cs" />
     <Compile Include="Models\Raw\kcsapi_ship3.cs" />
     <Compile Include="Models\Raw\kcsapi_slot_data.cs" />
+    <Compile Include="Models\Raw\kcsapi_start2.cs" />
     <Compile Include="Models\RepairingCompletedEventArgs.cs" />
     <Compile Include="Models\BuildingCompletedEventArgs.cs" />
     <Compile Include="Models\ConditionType.cs" />
@@ -125,7 +137,7 @@
     <Compile Include="Models\Raw\kcsapi_material.cs" />
     <Compile Include="Models\Raw\kcsapi_ndock.cs" />
     <Compile Include="Models\Raw\kcsapi_start.cs" />
-    <Compile Include="Models\Raw\kcsapi_stype.cs" />
+    <Compile Include="Models\Raw\kcsapi_mst_stype.cs" />
     <Compile Include="Models\RepairingDock.cs" />
     <Compile Include="Models\RepairingDockState.cs" />
     <Compile Include="Models\ShipCriticalConditionEventArgs.cs" />
@@ -145,11 +157,11 @@
     <Compile Include="Models\Rank.cs" />
     <Compile Include="Models\Raw\kcsapi_deck.cs" />
     <Compile Include="Models\Raw\kcsapi_ship.cs" />
-    <Compile Include="Models\Raw\kcsapi_master_ship.cs" />
+    <Compile Include="Models\Raw\kcsapi_mst_ship.cs" />
     <Compile Include="Models\Raw\kcsapi_slotitem.cs" />
-    <Compile Include="Models\Raw\kcsapi_master_slotitem.cs" />
+    <Compile Include="Models\Raw\kcsapi_mst_slotitem.cs" />
     <Compile Include="Models\Raw\kcsapi_useitem.cs" />
-    <Compile Include="Models\Raw\kcsapi_master_useitem.cs" />
+    <Compile Include="Models\Raw\kcsapi_mst_useitem.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Models\ShipInfo.cs" />
     <Compile Include="Models\SlotItem.cs" />
