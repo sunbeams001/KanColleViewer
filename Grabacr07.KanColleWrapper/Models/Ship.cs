@@ -108,6 +108,14 @@ namespace Grabacr07.KanColleWrapper.Models
 		public ModernizableStatus Luck { get; private set; }
 
 		/// <summary>
+		/// 装備によるボーナスを含めた索敵ステータス値を取得します。
+		/// </summary>
+		public int ViewRange
+		{
+			get { return this.RawData.api_sakuteki.Get(0) ?? 0; }
+		}
+
+		/// <summary>
 		/// Anti-Submarine stat with and without equipment.
 		/// </summary>
 		public LimitedValue AntiSub { get; private set; }

@@ -421,6 +421,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 索敵能力.
+        /// </summary>
+        public static string Fleets_ViewRange {
+            get {
+                return ResourceManager.GetString("Fleets_ViewRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 司令部.
         /// </summary>
         public static string Homeport_FleetHQ {
@@ -907,6 +916,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Sound Notifications.
+        /// </summary>
+        public static string Settings_CustomSound {
+            get {
+                return ResourceManager.GetString("Settings_CustomSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume.
+        /// </summary>
+        public static string Settings_CustomSound_Volume {
+            get {
+                return ResourceManager.GetString("Settings_CustomSound_Volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 表示設定.
         /// </summary>
         public static string Settings_Display {
@@ -1005,7 +1032,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logging.
+        ///   Looks up a localized string similar to ログ.
         /// </summary>
         public static string Settings_Logging {
             get {
@@ -1014,7 +1041,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log drops and crafting results to file.
+        ///   Looks up a localized string similar to ドロップ・建造・開発ログを記録する.
         /// </summary>
         public static string Settings_Logging_Enable {
             get {
@@ -1037,6 +1064,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Notify_CriticalCondition {
             get {
                 return ResourceManager.GetString("Settings_Notify_CriticalCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Give a notification when a fleet&apos;s fatigue as reset. (Not 100% accurate!).
+        /// </summary>
+        public static string Settings_Notify_Fatigue {
+            get {
+                return ResourceManager.GetString("Settings_Notify_Fatigue", resourceCulture);
             }
         }
         
@@ -1235,6 +1271,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Updates_CurrentVersion {
             get {
                 return ResourceManager.GetString("Settings_Updates_CurrentVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Latest KCV.
+        /// </summary>
+        public static string Settings_Updates_GetKCVBtn {
+            get {
+                return ResourceManager.GetString("Settings_Updates_GetKCVBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opens a link to the latest version of KCV found here..
+        /// </summary>
+        public static string Settings_Updates_GetKCVBtn_ToolTip {
+            get {
+                return ResourceManager.GetString("Settings_Updates_GetKCVBtn_ToolTip", resourceCulture);
             }
         }
         
@@ -1752,7 +1806,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KanColleViewer Updater.
+        ///   Looks up a localized string similar to Updater.
         /// </summary>
         public static string Updater_Notification_Title {
             get {

@@ -696,6 +696,40 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region EnableFatigueNotification 変更通知プロパティ
+
+		public bool EnableFatigueNotification
+		{
+			get { return Settings.Current.EnableFatigueNotification; }
+			set
+			{
+				if (Settings.Current.EnableFatigueNotification != value)
+				{
+					Settings.Current.EnableFatigueNotification = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region CustomSoundVolume 変更通知プロパティ
+
+		public int CustomSoundVolume
+		{
+			get { return Settings.Current.CustomSoundVolume; }
+			set
+			{
+				if (Settings.Current.CustomSoundVolume != value)
+				{
+					Settings.Current.CustomSoundVolume = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		public bool HasErrors
 		{
 			get { return this.reSortieConditionError != null; }
@@ -884,6 +918,19 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			}
 				
 			KanColleClient.Current.Homeport.Translations.ChangeCulture(Culture);
+		}
+
+		public void OpenKCVLink()
+		{
+			try
+			{
+				if (!AppOnlineVersionURL.IsEmpty())
+					Process.Start(AppOnlineVersionURL);
+			}
+			catch
+			{
+
+			}
 		}
 	}
 }

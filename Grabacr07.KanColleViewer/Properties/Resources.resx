@@ -496,10 +496,13 @@
     <value>ゲーム画面の表示サイズを調整</value>
   </data>
   <data name="Settings_Logging" xml:space="preserve">
-    <value>Logging</value>
+    <value>ログ</value>
   </data>
   <data name="Settings_Logging_Enable" xml:space="preserve">
-    <value>Log drops and crafting results to file</value>
+    <value>ドロップ・建造・開発ログを記録する</value>
+  </data>
+  <data name="Fleets_ViewRange" xml:space="preserve">
+    <value>索敵能力</value>
   </data>
   <data name="Tools_Rankings" xml:space="preserve">
     <value>Rankings</value>
@@ -676,7 +679,7 @@
     <value>New Version of KCV is available! 「v{0}」</value>
   </data>
   <data name="Updater_Notification_Title" xml:space="preserve">
-    <value>KanColleViewer Updater</value>
+    <value>Updater</value>
   </data>
   <data name="Updater_Notification_TransUpdate_Fail" xml:space="preserve">
     <value>KCV was unable to download the translations!</value>
@@ -709,5 +712,20 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_Flash_Message" xml:space="preserve">
     <value>You must use the default method of playing Kancolle through DMM.com's website or through a OSAPI link. SWF/API links do not work!
 [You must reload the game for the changes to take affect.]</value>
+  </data>
+  <data name="Settings_Updates_GetKCVBtn" xml:space="preserve">
+    <value>Get Latest KCV</value>
+  </data>
+  <data name="Settings_Updates_GetKCVBtn_ToolTip" xml:space="preserve">
+    <value>Opens a link to the latest version of KCV found here.</value>
+  </data>
+  <data name="Settings_CustomSound" xml:space="preserve">
+    <value>Custom Sound Notifications</value>
+  </data>
+  <data name="Settings_CustomSound_Volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="Settings_Notify_Fatigue" xml:space="preserve">
+    <value>Give a notification when a fleet's fatigue as reset. (Not 100% accurate!)</value>
   </data>
 </root>

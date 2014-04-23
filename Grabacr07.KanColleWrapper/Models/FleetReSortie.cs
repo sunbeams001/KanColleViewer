@@ -107,7 +107,7 @@ namespace Grabacr07.KanColleWrapper.Models
 				this.ReadyTime = null;
 				this.UpdateCore();
 				if (this.prevShips.Length > 0)
-                    this.prevShips = new Ship[0];
+					this.prevShips = new Ship[0];
 				return;
 			}
 
@@ -126,10 +126,10 @@ namespace Grabacr07.KanColleWrapper.Models
 
 				}
 
-                var RepairingCritShips = ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25 && repairyard.CheckRepairing(s.Id)).Count();
+				var RepairingCritShips = ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25 && repairyard.CheckRepairing(s.Id)).Count();
 
-                if (ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25).Count() == RepairingCritShips)
-                    this.CriticalCleared(this, new EventArgs());
+				if (ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25).Count() == RepairingCritShips)
+					this.CriticalCleared(this, new EventArgs());
 			}
 			else if (this.prevShips.Length > 0 && this.prevShips.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25))
 			{
@@ -158,16 +158,16 @@ namespace Grabacr07.KanColleWrapper.Models
 			{
 				this.ReadyTime = null;
 			}
-            
+			
 			this.minCondition = min;
 			this.Reason = reason;
 
 			this.UpdateCore();
 
-            if (this.prevShips.Length > 0)
-                this.prevShips = new Ship[0];
+			if (this.prevShips.Length > 0)
+				this.prevShips = new Ship[0];
 
-            this.prevShips = ships;
+			this.prevShips = ships;
 		}
 
 		private void UpdateCore()

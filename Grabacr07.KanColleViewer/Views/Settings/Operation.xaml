@@ -21,7 +21,7 @@
 
 	<StackPanel>
 		<TextBlock Margin="0,0,0,10"
-                   IsEnabled="False">
+				   IsEnabled="False">
 			<Run Text="Sortie Condition"
 				 Style="{DynamicResource PickupTextElementStyleKey}" />
 			<Run Text=" " />
@@ -29,7 +29,7 @@
 		</TextBlock>
 
 		<StackPanel Margin="15,0,0,0"
-                    IsEnabled="False">
+					IsEnabled="False">
 			<TextBlock>
 				<Run Text="Minimum fleet condition to be considered ready for sorties." />
 			</TextBlock>
@@ -57,10 +57,11 @@
 		<Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-        <TextBlock Text="{Binding Resources.Settings_FleetCondition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+		<TextBlock Text="{Binding Resources.Settings_FleetCondition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 				   Style="{DynamicResource HeaderTextBlockStyleKey}"
-                   Margin="0,10"/>
-        <CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Notify_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalNotify}" Height="17" Margin="15,0,0,10"/>
-        <CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Accent_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalAccent}" Height="17" Margin="15,0,0,10"/>
-    </StackPanel>
+				   Margin="0,10"/>
+		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Notify_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalNotify}" Height="17" Margin="15,0,0,10"/>
+		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Accent_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalAccent}" Height="17" Margin="15,0,0,10"/>
+		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Notify_Fatigue}, Mode=OneWay}" IsChecked="{Binding EnableFatigueNotification}" Height="17" Margin="15,0,0,10"/>
+	</StackPanel>
 </UserControl>

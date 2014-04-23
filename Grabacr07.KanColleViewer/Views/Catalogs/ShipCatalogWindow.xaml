@@ -23,7 +23,7 @@
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:ShipCatalogWindowViewModel}"
 				   Title="{Binding Title}"
-				   Width="1112"
+				   Width="1110"
 				   Height="800"
 				   FontSize="12"
 				   Background="{DynamicResource ThemeBrushKey}"
@@ -600,7 +600,7 @@
 							<GridViewColumn Width="110">
 								<GridViewColumn.Header>
 									<metro2:SortButton Direction="{Binding SortWorker.LevelColumn.Direction}"
-													   MethodName="Update">
+													   MethodName="UpdateReverse">
 										<metro2:SortButton.MethodParameter>
 											<viewModels:ShipCatalogSortTarget>Level</viewModels:ShipCatalogSortTarget>
 										</metro2:SortButton.MethodParameter>
@@ -625,7 +625,7 @@
 							<GridViewColumn Width="50">
 								<GridViewColumn.Header>
 									<metro2:SortButton Direction="{Binding SortWorker.ConditionColumn.Direction}"
-													   MethodName="Update">
+													   MethodName="UpdateReverse">
 										<metro2:SortButton.MethodParameter>
 											<viewModels:ShipCatalogSortTarget>Cond</viewModels:ShipCatalogSortTarget>
 										</metro2:SortButton.MethodParameter>
@@ -722,7 +722,39 @@
 							<GridViewColumn Width="64">
 								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
 													  behaviors:GridViewBehaviors.CollapseableColumn="True">
-									<TextBlock Text="Evasion" />
+									<metro2:SortButton Direction="{Binding SortWorker.ViewRangeColumn.Direction}"
+													   MethodName="UpdateReverse"
+													   ToolTip="Equipment (Base)">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>ViewRange</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="LoS" />
+									</metro2:SortButton>
+								</GridViewColumnHeader>
+								<GridViewColumn.CellTemplate>
+									<DataTemplate>
+										<TextBlock FontSize="9">
+											<Run Text="{Binding Ship.LineOfSight.Current, Mode=OneWay}" 
+												 FontSize="12"
+												 Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
+											<Run Text="" />
+											<Run Text="{Binding Ship.LineOfSight.Minimum, StringFormat=({0}), Mode=OneWay}" />
+										</TextBlock>
+									</DataTemplate>
+								</GridViewColumn.CellTemplate>
+							</GridViewColumn>
+
+							<GridViewColumn Width="64">
+								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
+													  behaviors:GridViewBehaviors.CollapseableColumn="True">
+									<metro2:SortButton Direction="{Binding SortWorker.EvasionColumn.Direction}"
+													   MethodName="UpdateReverse"
+													   ToolTip="Equipment (Base)">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>Evasion</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="Evasion" />
+									</metro2:SortButton>
 								</GridViewColumnHeader>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -740,7 +772,14 @@
 							<GridViewColumn Width="64">
 								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
 													  behaviors:GridViewBehaviors.CollapseableColumn="True">
-									<TextBlock Text="Anti-Sub" />
+									<metro2:SortButton Direction="{Binding SortWorker.AntiSubColumn.Direction}"
+													   MethodName="UpdateReverse"
+													   ToolTip="Equipment (Base)">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>AntiSub</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="AntiSub" />
+									</metro2:SortButton>
 								</GridViewColumnHeader>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -750,24 +789,6 @@
 												 Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
 											<Run Text="" />
 											<Run Text="{Binding Ship.AntiSub.Minimum, StringFormat=({0}), Mode=OneWay}" />
-										</TextBlock>
-									</DataTemplate>
-								</GridViewColumn.CellTemplate>
-							</GridViewColumn>
-
-							<GridViewColumn Width="64">
-								<GridViewColumnHeader Visibility="{Binding ShowMoreStats, Converter={StaticResource BooleanToVsibilityConverterKey}}"
-													  behaviors:GridViewBehaviors.CollapseableColumn="True">
-									<TextBlock Text="LoS" />
-								</GridViewColumnHeader>
-								<GridViewColumn.CellTemplate>
-									<DataTemplate>
-										<TextBlock FontSize="9">
-											<Run Text="{Binding Ship.LineOfSight.Current, Mode=OneWay}" 
-												 FontSize="12"
-												 Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
-											<Run Text="" />
-											<Run Text="{Binding Ship.LineOfSight.Minimum, StringFormat=({0}), Mode=OneWay}" />
 										</TextBlock>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>

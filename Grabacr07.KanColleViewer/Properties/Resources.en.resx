@@ -163,7 +163,7 @@
     <value>Construction of {1} in Dock {0} has been completed.</value>
   </data>
   <data name="Dockyard_NotificationMessage_Title" xml:space="preserve">
-    <value>Construction Completed</value>
+    <value>Construction</value>
   </data>
   <data name="Dockyard_Notifications_Enable" xml:space="preserve">
     <value>Notify Upon Completion</value>
@@ -193,7 +193,7 @@
     <value>「{0}」 has returned from an expedition.</value>
   </data>
   <data name="Expedition_NotificationMessage_Title" xml:space="preserve">
-    <value>Expedition Completed</value>
+    <value>Expedition</value>
   </data>
   <data name="Expedition_Notifications_Enable" xml:space="preserve">
     <value>Notify Upon Completion</value>
@@ -307,7 +307,7 @@
     <value>Repairs on {1} in Dock {0} have been completed.</value>
   </data>
   <data name="Repairyard_NotificationMessage_Title" xml:space="preserve">
-    <value>Repairs Completed</value>
+    <value>Repairyard</value>
   </data>
   <data name="Repairyard_Notifications_Enable" xml:space="preserve">
     <value>Notify Upon Completion</value>
@@ -625,7 +625,7 @@
     <value>New Version of KCV is available! 「v{0}」</value>
   </data>
   <data name="Updater_Notification_Title" xml:space="preserve">
-    <value>KanColleViewer Updater</value>
+    <value>Updater</value>
   </data>
   <data name="Updater_Notification_TransUpdate_Fail" xml:space="preserve">
     <value>KCV was unable to download the translations!</value>
@@ -681,5 +681,17 @@ Auto-High: Automatically lowers quality when needed.
 Medium: Average Performance
 AutoLow: Will emphasize speed when needed
 Low: Performance over quality. Ugliest setting.</value>
+  </data>
+  <data name="Fleets_ViewRange" xml:space="preserve">
+    <value>Total LoS</value>
+  </data>
+  <data name="Settings_Updates_GetKCVBtn" xml:space="preserve">
+    <value>Get Latest KCV</value>
+  </data>
+  <data name="Settings_Updates_GetKCVBtn_ToolTip" xml:space="preserve">
+    <value>Opens a link to the latest version of KCV found here.</value>
+  </data>
+  <data name="Settings_Notify_Fatigue" xml:space="preserve">
+    <value>Give a notification when a fleet's fatigue as reset.</value>
   </data>
 </root>

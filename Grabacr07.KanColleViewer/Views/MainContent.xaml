@@ -108,11 +108,11 @@
                             </DataTemplate>
                             <DataTemplate DataType="{x:Type vmContents:ExpeditionsViewModel}">
                                 <contents:Expeditions />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vmContents:ToolsViewModel}">
-                                <tools:Tools />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+						</DataTemplate>
+						<DataTemplate DataType="{x:Type vmContents:ToolsViewModel}">
+							<tools:Tools />
+						</DataTemplate>
+						<DataTemplate DataType="{x:Type vm:SettingsViewModel}">
                                 <settings:Settings />
                             </DataTemplate>
                             <DataTemplate DataType="{x:Type devVm:DebugTabViewModel}">

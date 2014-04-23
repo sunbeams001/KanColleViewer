@@ -97,6 +97,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LivetExtensions.1.1.0.0\lib\net45\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\packages\NAudio.1.7.1\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -143,6 +146,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\BrowserZoomFactor.cs" />
+    <Compile Include="Models\CustomSound.cs" />
     <Compile Include="Models\IWindowsNotifier.cs" />
     <Compile Include="Models\IZoomFactor.cs" />
     <Compile Include="Models\ProductInfo.cs" />
@@ -662,15 +666,20 @@ xcopy /Y /E /I "$(TargetDir)ko-KR" "$(SolutionDir)KanColleViewer-Compiled\lib\ko
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(SolutionDir)KanColleViewer-Compiled\Translations"
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(TargetDir)Translations"
 ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe" "KanColleViewer-Horizontal.exe"
-ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe.config" "KanColleViewer-Horizontal.exe.config"</PostBuildEvent>
+ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe.config" "KanColleViewer-Horizontal.exe.config"
+xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(SolutionDir)KanColleViewer-Compiled\Sounds"
+xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(TargetDir)Sounds"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>rd /S /Q "$(TargetDir)Translations"
+rd /S /Q "$(TargetDir)Sounds"
 rd /S /Q "$(SolutionDir)KanColleViewer-Compiled"
 md "$(SolutionDir)KanColleViewer-Compiled"
 md "$(SolutionDir)KanColleViewer-Compiled\lib"
 md "$(SolutionDir)KanColleViewer-Compiled\Translations"
-md "$(TargetDir)Translations"</PreBuildEvent>
+md "$(SolutionDir)KanColleViewer-Compiled\Sounds"
+md "$(TargetDir)Translations"
+md "$(TargetDir)Sounds"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

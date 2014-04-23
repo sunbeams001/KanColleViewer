@@ -20,6 +20,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public NameColumnViewModel NameColumn { get; private set; }
 		public LevelColumnViewModel LevelColumn { get; private set; }
 		public ConditionColumnViewModel ConditionColumn { get; private set; }
+		public ViewRangeColumnViewModel ViewRangeColumn { get; private set; }
+		public EvasionColumnViewModel EvasionColumn { get; private set; }
+		public AntiSubColumnViewModel AntiSubColumn { get; private set; }
 
 		public ShipCatalogSortWorker()
 		{
@@ -28,6 +31,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 			this.NameColumn = new NameColumnViewModel();
 			this.LevelColumn = new LevelColumnViewModel();
 			this.ConditionColumn = new ConditionColumnViewModel();
+			this.ViewRangeColumn = new ViewRangeColumnViewModel();
+			this.EvasionColumn = new EvasionColumnViewModel();
+			this.AntiSubColumn = new AntiSubColumnViewModel();
 
 			this.sortableColumns = new List<SortableColumnViewModel>
 			{
@@ -37,27 +43,48 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				this.NameColumn,
 				this.LevelColumn,
 				this.ConditionColumn,
+				this.ViewRangeColumn,
+				this.EvasionColumn,
+				this.AntiSubColumn,
 			};
 
 			this.currentSortTarget = this.noneColumn;
 		}
 
-		public void SetTarget(ShipCatalogSortTarget sortTarget)
+		public void SetTarget(ShipCatalogSortTarget sortTarget, bool reverse)
 		{
 			var target = this.sortableColumns.FirstOrDefault(x => x.Target == sortTarget);
 			if (target == null) return;
 
-			switch (target.Direction)
+			if (reverse)
 			{
-				case SortDirection.None:
-					target.Direction = SortDirection.Ascending;
-					break;
-				case SortDirection.Ascending:
-					target.Direction = SortDirection.Descending;
-					break;
-				case SortDirection.Descending:
-					target = this.noneColumn;
-					break;
+				switch (target.Direction)
+				{
+					case SortDirection.None:
+						target.Direction = SortDirection.Descending;
+						break;
+					case SortDirection.Descending:
+						target.Direction = SortDirection.Ascending;
+						break;
+					case SortDirection.Ascending:
+						target = this.noneColumn;
+						break;
+				}
+			}
+			else
+			{
+				switch (target.Direction)
+				{
+					case SortDirection.None:
+						target.Direction = SortDirection.Ascending;
+						break;
+					case SortDirection.Ascending:
+						target.Direction = SortDirection.Descending;
+						break;
+					case SortDirection.Descending:
+						target = this.noneColumn;
+						break;
+				}
 			}
 
 			this.currentSortTarget = target;

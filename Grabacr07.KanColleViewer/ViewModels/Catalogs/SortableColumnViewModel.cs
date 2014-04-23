@@ -117,13 +117,13 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			if (this.Direction == SortDirection.Ascending)
 			{
-				return list.OrderByDescending(x => x.Level)
+				return list.OrderBy(x => x.Level)
 					.ThenBy(x => x.Info.Name)
 					.ThenBy(x => x.Id);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
-				return list.OrderBy(x => x.Level)
+				return list.OrderByDescending(x => x.Level)
 					.ThenByDescending(x => x.Info.Name)
 					.ThenByDescending(x => x.Id);
 			}
@@ -139,17 +139,89 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			if (this.Direction == SortDirection.Ascending)
 			{
-				return list.OrderByDescending(x => x.Condition)
+				return list.OrderBy(x => x.Condition)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.Name);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
-				return list.OrderBy(x => x.Condition)
+				return list.OrderByDescending(x => x.Condition)
 					.ThenByDescending(x => x.Info.ShipType.Id)
 					.ThenByDescending(x => x.Level)
 					.ThenByDescending(x => x.Info.Name);
+			}
+			return list;
+		}
+	}
+
+	public class ViewRangeColumnViewModel : SortableColumnViewModel
+	{
+		public ViewRangeColumnViewModel() : base(ShipCatalogSortTarget.ViewRange) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.LineOfSight)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.SortId);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.LineOfSight)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.SortId);
+			}
+			return list;
+		}
+	}
+
+	public class EvasionColumnViewModel : SortableColumnViewModel
+	{
+		public EvasionColumnViewModel() : base(ShipCatalogSortTarget.Evasion) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.Evasion)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.SortId);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.Evasion)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.SortId);
+			}
+			return list;
+		}
+	}
+
+	public class AntiSubColumnViewModel : SortableColumnViewModel
+	{
+		public AntiSubColumnViewModel() : base(ShipCatalogSortTarget.AntiSub) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.AntiSub)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.SortId);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.AntiSub)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.SortId);
 			}
 			return list;
 		}

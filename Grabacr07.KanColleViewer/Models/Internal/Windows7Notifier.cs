@@ -12,6 +12,7 @@ namespace Grabacr07.KanColleViewer.Models.Internal
 	/// </summary>
 	internal class Windows7Notifier : IWindowsNotifier
 	{
+		CustomSound sound = new CustomSound();
 		private NotifyIcon notifyIcon;
 		private EventHandler activatedAction;
 
@@ -48,6 +49,7 @@ namespace Grabacr07.KanColleViewer.Models.Internal
 				this.notifyIcon.BalloonTipClicked += this.activatedAction;
 			}
 
+			sound.SoundOutput(header, false);
 			notifyIcon.ShowBalloonTip(1000, header, body, ToolTipIcon.None);
 		}
 

@@ -2,7 +2,7 @@
 	KCV Change Log
 ========================
 
-v2.4.0 r403 - 4/12/2014
+v2.4.0 r403 - 4/12/2014 "To die for"
 Note: Setting have been reset with this version! Please review them.
 	* *New* Flash quality select option - Choose from Low to Best and anything inbetween.
 	* *New* Flash window select option - Choose the rendering method in the browser.

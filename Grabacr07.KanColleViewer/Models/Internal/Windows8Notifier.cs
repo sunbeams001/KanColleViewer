@@ -16,6 +16,7 @@ namespace Grabacr07.KanColleViewer.Models.Internal
 	/// </summary>
 	internal class Windows8Notifier : IWindowsNotifier
 	{
+		CustomSound sound = new CustomSound();
 		#region static members
 
 		public static bool IsSupported
@@ -72,6 +73,7 @@ namespace Grabacr07.KanColleViewer.Models.Internal
 			toast.Activated += (sender, args) => activated();
 			if (failed != null) toast.ToastFailed += (sender, args) => failed(args.ErrorCode);
 
+			sound.SoundOutput(header, true);
 			toast.Show();
 		}
 

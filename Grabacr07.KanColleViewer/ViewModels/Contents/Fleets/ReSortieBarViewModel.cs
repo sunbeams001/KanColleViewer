@@ -76,25 +76,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 		#endregion
 
-		#region IsNotifyReadied 変更通知プロパティ
-
-		private bool _IsNotifyReadied;
-
-		public bool IsNotifyReadied
-		{
-			get { return this._IsNotifyReadied; }
-			set
-			{
-				if (this._IsNotifyReadied != value)
-				{
-					this._IsNotifyReadied = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
-
 		public ReSortieBarViewModel(FleetViewModel parent, FleetReSortie reSortie)
 		{
 			this.source = reSortie;
@@ -109,7 +90,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 			reSortie.Readied += (sender, args) =>
 			{
-				if (this.IsNotifyReadied)
+				if (Models.Settings.Current.EnableFatigueNotification)
 				{
 					WindowsNotification.Notifier.Show(
 						Resources.ReSortie_NotificationMessage_Title,
@@ -118,24 +99,24 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 				}
 			};
 
-            reSortie.CriticalCondition += (sender, args) =>
-            {
-                if (Models.Settings.Current.EnableCriticalNotify)
-                {
-                    WindowsNotification.Notifier.Show(
-                        Resources.ReSortie_CriticalConditionMessage_Title,
-                        string.Format(Resources.ReSortie_CriticalConditionMessage, args.Ship.Info.Name, parent.Name),
-                        () => App.ViewModelRoot.Activate());
-                }
+			reSortie.CriticalCondition += (sender, args) =>
+			{
+				if (Models.Settings.Current.EnableCriticalNotify)
+				{
+					WindowsNotification.Notifier.Show(
+						Resources.ReSortie_CriticalConditionMessage_Title,
+						string.Format(Resources.ReSortie_CriticalConditionMessage, args.Ship.Info.Name, parent.Name),
+						() => App.ViewModelRoot.Activate());
+				}
 
-                if (Models.Settings.Current.EnableCriticalAccent)
-                    App.ViewModelRoot.Mode = Mode.CriticalCondition;
-            };
+				if (Models.Settings.Current.EnableCriticalAccent)
+					App.ViewModelRoot.Mode = Mode.CriticalCondition;
+			};
 
-            reSortie.CriticalCleared += (sender, args) =>
-            {
-                App.ViewModelRoot.Mode = Mode.Started;
-            };
+			reSortie.CriticalCleared += (sender, args) =>
+			{
+				App.ViewModelRoot.Mode = Mode.Started;
+			};
 		}
 
 

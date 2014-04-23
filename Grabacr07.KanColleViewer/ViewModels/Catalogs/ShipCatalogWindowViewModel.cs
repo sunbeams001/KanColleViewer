@@ -201,7 +201,12 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		public void Update(ShipCatalogSortTarget sortTarget)
 		{
-			this.SortWorker.SetTarget(sortTarget);
+			this.SortWorker.SetTarget(sortTarget, false);
+			this.Update();
+		}
+		public void UpdateReverse(ShipCatalogSortTarget sortTarget)
+		{
+			this.SortWorker.SetTarget(sortTarget, true);
 			this.Update();
 		}
 
