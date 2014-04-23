@@ -304,7 +304,7 @@ namespace Grabacr07.KanColleWrapper
                             ShipsVersion = "0.0.0";
                         }
 
-                        kcsapi_master_ship ShipData = RawData as kcsapi_master_ship;
+						kcsapi_mst_ship ShipData = RawData as kcsapi_mst_ship;
 
                         if (ShipData == null)
                             return;
@@ -326,7 +326,7 @@ namespace Grabacr07.KanColleWrapper
                             ShipTypesVersion = "0.0.0";
                         }
 
-                        kcsapi_stype TypeData = RawData as kcsapi_stype;
+						kcsapi_mst_stype TypeData = RawData as kcsapi_mst_stype;
 
                         if (TypeData == null)
                             return;
@@ -349,7 +349,7 @@ namespace Grabacr07.KanColleWrapper
                             EquipmentVersion = "0.0.0";
                         }
 
-                        kcsapi_master_slotitem EqiupData = RawData as kcsapi_master_slotitem;
+						kcsapi_mst_slotitem EqiupData = RawData as kcsapi_mst_slotitem;
 
                         if (EqiupData == null)
                             return;

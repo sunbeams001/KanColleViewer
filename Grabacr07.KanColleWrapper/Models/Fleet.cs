@@ -241,7 +241,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		internal void UpdateShips()
 		{
 			this.RaisePropertyChanged("Ships");
-			this.ReSortie.Update(this.Ships);
+			this.ReSortie.Update(this.Ships, this.homeport.Repairyard);
 			this.UpdateStatus();
 		}
 
