@@ -709,10 +709,6 @@ Medium: Average Performance
 AutoLow: Will emphasize speed when needed
 Low: Performance over quality. Ugliest setting.</value>
   </data>
-  <data name="Settings_Flash_Message" xml:space="preserve">
-    <value>You must use the default method of playing Kancolle through DMM.com's website or through a OSAPI link. SWF/API links do not work!
-[You must reload the game for the changes to take affect.]</value>
-  </data>
   <data name="Settings_Updates_GetKCVBtn" xml:space="preserve">
     <value>Get Latest KCV</value>
   </data>
@@ -727,5 +723,9 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Settings_Notify_Fatigue" xml:space="preserve">
     <value>Give a notification when a fleet's fatigue as reset. (Not 100% accurate!)</value>
+  </data>
+  <data name="Settings_Flash_Message" xml:space="preserve">
+    <value>This works with DMM.com. OSAPI, and API links now!
+[You must reload the game for the changes to take affect.]</value>
   </data>
 </root>

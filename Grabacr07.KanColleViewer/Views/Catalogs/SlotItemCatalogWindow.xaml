@@ -137,9 +137,14 @@
 													<controls:SlotItemIcon Type="{Binding SlotItem.IconType}" />
 												</Viewbox>
 											</Border>
-											<TextBlock Text="{Binding SlotItem.Name}"
-													   Foreground="{DynamicResource ActiveForegroundBrushKey}"
-													   Margin="0,4" />
+											<TextBlock Margin="0,4">
+												<Run Text="{Binding SlotItem.Name, Mode=OneWay}"
+													 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+												<LineBreak />
+												<Run Text="{Binding SlotItem.UntranslatedName, Mode=OneWay}"
+													 Background="{DynamicResource BackgroundBrushKey}"
+													 FontSize="11" />
+											</TextBlock>
 										</StackPanel>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>

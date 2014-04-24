@@ -592,7 +592,8 @@
 									<DataTemplate>
 										<TextBlock Text="{Binding Ship.Info.Name, Mode=OneWay}"
 												   Foreground="{DynamicResource ActiveForegroundBrushKey}"
-												   Margin="0,3" />
+												   Margin="0,3"
+												   ToolTip="{Binding Ship.Info.UntranslatedName, Mode=OneWay}"/>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>

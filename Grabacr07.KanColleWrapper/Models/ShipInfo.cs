@@ -40,6 +40,17 @@ namespace Grabacr07.KanColleWrapper.Models
 		}
 
 		/// <summary>
+		/// Get the untranslated version of the name. If it is untranslated, return nothing.
+		/// </summary>
+		public string UntranslatedName
+		{
+			get
+			{
+				return this.Name != RawData.api_name ? RawData.api_name : "";
+			}
+		}
+
+		/// <summary>
 		/// 艦種を取得します。
 		/// </summary>
 		public ShipType ShipType

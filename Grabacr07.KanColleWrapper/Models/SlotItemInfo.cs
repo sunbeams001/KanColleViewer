@@ -39,6 +39,14 @@ namespace Grabacr07.KanColleWrapper.Models
 			}
 		}
 
+		public string UntranslatedName
+		{
+			get
+			{
+				return (this.RawData.api_name != this.Name ? this.RawData.api_name : "");
+			}
+		}
+
 		public string Detail
 		{
 			get

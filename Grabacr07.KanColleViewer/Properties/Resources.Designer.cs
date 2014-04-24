@@ -952,7 +952,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must use the default method of playing Kancolle through DMM.com&apos;s website or through a OSAPI link. SWF/API links do not work!
+        ///   Looks up a localized string similar to This works with DMM.com. OSAPI, and API links now!
         ///[You must reload the game for the changes to take affect.].
         /// </summary>
         public static string Settings_Flash_Message {

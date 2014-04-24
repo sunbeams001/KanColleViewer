@@ -53,13 +53,13 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
 			if (oldBrowser != null)
 			{
-				oldBrowser.LoadCompleted -= instance.ApplyFlashQualityScript;
 				oldBrowser.LoadCompleted -= instance.ApplyStyleSheet;
+				oldBrowser.LoadCompleted -= instance.ApplyFlashQualityScript;
 			}
 			if (newBrowser != null)
 			{
-				newBrowser.LoadCompleted += instance.ApplyFlashQualityScript;
 				newBrowser.LoadCompleted += instance.ApplyStyleSheet;
+				newBrowser.LoadCompleted += instance.ApplyFlashQualityScript;
 			}
 			if (instance.scrollViewer != null)
 			{
@@ -128,6 +128,7 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 				this.WebBrowser.Width = (kanColleSize.Width * (zoomFactor / dpi.ScaleX)) / dpi.ScaleX;
 				this.WebBrowser.Height = (kanColleSize.Height * (zoomFactor / dpi.ScaleY)) / dpi.ScaleY;
 				this.MinWidth = this.WebBrowser.Width;
+				if (percentage != 100) ApplyFlashQualityScript(null, null);
 			}
 			else
 			{
@@ -213,8 +214,8 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 		{
 			try
 			{
-				var doc = this.WebBrowser.Document as HTMLDocument;
-				FramesCollection frames = doc.frames;
+				var document = this.WebBrowser.Document as HTMLDocument;
+				FramesCollection frames = document.frames;
 				HTMLDocument mainFrame = null;
 				for (int i = 0; i < frames.length; i++)
 				{
@@ -223,16 +224,25 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 					if (frame != null && ((HTMLDocument)frame).getElementById("flashWrap") != null)
 						mainFrame = (HTMLDocument)frame;
 					else
-						mainFrame = doc;
+						mainFrame = document;
 				}
 
 				if (mainFrame != null)
 				{
+					// Javascript injection - Greasemonkey style. Suppose to be more dynamic on DOM objects.
+					// Main reason for JS method is that the flash itself doesn't exist until after it has been added to the "flashWrap" DIV element!
+					// Leave the timing of when the flash is added to the script.
 					IHTMLElement head = (IHTMLElement)((IHTMLElementCollection)mainFrame.all.tags("head")).item(null, 0);
 					IHTMLScriptElement scriptOjbect = (IHTMLScriptElement)mainFrame.createElement("script");
 					scriptOjbect.type = @"text/javascript";
 					scriptOjbect.text = string.Format(Properties.Settings.Default.FlashQualityJS, KCVSettings.Current.FlashQuality, KCVSettings.Current.FlashWindow);
 					((HTMLHeadElement)head).appendChild((IHTMLDOMNode)scriptOjbect);
+				}
+
+				if (mainFrame == null && document.url.Contains(".swf?"))
+				{
+					// No dynamic way of accessing and editing this, so we forcefully make our own embed since its already provided for us.
+					document.body.innerHTML = string.Format(Properties.Settings.Default.FlashEmbed, KCVSettings.Current.FlashQuality, KCVSettings.Current.FlashWindow, document.url);
 				}
 			}
 			catch (Exception ex)

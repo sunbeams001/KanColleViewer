@@ -2,6 +2,13 @@
 	KCV Change Log
 ========================
 
+v2.6.0 β r431 - 4/24/2014
+	* API links now work with the flash settings!
+	* The item catalog will now display the item's original Japanese name under the translated 
+		one. This does not show if you have translations disabled.
+	* Ships will now show their original Japanese name with tool tips in the Fleet, Overview, 
+		and Roster.	
+
 v2.6.0 β r426 - 4/23/2014 The Spring Time Youth
 	* Direct fix from the main man himself, @Grabacr07.
 	* Back end - All it was is just file name changes and a few additional packets.

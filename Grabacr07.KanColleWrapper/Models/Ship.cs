@@ -177,7 +177,8 @@ namespace Grabacr07.KanColleWrapper.Models
 			get
 			{
 				string AddDetail = "";
-
+				if (this.Info.Name != this.Info.RawData.api_name)
+					AddDetail += this.Info.RawData.api_name + "\n";
 				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.Firepower, this.Firepower.Current, (this.Firepower.IsMax ? @"MAX" : "+" + (this.Firepower.Max - this.Firepower.Current).ToString()));
 				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.Torpedo, this.Torpedo.Current, (this.Torpedo.IsMax ? @"MAX" : "+" + (this.Torpedo.Max - this.Torpedo.Current).ToString()));
 				AddDetail += string.Format("{0}: {1} ({2})\n", KanColleClient.Current.Homeport.Translations.AntiAir, this.AA.Current, (this.AA.IsMax ? @"MAX" : "+" + (this.AA.Max - this.AA.Current).ToString()));

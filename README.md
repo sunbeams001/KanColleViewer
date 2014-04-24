@@ -12,6 +12,7 @@ This is the translation project of the original [KanColleViewer](http://grabacr.
 * [southrop](https://github.com/southrop) -- Original text file translation code (defunct)
 * [m-kc](https://github.com/m-kc) -- Rankings section
 * [taihou](https://github.com/taihou) -- Logging option
+* [FreyYa](https://github.com/FreyYa) -- Custom Sound
 
 ## Downloads
 All builds can be found in the following links below.
@@ -20,6 +21,9 @@ All builds can be found in the following links below.
 * [SkyDrive](http://sdrv.ms/1b01S24) -- Major revision binaries
 
 ## Frequently Asked Questions
+
+#### Is KCV safe?
+Yes. You are mainly playing off Internet Explorer (IE). The program itself wraps itself around IE and captures all network coming in and out. It only looks for incoming data and uses that for displaying in game information such as ships, expeditions, quests, and so on. **This does not change the game itself in any way**. **It does not change the packets in any way**. For other solutions to say that their version is "safer" while they are asking you to use an API link are just as much a problem as it is with this program.
 
 #### How do I use KCV to play Kancolle without a VPN?
 Before or after logging in, press the "Set Regional Cookie" button. This will change your status from being an IP from outside Japan to being a Japanese native one. It doesn't change your IP or do anything else except change a flag value on your visitor cookie.
@@ -38,33 +42,37 @@ Install [Flash for Internet Explorer](http://get.adobe.com/flashplayer/othervers
 #### I'm on Windows 7/XP and the program does not run!
 You need to have [.NET Framework 4.5](http://www.microsoft.com/en-us/download/details.aspx?id=30653) installed for your version of Windows. Those on Windows 8 do not have to do this.
 
+#### I have a white screen / error message about being unable to connect.
+Please let me know if this is happening and tell me what OS you are using and the version of IE. My suspicion is an outdated version of IE. Reports have also shown that clearing your cache+cookies and re-installing flash will also fix this issue.
+
+#### My Fleets and Expeditions don't show/update!
+Clear your cache and relaunch KCV again. Especially after updates or playing between versions of KCV, this should fix any issues regarding this.
+
 #### I want the original Japanese names for ships/items/etc.
 Easiest way is to just disable translations in the options menu. You can also set the UI's language to Japanese which will disable all translations by default. If you only want certain things translated, deleting the corresponding XML file in the translation folder is your best bet (just be sure to disable auto update).
 
 #### I'm missing XXXX translations! (XXXX is in Japanese)
 Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me through pastebin on twitter (@Zharay) or as a bug in GitHub.
 
-#### I have a white screen!
-Please let me know if this is happening and tell me what OS you are using and the version of IE. My suspicion is an outdated version of IE.
-
 #### Custom Sound Notifications - What?
-These are sounds that play immediately when a normal windows notification is to be displayed. Supported formats are WAV and MP3. You must place them in the "Sounds" and under the subdirectory corresponding to the notification you require. It doesn't matter the name or the number you have; a random file will be chosen to be played every time.
+These are sounds that play immediately when a normal windows notification is to be displayed. Supported formats are WAV and MP3. You must place them in the "Sounds" and under the sub-directory corresponding to the notification you require. It doesn't matter the name or the number you have; a random file will be chosen to be played every time.
 
 Note! For those not in English UI, you may need to place them in the folders that are generated *after* a notification is played once. Any missing folders will be created for you.
 
-#### What is the difference between this and the original?
+#### What is the difference between this and the original KCV by Grabarc07?
 * Horizontal version is unique to this project. 
 * The translation of all equipment, ships, and quests
-* Detailed equipment information (for now)
-* Logging features (for now)
-* Ranking information (for now)
-* Calculator (for now)
-* Auto updating and version checking.
+* Detailed equipment information
+* Logging features
+* Ranking information
+* EXP Calculator
+* Auto updating and version checking
 * Regional cookie setting.
 * Flash quality settings
 * Custom sound notifications
+* Extra stat display on ships and equipment
 
-Other than the above, this version is the same with just some minor tweaks to make it fit for an English translation. The plan is to hopefully add some features into the main project for all to enjoy.
+Other than the above, this version is the same with some tweaks to make it fit for an English translation. The plan is to hopefully add some features into the main project for all to enjoy.
 
 ## About This Project
 KanColleViewer uses the web browser component of the Windows Presentation Foundation (WPF) in combination of [FiddlerCore](http://fiddler2.com/fiddlercore) to capture communication packets in-between the server and the page itself.

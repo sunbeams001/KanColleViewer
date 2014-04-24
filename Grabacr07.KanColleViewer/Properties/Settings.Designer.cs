@@ -156,5 +156,19 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ((string)(this["FlashQualityJS"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<embed id=\"KCVGenerated\" width=\"800\" height=\"480\" wmode=\"{1}\" quality=\"{0}\" bgcol" +
+            "or=\"#000\" allowScriptAccess=\"always\" type=\"application/x-shockwave-flash\" src=\"{" +
+            "2}\">")]
+        public string FlashEmbed {
+            get {
+                return ((string)(this["FlashEmbed"]));
+            }
+            set {
+                this["FlashEmbed"] = value;
+            }
+        }
     }
 }
