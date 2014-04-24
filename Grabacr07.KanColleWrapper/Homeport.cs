@@ -277,7 +277,7 @@ namespace Grabacr07.KanColleWrapper
 				if (target == null) continue;
 
 				target.Charge(ship.api_fuel, ship.api_bull, ship.api_onslot);
-			}
+	}
 
 			foreach (var f in Fleets.Values) f.UpdateShips();
 		}

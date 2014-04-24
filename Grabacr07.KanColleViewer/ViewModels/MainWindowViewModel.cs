@@ -46,9 +46,9 @@ namespace Grabacr07.KanColleViewer.ViewModels
 						// 今後の実装にご期待ください
 						ThemeService.Current.ChangeAccent(Accent.Orange);
 						break;
-                    case Mode.CriticalCondition:
-                        ThemeService.Current.ChangeAccent(Accent.Orange);
-                        break;
+					case Mode.CriticalCondition:
+						ThemeService.Current.ChangeAccent(Accent.Orange);
+						break;
 				}
 
 				this.RaisePropertyChanged();

@@ -2,6 +2,13 @@
 	KCV Change Log
 ========================
 
+v2.6.0 β r426 - 4/23/2014 The Spring Time Youth
+	* Direct fix from the main man himself, @Grabacr07.
+	* Back end - All it was is just file name changes and a few additional packets.
+The following has changed from how things worked previously:
+	* **Fatigue values only update when you advance or withdraw from battle, not after battle.**
+	* Rearrangement of the fleets will only update when you return to homeport (main menu).
+
 v2.5.0 r420 - 4/22/2014 The Spring Event
 Note: Setting have been reset with this version! Please review them.
 	* *New* Custom sound alerts. Works on all versions of windows. Will randomly pick

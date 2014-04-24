@@ -304,7 +304,11 @@ namespace Grabacr07.KanColleWrapper
                             ShipsVersion = "0.0.0";
                         }
 
+<<<<<<< HEAD
+						kcsapi_mst_ship ShipData = RawData as kcsapi_mst_ship;
+=======
                         kcsapi_mst_ship ShipData = RawData as kcsapi_mst_ship;
+>>>>>>> 1b8861c2555e1b592155be4bbda72aeed1994484
 
                         if (ShipData == null)
                             return;

@@ -1,14 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ShipTypes Version="1.0.1">
+<ShipTypes Version="1.0.3">
   <Type>
-<<<<<<< HEAD
-    <JP-Name>水上機母艦</JP-Name>
-    <TR-Name>AV</TR-Name>
-=======
     <ID>1</ID>
     <JP-Name>海防艦</JP-Name>
     <TR-Name>DE</TR-Name>
->>>>>>> cea091f38aec302768437ddeeb90a8285f564725
   </Type>
   <Type>
     <ID>2</ID>
@@ -48,7 +43,7 @@
   <Type>
     <ID>8</ID>
     <JP-Name>戦艦</JP-Name>
-    <TR-Name>CC</TR-Name>
+    <TR-Name>BB</TR-Name>
   </Type>
   <Type>
     <ID>10</ID>
@@ -95,4 +90,13 @@
     <JP-Name>装甲空母</JP-Name>
     <TR-Name>CVB</TR-Name>
   </Type>
+<<<<<<< HEAD
 </ShipTypes>
+=======
+  <Type>
+    <ID>19</ID>
+    <JP-Name>工作艦</JP-Name>
+    <TR-Name>AR</TR-Name>
+  </Type>
+</ShipTypes>
+>>>>>>> 1b8861c2555e1b592155be4bbda72aeed1994484

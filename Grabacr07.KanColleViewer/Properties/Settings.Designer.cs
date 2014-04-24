@@ -57,7 +57,7 @@ namespace Grabacr07.KanColleViewer.Properties {
 }
 
 #flashWrap {
-    position:fixed;
+    position:free;
     z-index:1;
     margin:0;
 }
