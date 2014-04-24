@@ -2,6 +2,10 @@
 	KCV Change Log
 ========================
 
+v2.6.0 β r432 - 4/24/2014
+	* A debug function was removed from the zoom function causing API links to restart the page.
+	* Nothing else...
+
 v2.6.0 β r431 - 4/24/2014
 	* API links now work with the flash settings!
 	* The item catalog will now display the item's original Japanese name under the translated 

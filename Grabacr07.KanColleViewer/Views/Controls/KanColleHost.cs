@@ -128,7 +128,6 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 				this.WebBrowser.Width = (kanColleSize.Width * (zoomFactor / dpi.ScaleX)) / dpi.ScaleX;
 				this.WebBrowser.Height = (kanColleSize.Height * (zoomFactor / dpi.ScaleY)) / dpi.ScaleY;
 				this.MinWidth = this.WebBrowser.Width;
-				if (percentage != 100) ApplyFlashQualityScript(null, null);
 			}
 			else
 			{
