@@ -652,7 +652,13 @@
 
 							<GridViewColumn Width="64">
 								<GridViewColumn.Header>
-									<TextBlock Text="Firepower" />
+									<metro2:SortButton Direction="{Binding SortWorker.FirepowerColumn.Direction}"
+													   MethodName="UpdateReverse">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>Firepower</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="Firepower" />
+									</metro2:SortButton>
 								</GridViewColumn.Header>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -666,7 +672,13 @@
 
 							<GridViewColumn Width="64">
 								<GridViewColumn.Header>
-									<TextBlock Text="Torpedo" />
+									<metro2:SortButton Direction="{Binding SortWorker.TorpedoColumn.Direction}"
+													   MethodName="UpdateReverse">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>Torpedo</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="Torpedo" />
+									</metro2:SortButton>
 								</GridViewColumn.Header>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -680,7 +692,13 @@
 
 							<GridViewColumn Width="64">
 								<GridViewColumn.Header>
-									<TextBlock Text="Anti-Air" />
+									<metro2:SortButton Direction="{Binding SortWorker.AntiAirColumn.Direction}"
+													   MethodName="UpdateReverse">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>AntiAir</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="Anti-Air" />
+									</metro2:SortButton>
 								</GridViewColumn.Header>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -694,7 +712,13 @@
 
 							<GridViewColumn Width="64">
 								<GridViewColumn.Header>
-									<TextBlock Text="Armor" />
+									<metro2:SortButton Direction="{Binding SortWorker.ArmorColumn.Direction}"
+													   MethodName="UpdateReverse">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>Armor</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="Armor" />
+									</metro2:SortButton>
 								</GridViewColumn.Header>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>
@@ -708,7 +732,13 @@
 
 							<GridViewColumn Width="64">
 								<GridViewColumn.Header>
-									<TextBlock Text="Luck" />
+									<metro2:SortButton Direction="{Binding SortWorker.LuckColumn.Direction}"
+													   MethodName="UpdateReverse">
+										<metro2:SortButton.MethodParameter>
+											<viewModels:ShipCatalogSortTarget>Luck</viewModels:ShipCatalogSortTarget>
+										</metro2:SortButton.MethodParameter>
+										<TextBlock Text="Luck" />
+									</metro2:SortButton>
 								</GridViewColumn.Header>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate>

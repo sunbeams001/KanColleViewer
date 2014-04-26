@@ -194,7 +194,7 @@ namespace Grabacr07.KanColleWrapper
 				.TryParse<kcsapi_port>()
 				.Subscribe(x =>
 				{
-					this.Ships = new MemberTable<Ship>(x.api_ship.Select(s => new Ship(this, s)));
+					this.UpdateShips(x.api_ship);
 					this.Materials = new Materials(x.api_material.Select(m => new Material(m)).ToArray());
 					this.Repairyard.Update(x.api_ndock);
 					this.UpdateFleets(x.api_deck_port);
@@ -211,21 +211,21 @@ namespace Grabacr07.KanColleWrapper
 			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/ship")
 				.Select(x => { SvData<kcsapi_ship2[]> result; return SvData.TryParse(x, out result) ? result : null; })
 				.Where(x => x != null && x.IsSuccess)
-				.Subscribe(x => this.Ships = new MemberTable<Ship>(x.Data.Select(s => new Ship(this, s))));
+				.Subscribe(x => this.UpdateShips(x.Data));
 
 			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/ship2")
 				.Select(x => { SvData<kcsapi_ship2[]> result; return SvData.TryParse(x, out result) ? result : null; })
 				.Where(x => x != null && x.IsSuccess)
 				.Subscribe(x =>
 				{
-					this.Ships = new MemberTable<Ship>(x.Data.Select(s => new Ship(this, s)));
+					this.UpdateShips(x.Data);
 					this.UpdateFleets(x.Fleets);
 				});
 			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/ship3")
 				.TryParse<kcsapi_ship3>()
 				.Subscribe(x =>
 				{
-					this.Ships = new MemberTable<Ship>(x.api_ship_data.Select(s => new Ship(this, s)));
+					this.UpdateShips(x.api_ship_data);
 					this.UpdateFleets(x.api_deck_data);
 				});
 
@@ -267,6 +267,22 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
+		private void UpdateShips(kcsapi_ship2[] source)
+		{
+			if (source.Length <= 1)
+			{
+				foreach (var ship in source)
+				{
+					var target = this.Ships[ship.api_id];
+					if (target != null) target.Update(ship);
+				}
+			}
+			else
+			{
+				this.Ships = new MemberTable<Ship>(source.Select(s => new Ship(this, s)));
+			}
+		}
+
 		private void Charge(kcsapi_charge charge)
 		{
 			if (charge == null) return;
@@ -277,7 +293,7 @@ namespace Grabacr07.KanColleWrapper
 				if (target == null) continue;
 
 				target.Charge(ship.api_fuel, ship.api_bull, ship.api_onslot);
-	}
+			}
 
 			foreach (var f in Fleets.Values) f.UpdateShips();
 		}

@@ -112,45 +112,44 @@ namespace Grabacr07.KanColleViewer.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("var flashQuality = function () {{\r\n    for (var objs = document.embeds, i = objs." +
-            "length - 1; i >= 0; i--) {{\r\n        \r\n        if (objs[i].getAttribute(\'quality" +
-            "\') == \'{0}\') \r\n            continue;\r\n\t\t\t\r\n        var embedElem = document.crea" +
-            "teElement(\'embed\');\r\n        var parentElem = objs[i].parentNode;\r\n        embed" +
-            "Elem.setAttribute(\'quality\', \'{0}\');\r\n        embedElem.setAttribute(\'wmode\', \'{" +
-            "1}\');\r\n        embedElem.setAttribute(\'type\', \'application/x-shockwave-flash\');\r" +
-            "\n        embedElem.setAttribute(\'id\', objs[i].getAttribute(\'id\'));\r\n        embe" +
-            "dElem.setAttribute(\'width\', objs[i].getAttribute(\'width\'));\r\n        embedElem.s" +
-            "etAttribute(\'height\', objs[i].getAttribute(\'height\'));\r\n        embedElem.setAtt" +
-            "ribute(\'src\', objs[i].getAttribute(\'src\'));\r\n        embedElem.setAttribute(\'bgc" +
-            "olor\', objs[i].getAttribute(\'bgcolor\'));\r\n        embedElem.setAttribute(\'allowS" +
-            "criptAccess\', objs[i].getAttribute(\'allowScriptAccess\'));\r\n        embedElem.set" +
-            "Attribute(\'base\', objs[i].getAttribute(\'base\'));\r\n        parentElem.removeChild" +
-            "(objs[i]);\r\n        parentElem.appendChild(embedElem);\r\n    }}\r\n    \r\n    for (o" +
-            "bjs = document.getElementsByTagName(\'object\'), i = objs.length - 1; i >= 0; i--)" +
-            " {{\r\n        var embedElem = document.createElement(\'embed\');\r\n        var paren" +
-            "tElem = objs[i].parentNode;\r\n        embedElem.setAttribute(\'quality\', \'{0}\');\r\n" +
-            "        embedElem.setAttribute(\'wmode\', \'{1}\');\r\n        embedElem.setAttribute(" +
-            "\'id\', objs[i].getAttribute(\'id\'));\r\n        embedElem.setAttribute(\'type\', \'appl" +
-            "ication/x-shockwave-flash\'); \r\n        embedElem.setAttribute(\'width\', objs[i].g" +
-            "etAttribute(\'width\'));\r\n        embedElem.setAttribute(\'height\', objs[i].getAttr" +
-            "ibute(\'height\'));       \r\n        \r\n        for (var c = objs[i].childNodes, j =" +
-            " c.length - 1, set = false; j >= 0; j--) {{\r\n            if ((c[j].tagName == \'P" +
-            "ARAM\') && (c[j].getAttribute(\'name\').toLowerCase() == \'src\'))\r\n                e" +
-            "mbedElem.setAttribute(\'src\', c[j].getAttribute(\'value\'));\r\n            else if (" +
-            "(c[j].tagName == \'PARAM\') && (c[j].getAttribute(\'name\').toLowerCase() == \'movie\'" +
-            "))\r\n                embedElem.setAttribute(\'src\', c[j].getAttribute(\'value\'));\r\n" +
-            "            else if ((c[j].tagName == \'PARAM\') && (c[j].getAttribute(\'name\').toL" +
-            "owerCase() == \'bgcolor\'))\r\n                embedElem.setAttribute(\'bgcolor\', c[j" +
-            "].getAttribute(\'value\'));\r\n            else if ((c[j].tagName == \'PARAM\') && (c[" +
-            "j].getAttribute(\'name\').toLowerCase() == \'allowscriptaccess\'))\r\n                " +
-            "embedElem.setAttribute(\'allowScriptAccess\', c[j].getAttribute(\'value\'));\r\n      " +
-            "      else if ((c[j].tagName == \'PARAM\') && (c[j].getAttribute(\'name\').toLowerCa" +
-            "se() == \'base\'))\r\n                embedElem.setAttribute(\'base\', c[j].getAttribu" +
-            "te(\'value\'));\r\n        }}\r\n        \r\n        parentElem.removeChild(objs[i]);\r\n " +
-            "       parentElem.appendChild(embedElem);\r\n    }}\r\n}};\r\n\r\nvar TimedInject = setI" +
-            "nterval(function () {{\r\n    CheckChange();\r\n}}, 100);\r\n\r\nfunction CheckChange() " +
-            "{{\r\n    if (document.getElementById(\'flashWrap\').innerHTML.length > 10) {{\r\n    " +
-            "    flashQuality();\r\n        clearInterval(TimedInject);\r\n    }}\r\n    else if (!" +
-            "document.getElementById(\'flashWrap\'))\r\n        clearInterval(TimedInject);\r\n}}")]
+            "length - 1; i >= 0; i--) {{\r\n        \t\t\r\n        var embedElem = document.create" +
+            "Element(\'embed\');\r\n        var parentElem = objs[i].parentNode;\r\n        embedEl" +
+            "em.setAttribute(\'quality\', \'{0}\');\r\n        embedElem.setAttribute(\'wmode\', \'{1}" +
+            "\');\r\n        embedElem.setAttribute(\'type\', \'application/x-shockwave-flash\');\r\n " +
+            "       embedElem.setAttribute(\'id\', objs[i].getAttribute(\'id\'));\r\n        embedE" +
+            "lem.setAttribute(\'width\', objs[i].getAttribute(\'width\'));\r\n        embedElem.set" +
+            "Attribute(\'height\', objs[i].getAttribute(\'height\'));\r\n        embedElem.setAttri" +
+            "bute(\'src\', objs[i].getAttribute(\'src\'));\r\n        embedElem.setAttribute(\'bgcol" +
+            "or\', objs[i].getAttribute(\'bgcolor\'));\r\n        embedElem.setAttribute(\'allowScr" +
+            "iptAccess\', objs[i].getAttribute(\'allowScriptAccess\'));\r\n        embedElem.setAt" +
+            "tribute(\'base\', objs[i].getAttribute(\'base\'));\r\n        parentElem.removeChild(o" +
+            "bjs[i]);\r\n        parentElem.appendChild(embedElem);\r\n    }}\r\n    \r\n    for (obj" +
+            "s = document.getElementsByTagName(\'object\'), i = objs.length - 1; i >= 0; i--) {" +
+            "{\r\n        var embedElem = document.createElement(\'embed\');\r\n        var parentE" +
+            "lem = objs[i].parentNode;\r\n        embedElem.setAttribute(\'quality\', \'{0}\');\r\n  " +
+            "      embedElem.setAttribute(\'wmode\', \'{1}\');\r\n        embedElem.setAttribute(\'i" +
+            "d\', objs[i].getAttribute(\'id\'));\r\n        embedElem.setAttribute(\'type\', \'applic" +
+            "ation/x-shockwave-flash\'); \r\n        embedElem.setAttribute(\'width\', objs[i].get" +
+            "Attribute(\'width\'));\r\n        embedElem.setAttribute(\'height\', objs[i].getAttrib" +
+            "ute(\'height\'));       \r\n        \r\n        for (var c = objs[i].childNodes, j = c" +
+            ".length - 1, set = false; j >= 0; j--) {{\r\n            if ((c[j].tagName == \'PAR" +
+            "AM\') && (c[j].getAttribute(\'name\').toLowerCase() == \'src\'))\r\n                emb" +
+            "edElem.setAttribute(\'src\', c[j].getAttribute(\'value\'));\r\n            else if ((c" +
+            "[j].tagName == \'PARAM\') && (c[j].getAttribute(\'name\').toLowerCase() == \'movie\'))" +
+            "\r\n                embedElem.setAttribute(\'src\', c[j].getAttribute(\'value\'));\r\n  " +
+            "          else if ((c[j].tagName == \'PARAM\') && (c[j].getAttribute(\'name\').toLow" +
+            "erCase() == \'bgcolor\'))\r\n                embedElem.setAttribute(\'bgcolor\', c[j]." +
+            "getAttribute(\'value\'));\r\n            else if ((c[j].tagName == \'PARAM\') && (c[j]" +
+            ".getAttribute(\'name\').toLowerCase() == \'allowscriptaccess\'))\r\n                em" +
+            "bedElem.setAttribute(\'allowScriptAccess\', c[j].getAttribute(\'value\'));\r\n        " +
+            "    else if ((c[j].tagName == \'PARAM\') && (c[j].getAttribute(\'name\').toLowerCase" +
+            "() == \'base\'))\r\n                embedElem.setAttribute(\'base\', c[j].getAttribute" +
+            "(\'value\'));\r\n        }}\r\n        \r\n        parentElem.removeChild(objs[i]);\r\n   " +
+            "     parentElem.appendChild(embedElem);\r\n    }}\r\n}};\r\n\r\nvar TimedInject = setInt" +
+            "erval(function () {{\r\n    CheckChange();\r\n}}, 100);\r\n\r\nfunction CheckChange() {{" +
+            "\r\n    if (document.getElementById(\'flashWrap\').innerHTML.length > 10) {{\r\n      " +
+            "  flashQuality();\r\n        clearInterval(TimedInject);\r\n    }}\r\n    else if (!do" +
+            "cument.getElementById(\'flashWrap\'))\r\n        clearInterval(TimedInject);\r\n}}")]
         public string FlashQualityJS {
             get {
                 return ((string)(this["FlashQualityJS"]));

@@ -85,9 +85,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 				{ () => reSortie.Remaining, (sender, args) => this.UpdateRemaining() },
 			});
 
-			this.UpdateMessage();
-			this.UpdateRemaining();
-
 			reSortie.Readied += (sender, args) =>
 			{
 				if (Models.Settings.Current.EnableFatigueNotification)
@@ -117,6 +114,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 			{
 				App.ViewModelRoot.Mode = Mode.Started;
 			};
+
+			this.UpdateMessage();
+			this.UpdateRemaining();
 		}
 
 

@@ -49,10 +49,7 @@
     <Setting Name="FlashQualityJS" Type="System.String" Scope="Application">
       <Value Profile="(Default)">var flashQuality = function () {{
     for (var objs = document.embeds, i = objs.length - 1; i &gt;= 0; i--) {{
-        
-        if (objs[i].getAttribute('quality') == '{0}') 
-            continue;
-			
+        		
         var embedElem = document.createElement('embed');
         var parentElem = objs[i].parentNode;
         embedElem.setAttribute('quality', '{0}');

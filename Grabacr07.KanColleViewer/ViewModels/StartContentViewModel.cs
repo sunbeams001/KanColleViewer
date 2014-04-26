@@ -59,27 +59,27 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
-        #region CanSetRegionCookie 変更通知プロパティ
+		#region CanSetRegionCookie 変更通知プロパティ
 
-        private bool _CanSetRegionCookie = true;
+		private bool _CanSetRegionCookie = true;
 
-        public bool CanSetRegionCookie
-        {
-            get { return this._CanSetRegionCookie; }
-            set
-            {
-                if (this._CanSetRegionCookie != value)
-                {
-                    this._CanSetRegionCookie = value;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
+		public bool CanSetRegionCookie
+		{
+			get { return this._CanSetRegionCookie; }
+			set
+			{
+				if (this._CanSetRegionCookie != value)
+				{
+					this._CanSetRegionCookie = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
 
-        #endregion
+		#endregion
 
-        #region SetRegionCookieButtonContent 変更通知プロパティ
-        private string _SetRegionCookieButtonContent = Properties.Resources.StartContent_SetRegionCookieButton;
+		#region SetRegionCookieButtonContent 変更通知プロパティ
+		private string _SetRegionCookieButtonContent = Properties.Resources.StartContent_SetRegionCookieButton;
 
 		public string SetRegionCookieButtonContent
 		{
@@ -124,9 +124,9 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public void SetRegionCookie()
 		{
-            App.ViewModelRoot.Navigator.CookieNavigate();
-            this.SetRegionCookieButtonContent = Properties.Resources.StartContent_SetRegionCookieMessage;
-            this.CanSetRegionCookie = false;
+			App.ViewModelRoot.Navigator.CookieNavigate();
+			this.SetRegionCookieButtonContent = Properties.Resources.StartContent_SetRegionCookieMessage;
+			this.CanSetRegionCookie = false;
 		}
 	}
 }

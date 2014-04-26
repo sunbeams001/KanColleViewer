@@ -2,6 +2,19 @@
 	KCV Change Log
 ========================
 
+v2.6.0 β r439 - 4/24/2014 - To kill a bug
+	* *Fix* Single ship updates - Kancolle now has packets that only update a single ship. KCV
+		now supports these single ship updates.
+	* *Fix* Flash Quality - When you are set to high quality, wmode is not set to what you've
+		chosen. Now it should.
+	* *Fix* Critical condition on start up - A nasty bug that caused everything in the menu's to
+		be blank. If a ship was in crit. condition and was being repaired as you booted KCV up,
+		everything would break.
+	* *Fix* Translation toggle - Switching back and forth from translated to non-translated now
+		works without having to restart KCV.
+	* *Fix* LoS sorting was causing crashes once pressed due to using a wrong variable.
+	* *New* Firepower, Torpedo, Anti-Air, Armor, and Luck are now sortable in the ship roster.	
+
 v2.6.0 β r432 - 4/24/2014
 	* A debug function was removed from the zoom function causing API links to restart the page.
 	* Nothing else...
@@ -13,14 +26,14 @@ v2.6.0 β r431 - 4/24/2014
 	* Ships will now show their original Japanese name with tool tips in the Fleet, Overview, 
 		and Roster.	
 
-v2.6.0 β r426 - 4/23/2014 The Spring Time Youth
+v2.6.0 β r426 - 4/23/2014 - The Spring Time Youth
 	* Direct fix from the main man himself, @Grabacr07.
 	* Back end - All it was is just file name changes and a few additional packets.
 The following has changed from how things worked previously:
 	* **Fatigue values only update when you advance or withdraw from battle, not after battle.**
 	* Rearrangement of the fleets will only update when you return to homeport (main menu).
 
-v2.5.0 r420 - 4/22/2014 The Spring Event
+v2.5.0 r420 - 4/22/2014 - The Spring Event
 Note: Setting have been reset with this version! Please review them.
 	* *New* Custom sound alerts. Works on all versions of windows. Will randomly pick
 		an appropriate sound file under the "Sounds" folder. Acceptable formats are wav
@@ -37,7 +50,7 @@ Note: Setting have been reset with this version! Please review them.
 		version of KCV. The hyperlinks still work of course.
 	* Translations will come as they are found/needed. Auto-update is our friend!
 
-v2.4.0 r403 - 4/12/2014 "To die for"
+v2.4.0 r403 - 4/12/2014 - "To die for"
 Note: Setting have been reset with this version! Please review them.
 	* *New* Flash quality select option - Choose from Low to Best and anything inbetween.
 	* *New* Flash window select option - Choose the rendering method in the browser.
@@ -65,7 +78,7 @@ Note: Setting have been reset with this version! Please review them.
 	* Ship Roster - Reset Filter button to reset all your filters to their defaults.
 	* Settings - Notifications for repairs, construction, and expeditions have been made default.
 
-v2.4.0 r390 - 3/29/2014 "Why do I not test these things more?"
+v2.4.0 r390 - 3/29/2014 - "Why do I not test these things more?"
 	* Speed up the new stat generation by 3x. 
 
 v2.4.0 r381 - 3/29/2014
@@ -77,7 +90,7 @@ v2.4.0 r380 - 3/29/2014
 	* Ship list now show the following stats: Evasion, Anti-Sub, Line of Sight.
 		These show both with and without equips (Ex: Anti-Sub DD "44 Base:26")
 
-v2.4.0 r370 - 3/21/2014 [BATTLECRUISER OPERATIONAL]
+v2.4.0 r370 - 3/21/2014 - [BATTLECRUISER OPERATIONAL]
 	* Fast battleship types have been given a new hull type - CC. This stands for
 		Battlecruiser (a fast battleship with lighter armor).
 	* Ship types have been fixed up (AVs and CVs have been separated)
@@ -98,7 +111,7 @@ v2.3.0 r352 - 3/18/2014
 	* Removed api_raim. It is either not used or used only for representing graphs.
 	* Added equipment info on the ship list equips.
 
-v2.3.0 r350 - 3/17/2014 M-M-Monster Update
+v2.3.0 r350 - 3/17/2014 - M-M-Monster Update
 The following is all new things only available to this fork of KCV (for now).
 	* *NEW* Equipment Info - Mousing over equipment and in the equipment page
 		will now show extended equipment info such as firepower and more.
@@ -132,7 +145,7 @@ Notes:
 	* Updater will not write over your current translations until it can determine if the 
 		file is error free.
 		
-v2.3.0 r328 - 3/9/2014 **Minor Update**
+v2.3.0 r328 - 3/9/2014 - **Minor Update**
 	* In fleet view we now have both total fleet level and and the average.
 	* Vertical - Tightened middle column to by 20px.
 	* Tool tip for the Regional Cookie button for some additional help.
@@ -151,7 +164,7 @@ v2.3.0 r319 - 3/4/2014
 	* Translations - 2 missing quests added 
 		(thanks to balderm, also late thanks to thethingexe and silfumus!)
 
-v2.1.0 r295 - 2/26/2014 Translation Update
+v2.1.0 r295 - 2/26/2014 - Translation Update
 	* Settings have been reset with this version! Please make sure to setup
 		yourself accordingly.
 	* Translations have been redone for all ships, items, quests, and more.
@@ -165,7 +178,7 @@ v2.1.0 r295 - 2/26/2014 Translation Update
 	* Region Cookie - Dynamic expiration date. +4 years from current year.
 	* Translations - New quests, new items, new operations (but not the new fleets.)
 
-v2.1.0 r281 - 2/14/2014 Valentines Day Update
+v2.1.0 r281 - 2/14/2014 - Valentines Day Update
 	* *NEW* Set Cookie Region button now on the start of the program. This allows
 		you to log into DMM.com without VPN! Just press it once and login!
 	* All logging is now in CSV format and broken up.

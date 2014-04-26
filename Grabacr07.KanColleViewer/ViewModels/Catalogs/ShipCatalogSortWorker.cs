@@ -20,6 +20,11 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public NameColumnViewModel NameColumn { get; private set; }
 		public LevelColumnViewModel LevelColumn { get; private set; }
 		public ConditionColumnViewModel ConditionColumn { get; private set; }
+		public FirepowerColumnViewModel FirepowerColumn { get; private set; }
+		public TorpedoColumnViewModel TorpedoColumn { get; private set; }
+		public AntiAirColumnViewModel AntiAirColumn { get; private set; }
+		public ArmorColumnViewModel ArmorColumn { get; private set; }
+		public LuckColumnViewModel LuckColumn { get; private set; }
 		public ViewRangeColumnViewModel ViewRangeColumn { get; private set; }
 		public EvasionColumnViewModel EvasionColumn { get; private set; }
 		public AntiSubColumnViewModel AntiSubColumn { get; private set; }
@@ -31,6 +36,11 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 			this.NameColumn = new NameColumnViewModel();
 			this.LevelColumn = new LevelColumnViewModel();
 			this.ConditionColumn = new ConditionColumnViewModel();
+			this.FirepowerColumn = new FirepowerColumnViewModel();
+			this.TorpedoColumn = new TorpedoColumnViewModel();
+			this.AntiAirColumn = new AntiAirColumnViewModel();
+			this.ArmorColumn = new ArmorColumnViewModel();
+			this.LuckColumn = new LuckColumnViewModel();
 			this.ViewRangeColumn = new ViewRangeColumnViewModel();
 			this.EvasionColumn = new EvasionColumnViewModel();
 			this.AntiSubColumn = new AntiSubColumnViewModel();
@@ -43,6 +53,11 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				this.NameColumn,
 				this.LevelColumn,
 				this.ConditionColumn,
+				this.FirepowerColumn,
+				this.TorpedoColumn,
+				this.AntiAirColumn,
+				this.ArmorColumn,
+				this.LuckColumn,
 				this.ViewRangeColumn,
 				this.EvasionColumn,
 				this.AntiSubColumn,

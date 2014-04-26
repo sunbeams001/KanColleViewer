@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Operations Version="1.0.1">
+<Operations Version="1.0.2">
   <Map>
     <JP-Name>鎮守府正面海域</JP-Name>
     <TR-Name>World 1-1</TR-Name>
@@ -84,7 +84,26 @@
     <JP-Name>鎮守府近海</JP-Name>
     <TR-Name>World 1-5</TR-Name>
   </Map>
-  
+  <Map>
+    <JP-Name>南西海域サメワニ沖</JP-Name>
+    <TR-Name>E-1</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>南西海域ズンダ海峡</JP-Name>
+    <TR-Name>E-2</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>ポートワイン沖海域</JP-Name>
+    <TR-Name>E-3</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>【第2段階作戦】 中部太平洋海域</JP-Name>
+    <TR-Name>E-4</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>【第2段階作戦】 北太平洋海域</JP-Name>
+    <TR-Name>E-5</TR-Name>
+  </Map>
   <Sortie>
     <JP-Name>渦潮</JP-Name>
     <TR-Name>Whirlpool</TR-Name>
@@ -376,5 +395,25 @@
   <Sortie>
     <JP-Name>敵任務部隊本隊</JP-Name>
     <TR-Name>Main Task Force(Boss)</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵緊急派遣艦隊</JP-Name>
+    <TR-Name>Emergency Dispatch Fleet</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>ABDA主力艦隊</JP-Name>
+    <TR-Name>ABDA Main Fleet (Boss)</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>敵増援任務部隊B群</JP-Name>
+    <TR-Name>Reinforcment Task Force Group B</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>ABDA残存艦隊</JP-Name>
+    <TR-Name>ABDA Remaining Fleet</TR-Name>
+  </Sortie>
+  <Sortie>
+    <JP-Name>深海棲艦ポートワイン泊地</JP-Name>
+    <TR-Name>Port Wine Area Deep Sea Fleet (Boss)</TR-Name>
   </Sortie>
 </Operations>

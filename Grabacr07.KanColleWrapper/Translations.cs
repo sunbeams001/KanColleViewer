@@ -147,7 +147,10 @@ namespace Grabacr07.KanColleWrapper
 
 				GetVersions();
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
 		}
 
 		public void ChangeCulture(string Culture)
@@ -175,7 +178,10 @@ namespace Grabacr07.KanColleWrapper
 
 				GetVersions();
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
 		}
 
 		private void GetVersions()
@@ -265,10 +271,10 @@ namespace Grabacr07.KanColleWrapper
 
 				foreach (XElement el in FoundTranslation)
 				{
-#if DEBUG
-					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
-						Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
-#endif
+// #if DEBUG
+// 					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+// 						Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
+// #endif
 					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
 						return el.Element(TRChildElement).Value;
 					else if (ID < 0)
@@ -279,7 +285,10 @@ namespace Grabacr07.KanColleWrapper
 				Debug.WriteLine(string.Format("Can't find Translation: {0,-20} {1}", JPString, ID));
 #endif
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
 
 			AddTranslation(RawData, Type);
 
@@ -444,7 +453,10 @@ namespace Grabacr07.KanColleWrapper
 						break;
 				}
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
 		}
 
 	}

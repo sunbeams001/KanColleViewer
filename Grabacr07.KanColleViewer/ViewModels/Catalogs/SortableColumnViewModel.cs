@@ -155,6 +155,126 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		}
 	}
 
+	public class FirepowerColumnViewModel : SortableColumnViewModel
+	{
+		public FirepowerColumnViewModel() : base(ShipCatalogSortTarget.Firepower) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.Firepower.Current)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.Name);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.Firepower.Current)
+					.ThenByDescending(x => x.Info.ShipType.Id)
+					.ThenByDescending(x => x.Level)
+					.ThenByDescending(x => x.Info.Name);
+			}
+			return list;
+		}
+	}
+
+	public class TorpedoColumnViewModel : SortableColumnViewModel
+	{
+		public TorpedoColumnViewModel() : base(ShipCatalogSortTarget.Torpedo) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.Torpedo.Current)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.Name);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.Torpedo.Current)
+					.ThenByDescending(x => x.Info.ShipType.Id)
+					.ThenByDescending(x => x.Level)
+					.ThenByDescending(x => x.Info.Name);
+			}
+			return list;
+		}
+	}
+
+	public class AntiAirColumnViewModel : SortableColumnViewModel
+	{
+		public AntiAirColumnViewModel() : base(ShipCatalogSortTarget.AntiAir) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.AA.Current)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.Name);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.AA.Current)
+					.ThenByDescending(x => x.Info.ShipType.Id)
+					.ThenByDescending(x => x.Level)
+					.ThenByDescending(x => x.Info.Name);
+			}
+			return list;
+		}
+	}
+
+	public class ArmorColumnViewModel : SortableColumnViewModel
+	{
+		public ArmorColumnViewModel() : base(ShipCatalogSortTarget.Armor) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.Armer.Current)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.Name);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.Armer.Current)
+					.ThenByDescending(x => x.Info.ShipType.Id)
+					.ThenByDescending(x => x.Level)
+					.ThenByDescending(x => x.Info.Name);
+			}
+			return list;
+		}
+	}
+
+	public class LuckColumnViewModel : SortableColumnViewModel
+	{
+		public LuckColumnViewModel() : base(ShipCatalogSortTarget.Luck) { }
+
+		public override IEnumerable<Ship> Sort(IEnumerable<Ship> list)
+		{
+			if (this.Direction == SortDirection.Ascending)
+			{
+				return list.OrderBy(x => x.Luck.Current)
+					.ThenBy(x => x.Info.ShipType.Id)
+					.ThenBy(x => x.Level)
+					.ThenBy(x => x.Info.Name);
+			}
+			if (this.Direction == SortDirection.Descending)
+			{
+				return list.OrderByDescending(x => x.Luck.Current)
+					.ThenByDescending(x => x.Info.ShipType.Id)
+					.ThenByDescending(x => x.Level)
+					.ThenByDescending(x => x.Info.Name);
+			}
+			return list;
+		}
+	}
+
 	public class ViewRangeColumnViewModel : SortableColumnViewModel
 	{
 		public ViewRangeColumnViewModel() : base(ShipCatalogSortTarget.ViewRange) { }
@@ -163,14 +283,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			if (this.Direction == SortDirection.Ascending)
 			{
-				return list.OrderBy(x => x.LineOfSight)
+				return list.OrderBy(x => x.LineOfSight.Current)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.SortId);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
-				return list.OrderByDescending(x => x.LineOfSight)
+				return list.OrderByDescending(x => x.LineOfSight.Current)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.SortId);
@@ -187,14 +307,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			if (this.Direction == SortDirection.Ascending)
 			{
-				return list.OrderBy(x => x.Evasion)
+				return list.OrderBy(x => x.Evasion.Current)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.SortId);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
-				return list.OrderByDescending(x => x.Evasion)
+				return list.OrderByDescending(x => x.Evasion.Current)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.SortId);
@@ -211,14 +331,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			if (this.Direction == SortDirection.Ascending)
 			{
-				return list.OrderBy(x => x.AntiSub)
+				return list.OrderBy(x => x.AntiSub.Current)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.SortId);
 			}
 			if (this.Direction == SortDirection.Descending)
 			{
-				return list.OrderByDescending(x => x.AntiSub)
+				return list.OrderByDescending(x => x.AntiSub.Current)
 					.ThenBy(x => x.Info.ShipType.Id)
 					.ThenBy(x => x.Level)
 					.ThenBy(x => x.Info.SortId);

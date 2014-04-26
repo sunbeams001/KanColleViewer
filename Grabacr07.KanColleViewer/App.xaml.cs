@@ -56,7 +56,7 @@ namespace Grabacr07.KanColleViewer
 			// Update notification and download new translations (if enabled)
 			if (KanColleClient.Current.Updater.LoadVersion(AppSettings.Default.KCVUpdateUrl.AbsoluteUri))
 			{
-				if (Settings.Current.EnableUpdateNotification && KanColleClient.Current.Updater.IsOnlineVersionGreater(0, ProductInfo.VersionString))
+				if (Settings.Current.EnableUpdateNotification && KanColleClient.Current.Updater.IsOnlineVersionGreater(0, ProductInfo.Version.ToString()))
 				{
 					WindowsNotification.Notifier.Show(
 						KanColleViewer.Properties.Resources.Updater_Notification_Title,
