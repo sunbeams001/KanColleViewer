@@ -349,7 +349,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Tools
 			this.ResultList = Results.ToList();
 
 			this.SortWorker = new ShipCatalogSortWorker();
-			this.SortWorker.SetTarget(ShipCatalogSortTarget.Level, false);
+			this.SortWorker.SetTarget(ShipCatalogSortTarget.Level, true);
 
 			this.updateSource
 				.Do(_ => this.IsReloading = true)

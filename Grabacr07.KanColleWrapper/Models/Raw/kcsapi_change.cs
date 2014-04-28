@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 namespace Grabacr07.KanColleWrapper.Models.Raw
 {
 	// ReSharper disable InconsistentNaming
-	public class kcsapi_createship { }
-
-	public class kcsapi_createship_speedchange { }
+	public class kcsapi_change { }
 	// ReSharper restore InconsistentNaming
 }

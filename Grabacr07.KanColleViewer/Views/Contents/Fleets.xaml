@@ -207,7 +207,8 @@
 								<TextBlock Grid.Column="4"
 										   Grid.Row="0"
 										   Margin="5,0,5,10"
-										   Grid.RowSpan="2">
+										   Grid.RowSpan="2"
+										   ToolTip="{Binding Ship.RepairTime, Mode=OneWay}">
 									<Run Text="HP:" />
 									<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
 										 Style="{DynamicResource PickupTextElementStyleKey}" />
@@ -219,7 +220,8 @@
 														 Height="6"
 														 VerticalAlignment="Bottom"
 														 Margin="10,0,10,2"
-														 LimitedValue="{Binding Ship.HP, Mode=OneWay}" />
+														 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
+														 ToolTip="{Binding Ship.RepairTime, Mode=OneWay}"/>
 
 								<TextBlock Grid.Column="5"
 										   Grid.Row="0"

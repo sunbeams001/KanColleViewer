@@ -15,7 +15,7 @@ namespace Grabacr07.KanColleWrapper
 	/// <typeparam name="TValue">ユーザー データの型。</typeparam>
 	public class MemberTable<TValue> : IReadOnlyDictionary<int, TValue> where TValue : class, IIdentifiable
 	{
-		private readonly IDictionary<int, TValue> dictionary;
+		private IDictionary<int, TValue> dictionary;
 
 		/// <summary>
 		/// テーブルから指定した ID の要素を取得します。ID が存在しない場合は null を返します。
@@ -31,6 +31,11 @@ namespace Grabacr07.KanColleWrapper
 		public MemberTable(IEnumerable<TValue> source)
 		{
 			this.dictionary = source.ToDictionary(x => x.Id);
+		}
+
+		public void Add(int Key, TValue Value)
+		{
+			this.dictionary.Add(Key, Value);
 		}
 
 		#region IReadOnlyDictionary<TK, TV> members

@@ -89,5 +89,20 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// 水上機母艦。
 		/// </summary>
 		SeaplaneCarrier = 16,
+
+		/// <summary>
+		/// 揚陸艦
+		/// </summary>
+		AmphibiousAssault = 17,
+
+		/// <summary>
+		/// 装甲空母
+		/// </summary>
+		ArmoredAircraftCarrier = 18,
+
+		/// <summary>
+		/// 工作艦
+		/// </summary>
+		RepairShip = 19
 	}
 }

@@ -162,5 +162,11 @@ namespace Grabacr07.KanColleWrapper.Models
 				this.Remaining = null;
 			}
 		}
+
+		internal void SetComplete()
+		{
+			this.State = BuildingDockState.Completed;
+			this.CompleteTime = null;
+		}
 	}
 }

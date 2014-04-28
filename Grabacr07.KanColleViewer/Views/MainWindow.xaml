@@ -28,6 +28,9 @@
 				   IsRestoringWindowPlacement="True"
 				   SnapsToDevicePixels="True"
 				   TextOptions.TextFormattingMode="Display">
+	<Window.InputBindings>
+		<KeyBinding Key="F5" Command="{Binding RefreshNavigator}" />
+	</Window.InputBindings>
 
     <metro:MetroWindow.Resources>
         <converters:AdjustConverter x:Key="AdjustConverter" />

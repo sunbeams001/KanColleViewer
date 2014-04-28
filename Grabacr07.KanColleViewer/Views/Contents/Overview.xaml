@@ -186,16 +186,17 @@
 											<RowDefinition Height="Auto" />
 											<RowDefinition Height="Auto" />
 										</Grid.RowDefinitions>
-										<TextBlock>
+										<TextBlock ToolTip="{Binding Ship.RepairTime, Mode=OneWay}">
 											<Run Text="HP:" />
 											<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
 													Style="{DynamicResource PickupTextElementStyleKey}" />
 											<Run Text="{Binding Ship.HP.Maximum, StringFormat=/{0}, Mode=OneWay}" />
 										</TextBlock>
 										<controls:ColorIndicator Grid.Row="1"
-																	Height="6"
-																	LimitedValue="{Binding Ship.HP, Mode=OneWay}"
-																	Margin="0,2,0,0" />
+																 Height="6"
+																 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
+																 Margin="0,2,0,0"
+																 ToolTip="{Binding Ship.RepairTime, Mode=OneWay}"/>
 									</Grid>
 									<TextBlock Grid.Column="3"
 													Margin="10,0,0,0">

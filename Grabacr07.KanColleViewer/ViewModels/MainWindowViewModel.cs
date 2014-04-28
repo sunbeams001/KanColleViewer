@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Grabacr07.KanColleViewer.Models;
 using Grabacr07.KanColleViewer.ViewModels.Messages;
 using Grabacr07.KanColleWrapper;
@@ -20,6 +21,16 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public NavigatorViewModel Navigator { get; private set; }
 		public SettingsViewModel Settings { get; private set; }
+
+		#region RefreshNavigator
+
+		private ICommand _RefreshNavigator;
+		public ICommand  RefreshNavigator
+		{
+			get { return _RefreshNavigator; }
+		}
+
+		#endregion
 
 		#region Mode 変更通知プロパティ
 
@@ -148,6 +159,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			});
 
 			this.Mode = Mode.NotStarted;
+
+			_RefreshNavigator = new RelayCommand(Navigator.ReNavigate);
 		}
 
 		public void TakeScreenshot()
@@ -171,5 +184,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		{
 			this.Messenger.Raise(new WindowActionMessage(WindowAction.Active, "Window/Activate"));
 		}
+
 	}
 }

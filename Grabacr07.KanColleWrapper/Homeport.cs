@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
@@ -179,7 +181,7 @@ namespace Grabacr07.KanColleWrapper
 			this.Fleets = new MemberTable<Fleet>();
 			this.SlotItems = new MemberTable<SlotItem>();
 			this.UseItems = new MemberTable<UseItem>();
-			this.Dockyard = new Dockyard(proxy);
+			this.Dockyard = new Dockyard(this, proxy);
 			this.Repairyard = new Repairyard(this, proxy);
 			this.Logger = new Logger(proxy);
 			this.Quests = new Quests(proxy);
@@ -221,6 +223,7 @@ namespace Grabacr07.KanColleWrapper
 					this.UpdateShips(x.Data);
 					this.UpdateFleets(x.Fleets);
 				});
+
 			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/ship3")
 				.TryParse<kcsapi_ship3>()
 				.Subscribe(x =>
@@ -244,6 +247,12 @@ namespace Grabacr07.KanColleWrapper
 			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/deck_port")
 				.TryParse<kcsapi_deck[]>()
 				.Subscribe(this.UpdateFleets);
+
+			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_hensei/change")
+				.Select(x => { SvData<kcsapi_change> result; return SvData.TryParse(x, out result) ? result : null; })
+				.Where(x => x != null && x.IsSuccess)
+				.Subscribe(x => this.ChangeShips(x.RequestBody));
+
 			this.Rankings = new Rankings(proxy);
 			this.Logger = new Logger(proxy);
 			this.Translations = new Translations();
@@ -286,7 +295,7 @@ namespace Grabacr07.KanColleWrapper
 		private void Charge(kcsapi_charge charge)
 		{
 			if (charge == null) return;
-			
+
 			foreach (var ship in charge.api_ship)
 			{
 				var target = this.Ships[ship.api_id];
@@ -296,6 +305,87 @@ namespace Grabacr07.KanColleWrapper
 			}
 
 			foreach (var f in Fleets.Values) f.UpdateShips();
+		}
+
+		private void ChangeShips(NameValueCollection RawRequest)
+		{
+
+			int api_id = Int32.Parse(RawRequest["api_id"]);				// Fleet ID
+			int api_ship_idx = Int32.Parse(RawRequest["api_ship_idx"]);	// Fleet slot index
+			int api_ship_id = Int32.Parse(RawRequest["api_ship_id"]);	// Ship ID
+
+			Ship theShip = this.Ships[Int32.Parse(RawRequest["api_ship_id"])];
+			Ship shipAtIndex = null;
+			Fleet prevFleet = null;
+			int prevShipIndex = -1;
+
+			if (theShip == null)
+			{
+				if (api_ship_id < 0)
+				{
+					// Removing a ship only
+					List<Ship> fleetShips = this.Fleets[api_id].Ships.ToList();
+					fleetShips.RemoveAt(api_ship_idx);
+					this.Fleets[api_id].Ships = fleetShips.ToArray();
+					this.Fleets[api_id].UpdateShips();
+				}
+
+				return;
+			}
+
+			// Search the fleets to find whether it is already in a fleet
+			foreach (var fleet in this.Fleets.Values)
+			{
+				prevShipIndex = Array.IndexOf(fleet.Ships, theShip);
+				if (prevShipIndex >= 0)
+				{
+					prevFleet = fleet;
+					break;
+				}
+			}
+
+			// Figure out if there already is a ship occupying the index
+			if (this.Fleets[api_id].Ships.Length - 1 >= api_ship_idx)
+			{
+				shipAtIndex = this.Fleets[api_id].Ships[api_ship_idx];
+			}
+
+			if (shipAtIndex != null && prevFleet != null)
+			{
+				// Swap ships between fleets
+				prevFleet.Ships[prevShipIndex] = shipAtIndex;
+				this.Fleets[api_id].Ships[api_ship_idx] = theShip;
+			}
+			else
+			{
+				if (prevFleet != null)
+				{
+					// Remove it from the previous fleet
+					List<Ship> prevFleetShips = prevFleet.Ships.ToList();
+					prevFleetShips.RemoveAt(prevShipIndex);
+					prevFleet.Ships = prevFleetShips.ToArray();
+				}
+
+				// Plainly add it to fleet.
+				if (api_ship_idx > this.Fleets[api_id].Ships.Length - 1)
+				{
+					List<Ship> fleetShips = this.Fleets[api_id].Ships.ToList();
+					fleetShips.Add(theShip);
+					this.Fleets[api_id].Ships = fleetShips.ToArray();
+				}
+				else
+				{
+					this.Fleets[api_id].Ships[api_ship_idx] = theShip;
+				}
+			}
+
+			foreach (var f in Fleets.Values) f.UpdateShips();
+		}
+
+		public void AddShip(Ship ship)
+		{
+			this.Ships.Add(ship.Id, ship);
+			this.RaisePropertyChanged("Ships");
 		}
 	}
 }

@@ -39,11 +39,16 @@ Also be sure to have the latest version of [Flash for Internet Explorer](http://
 #### The game will not start or KCV makes me download a flash file instead of opening the link
 Install [Flash for Internet Explorer](http://get.adobe.com/flashplayer/otherversions/). You may also have to disable any programs that have been installed on to IE without your consent such as antivirus software and other programs.
 
-#### I'm on Windows 7/XP and the program does not run!
+#### I'm on Windows 7 and the program does not run!
 You need to have [.NET Framework 4.5](http://www.microsoft.com/en-us/download/details.aspx?id=30653) installed for your version of Windows. Those on Windows 8 do not have to do this.
+
+#### I'm on Windows XP/Mac/Linux and I want to have fun too!
+Sadly, Microsoft doesn't fully support .NET 4.5. There may be 3rd party ways of getting support for the package, but Microsoft has basically abandoned the XP and other OSs in terms of support. Your only two choices realistically is to either get to Windows 7/8 or use [Logbook](https://github.com/Zharay/logbook) which is another Kancolle project that is being worked on that uses Java and is multi-platform also being worked on by [@Zharay](http://twitter.com/Zharay). It is much simpler, but does an awesome job at what it does.
 
 #### I have a white screen / error message about being unable to connect.
 Please let me know if this is happening and tell me what OS you are using and the version of IE. My suspicion is an outdated version of IE. Reports have also shown that clearing your cache+cookies and re-installing flash will also fix this issue.
+
+If you are getting connection errors, try changing the program's proxy server port within KanColleViewer.exe.config. Find the number 37564 and replace it with 37565 or another random number. Restart KCV and see if the problem goes away.
 
 #### My Fleets and Expeditions don't show/update!
 Clear your cache and relaunch KCV again. Especially after updates or playing between versions of KCV, this should fix any issues regarding this.

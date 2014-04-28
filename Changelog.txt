@@ -2,7 +2,22 @@
 	KCV Change Log
 ========================
 
-v2.6.0 β r439 - 4/24/2014 - To kill a bug
+v2.6.0 r444 - 4/28/2014 
+	* *Fix* Construction timers now properly update and remove themselves with the new way 
+		Kancolle handles the information.
+	* *Fix* Ships now properly update in real time when you switch them between fleets.
+	* *Fix* Item drop logging has been fixed. It was bugged before and not updating item 
+		development.
+	* *New* F5 key now refreshes KCV's browser as a hotkey!
+	* All ship's HP bars and numbers now have a tool tip displaying the amount of time required 
+		for that ship to be repaired to 100%.
+	* Vertical - Separator bar above the settings tab button has been made tighter.
+	
+Note - Grabacr07 seems to be the rather difficult task of redoing how KCV manages all the ships 
+	and fleets (branch named: tsurai-kedo-ganbarui). I was planning on doing a Repair Queue 
+	tool, but this is on hold until he finishes up this insane task.
+
+v2.6.0 β r439 - 4/25/2014 - To kill a bug
 	* *Fix* Single ship updates - Kancolle now has packets that only update a single ship. KCV
 		now supports these single ship updates.
 	* *Fix* Flash Quality - When you are set to high quality, wmode is not set to what you've

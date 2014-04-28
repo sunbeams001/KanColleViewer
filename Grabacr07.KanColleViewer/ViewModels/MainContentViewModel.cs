@@ -79,9 +79,9 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				new SettingsViewModel(),
 				#region DEBUG
-#if DEBUG
-				new DebugTabViewModel(),
-#endif
+// #if DEBUG
+// 				new DebugTabViewModel(),
+// #endif
 				#endregion
 			};
 			this.SelectedItem = this.TabItems.FirstOrDefault();

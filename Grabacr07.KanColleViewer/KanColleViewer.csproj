@@ -166,6 +166,7 @@
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\Internal\Windows7Notifier.cs" />
     <Compile Include="Models\Mode.cs" />
+    <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="Models\ResourceService.cs" />
     <Compile Include="Models\StatusService.cs" />
     <Compile Include="Models\Settings.cs" />

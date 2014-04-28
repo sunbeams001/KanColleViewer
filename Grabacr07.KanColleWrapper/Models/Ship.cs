@@ -17,6 +17,12 @@ namespace Grabacr07.KanColleWrapper.Models
 	{
 		private readonly Homeport homeport;
 
+		private int[] BaseRepairTime = { 0,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100, 110, 120, 125, 130, 145, 150, 155, 160, 165, 180,
+											185, 190, 195, 200, 205, 210, 225, 230, 235, 240, 245, 250, 255, 260, 265, 280, 285, 290, 295, 300,
+											305, 310, 315, 320, 325, 330, 345, 350, 355, 360, 365, 370, 375, 380, 385, 390, 395, 400, 405, 420,
+											425, 430, 435, 440, 445, 450, 455, 460, 465, 470, 475, 480, 485, 490, 505, 510, 515, 520, 525, 530,
+											535, 540, 545, 550, 555, 560, 565, 570, 575, 580, 585, 600, 605, 610, 615, 620, 652, 630, 635, 635};
+
 		/// <summary>
 		/// この艦娘を識別する ID を取得します。
 		/// </summary>
@@ -170,6 +176,17 @@ namespace Grabacr07.KanColleWrapper.Models
 		public string NameLv
 		{
 			get { return string.Format("{0, -20} [Lv.{1}]", this.Info.Name, this.Level); }
+		}
+
+		/// <summary>
+		/// Repair time taking in consideration HP, LV, and Ship Type.
+		/// </summary>
+		public string RepairTime
+		{
+			get
+			{
+				return TimeSpan.FromSeconds((this.HP.Maximum - this.HP.Current) > 0 ? (this.HP.Maximum - this.HP.Current) * BaseRepairTime[Math.Min(this.Level, 99)] * this.Info.ShipType.RepairMultiplier + 30 : 0).ToString();
+			}
 		}
 
 		public string Detail

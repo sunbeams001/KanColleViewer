@@ -252,7 +252,9 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public virtual void Dispose()
 		{
+			this.ReSortie.Dispose();
 			this.ReSortie.SafeDispose();
+			this.Expedition.Dispose();
 			this.Expedition.SafeDispose();
 		}
 	}

@@ -32,6 +32,31 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_sortno; }
 		}
 
+		public double RepairMultiplier
+		{
+			get
+			{
+				switch ((ShipTypeId)this.Id)
+				{
+					case ShipTypeId.Submarine:
+						return 0.5;
+					case ShipTypeId.HeavyCruiser:
+					case ShipTypeId.RepairShip:
+					case ShipTypeId.FastBattleship:
+					case ShipTypeId.LightAircraftCarrier:
+						return 1.5;
+					case ShipTypeId.Battleship:
+					case ShipTypeId.Superdreadnought:
+					case ShipTypeId.AerialBattleship:
+					case ShipTypeId.AircraftCarrier:
+					case ShipTypeId.ArmoredAircraftCarrier:
+						return 2;
+					default:
+						return 1;
+				}
+			}
+		}
+
 		public ShipType(kcsapi_mst_stype rawData) : base(rawData) { }
 
 		public override string ToString()

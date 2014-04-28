@@ -13,10 +13,10 @@ namespace Grabacr07.KanColleWrapper.Models.Raw
         public string api_quest_name { get; set; }
         public int api_quest_level { get; set; }
         public kcsapi_enemyinfo api_enemy_info { get; set; }
-        public kcsapi_getship api_get_ship { get; set; }
+        public kcsapi_getship2 api_get_ship { get; set; }
     }
 
-    public class kcsapi_getship
+    public class kcsapi_getship2
     {
         public int api_ship_id { get; set; }
         public string api_ship_name { get; set; }
