@@ -728,4 +728,10 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>This works with DMM.com. OSAPI, and API links now!
 [You must reload the game for the changes to take affect.]</value>
   </data>
+  <data name="Ship_RepairDockToolTip" xml:space="preserve">
+    <value>Dock: {0}</value>
+  </data>
+  <data name="Ship_RepairFacilityToolTip" xml:space="preserve">
+    <value>Facility: {0}</value>
+  </data>
 </root>

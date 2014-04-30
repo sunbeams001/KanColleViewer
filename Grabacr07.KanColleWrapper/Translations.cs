@@ -120,21 +120,6 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
-		// Item Stat Translations
-		public string Firepower { get; set; }
-		public string AntiAir { get; set; }
-		public string Accuracy { get; set; }
-		public string Torpedo { get; set; }
-		public string AntiSub { get; set; }
-		public string DiveBomb { get; set; }
-		public string Evasion { get; set; }
-		public string AttackRange { get; set; }
-		public string SightRange { get; set; }
-		public string Luck { get; set; }
-		public string Speed { get; set; }
-		public string Armor { get; set; }
-		public string Health { get; set; }
-
 		internal Translations()
 		{
 			try

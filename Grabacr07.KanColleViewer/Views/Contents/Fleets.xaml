@@ -179,7 +179,7 @@
 										   Grid.Row="0"
 										   Grid.RowSpan="2"
 										   Margin="4,0,5,0"
-										   ToolTip="{Binding Ship.Detail, Mode=OneWay}"
+										   ToolTip="{Binding StatsToolTip, Mode=OneWay}"
 										   ToolTipService.InitialShowDelay="600">
 									<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 										 FontSize="22"
@@ -208,7 +208,7 @@
 										   Grid.Row="0"
 										   Margin="5,0,5,10"
 										   Grid.RowSpan="2"
-										   ToolTip="{Binding Ship.RepairTime, Mode=OneWay}">
+										   ToolTip="{Binding RepairToolTip, Mode=OneWay}">
 									<Run Text="HP:" />
 									<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
 										 Style="{DynamicResource PickupTextElementStyleKey}" />
@@ -221,7 +221,7 @@
 														 VerticalAlignment="Bottom"
 														 Margin="10,0,10,2"
 														 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
-														 ToolTip="{Binding Ship.RepairTime, Mode=OneWay}"/>
+														 ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
 
 								<TextBlock Grid.Column="5"
 										   Grid.Row="0"
@@ -256,7 +256,7 @@
 								<ItemsControl Grid.Column="7"
 											  Grid.Row="0"
 											  Grid.RowSpan="2"
-											  ItemsSource="{Binding Ship.SlotItems}"
+											  ItemsSource="{Binding SlotItems}"
 											  Margin="5,0">
 									<ItemsControl.Template>
 										<ControlTemplate TargetType="{x:Type ItemsControl}">
@@ -266,9 +266,9 @@
 									</ItemsControl.Template>
 									<ItemsControl.ItemTemplate>
 										<DataTemplate>
-											<Border ToolTip="{Binding Info.DetailedName}"
+											<Border ToolTip="{Binding DetailedToolTip}"
 													Background="Transparent">
-												<controls:SlotItemIcon Type="{Binding Info.IconType}"
+												<controls:SlotItemIcon Type="{Binding SlotItem.IconType}"
 																	   Margin="0,0" />
 											</Border>
 										</DataTemplate>

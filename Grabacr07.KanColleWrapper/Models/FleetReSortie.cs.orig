@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Grabacr07.KanColleWrapper.Models
 {
@@ -16,7 +17,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		private bool notificated;
 		private int minCondition;
-		private Ship[] prevShips = new Ship[0];
+		private Dictionary<int, bool> CriticaledShips;
 
 		#region ReadyTime 変更通知プロパティ
 
@@ -102,41 +103,50 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// <param name="ships">艦隊に編成されている艦娘。</param>
 		internal void Update(Ship[] ships, Repairyard repairyard)
 		{
-			if (ships.Length == 0)
+			try
 			{
-				this.ReadyTime = null;
-				this.UpdateCore();
-				if (this.prevShips.Length > 0)
-					this.prevShips = new Ship[0];
-				return;
-			}
-
-			var reason = CanReSortieReason.NoProblem;
-
-			if (ships.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25))
-			{
-				reason |= CanReSortieReason.Wounded;
-
-				// We only send out the event once, when the ships has reached critical from its previous state.
-				IEnumerable<Ship> CriticalShips = ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25);
-				foreach (Ship s in CriticalShips)
+				if (ships.Length == 0)
 				{
-<<<<<<< HEAD
-					if (this.prevShips.Length > 0 && this.prevShips.First(p => p.Id == s.Id).HP.Current != s.HP.Current && this.CriticalCondition != null)
-=======
-					if (this.CriticalCondition != null && this.prevShips.Length > 0 && this.prevShips.First(p => p.Id == s.Id).HP.Current != s.HP.Current)
->>>>>>> ca34414fd33248b908d4d3d2d3e6a226d468cc08
-						this.CriticalCondition(this, new ShipCriticalConditionEventArgs(s));
+					this.ReadyTime = null;
+					this.UpdateCore();
+					if (this.CriticaledShips.Count > 0)
+					{
+						this.CriticalCleared(this, new EventArgs());
+						this.CriticaledShips.Clear();
+					}
+					return;
 				}
 
-				var RepairingCritShips = ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25 && repairyard.CheckRepairing(s.Id)).Count();
+				var reason = CanReSortieReason.NoProblem;
 
-<<<<<<< HEAD
-				if (ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25).Count() == RepairingCritShips && this.CriticalCleared != null)
-=======
-				if (this.CriticalCleared != null && ships.Where(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25).Count() == RepairingCritShips)
->>>>>>> ca34414fd33248b908d4d3d2d3e6a226d468cc08
+				if (ships.Any(s => s.IsBadlyDamaged))
+				{
+					reason |= CanReSortieReason.Wounded;
+
+					// We only send out the event once, when the ships has reached critical from its previous state.
+					IEnumerable<Ship> CriticalShips = ships.Where(s => s.IsBadlyDamaged);
+					foreach (Ship s in CriticalShips)
+					{
+						if (this.CriticalCondition != null && !repairyard.CheckRepairing(s.Id) && (this.CriticaledShips.Count == 0 || (this.CriticaledShips.Count > 0 && !this.CriticaledShips[s.Id])))
+						{
+							this.CriticalCondition(this, new ShipCriticalConditionEventArgs(s));
+							this.CriticaledShips.Add(s.Id, true);
+						}
+					}
+
+					int RepairingCritShips = ships.Where(s => s.IsBadlyDamaged && repairyard.CheckRepairing(s.Id)).Count();
+
+					if (this.CriticalCleared != null && ships.Where(s => s.IsBadlyDamaged).Count() == RepairingCritShips)
+					{
+						this.CriticalCleared(this, new EventArgs());
+						this.CriticaledShips.Clear();
+					}
+				}
+				else if (this.CriticalCleared != null && this.CriticaledShips.Count > 0)
+				{
+					this.CriticaledShips.Clear();
 					this.CriticalCleared(this, new EventArgs());
+<<<<<<< HEAD
 			}
 			else if (this.CriticalCleared != null && this.prevShips.Length > 0 && this.prevShips.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25))
 			{
@@ -149,33 +159,41 @@ namespace Grabacr07.KanColleWrapper.Models
 			{
 				reason |= CanReSortieReason.LackForResources;
 			}
-
-			var min = ships.Min(x => x.Condition);
-			if (min < 40)
-			{
-				reason |= CanReSortieReason.BadCondition;
-
-				// コンディションの最小値が前回から変更された場合のみ、再出撃可能時刻を更新する
-				// (サーバーから来るコンディション値が 3 分に 1 回しか更新されないので、毎回カウントダウンし直すと最大 3 分くらいズレる)
-				if (min != this.minCondition)
-				{
-					this.ReadyTime = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(40 - min));
+=======
 				}
+>>>>>>> bcdfc545d391f356c37829ce75d5c16056b2ab2b
+
+				if (ships.Any(s => s.Fuel.Current < s.Fuel.Maximum || s.Bull.Current < s.Bull.Maximum))
+				{
+					reason |= CanReSortieReason.LackForResources;
+				}
+
+				var min = ships.Min(x => x.Condition);
+				if (min < 40)
+				{
+					reason |= CanReSortieReason.BadCondition;
+
+					// コンディションの最小値が前回から変更された場合のみ、再出撃可能時刻を更新する
+					// (サーバーから来るコンディション値が 3 分に 1 回しか更新されないので、毎回カウントダウンし直すと最大 3 分くらいズレる)
+					if (min != this.minCondition)
+					{
+						this.ReadyTime = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(40 - min));
+					}
+				}
+				else
+				{
+					this.ReadyTime = null;
+				}
+
+				this.minCondition = min;
+				this.Reason = reason;
+
+				this.UpdateCore();
 			}
-			else
+			catch (Exception ex)
 			{
-				this.ReadyTime = null;
+				Debug.WriteLine(ex);
 			}
-			
-			this.minCondition = min;
-			this.Reason = reason;
-
-			this.UpdateCore();
-
-			if (this.prevShips.Length > 0)
-				this.prevShips = new Ship[0];
-
-			this.prevShips = ships;
 		}
 
 		private void UpdateCore()
@@ -203,6 +221,11 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			base.Tick();
 			this.UpdateCore();
+		}
+
+		internal FleetReSortie()
+		{
+			this.CriticaledShips = new Dictionary<int, bool>();
 		}
 	}
 }

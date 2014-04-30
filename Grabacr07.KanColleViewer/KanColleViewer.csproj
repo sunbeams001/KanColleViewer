@@ -192,7 +192,6 @@
     <Compile Include="ViewModels\Contents\Docks\RepairyardViewModel.cs" />
     <Compile Include="ViewModels\Contents\ExpeditionsViewModel.cs" />
     <Compile Include="ViewModels\Contents\Fleets\ExpeditionViewModel.cs" />
-    <Compile Include="ViewModels\Contents\Fleets\PlaneViewModel.cs" />
     <Compile Include="ViewModels\Contents\Fleets\RepairingBarViewModel.cs" />
     <Compile Include="ViewModels\Contents\Fleets\TimerViewModel.cs" />
     <Compile Include="ViewModels\Contents\OverviewViewModel.cs" />
@@ -201,6 +200,7 @@
     <Compile Include="ViewModels\BindableTextViewModel.cs" />
     <Compile Include="ViewModels\Catalogs\ShipTypeViewModel.cs" />
     <Compile Include="ViewModels\Catalogs\ShipCatalogWindowViewModel.cs" />
+    <Compile Include="ViewModels\Contents\SlotItemViewModel.cs" />
     <Compile Include="ViewModels\Contents\Tools\CalculatorViewModel.cs" />
     <Compile Include="ViewModels\Contents\Tools\RankingsViewModel.cs" />
     <Compile Include="ViewModels\Contents\Tools\RankingViewModel.cs" />

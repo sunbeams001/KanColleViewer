@@ -2,6 +2,19 @@
 	KCV Change Log
 ========================
 
+v2.6.0 β r458 - 4/30/2014
+	* Lots of back-end changes from Grabacr07. They mainly reimplement what I've done, but
+		with an emphasis on making fleet updating more streamlined. Things should be faster.
+		Hopefully this should also have less memory leakage.
+	* Health now shows repair times for both the dock and the facility types. Facility timer 
+		only shows when the ship is lightly damaged.
+	* Repairs from the Repairyard now show in real time (Not Akashi repairs)
+	* Item counts for instant buckets and repairs update in real-time
+	* Air superiority calculation no longer takes into account recon planes.
+	* Logger now has error checking. It should not pre-maturely stop working after a single 
+		bug catch.
+	* Rest is just back-end changes that bring KCV to where it was before the Spring Event.
+
 v2.6.0 r444 - 4/28/2014 
 	* *Fix* Construction timers now properly update and remove themselves with the new way 
 		Kancolle handles the information.

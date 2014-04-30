@@ -358,9 +358,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Tools
 				.Subscribe(_ => this.IsReloading = false);
 			this.CompositeDisposable.Add(this.updateSource);
 
-			this.CompositeDisposable.Add(new PropertyChangedEventListener(this.homeport)
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(this.homeport.Organization)
 			{
-				{ () => this.homeport.Ships, (sender, args) => this.Update() },
+				{ () => this.homeport.Organization.Ships, (sender, args) => this.Update() },
 			});
 
 			SelectedSea = SeaExpTable.Keys.FirstOrDefault();
@@ -377,7 +377,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Tools
 
 		private void UpdateCore()
 		{
-			var list = this.homeport.Ships.Values
+			var list = this.homeport.Organization.Ships.Values
 				.Where(x => x.Level != 1);
 
 			this.Ships = this.SortWorker.Sort(list)

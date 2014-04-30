@@ -147,22 +147,33 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// </summary>
 		public event EventHandler<RepairingCompletedEventArgs> Completed;
 
+
 		internal RepairingDock(Homeport parent, kcsapi_ndock rawData)
 		{
 			this.homeport = parent;
 			this.Update(rawData);
 		}
 
+
 		internal void Update(kcsapi_ndock rawData)
 		{
 			this.Id = rawData.api_id;
 			this.State = (RepairingDockState)rawData.api_state;
 			this.ShipId = rawData.api_ship_id;
-			this.Ship = this.State == RepairingDockState.Repairing ? this.homeport.Ships[this.ShipId] : null;
+			this.Ship = this.State == RepairingDockState.Repairing ? this.homeport.Organization.Ships[this.ShipId] : null;
 			this.CompleteTime = this.State == RepairingDockState.Repairing
 				? (DateTimeOffset?)Definitions.UnixEpoch.AddMilliseconds(rawData.api_complete_time)
 				: null;
 		}
+
+		internal void Finish()
+		{
+			this.State = RepairingDockState.Unlocked;
+			this.ShipId = -1;
+			this.Ship = null;
+			this.CompleteTime = null;
+		}
+
 
 		protected override void Tick()
 		{

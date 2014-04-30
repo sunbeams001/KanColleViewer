@@ -95,7 +95,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 		public FleetsViewModel()
 		{
-			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport)
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Organization)
 			{
 				{ "Fleets", (sender, args) => this.UpdateFleets() },
 			});
@@ -104,7 +104,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 		private void UpdateFleets()
 		{
-			this.Fleets = KanColleClient.Current.Homeport.Fleets.Select(kvp => new FleetViewModel(kvp.Value)).ToArray();
+			this.Fleets = KanColleClient.Current.Homeport.Organization.Fleets.Select(kvp => new FleetViewModel(kvp.Value)).ToArray();
 			this.SelectedFleet = this.Fleets.FirstOrDefault();
 			this.Fleets.ForEach(x => x.Expedition.IsNotifyReturned = this.IsNotifyReturned);
 		}

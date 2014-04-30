@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
@@ -17,8 +15,6 @@ namespace Grabacr07.KanColleWrapper
 	/// </summary>
 	public class Dockyard : NotificationObject
 	{
-		private readonly Homeport homeport;
-
 		#region Dock 変更通知プロパティ
 
 		private MemberTable<BuildingDock> _Docks;
@@ -38,30 +34,18 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
-		internal Dockyard(Homeport parent, KanColleProxy proxy)
+
+		internal Dockyard(KanColleProxy proxy)
 		{
-			this.homeport = parent;
 			this.Docks = new MemberTable<BuildingDock>();
 
-			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/kdock")
-				.TryParse<kcsapi_kdock[]>()
-				.Subscribe(this.Update);
-
-			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_kousyou/getship")
-				.TryParse<kcsapi_getship>()
-				.Subscribe(x => 
-				{
-					this.Update(x.api_kdock);
-					this.homeport.AddShip(new Ship(this.homeport, x.api_ship));
-				});
-
-			proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_kousyou/createship_speedchange")
-				.Select(x => { SvData<kcsapi_createship_speedchange> result; return SvData.TryParse(x, out result) ? result : null; })
-				.Where(x => x != null && x.IsSuccess)
-				.Subscribe(x => this.ChangeSpeed(x.RequestBody));
+			proxy.api_get_member_kdock.TryParse<kcsapi_kdock[]>().Subscribe(x => this.Update(x.Data));
+			proxy.api_req_kousyou_getship.TryParse<kcsapi_kdock_getship>().Subscribe(x => this.GetShip(x.Data));
+			proxy.api_req_kousyou_createship_speedchange.TryParse().Subscribe(this.ChangeSpeed);
 		}
 
-		private void Update(kcsapi_kdock[] source)
+
+		internal void Update(kcsapi_kdock[] source)
 		{
 			if (this.Docks.Count == source.Length)
 			{
@@ -78,13 +62,24 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		private void ChangeSpeed(NameValueCollection RawRequest)
+		private void GetShip(kcsapi_kdock_getship source)
 		{
-			int api_kdock_id = Int32.Parse(RawRequest["api_kdock_id"]);
-			int api_highspeed = Int32.Parse(RawRequest["api_highspeed"]);
+			this.Update(source.api_kdock);
+		}
 
-			if (api_highspeed > 0 && this.Docks[api_kdock_id] != null)
-				this.Docks[api_kdock_id].SetComplete();
+		private void ChangeSpeed(SvData svd)
+		{
+			try
+			{
+				var dock = this.Docks[int.Parse(svd.Request["api_kdock_id"])];
+				var highspeed = svd.Request["api_highspeed"] == "1";
+
+				if (highspeed) dock.Finish();
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine("高速建造材使用の解析に失敗しました: {0}", ex);
+			}
 		}
 	}
 }

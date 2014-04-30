@@ -1392,6 +1392,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dock: {0}.
+        /// </summary>
+        public static string Ship_RepairDockToolTip {
+            get {
+                return ResourceManager.GetString("Ship_RepairDockToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facility: {0}.
+        /// </summary>
+        public static string Ship_RepairFacilityToolTip {
+            get {
+                return ResourceManager.GetString("Ship_RepairFacilityToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to キャッシュの削除.
         /// </summary>
         public static string StartContent_ClearCacheButton {

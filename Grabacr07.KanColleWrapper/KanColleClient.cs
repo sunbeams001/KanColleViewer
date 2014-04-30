@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
+using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Internal;
+using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Livet;
 
@@ -23,6 +24,7 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
+
 		/// <summary>
 		/// 艦これの通信をフックするプロキシを取得します。
 		/// </summary>
@@ -39,14 +41,14 @@ namespace Grabacr07.KanColleWrapper
 		public Homeport Homeport { get; private set; }
 
 		/// <summary>
-		/// 発生したエラー情報のコレクションを取得します。
-		/// </summary>
-		public ObservableSynchronizedCollection<KanColleError> Errors { get; private set; }
-
-		/// <summary>
 		/// Application update notifications and downloads.
 		/// </summary>
 		public Updater Updater { get; private set; }
+
+		/// <summary>
+		/// Translation engine for ships, equipment, quests, and sorties.
+		/// </summary>
+		public Translations Translations { get; private set; }
 
 		#region IsStarted 変更通知プロパティ
 
@@ -70,23 +72,44 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
+
 		private KanColleClient()
 		{
-			this.Errors = new ObservableSynchronizedCollection<KanColleError>();
+			var proxy = new KanColleProxy();
+			var basic = proxy.api_get_member_basic.TryParse<kcsapi_basic>().FirstAsync().ToTask();
+			var kdock = proxy.api_get_member_kdock.TryParse<kcsapi_kdock[]>().FirstAsync().ToTask();
+			var sitem = proxy.api_get_member_slot_item.TryParse<kcsapi_slotitem[]>().FirstAsync().ToTask();
 
-			this.Proxy = new KanColleProxy();
-			//this.Master = new Master(this.Proxy);
-			this.Homeport = new Homeport(this.Proxy);
 			this.Updater = new Updater();
+			this.Translations = new Translations();
 
-			this.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_start2")
-				.TryParse<kcsapi_start2>()
-				.Select(x => new Master(x))
-				.Subscribe(x =>
+			proxy.api_start2.FirstAsync().Subscribe(async session =>
+			{
+				var timeout = Task.Delay(TimeSpan.FromSeconds(20));
+				var canInitialize = await Task.WhenAny(new Task[] { basic, kdock, sitem }.WhenAll(), timeout) != timeout;
+
+				// タイムアウト仕掛けてるのは、今後のアップデートで basic, kdock, slot_item のいずれかが来なくなったときに
+				// 起動できなくなる (IsStarted を true にできなくなる) のを防ぐため
+				// -----
+				// ま、そんな規模の変更があったらそもそもまともに動作せんだろうがな ☝(◞‸◟)☝ 野良ツールはつらいよ
+
+				SvData<kcsapi_start2> svd;
+				if (!SvData.TryParse(session, out svd)) return;
+
+				this.Master = new Master(svd.Data);
+				this.Homeport = new Homeport(proxy);
+
+				if (canInitialize)
 				{
-					this.Master = x;
+					this.Homeport.UpdateAdmiral((await basic).Data);
+					this.Homeport.UpdateSlotItems((await sitem).Data);
+					this.Homeport.Dockyard.Update((await kdock).Data);
+				}
+
 					this.IsStarted = true;
 				});
+
+			this.Proxy = proxy;
 		}
 	}
 }

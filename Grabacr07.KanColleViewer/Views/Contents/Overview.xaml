@@ -163,7 +163,7 @@
 															  SharedSizeGroup="Condition" />
 										</Grid.ColumnDefinitions>
 
-									<TextBlock ToolTip="{Binding Ship.Detail, Mode=OneWay}"
+									<TextBlock ToolTip="{Binding StatsToolTip, Mode=OneWay}"
 											   ToolTipService.InitialShowDelay="600">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 												Style="{DynamicResource PickupTextElementStyleKey}" />
@@ -186,7 +186,7 @@
 											<RowDefinition Height="Auto" />
 											<RowDefinition Height="Auto" />
 										</Grid.RowDefinitions>
-										<TextBlock ToolTip="{Binding Ship.RepairTime, Mode=OneWay}">
+										<TextBlock ToolTip="{Binding RepairToolTip, Mode=OneWay}">
 											<Run Text="HP:" />
 											<Run Text="{Binding Ship.HP.Current, Mode=OneWay}"
 													Style="{DynamicResource PickupTextElementStyleKey}" />
@@ -196,7 +196,7 @@
 																 Height="6"
 																 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
 																 Margin="0,2,0,0"
-																 ToolTip="{Binding Ship.RepairTime, Mode=OneWay}"/>
+																 ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
 									</Grid>
 									<TextBlock Grid.Column="3"
 													Margin="10,0,0,0">
