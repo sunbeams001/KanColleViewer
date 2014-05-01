@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Operations Version="1.0.2">
+<Operations Version="1.0.3">
   <Map>
 	<JP-Name>鎮守府正面海域</JP-Name>
 	<TR-Name>World 1-1</TR-Name>
@@ -97,11 +97,11 @@
 	<TR-Name>E-3</TR-Name>
   </Map>
   <Map>
-	<JP-Name>【第2段階作戦】 中部太平洋海域</JP-Name>
+	<JP-Name>中部太平洋海域</JP-Name>
 	<TR-Name>E-4</TR-Name>
   </Map>
   <Map>
-	<JP-Name>【第2段階作戦】 北太平洋海域</JP-Name>
+	<JP-Name>北太平洋海域</JP-Name>
 	<TR-Name>E-5</TR-Name>
   </Map>
   <Sortie>
@@ -419,5 +419,13 @@
   <Sortie>
 	<JP-Name>敵増援任務部隊</JP-Name>
 	<TR-Name>Renforcement Task Force</TR-Name>
+  </Sortie>
+  <Sortie>
+	<JP-Name>敵潜水主力艦隊</JP-Name>
+	<TR-Name>Main Submarine Force</TR-Name>
+  </Sortie>
+  <Sortie>
+	<JP-Name>敵潜水主力艦隊</JP-Name>
+	<TR-Name>Main Submarine Force (Boss)</TR-Name>
   </Sortie>
 </Operations>

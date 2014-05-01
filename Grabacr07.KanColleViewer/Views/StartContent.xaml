@@ -7,6 +7,7 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:livet="http://schemas.livet-mvvm.net/2011/wpf"
 			 xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro"
+			 xmlns:metro2Converter="clr-namespace:Grabacr07.Desktop.Metro.Converters;assembly=Desktop.Metro"
 			 xmlns:root="clr-namespace:Grabacr07.KanColleViewer"
 			 xmlns:views="clr-namespace:Grabacr07.KanColleViewer.Views"
 			 xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
@@ -14,6 +15,7 @@
 			 xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Views.Settings"
 			 xmlns:vm="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
+			 xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 			 mc:Ignorable="d"
              Width="638"
 			 d:DesignWidth="638"
@@ -105,6 +107,8 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+
+			<metro2Converter:UniversalBooleanToVisibilityConverter x:Key="BooleanToVsibilityConverterKey" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -168,6 +172,15 @@
 								 FontSize="20"
 								 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
                         </TextBlock>
+
+							<metro2:CallMethodButton Content="{Binding Resources.Settings_Updates_GetKCVBtn, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+													 ToolTip="{Binding Resources.Settings_Updates_GetKCVBtn_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+													 MethodName="GetLatestKCV"
+													 Visibility="{Binding IsUpdateAvailable, Converter={StaticResource BooleanToVsibilityConverterKey}}"
+													 HorizontalAlignment="Center"
+													 Padding="30,5"
+													 Margin="0,12,0,0"
+													 SnapsToDevicePixels="True" />
 
                         <Rectangle Height="1"
 								   Margin="0,12"

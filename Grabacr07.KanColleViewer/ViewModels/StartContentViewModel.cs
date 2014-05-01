@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Grabacr07.KanColleViewer.Models;
+using Grabacr07.KanColleWrapper;
 using Livet;
 
 namespace Grabacr07.KanColleViewer.ViewModels
@@ -95,6 +96,15 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 		#endregion
 
+		#region IsUpdateAvailable 変更通知プロパティ
+
+		public bool IsUpdateAvailable
+		{
+			get { return KanColleClient.Current.Updater.IsOnlineVersionGreater(0, App.ProductInfo.Version.ToString()); }
+		}
+
+		#endregion
+
 		private StartContentViewModel() { }
 
 		public async void DeleteInternetCache()
@@ -127,6 +137,11 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			App.ViewModelRoot.Navigator.CookieNavigate();
 			this.SetRegionCookieButtonContent = Properties.Resources.StartContent_SetRegionCookieMessage;
 			this.CanSetRegionCookie = false;
+		}
+
+		public void GetLatestKCV()
+		{
+			Process.Start(KanColleClient.Current.Updater.GetOnlineVersion(0, true));
 		}
 	}
 }

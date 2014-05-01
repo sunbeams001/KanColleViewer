@@ -767,6 +767,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				(sender, args) => this.RaisePropertyChanged(args.PropertyName),
 			});
+
+			this.CheckForUpdates();
 		}
 
 

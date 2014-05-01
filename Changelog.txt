@@ -2,6 +2,17 @@
 	KCV Change Log
 ========================
 
+v2.6.0 β r461 - 4/30/2014
+	* Facility repair timing has been fixed up to how they should be: (1) they only show
+		when lightly damaged and above and (2) they only show if healing 1 HP takes longer than
+		20 minutes.
+	* New update button on the start page. Clicking it takes you directly to the latest version
+		online. Does not show if there is no update.
+	* Update notifications can now be clicked to take you to the latest version online. Text
+		has been changed to reflect this.
+	* Update menu should now automatically have the versions found online without having to 
+		press the button for it.
+	
 v2.6.0 β r458 - 4/30/2014
 	* Lots of back-end changes from Grabacr07. They mainly reimplement what I've done, but
 		with an emphasis on making fleet updating more streamlined. Things should be faster.

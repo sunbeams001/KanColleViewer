@@ -60,7 +60,7 @@ namespace Grabacr07.KanColleViewer
 					WindowsNotification.Notifier.Show(
 						KanColleViewer.Properties.Resources.Updater_Notification_Title,
 						string.Format(KanColleViewer.Properties.Resources.Updater_Notification_NewAppVersion, KanColleClient.Current.Updater.GetOnlineVersion(0)),
-						() => App.ViewModelRoot.Activate());
+						() => Process.Start(KanColleClient.Current.Updater.GetOnlineVersion(0, true)));
 				}
 
 				if (Settings.Current.EnableUpdateTransOnStart)

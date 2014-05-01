@@ -1815,7 +1815,8 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Version of KCV is available! 「v{0}」.
+        ///   Looks up a localized string similar to New Version of KCV is available! 「v{0}」
+        ///Click here to get it..
         /// </summary>
         public static string Updater_Notification_NewAppVersion {
             get {

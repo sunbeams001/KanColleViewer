@@ -622,7 +622,8 @@
     <value>KCV was unable to check for updates!</value>
   </data>
   <data name="Updater_Notification_NewAppVersion" xml:space="preserve">
-    <value>New Version of KCV is available! 「v{0}」</value>
+    <value>New Version of KCV is available! 「v{0}」
+Click here to get it.</value>
   </data>
   <data name="Updater_Notification_Title" xml:space="preserve">
     <value>Updater</value>
