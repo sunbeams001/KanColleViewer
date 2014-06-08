@@ -2,8 +2,8 @@
 <Versions>
 	<Item>
 		<Name>App</Name>
-		<Version>2.6.0.461</Version>
-		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.6.0r461</URL>
+		<Version>2.6.0.462</Version>
+		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.6.0r462</URL>
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
@@ -17,7 +17,7 @@
 	</Item>
 	<Item>
 		<Name>Quests</Name>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<URL>https://raw.github.com/yuyuvn/KanColleViewer/master/resources/translations/Quests.xml</URL>
 	</Item>
 	<Item>
