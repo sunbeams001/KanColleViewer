@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment Version="1.0.1">
+<Equipment Version="1.0.2">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -331,5 +331,33 @@
   <Item>
     <JP-Name>艦艇修理施設</JP-Name>
     <TR-Name>Ship Repair Facility</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>12.7cm連装高角砲(後期型)</JP-Name>
+    <TR-Name>12.7cm Twin High-Angle Mount (Late Model)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>毘式40mm連装機銃</JP-Name>
+    <TR-Name>HI-type 40mm Twin Machine Gun</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>九七式艦攻(友永隊)</JP-Name>
+    <TR-Name>Type 97 Torpedo Bomber (Tomonaga Squadron)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>天山一二型(友永隊)</JP-Name>
+    <TR-Name>Tenzan Model 12 (Tomonaga Squadron)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>潜水艦53cm艦首魚雷(8門)</JP-Name>
+    <TR-Name>53cm Submarine Bow Torpedo Mount (8 tubes)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>零式艦戦21型(熟練)</JP-Name>
+    <TR-Name>Type 21 Zero Fighter (Skilled)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>九九式艦爆(熟練)</JP-Name>
+    <TR-Name>Type 99 Dive Bomber (Skilled)</TR-Name>
   </Item>
 </Equipment>
