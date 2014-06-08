@@ -814,22 +814,22 @@
   </Quest>  
   <ID>139</ID>
     <JP-Name>潜水艦隊「第六艦隊」を編成せよ！</JP-Name>
-    <TR-Name>潜水艦隊「第六艦隊」を編成せよ！</TR-Name>
+    <TR-Name>Form the 6th Submarine Tender Fleet</TR-Name>
     <JP-Detail>「潜水母艦」と複数の潜水艦(4隻以上)からなる潜水艦隊「第六艦隊」を編成せよ！</JP-Detail>
-    <TR-Detail>「潜水母艦」と複数の潜水艦(4隻以上)からなる潜水艦隊「第六艦隊」を編成せよ！</TR-Detail>
+    <TR-Detail>Have an AS and 4 or more SS in your main fleet.</TR-Detail>
   </Quest>
   <Quest>
     <ID>249</ID>
     <JP-Name>「第五戦隊」出撃せよ！</JP-Name>
-    <TR-Name>「第五戦隊」出撃せよ！</TR-Name>
+    <TR-Name>Deploy the 5th Fleet</TR-Name>
     <JP-Detail>「第五戦隊」は沖ノ島沖の戦闘哨戒を実施、敵艦隊主力を捕捉、これを撃滅せよ！</JP-Detail>
-    <TR-Detail>「第五戦隊」は沖ノ島沖の戦闘哨戒を実施、敵艦隊主力を捕捉、これを撃滅せよ！</TR-Detail>
+    <TR-Detail>Deploy a fleet that consists of Myoukou (妙高), Nachi  (那智) and Haguro (羽黒). Score a S rank victory against World 2-5 Boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>250</ID>
     <JP-Name>新編「第二航空戦隊」出撃せよ！</JP-Name>
-    <TR-Name>新編「第二航空戦隊」出撃せよ！</TR-Name>
+    <TR-Name>Deploy the new Carrier Division 2</TR-Name>
     <JP-Detail>新編「二航戦」を基幹とした艦隊で、珊瑚諸島沖に出撃、敵機動部隊を撃滅せよ！</JP-Detail>
-    <TR-Detail>新編「二航戦」を基幹とした艦隊で、珊瑚諸島沖に出撃、敵機動部隊を撃滅せよ！</TR-Detail>
+    <TR-Detail>Deploy a fleet that consists of Hiryu kai2 (飛龍改二), Soryu (蒼龍) and 2 DD. Score a S rank victory against World 5-2 Boss.</TR-Detail>
   </Quest>
 </Quests>
