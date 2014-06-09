@@ -688,8 +688,6 @@ xcopy /Y /E /I "$(TargetDir)zh-CN" "$(SolutionDir)KanColleViewer-Compiled\lib\zh
 xcopy /Y /E /I "$(TargetDir)ko-KR" "$(SolutionDir)KanColleViewer-Compiled\lib\ko-KR"
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(SolutionDir)KanColleViewer-Compiled\Translations"
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(TargetDir)Translations"
-ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe" "KanColleViewer-Horizontal.exe"
-ren "$(SolutionDir)KanColleViewer-Compiled\KanColleViewer.exe.config" "KanColleViewer-Horizontal.exe.config"
 xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(SolutionDir)KanColleViewer-Compiled\Sounds"
 xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(TargetDir)Sounds"</PostBuildEvent>
   </PropertyGroup>
