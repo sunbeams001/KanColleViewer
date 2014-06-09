@@ -240,7 +240,7 @@
     <Compile Include="Views\Converters\PreviewSizeConverter.cs" />
     <Compile Include="Views\Info.xaml.cs">
       <DependentUpon>Info.xaml</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Views\Settings\Browser.xaml.cs">
       <DependentUpon>Browser.xaml</DependentUpon>
     </Compile>
@@ -414,6 +414,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\MainWindowHorizontal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MainWindowVertical.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\PreviewSizeConverter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\TabViewHorizontal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -449,7 +461,7 @@
     <Page Include="Views\Info.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-	</Page>
+    </Page>
     <Page Include="Views\Settings\Browser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

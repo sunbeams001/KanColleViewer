@@ -32,164 +32,187 @@
 		<KeyBinding Key="F5" Command="{Binding RefreshNavigator}" />
 	</Window.InputBindings>
 
-    <metro:MetroWindow.Resources>
-        <converters:AdjustConverter x:Key="AdjustConverter" />
-        <converters:PreviewSizeConverter x:Key="PreviewSizeConverter" />
-    </metro:MetroWindow.Resources>
+	<metro:MetroWindow.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Themes/MainWindowHorizontal.xaml" />
+				<ResourceDictionary Source="../Themes/MainWindowVertical.xaml" />
+				<ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
+				<ResourceDictionary Source="../Themes/PreviewSizeConverter.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</metro:MetroWindow.Resources>
 
-    <metro:MetroWindow.MinHeight>
-        <Binding ElementName="KancolleBrowser"
+	<metro:MetroWindow.MinHeight>
+		<Binding ElementName="KancolleBrowser"
                  Path="ActualHeight"
                  Converter="{StaticResource AdjustConverter}"
                  ConverterParameter="98"
                  Mode="OneWay" />
-    </metro:MetroWindow.MinHeight>
+	</metro:MetroWindow.MinHeight>
 
-    <i:Interaction.Triggers>
-        <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
+	<i:Interaction.Triggers>
+		<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 										 MessageKey="Window/Location">
-            <behaviors:SetWindowLocationAction />
-        </livet:InteractionMessageTrigger>
-        <livet:InteractionMessageTrigger Messenger="{Binding Messenger, Mode=OneWay}"
+			<behaviors:SetWindowLocationAction />
+		</livet:InteractionMessageTrigger>
+		<livet:InteractionMessageTrigger Messenger="{Binding Messenger, Mode=OneWay}"
 										 MessageKey="Window/Activate">
-            <livet:WindowInteractionMessageAction />
-        </livet:InteractionMessageTrigger>
-    </i:Interaction.Triggers>
+			<livet:WindowInteractionMessageAction />
+		</livet:InteractionMessageTrigger>
+	</i:Interaction.Triggers>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="18" />
-        </Grid.RowDefinitions>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="18" />
+		</Grid.RowDefinitions>
 
-        <!-- #region CaptionBar -->
-        <Border metro:MetroWindow.IsCaptionBar="True"
+		<!-- #region CaptionBar -->
+		<Border metro:MetroWindow.IsCaptionBar="True"
 				Panel.ZIndex="100">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
 
-                <controls:AppIcon Width="24"
+				<controls:AppIcon Width="24"
 								  Height="24"
 								  Background="Transparent"
 								  AnchorVisibility="Collapsed"
 								  BandVisibility="Collapsed" />
 
-                <TextBlock Grid.Column="1"
+				<TextBlock Grid.Column="1"
 						   Text="{Binding Title}"
 						   FontFamily="Segoe UI"
 						   FontSize="16"
 						   Margin="2,2,8,2"
 						   Opacity="0.85" />
 
-                <StackPanel Grid.Column="2"
+				<StackPanel Grid.Column="2"
 							Orientation="Horizontal"
 							HorizontalAlignment="Right"
 							VerticalAlignment="Top"
 							WindowChrome.IsHitTestVisibleInChrome="True">
-                    <controls:ZoomFactorSelector ZoomFactor="{Binding Settings.BrowserZoomFactor, Mode=OneWay}"
+					<controls:ZoomFactorSelector ZoomFactor="{Binding Settings.BrowserZoomFactor, Mode=OneWay}"
 												 ToolTip="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.ZoomFactorSelector_Tooltip}"
 												 Margin="4,0" />
-                    <metro:CaptionButton IsChecked="{Binding TopMost, Mode=TwoWay}"
+					<metro:CaptionButton IsChecked="{Binding TopMost, Mode=TwoWay}"
 										 ToolTip="{Binding Resources.Settings_Window_TopMost, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 										 Style="{DynamicResource PinButtonStyleKey}" />
-                    <metro:SystemButtons />
-                </StackPanel>
-            </Grid>
-        </Border>
-        <!-- #endregion -->
+					<metro:SystemButtons />
+				</StackPanel>
+			</Grid>
+		</Border>
+		<!-- #endregion -->
 
-        <ContentControl Grid.Row="1" Content="{Binding Content}" Name="Info">
-            <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
-                    <Border ClipToBounds="True" Width="Auto">
-                        <views:BrowserNavigator Margin="6,4,6,8"
+		<ContentControl Grid.Row="1" Content="{Binding Content}" Name="Info">
+			<ContentControl.Resources>
+				<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
+					<Border ClipToBounds="True" Width="Auto">
+						<views:BrowserNavigator Margin="6,4,6,8"
 									VerticalAlignment="Top" />
-                    </Border>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
-                    <views:Info Margin="4,5" />
-                </DataTemplate>
-            </ContentControl.Resources>
-        </ContentControl>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+					</Border>
+				</DataTemplate>
+				<DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
+					<views:Info Margin="4,5" />
+				</DataTemplate>
+			</ContentControl.Resources>
+		</ContentControl>
+		<Grid Grid.Row="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
 
-            <controls:KanColleHost x:Name="KanColleHost"
+			<controls:KanColleHost x:Name="KanColleHost"
 								   ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}"
                                    VerticalAlignment="Top">
-                <i:Interaction.Triggers>
-                    <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
+				<i:Interaction.Triggers>
+					<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 													 MessageKey="WebBrowser/Zoom">
-                        <behaviors:ZoomAction />
-                    </livet:InteractionMessageTrigger>
-                </i:Interaction.Triggers>
-                <WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True" Name="KancolleBrowser">
-                    <i:Interaction.Behaviors>
-                        <behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
-                        <livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
+						<behaviors:ZoomAction />
+					</livet:InteractionMessageTrigger>
+				</i:Interaction.Triggers>
+				<WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True" Name="KancolleBrowser">
+					<i:Interaction.Behaviors>
+						<behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
+						<livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
 																   Property="Source" />
-                    </i:Interaction.Behaviors>
-                    <i:Interaction.Triggers>
-                        <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
+					</i:Interaction.Behaviors>
+					<i:Interaction.Triggers>
+						<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 														 MessageKey="Screenshot/Save">
-                            <behaviors:ScreenshotAction />
-                        </livet:InteractionMessageTrigger>
-                    </i:Interaction.Triggers>
-                </WebBrowser>
-            </controls:KanColleHost>
+							<behaviors:ScreenshotAction />
+						</livet:InteractionMessageTrigger>
+					</i:Interaction.Triggers>
+				</WebBrowser>
+			</controls:KanColleHost>
 
-            <DockPanel Grid.Column="1" Height="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}">
-                <ContentControl Content="{Binding Content}">
-                    <ContentControl.Resources>
-                        <DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
-                            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+			<DockPanel Grid.Column="1" Height="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}" Style="{DynamicResource ResourceKey=MainWindowHorizontal}">
+				<ContentControl Content="{Binding Content}">
+					<ContentControl.Resources>
+						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
+							<ScrollViewer HorizontalScrollBarVisibility="Auto"
 											  VerticalScrollBarVisibility="Disabled">
-                                <views:StartContent />
-                            </ScrollViewer>
-                        </DataTemplate>
-                        <DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
-                            <views:MainContent />
-                        </DataTemplate>
-                    </ContentControl.Resources>
-                </ContentControl>
-            </DockPanel>
-        </Grid>
+								<views:StartContent />
+							</ScrollViewer>
+						</DataTemplate>
+						<DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
+							<views:MainContent />
+						</DataTemplate>
+					</ContentControl.Resources>
+				</ContentControl>
+			</DockPanel>
 
-        <!-- region Status area -->
-        <Grid Grid.Row="3"
+			<DockPanel Grid.Row="1" Style="{DynamicResource ResourceKey=MainWindowVertical}">
+				<ContentControl Content="{Binding Content}">
+					<ContentControl.Resources>
+						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
+							<views:StartContent />
+						</DataTemplate>
+						<DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
+							<views:MainContent />
+						</DataTemplate>
+					</ContentControl.Resources>
+				</ContentControl>
+			</DockPanel>
+		</Grid>
+
+		<!-- region Status area -->
+		<Grid Grid.Row="3"
 			  Background="{DynamicResource AccentBrushKey}"
 			  Panel.ZIndex="100">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
 
-            <views:StatusBar />
-            <metro:ResizeGrip Grid.Column="1"
+			<views:StatusBar />
+			<metro:ResizeGrip Grid.Column="1"
 							  Margin="5,3,2,2" />
-        </Grid>
-        <!-- endregion -->
-    </Grid>
+		</Grid>
+		<!-- endregion -->
+	</Grid>
 
-    <metro:MetroWindow.TaskbarItemInfo>
-        <TaskbarItemInfo x:Name="taskBarItem">
-            <TaskbarItemInfo.ThumbnailClipMargin>
-                <MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,78">
-                    <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualWidth" Mode="OneWay"/>
-                    <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualHeight" Mode="OneWay"/>
-                    <Binding ElementName="KancolleBrowser" Path="ActualWidth" Mode="OneWay"/>
-                    <Binding ElementName="KancolleBrowser" Path="ActualHeight" Mode="OneWay"/>
-                </MultiBinding>
-            </TaskbarItemInfo.ThumbnailClipMargin>
-        </TaskbarItemInfo>
-    </metro:MetroWindow.TaskbarItemInfo>
+	<metro:MetroWindow.TaskbarItemInfo>
+		<TaskbarItemInfo x:Name="taskBarItem">
+			<TaskbarItemInfo.ThumbnailClipMargin>
+				<MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,78">
+					<Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualWidth" Mode="OneWay"/>
+					<Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualHeight" Mode="OneWay"/>
+					<Binding ElementName="KancolleBrowser" Path="ActualWidth" Mode="OneWay"/>
+					<Binding ElementName="KancolleBrowser" Path="ActualHeight" Mode="OneWay"/>
+				</MultiBinding>
+			</TaskbarItemInfo.ThumbnailClipMargin>
+		</TaskbarItemInfo>
+	</metro:MetroWindow.TaskbarItemInfo>
 </metro:MetroWindow>
