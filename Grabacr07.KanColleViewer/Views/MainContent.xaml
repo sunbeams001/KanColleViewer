@@ -29,99 +29,149 @@
 			 d:DataContext="{d:DesignInstance vm:MainContentViewModel}"
 			 Background="{DynamicResource ThemeBrushKey}">
 
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Themes/TabViewHorizontal.xaml" />
-                <ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<Style x:Key="ScrollViewerHorizontal"
+					   TargetType="ScrollViewer">
+				<Setter Property="Visibility" Value="Collapsed"/>
+				<Style.Triggers>
+					<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Horizontal">
+						<Setter Property="Visibility" Value="Visible"/>
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+			<Style x:Key="ScrollViewerVertical"
+					   TargetType="ScrollViewer">
+				<Setter Property="Visibility" Value="Collapsed"/>
+				<Style.Triggers>
+					<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Vertical">
+						<Setter Property="Visibility" Value="Visible"/>
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Themes/TabViewHorizontal.xaml" />
+				<ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Disabled">
-            <Grid Background="{DynamicResource ActiveBackgroundBrushKey}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource ResourceKey=ScrollViewerVertical}" Grid.Row="1">
+			<Grid MinWidth="100"
+				  Background="{DynamicResource ActiveBackgroundBrushKey}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
 
-                <metro:TabView ItemsSource="{Binding TabItems}"
+				<metro:TabView ItemsSource="{Binding TabItems}"
+							   SelectedValue="{Binding SelectedItem}" />
+
+				<Rectangle Grid.Row="1"
+						   Height="1"
+						   Margin="20,5,20,0"
+						   Fill="{DynamicResource InactiveForegroundBrushKey}"
+						   Opacity="0.5" />
+
+				<metro:TabView Grid.Row="2"
+							   ItemsSource="{Binding SystemTabItems}"
+							   SelectedValue="{Binding SelectedItem}"
+							   Margin="0,0,0,20" />
+			</Grid>
+		</ScrollViewer>
+
+		<ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Disabled"
+					  Style="{DynamicResource ResourceKey=ScrollViewerHorizontal}"
+					  Grid.Column="1">
+			<Grid Background="{DynamicResource ActiveBackgroundBrushKey}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<metro:TabView ItemsSource="{Binding TabItems}"
 							   SelectedValue="{Binding SelectedItem}" 
                                Style="{DynamicResource HorizontalTabViewStyle}"/>
 
-                <Rectangle Grid.Column="1"
+				<Rectangle Grid.Column="1"
 						   Width="1"
 						   Margin="10,5"
 						   Fill="{DynamicResource InactiveForegroundBrushKey}"
 						   Opacity="0.5" />
 
-                <metro:TabView Grid.Column="2"
+				<metro:TabView Grid.Column="2"
 							   ItemsSource="{Binding SystemTabItems}"
 							   SelectedValue="{Binding SelectedItem}"
                                Style="{DynamicResource HorizontalTabViewStyle}" />
-            </Grid>
-        </ScrollViewer>
+			</Grid>
+		</ScrollViewer>
 
-        <ScrollViewer Grid.Row="1"
+		<ScrollViewer Grid.Row="1"
+						  Grid.Column="1"
 						  HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Disabled">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
 
-                <ScrollViewer Grid.Row="1"
+				<ScrollViewer Grid.Row="1"
 						  VerticalScrollBarVisibility="Auto"
 						  VerticalAlignment="Top"
 						  Padding="4,5,4,0">
-                    <ContentControl DataContext="{Binding SelectedItem}"
+					<ContentControl DataContext="{Binding SelectedItem}"
                                     Content="{Binding}"
                                     MinHeight="{Binding ElementName=KancolleBrowser,
                                                         Converter={StaticResource AdjustConverter},
                                                         ConverterParameter=-63,
                                                         Path=Height,
                                                         Mode=OneWay}">
-                        <ContentControl.Resources>
-                            <DataTemplate DataType="{x:Type vmContents:OverviewViewModel}">
-                                <contents:Overview />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vmFleets:FleetsViewModel}">
-                                <contents:Fleets />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vmDocks:RepairyardViewModel}">
-                                <contents:Repairyard />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vmDocks:DockyardViewModel}">
-                                <contents:Dockyard />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vmContents:QuestsViewModel}">
-                                <contents:Quests />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type vmContents:ExpeditionsViewModel}">
-                                <contents:Expeditions />
-						</DataTemplate>
-						<DataTemplate DataType="{x:Type vmContents:ToolsViewModel}">
-							<tools:Tools />
-						</DataTemplate>
-						<DataTemplate DataType="{x:Type vm:SettingsViewModel}">
-                                <settings:Settings />
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type devVm:DebugTabViewModel}">
-                                <dev:DebugTab />
-                            </DataTemplate>
-                        </ContentControl.Resources>
-                    </ContentControl>
-                </ScrollViewer>
-            </Grid>
-        </ScrollViewer>
-    </Grid>
+						<ContentControl.Resources>
+							<DataTemplate DataType="{x:Type vmContents:OverviewViewModel}">
+								<contents:Overview />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vmFleets:FleetsViewModel}">
+								<contents:Fleets />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vmDocks:RepairyardViewModel}">
+								<contents:Repairyard />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vmDocks:DockyardViewModel}">
+								<contents:Dockyard />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vmContents:QuestsViewModel}">
+								<contents:Quests />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vmContents:ExpeditionsViewModel}">
+								<contents:Expeditions />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vmContents:ToolsViewModel}">
+								<tools:Tools />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+								<settings:Settings />
+							</DataTemplate>
+							<DataTemplate DataType="{x:Type devVm:DebugTabViewModel}">
+								<dev:DebugTab />
+							</DataTemplate>
+						</ContentControl.Resources>
+					</ContentControl>
+				</ScrollViewer>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
 </UserControl>
