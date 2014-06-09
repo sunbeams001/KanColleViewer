@@ -154,15 +154,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Horizontal")]
-        public string Oriental {
-            get {
-                return ((string)(this["Oriental"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://raw.github.com/yuyuvn/KanColleViewer/master/resources/translations")]
         public global::System.Uri XMLTransUrl {
             get {
@@ -177,6 +168,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public global::System.Uri KCVUpdateUrl {
             get {
                 return ((global::System.Uri)(this["KCVUpdateUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Horizontal")]
+        public string Orientation {
+            get {
+                return ((string)(this["Orientation"]));
             }
         }
     }
