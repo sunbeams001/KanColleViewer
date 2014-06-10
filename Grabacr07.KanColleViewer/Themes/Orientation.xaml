@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
+					xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+					xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro">
+	<Style x:Key="ControlVertical"
+		   TargetType="{x:Type Control}">
+		<Setter Property="Visibility" Value="Collapsed"/>
+		<Style.Triggers>
+			<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Vertical">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="ControlHorizontal"
+		   TargetType="{x:Type Control}">
+		<Setter Property="Visibility" Value="Collapsed"/>
+		<Style.Triggers>
+			<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Horizontal">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="PanelVertical"
+		   TargetType="{x:Type Panel}">
+		<Setter Property="Visibility" Value="Collapsed"/>
+		<Style.Triggers>
+			<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Vertical">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="PanelHorizontal"
+		   TargetType="{x:Type Panel}">
+		<Setter Property="Visibility" Value="Collapsed"/>
+		<Style.Triggers>
+			<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Horizontal">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

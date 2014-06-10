@@ -31,25 +31,8 @@
 
 	<UserControl.Resources>
 		<ResourceDictionary>
-			<Style x:Key="ScrollViewerHorizontal"
-					   TargetType="ScrollViewer">
-				<Setter Property="Visibility" Value="Collapsed"/>
-				<Style.Triggers>
-					<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Horizontal">
-						<Setter Property="Visibility" Value="Visible"/>
-					</DataTrigger>
-				</Style.Triggers>
-			</Style>
-			<Style x:Key="ScrollViewerVertical"
-					   TargetType="ScrollViewer">
-				<Setter Property="Visibility" Value="Collapsed"/>
-				<Style.Triggers>
-					<DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=Orientation}" Value="Vertical">
-						<Setter Property="Visibility" Value="Visible"/>
-					</DataTrigger>
-				</Style.Triggers>
-			</Style>
 			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Themes/Orientation.xaml" />
 				<ResourceDictionary Source="../Themes/TabViewHorizontal.xaml" />
 				<ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
 			</ResourceDictionary.MergedDictionaries>
@@ -65,7 +48,7 @@
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource ResourceKey=ScrollViewerVertical}" Grid.Row="1">
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource ResourceKey=ControlVertical}" Grid.Row="1">
 			<Grid MinWidth="100"
 				  Background="{DynamicResource ActiveBackgroundBrushKey}">
 				<Grid.RowDefinitions>
@@ -92,7 +75,7 @@
 
 		<ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Disabled"
-					  Style="{DynamicResource ResourceKey=ScrollViewerHorizontal}"
+					  Style="{DynamicResource ResourceKey=ControlHorizontal}"
 					  Grid.Column="1">
 			<Grid Background="{DynamicResource ActiveBackgroundBrushKey}">
 				<Grid.ColumnDefinitions>

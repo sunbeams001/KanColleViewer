@@ -35,8 +35,7 @@
 	<metro:MetroWindow.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="../Themes/MainWindowHorizontal.xaml" />
-				<ResourceDictionary Source="../Themes/MainWindowVertical.xaml" />
+				<ResourceDictionary Source="../Themes/Orientation.xaml" />
 				<ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
 				<ResourceDictionary Source="../Themes/PreviewSizeConverter.xaml" />
 			</ResourceDictionary.MergedDictionaries>
@@ -157,7 +156,7 @@
 				</WebBrowser>
 			</controls:KanColleHost>
 
-			<DockPanel Grid.Column="1" Height="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}" Style="{DynamicResource ResourceKey=MainWindowHorizontal}">
+			<DockPanel Grid.Column="1" Height="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}" Style="{DynamicResource ResourceKey=PanelHorizontal}">
 				<ContentControl Content="{Binding Content}">
 					<ContentControl.Resources>
 						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
@@ -173,7 +172,7 @@
 				</ContentControl>
 			</DockPanel>
 
-			<DockPanel Grid.Row="1" Style="{DynamicResource ResourceKey=MainWindowVertical}">
+			<DockPanel Grid.Row="1" Style="{DynamicResource ResourceKey=PanelVertical}">
 				<ContentControl Content="{Binding Content}">
 					<ContentControl.Resources>
 						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
