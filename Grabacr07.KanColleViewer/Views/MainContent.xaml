@@ -33,6 +33,7 @@
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="../Themes/Orientation.xaml" />
 				<ResourceDictionary Source="../Themes/TabViewHorizontal.xaml" />
+				<ResourceDictionary Source="../Themes/TabViewVertical.xaml" />
 				<ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
@@ -46,34 +47,6 @@
 			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
-
-        <ScrollViewer VerticalScrollBarVisibility="Auto" 
-                      HorizontalScrollBarVisibility="Auto"
-                      Style="{DynamicResource ResourceKey=ControlVertical}"
-                      Grid.RowSpan="2">
-			<Grid MinWidth="100"
-				  Background="{DynamicResource ActiveBackgroundBrushKey}">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-				</Grid.RowDefinitions>
-
-				<metro:TabView ItemsSource="{Binding TabItems}"
-							   SelectedValue="{Binding SelectedItem}" />
-
-				<Rectangle Grid.Row="1"
-						   Height="1"
-						   Margin="20,5,20,0"
-						   Fill="{DynamicResource InactiveForegroundBrushKey}"
-						   Opacity="0.5" />
-
-				<metro:TabView Grid.Row="2"
-							   ItemsSource="{Binding SystemTabItems}"
-							   SelectedValue="{Binding SelectedItem}"
-							   Margin="0,0,0,20" />
-			</Grid>
-		</ScrollViewer>
 
 		<ScrollViewer HorizontalScrollBarVisibility="Hidden"
                       VerticalScrollBarVisibility="Disabled"
@@ -99,9 +72,40 @@
 				<metro:TabView Grid.Column="2"
 							   ItemsSource="{Binding SystemTabItems}"
 							   SelectedValue="{Binding SelectedItem}"
-                               Style="{DynamicResource HorizontalTabViewStyle}" />
+                               Style="{DynamicResource HorizontalTabViewStyle}"
+							   Margin="0,0,20,0"/>
 			</Grid>
 		</ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Auto"
+                      Style="{DynamicResource ResourceKey=ControlVertical}"
+                      Grid.RowSpan="2">
+			<Grid MinWidth="30"
+				  Background="{DynamicResource ActiveBackgroundBrushKey}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+
+				<metro:TabView ItemsSource="{Binding TabItems}"
+							   SelectedValue="{Binding SelectedItem}"
+							   Style="{DynamicResource ResourceKey=VerticalTabViewStyle}"/>
+
+				<Rectangle Grid.Row="1"
+						   Height="1"
+						   Margin="10,5,10,0"
+						   Fill="{DynamicResource InactiveForegroundBrushKey}"
+						   Opacity="0.5" />
+
+				<metro:TabView Grid.Row="2"
+							   ItemsSource="{Binding SystemTabItems}"
+							   SelectedValue="{Binding SelectedItem}"
+							   Style="{DynamicResource ResourceKey=VerticalTabViewStyle}"
+							   Margin="0,0,0,20"/>
+			</Grid>
+		</ScrollViewer>
+
 
 		<ScrollViewer Grid.Row="1"
 						  Grid.Column="1"
@@ -116,15 +120,11 @@
 
 				<ScrollViewer Grid.Row="1"
 						  VerticalScrollBarVisibility="Auto"
-						  VerticalAlignment="Top"
+						  VerticalAlignment="Stretch"
 						  Padding="4,5,4,0">
 					<ContentControl DataContext="{Binding SelectedItem}"
                                     Content="{Binding}"
-                                    MinHeight="{Binding ElementName=KancolleBrowser,
-                                                        Converter={StaticResource AdjustConverter},
-                                                        ConverterParameter=-63,
-                                                        Path=Height,
-                                                        Mode=OneWay}">
+                                    VerticalAlignment="Stretch">
 						<ContentControl.Resources>
 							<DataTemplate DataType="{x:Type vmContents:OverviewViewModel}">
 								<contents:Overview />

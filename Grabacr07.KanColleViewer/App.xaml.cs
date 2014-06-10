@@ -108,7 +108,7 @@ namespace Grabacr07.KanColleViewer
                 if (window != null && window.WindowState == System.Windows.WindowState.Normal)
                 {
                     window.Height = 0;
-                    window.Width = 1440;
+					window.Width = 1440;
                 }
             }
             else
@@ -116,9 +116,9 @@ namespace Grabacr07.KanColleViewer
                 Settings.Current.Orientation = "Vertical";
 
                 if (window != null && window.WindowState == System.Windows.WindowState.Normal)
-                {
-                    window.Width = 0;
-                    window.Height = 1000;
+				{
+					window.Width = 0;
+					window.Height = 1000;
                 }
             }
         }

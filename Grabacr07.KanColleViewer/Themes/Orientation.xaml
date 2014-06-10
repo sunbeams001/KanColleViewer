@@ -11,6 +11,9 @@
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
 				<Setter Property="Visibility" Value="Visible"/>
 			</DataTrigger>
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Both">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="ControlHorizontal"
@@ -18,6 +21,9 @@
 		<Setter Property="Visibility" Value="Collapsed"/>
 		<Style.Triggers>
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Both">
 				<Setter Property="Visibility" Value="Visible"/>
 			</DataTrigger>
 		</Style.Triggers>
@@ -29,6 +35,9 @@
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
 				<Setter Property="Visibility" Value="Visible"/>
 			</DataTrigger>
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Both">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="PanelHorizontal"
@@ -36,6 +45,9 @@
 		<Setter Property="Visibility" Value="Collapsed"/>
 		<Style.Triggers>
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+				<Setter Property="Visibility" Value="Visible"/>
+			</DataTrigger>
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Both">
 				<Setter Property="Visibility" Value="Visible"/>
 			</DataTrigger>
 		</Style.Triggers>
