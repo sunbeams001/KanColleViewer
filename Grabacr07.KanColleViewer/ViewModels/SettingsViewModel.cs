@@ -717,6 +717,11 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		public String Orientation
+		{
+			get { return KanColleViewer.Properties.Settings.Default.Orientation; }
+		}
+
 		public bool HasErrors
 		{
 			get { return this.reSortieConditionError != null; }

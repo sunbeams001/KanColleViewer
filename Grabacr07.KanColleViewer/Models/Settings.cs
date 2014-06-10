@@ -983,6 +983,25 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 		#endregion
 
+		#region Orientation
+
+		[System.Xml.Serialization.XmlIgnore]
+		private String _Orientation;
+
+		public String Orientation
+		{
+			get { return this._Orientation == null ? this._Orientation = KanColleViewer.Properties.Settings.Default.Orientation : this._Orientation; }
+			set
+			{
+				if (this._Orientation != value)
+				{
+					this._Orientation = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
 		public void Save()
 		{
 			if (!this.ShipCatalog_SaveFilters)

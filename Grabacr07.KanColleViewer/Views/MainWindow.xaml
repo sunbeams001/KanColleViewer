@@ -13,7 +13,6 @@
 				   xmlns:behaviors="clr-namespace:Grabacr07.KanColleViewer.Views.Behaviors"
 				   xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 				   xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
-			       xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
 				   Title="{Binding Title}"

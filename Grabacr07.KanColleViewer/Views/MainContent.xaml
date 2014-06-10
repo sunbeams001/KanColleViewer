@@ -22,7 +22,6 @@
 			 xmlns:tools="clr-namespace:Grabacr07.KanColleViewer.Views.Tools"
 			 xmlns:devVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Dev"
 			 xmlns:dev="clr-namespace:Grabacr07.KanColleViewer.Views.Dev"
-			 xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 			 mc:Ignorable="d"
 			 d:DesignWidth="638"
              d:DesignHeight="300"

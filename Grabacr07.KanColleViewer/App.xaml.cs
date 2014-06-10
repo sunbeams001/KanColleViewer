@@ -79,9 +79,29 @@ namespace Grabacr07.KanColleViewer
 
 			ThemeService.Current.Initialize(this, Theme.Dark, Accent.Purple);
 
+			if (Settings.Current.Orientation.Equals("Auto"))
+			{
+				SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
+			}
+
 			ViewModelRoot = new MainWindowViewModel();
 			this.MainWindow = new MainWindow { DataContext = ViewModelRoot };
 			this.MainWindow.Show();
+		}
+
+		private void SystemParameters_StaticPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			if (e.PropertyName.Equals("FullPrimaryScreenHeight") || e.PropertyName.Equals("FullPrimaryScreenWidth"))
+			{
+				if (SystemParameters.FullPrimaryScreenWidth > SystemParameters.FullPrimaryScreenHeight)
+				{
+					Settings.Current.Orientation = "Horizontal";
+				}
+				else
+				{
+					Settings.Current.Orientation = "Vertical";
+				}
+			}
 		}
 
 		protected override void OnExit(ExitEventArgs e)
