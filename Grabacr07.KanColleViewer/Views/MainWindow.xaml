@@ -155,7 +155,7 @@
 				</WebBrowser>
 			</controls:KanColleHost>
 
-			<DockPanel Grid.Column="1" Height="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}" Style="{DynamicResource ResourceKey=PanelHorizontal}">
+			<DockPanel Grid.Column="1" Grid.RowSpan="2" MaxHeight="{Binding ElementName=KancolleBrowser, Path=Height, Mode=OneTime}" Style="{DynamicResource ResourceKey=PanelHorizontal}">
 				<ContentControl Content="{Binding Content}">
 					<ContentControl.Resources>
 						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
@@ -171,12 +171,15 @@
 				</ContentControl>
 			</DockPanel>
 
-			<DockPanel Grid.Row="1" Style="{DynamicResource ResourceKey=PanelVertical}">
+            <DockPanel Grid.Row="1" Grid.ColumnSpan="2" MaxWidth="{Binding ElementName=KancolleBrowser, Path=Width, Mode=OneTime}" Style="{DynamicResource ResourceKey=PanelVertical}">
 				<ContentControl Content="{Binding Content}">
 					<ContentControl.Resources>
 						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
-							<views:StartContent />
-						</DataTemplate>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+										    VerticalScrollBarVisibility="Disabled">
+                                <views:StartContent />
+                            </ScrollViewer>
+                        </DataTemplate>
 						<DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
 							<views:MainContent />
 						</DataTemplate>

@@ -31,6 +31,7 @@ namespace Grabacr07.KanColleViewer.Models
 			try
 			{
 				Current = filePath.ReadXml<Settings>();
+                Current.Orientation = null;
 				if (Current.SettingsVersion != CurrentSettingsVersion)
 					Current = GetInitialSettings();
 			}

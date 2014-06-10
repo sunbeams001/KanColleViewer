@@ -47,7 +47,10 @@
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Style="{DynamicResource ResourceKey=ControlVertical}" Grid.Row="1">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Auto"
+                      Style="{DynamicResource ResourceKey=ControlVertical}"
+                      Grid.RowSpan="2">
 			<Grid MinWidth="100"
 				  Background="{DynamicResource ActiveBackgroundBrushKey}">
 				<Grid.RowDefinitions>
@@ -72,10 +75,10 @@
 			</Grid>
 		</ScrollViewer>
 
-		<ScrollViewer HorizontalScrollBarVisibility="Auto"
+		<ScrollViewer HorizontalScrollBarVisibility="Hidden"
                       VerticalScrollBarVisibility="Disabled"
 					  Style="{DynamicResource ResourceKey=ControlHorizontal}"
-					  Grid.Column="1">
+                      Grid.ColumnSpan="2">
 			<Grid Background="{DynamicResource ActiveBackgroundBrushKey}">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto" />

@@ -173,7 +173,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Horizontal")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Auto")]
         public string Orientation {
             get {
                 return ((string)(this["Orientation"]));

@@ -72,8 +72,8 @@
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="Auto" MaxWidth="210"/>
-			<ColumnDefinition Width="Auto" MaxWidth="160"/>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
 
 		<Grid>
@@ -490,7 +490,8 @@
 							TextWrapping="Wrap"
 							Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 							HorizontalAlignment="Center"
-							Margin="0,5,0,0" />
+							Margin="0,5,0,0"
+                            MaxWidth="200"/>
 
 					<ItemsControl ItemsSource="{Binding Current}"
 								Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
