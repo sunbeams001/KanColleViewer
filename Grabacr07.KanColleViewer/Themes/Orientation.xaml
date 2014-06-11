@@ -4,6 +4,26 @@
 					xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
 					xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
 					xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro">
+    <Style x:Key="DockOrientation">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                <Setter Property="DockPanel.Dock" Value="Top"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                <Setter Property="DockPanel.Dock" Value="Left"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DockOrientationFlip">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                <Setter Property="DockPanel.Dock" Value="Left"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                <Setter Property="DockPanel.Dock" Value="Top"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 	<Style x:Key="ControlVertical"
 		   TargetType="{x:Type Control}">
 		<Setter Property="Visibility" Value="Collapsed"/>

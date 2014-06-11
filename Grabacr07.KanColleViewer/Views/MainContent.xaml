@@ -38,78 +38,41 @@
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</UserControl.Resources>
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="Auto" />
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
+	<DockPanel>
+		<ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      Style="{DynamicResource DockOrientationFlip}">
+            <DockPanel Background="{DynamicResource ActiveBackgroundBrushKey}">
 
-		<ScrollViewer HorizontalScrollBarVisibility="Hidden"
-                      VerticalScrollBarVisibility="Disabled"
-					  Style="{DynamicResource ResourceKey=ControlHorizontal}"
-                      Grid.ColumnSpan="2">
-			<Grid Background="{DynamicResource ActiveBackgroundBrushKey}">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="Auto" />
-				</Grid.ColumnDefinitions>
-
-				<metro:TabView ItemsSource="{Binding TabItems}"
+                <DockPanel Style="{DynamicResource DockOrientation}">
+				    <metro:TabView ItemsSource="{Binding TabItems}"
 							   SelectedValue="{Binding SelectedItem}" 
-                               Style="{DynamicResource HorizontalTabViewStyle}"/>
+                               Style="{DynamicResource OrientationTabViewStyle}"/>
+                </DockPanel>
 
-				<Rectangle Grid.Column="1"
-						   Width="1"
-						   Margin="10,5"
-						   Fill="{DynamicResource InactiveForegroundBrushKey}"
-						   Opacity="0.5" />
+                <DockPanel Style="{DynamicResource DockOrientation}">
+                    <DockPanel Style="{DynamicResource PanelHorizontal}">
+                        <Rectangle Width="1"
+						       Margin="10,5"
+						       Fill="{DynamicResource InactiveForegroundBrushKey}"
+						       Opacity="0.5" />
+                    </DockPanel>
 
-				<metro:TabView Grid.Column="2"
-							   ItemsSource="{Binding SystemTabItems}"
+                    <DockPanel Style="{DynamicResource PanelVertical}">
+                        <Rectangle Height="1"
+						       Margin="5,10"
+						       Fill="{DynamicResource InactiveForegroundBrushKey}"
+						       Opacity="0.5" />
+                    </DockPanel>
+                </DockPanel>
+
+                <metro:TabView ItemsSource="{Binding SystemTabItems}"
 							   SelectedValue="{Binding SelectedItem}"
-                               Style="{DynamicResource HorizontalTabViewStyle}"
-							   Margin="0,0,20,0"/>
-			</Grid>
-		</ScrollViewer>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" 
-                      HorizontalScrollBarVisibility="Auto"
-                      Style="{DynamicResource ResourceKey=ControlVertical}"
-                      Grid.RowSpan="2">
-			<Grid MinWidth="30"
-				  Background="{DynamicResource ActiveBackgroundBrushKey}">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-				</Grid.RowDefinitions>
-
-				<metro:TabView ItemsSource="{Binding TabItems}"
-							   SelectedValue="{Binding SelectedItem}"
-							   Style="{DynamicResource ResourceKey=VerticalTabViewStyle}"/>
-
-				<Rectangle Grid.Row="1"
-						   Height="1"
-						   Margin="10,5,10,0"
-						   Fill="{DynamicResource InactiveForegroundBrushKey}"
-						   Opacity="0.5" />
-
-				<metro:TabView Grid.Row="2"
-							   ItemsSource="{Binding SystemTabItems}"
-							   SelectedValue="{Binding SelectedItem}"
-							   Style="{DynamicResource ResourceKey=VerticalTabViewStyle}"
-							   Margin="0,0,0,20"/>
-			</Grid>
+                               Style="{DynamicResource OrientationTabViewStyle}"/>
+			</DockPanel>
 		</ScrollViewer>
 
-
-		<ScrollViewer Grid.Row="1"
-						  Grid.Column="1"
-						  HorizontalScrollBarVisibility="Auto"
+		<ScrollViewer HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Disabled">
 			<Grid>
 				<Grid.RowDefinitions>
@@ -158,5 +121,5 @@
 				</ScrollViewer>
 			</Grid>
 		</ScrollViewer>
-	</Grid>
+	</DockPanel>
 </UserControl>

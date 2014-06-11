@@ -63,7 +63,7 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
+			<RowDefinition Height="54" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="18" />
 		</Grid.RowDefinitions>
@@ -121,19 +121,12 @@
 				</DataTemplate>
 			</ContentControl.Resources>
 		</ContentControl>
-		<Grid Grid.Row="2">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="*" />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="*" />
-			</Grid.ColumnDefinitions>
-
+        <DockPanel Grid.Row="2">
 			<controls:KanColleHost x:Name="KanColleHost"
 								   ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}"
-                                   VerticalAlignment="Top">
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Style="{DynamicResource DockOrientation}">
 				<i:Interaction.Triggers>
 					<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 													 MessageKey="WebBrowser/Zoom">
@@ -155,7 +148,7 @@
 				</WebBrowser>
 			</controls:KanColleHost>
 
-			<DockPanel Grid.Column="1" Grid.RowSpan="2" Style="{DynamicResource ResourceKey=PanelHorizontal}">
+			<DockPanel>
 				<ContentControl Content="{Binding Content}">
 					<ContentControl.Resources>
 						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
@@ -170,24 +163,7 @@
 					</ContentControl.Resources>
 				</ContentControl>
 			</DockPanel>
-
-            <DockPanel Grid.Row="1" Grid.ColumnSpan="2"
-					   Style="{DynamicResource ResourceKey=PanelVertical}">
-				<ContentControl Content="{Binding Content}">
-					<ContentControl.Resources>
-						<DataTemplate DataType="{x:Type viewModels:StartContentViewModel}">
-                            <ScrollViewer HorizontalScrollBarVisibility="Auto"
-										    VerticalScrollBarVisibility="Disabled">
-                                <views:StartContent />
-                            </ScrollViewer>
-                        </DataTemplate>
-						<DataTemplate DataType="{x:Type viewModels:MainContentViewModel}">
-							<views:MainContent />
-						</DataTemplate>
-					</ContentControl.Resources>
-				</ContentControl>
-			</DockPanel>
-		</Grid>
+		</DockPanel>
 
 		<!-- region Status area -->
 		<Grid Grid.Row="3"
