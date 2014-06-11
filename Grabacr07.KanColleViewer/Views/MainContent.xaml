@@ -33,7 +33,6 @@
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="../Themes/Orientation.xaml" />
 				<ResourceDictionary Source="../Themes/TabViewHorizontal.xaml" />
-				<ResourceDictionary Source="../Themes/TabViewVertical.xaml" />
 				<ResourceDictionary Source="../Themes/AdjustConverter.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
@@ -51,14 +50,14 @@
                 </DockPanel>
 
                 <DockPanel Style="{DynamicResource DockOrientation}">
-                    <DockPanel Style="{DynamicResource PanelHorizontal}">
+                    <DockPanel Style="{DynamicResource ControlHorizontal}">
                         <Rectangle Width="1"
 						       Margin="10,5"
 						       Fill="{DynamicResource InactiveForegroundBrushKey}"
 						       Opacity="0.5" />
                     </DockPanel>
 
-                    <DockPanel Style="{DynamicResource PanelVertical}">
+					<DockPanel Style="{DynamicResource ControlVertical}">
                         <Rectangle Height="1"
 						       Margin="5,10"
 						       Fill="{DynamicResource InactiveForegroundBrushKey}"
@@ -66,9 +65,14 @@
                     </DockPanel>
                 </DockPanel>
 
-                <metro:TabView ItemsSource="{Binding SystemTabItems}"
+				<DockPanel Style="{DynamicResource DockOrientation}">
+					<metro:TabView ItemsSource="{Binding SystemTabItems}"
 							   SelectedValue="{Binding SelectedItem}"
                                Style="{DynamicResource OrientationTabViewStyle}"/>
+				</DockPanel>
+				
+				<DockPanel Style="{DynamicResource ControlHorizontal}" Margin="0,0,20,0"/>
+				<DockPanel Style="{DynamicResource ControlVertical}" Margin="0,0,0,20"/>
 			</DockPanel>
 		</ScrollViewer>
 

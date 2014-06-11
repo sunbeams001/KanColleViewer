@@ -220,7 +220,7 @@
 				</DockPanel>
 			</Border>
 
-			<StackPanel Style="{DynamicResource ResourceKey=PanelHorizontal}"
+			<StackPanel Style="{DynamicResource ResourceKey=ControlHorizontal}"
 						Grid.Row="1"
 						Grid.Column="0">
 				<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
@@ -421,7 +421,7 @@
 				</StackPanel>
 			</metro2:CallMethodButton>
 
-			<StackPanel Style="{DynamicResource ResourceKey=PanelHorizontal}"
+			<StackPanel Style="{DynamicResource ResourceKey=ControlHorizontal}"
 						Grid.Row="1"
 						Grid.ColumnSpan="2">
 				<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
@@ -536,7 +536,7 @@
 
 		</Grid>
 
-		<StackPanel Grid.Column="2" Style="{DynamicResource ResourceKey=PanelVertical}">
+		<StackPanel Grid.Column="2" Style="{DynamicResource ResourceKey=ControlVertical}">
 			<metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
 									 MethodName="Jump"
 									 MethodParameter="Repairyard">
