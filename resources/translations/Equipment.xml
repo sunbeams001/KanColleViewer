@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment Version="1.0.2">
+<Equipment Version="1.0.3">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -363,5 +363,13 @@
   <Item>
     <JP-Name>九九式艦爆(熟練)</JP-Name>
     <TR-Name>Type 99 Dive Bomber (Skilled)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>照明弾</JP-Name>
+    <TR-Name>Star Shell</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>九八式水上偵察機(夜偵)</JP-Name>
+    <TR-Name>Type 98 Recon Seaplane (Night Scout)</TR-Name>
   </Item>
 </Equipment>

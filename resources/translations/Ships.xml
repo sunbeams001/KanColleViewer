@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Ships Version="1.0.6">
+<Ships Version="1.0.7">
   <Ship>
     <JP-Name>長門</JP-Name>
     <TR-Name>Nagato</TR-Name>
@@ -139,6 +139,10 @@
   <Ship>
     <JP-Name>綾波改</JP-Name>
     <TR-Name>Ayanami Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>綾波改二</JP-Name>
+    <TR-Name>Ayanami Kai2</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>敷波</JP-Name>
@@ -399,6 +403,10 @@
   <Ship>
     <JP-Name>川内改</JP-Name>
     <TR-Name>Sendai Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>川内改二</JP-Name>
+    <TR-Name>Sendai Kai2</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>神通</JP-Name>
@@ -1206,10 +1214,10 @@
   </Ship>
   <Ship>
     <JP-Name>羽黒改二</JP-Name>
-    <TR-Name>Haguro Kai Ni</TR-Name>
+    <TR-Name>Haguro Kai2</TR-Name>
   </Ship>
   <Ship>
     <JP-Name>龍驤改二</JP-Name>
-    <TR-Name>Ryuujou Kai Ni</TR-Name>
+    <TR-Name>Ryuujou Kai2</TR-Name>
   </Ship>
 </Ships>
