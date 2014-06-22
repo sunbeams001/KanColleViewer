@@ -21,7 +21,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public NavigatorViewModel Navigator { get; private set; }
 		public SettingsViewModel Settings { get; private set; }
-
+		
 		#region RefreshNavigator
 
 		private ICommand _RefreshNavigator;

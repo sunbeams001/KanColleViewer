@@ -31,6 +31,7 @@ namespace Grabacr07.KanColleViewer.Models
 			try
 			{
 				Current = filePath.ReadXml<Settings>();
+                Current.Orientation = null;
 				if (Current.SettingsVersion != CurrentSettingsVersion)
 					Current = GetInitialSettings();
 			}
@@ -977,6 +978,25 @@ namespace Grabacr07.KanColleViewer.Models
 				if (this._CustomSoundVolume != value)
 				{
 					this._CustomSoundVolume = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region Orientation
+
+		[System.Xml.Serialization.XmlIgnore]
+		private String _Orientation;
+
+		public String Orientation
+		{
+			get { return this._Orientation == null ? this._Orientation = KanColleViewer.Properties.Settings.Default.Orientation : this._Orientation; }
+			set
+			{
+				if (this._Orientation != value)
+				{
+					this._Orientation = value;
 					this.RaisePropertyChanged();
 				}
 			}
