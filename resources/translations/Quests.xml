@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.0.2">
+<Quests Version="1.0.3">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -846,5 +846,12 @@
     <TR-Name>Convert model</TR-Name>
     <JP-Detail>「九七式艦攻(友永隊)」搭載空母を秘書艦にした状態で新たに「天山」を2つ廃棄！</JP-Detail>
     <TR-Detail>Set a CV equiped a Type 97 Torpedo Bomber (Tomonaga Squadron) as flagship then scrap Tenzan 2 times.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>140</ID>
+    <JP-Name>新型電探を配備せよ！</JP-Name>
+    <TR-Name>Deploy the new radar!</TR-Name>
+    <JP-Detail>新型電探運用試験のため、第一艦隊の旗艦に「妙高改二」を配備せよ！</JP-Detail>
+    <TR-Detail>Have Myoukou Kai-2 in your fleet as flagship</TR-Detail>
   </Quest>
 </Quests>
