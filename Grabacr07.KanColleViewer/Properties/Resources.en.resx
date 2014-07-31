@@ -699,4 +699,10 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>This works with DMM.com. OSAPI, and API links now!
 [You must reload the game for the changes to take affect.]</value>
   </data>
+  <data name="Settings_UI" xml:space="preserve">
+    <value>UI Setting</value>
+  </data>
+  <data name="Settings_UI_Icon" xml:space="preserve">
+    <value>Use menu icon</value>
+  </data>
 </root>

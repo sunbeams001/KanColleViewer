@@ -717,6 +717,22 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region MenuIcon
+
+		public bool MenuIcon
+		{
+			get { return Settings.Current.MenuIcon; }
+			set
+			{
+				if (Settings.Current.MenuIcon != value)
+				{
+					Settings.Current.MenuIcon = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
 		public String Orientation
 		{
 			get { return KanColleViewer.Properties.Settings.Default.Orientation; }

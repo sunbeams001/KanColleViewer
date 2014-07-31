@@ -19,7 +19,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
         public override string Icon
         {
-            get { return Resources.Quests_Icon; }
+			get { return Resources.Quests_Icon; }
             protected set { throw new NotImplementedException(); }
         }
 	

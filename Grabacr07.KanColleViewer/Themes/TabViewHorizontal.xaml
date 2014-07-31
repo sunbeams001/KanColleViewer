@@ -93,5 +93,64 @@ Value="{DynamicResource AccentForegroundBrushKey}" />
                 </Style>
             </Setter.Value>
         </Setter>
-    </Style>
+		
+		<Style.Triggers>
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=MenuIcon}" Value="True">
+				<Setter Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate DataType="{x:Type metro:ITabItem}">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="20" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="25" />
+								</Grid.ColumnDefinitions>
+								<TextBlock Grid.Column="1"
+								   Text="{Binding Icon}"
+								   FontSize="18"
+								   Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+								   VerticalAlignment="Center"
+								   TextTrimming="CharacterEllipsis"
+								   TextOptions.TextFormattingMode="Display" />
+								<metro:Badge Grid.Column="1"
+										Grid.ColumnSpan="2"
+										Count="{Binding Badge}"
+										Margin="0,4,4,0"
+										HorizontalAlignment="Right"
+										VerticalAlignment="Top" />
+							</Grid>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</DataTrigger>
+			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=MenuIcon}" Value="False">
+				<Setter Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate DataType="{x:Type metro:ITabItem}">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="20" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="25" />
+								</Grid.ColumnDefinitions>
+								<TextBlock Grid.Column="1"
+								   Text="{Binding Name}"
+								   FontSize="14"
+								   Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+								   VerticalAlignment="Center"
+								   TextTrimming="CharacterEllipsis"
+								   TextOptions.TextFormattingMode="Display" />
+								<metro:Badge Grid.Column="1"
+										Grid.ColumnSpan="2"
+										Count="{Binding Badge}"
+										Margin="0,4,4,0"
+										HorizontalAlignment="Right"
+										VerticalAlignment="Top" />
+							</Grid>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
 </ResourceDictionary>

@@ -1230,6 +1230,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UI Setting.
+        /// </summary>
+        public static string Settings_UI {
+            get {
+                return ResourceManager.GetString("Settings_UI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use menu icon.
+        /// </summary>
+        public static string Settings_UI_Icon {
+            get {
+                return ResourceManager.GetString("Settings_UI_Icon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Updates.
         /// </summary>
         public static string Settings_Updates {

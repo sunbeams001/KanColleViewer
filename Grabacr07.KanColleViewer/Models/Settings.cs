@@ -22,7 +22,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.5";
+		private static readonly string CurrentSettingsVersion = "1.6";
 
 		public static Settings Current { get; set; }
 
@@ -70,7 +70,8 @@ namespace Grabacr07.KanColleViewer.Models
 				NotifyExpeditionReturned = true,
 				FlashQuality = "High",
 				FlashWindow = "Opaque",
-				CustomSoundVolume = 50
+				CustomSoundVolume = 50,
+				MenuIcon = true
 			};
 		}
 
@@ -997,6 +998,24 @@ namespace Grabacr07.KanColleViewer.Models
 				if (this._Orientation != value)
 				{
 					this._Orientation = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region MenuIcon
+
+		private bool _MenuIcon;
+
+		public bool MenuIcon
+		{
+			get { return this._MenuIcon; }
+			set
+			{
+				if (this._MenuIcon != value)
+				{
+					this._MenuIcon = value;
 					this.RaisePropertyChanged();
 				}
 			}

@@ -735,4 +735,10 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Ship_RepairFacilityToolTip" xml:space="preserve">
     <value>Facility: {0}</value>
   </data>
+  <data name="Settings_UI" xml:space="preserve">
+    <value>UI Setting</value>
+  </data>
+  <data name="Settings_UI_Icon" xml:space="preserve">
+    <value>Use menu icon</value>
+  </data>
 </root>
