@@ -57,7 +57,7 @@
         <metro2:CallMethodButton MethodName="SetWindowsSize"
 								 Padding="20,4"
 								 Margin="15,0,0,10"
-								 HorizontalAlignment="Left">
+								 HorizontalAlignment="Left" Width="225">
             <StackPanel>
                 <TextBlock Text="{Binding Resources.Settings_WindowControl_SizeFitContent, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type metro2:CallMethodButton}}, Path=Foreground}"
