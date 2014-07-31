@@ -122,32 +122,46 @@
 			</ContentControl.Resources>
 		</ContentControl>
         <DockPanel Grid.Row="2">
-			<controls:KanColleHost x:Name="KanColleHost"
+			<Grid Style="{DynamicResource DockOrientation}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid Name="ContentPosX" Grid.Column="0" Grid.RowSpan="3" />
+				<Grid Name="ContentPosY" Grid.Row="0" Grid.ColumnSpan="3" />
+				<controls:KanColleHost x:Name="KanColleHost"
 								   ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"
-                                   Style="{DynamicResource DockOrientation}">
-				<i:Interaction.Triggers>
-					<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
-													 MessageKey="WebBrowser/Zoom">
-						<behaviors:ZoomAction />
-					</livet:InteractionMessageTrigger>
-				</i:Interaction.Triggers>
-				<WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True" Name="KancolleBrowser">
-					<i:Interaction.Behaviors>
-						<behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
-						<livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
-																   Property="Source" />
-					</i:Interaction.Behaviors>
+                                   Grid.Column="1"
+                                   Grid.Row="1">
 					<i:Interaction.Triggers>
 						<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
-														 MessageKey="Screenshot/Save">
-							<behaviors:ScreenshotAction />
+													 MessageKey="WebBrowser/Zoom">
+							<behaviors:ZoomAction />
 						</livet:InteractionMessageTrigger>
 					</i:Interaction.Triggers>
-				</WebBrowser>
-			</controls:KanColleHost>
-
+					<WebBrowser controls:WebBrowserHelper.ScriptErrorsSuppressed="True" Name="KancolleBrowser">
+						<i:Interaction.Behaviors>
+							<behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
+							<livet:WebBrowserSetStateToControlBehavior Source="{Binding Source={x:Static properties:Settings.Default}, Path=KanColleUrl, Mode=OneTime}"
+																   Property="Source" />
+						</i:Interaction.Behaviors>
+						<i:Interaction.Triggers>
+							<livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
+														 MessageKey="Screenshot/Save">
+								<behaviors:ScreenshotAction />
+							</livet:InteractionMessageTrigger>
+						</i:Interaction.Triggers>
+					</WebBrowser>
+				</controls:KanColleHost>
+			</Grid>
 			<DockPanel>
 				<ContentControl Content="{Binding Content}">
 					<ContentControl.Resources>
@@ -189,6 +203,8 @@
 					<Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualHeight" Mode="OneWay"/>
 					<Binding ElementName="KancolleBrowser" Path="ActualWidth" Mode="OneWay"/>
 					<Binding ElementName="KancolleBrowser" Path="ActualHeight" Mode="OneWay"/>
+					<Binding ElementName="ContentPosX" Path="ActualWidth" Mode="OneWay"/>
+					<Binding ElementName="ContentPosY" Path="ActualHeight" Mode="OneWay"/>
 				</MultiBinding>
 			</TaskbarItemInfo.ThumbnailClipMargin>
 		</TaskbarItemInfo>
