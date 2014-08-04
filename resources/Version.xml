@@ -3,7 +3,7 @@
 	<Item>
 		<Name>App</Name>
 		<Version>2.6.0.467</Version>
-		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.6.0r467</URL>
+		<URL>https://github.com/yuyuvn/KanColleViewer/releases/tag/v2.6.0r470</URL>
 	</Item>
 	<Item>
 		<Name>Equipment</Name>
@@ -22,7 +22,7 @@
 	</Item>
 	<Item>
 		<Name>Ships</Name>
-		<Version>1.0.10</Version>
+		<Version>1.1.0</Version>
 		<URL>https://raw.github.com/yuyuvn/KanColleViewer/master/resources/translations/Ships.xml</URL>
 	</Item>
 	<Item>
