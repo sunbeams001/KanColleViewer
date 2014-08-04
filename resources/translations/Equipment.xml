@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment Version="1.0.4">
+<Equipment Version="1.0.5">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -391,5 +391,17 @@
   <Item>
     <JP-Name>試製35.6cm三連装砲</JP-Name>
     <TR-Name>Prototype 35.6cm Triple Gun Mount</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>20.3cm(2号)連装砲</JP-Name>
+    <TR-Name>20.3cm(no.2) Twin Gun Mount</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>2cm 四連装FlaK 38</JP-Name>
+    <TR-Name>cm Flakvierling 38</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>3.7cm FlaK M42</JP-Name>
+    <TR-Name>3.7cm FlaK M42</TR-Name>
   </Item>
 </Equipment>
