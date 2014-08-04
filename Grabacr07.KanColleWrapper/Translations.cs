@@ -252,19 +252,10 @@ namespace Grabacr07.KanColleWrapper
 					TRChildElement = "TR-Detail";
 				}
 
-				IEnumerable<XElement> FoundTranslation = TranslationList.Where(b => b.Element(JPChildElement).Value.Equals(JPString));
-
-				foreach (XElement el in FoundTranslation)
+				string translate = JPString;
+				if (GetTranslation(JPString, TranslationList, JPChildElement, TRChildElement, ID, ref translate))
 				{
-// #if DEBUG
-// 					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
-// 						Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
-// #endif
-					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
-						return el.Element(TRChildElement).Value;
-					else if (ID < 0)
-						return el.Element(TRChildElement).Value;
-
+					return translate;
 				}
 #if DEBUG
 				Debug.WriteLine(string.Format("Can't find Translation: {0,-20} {1}", JPString, ID));
@@ -278,6 +269,70 @@ namespace Grabacr07.KanColleWrapper
 			AddTranslation(RawData, Type);
 
 			return JPString;
+		}
+
+		public bool GetTranslation(string JPString, IEnumerable<XElement> TranslationList, String JPChildElement, String TRChildElement, int ID , ref string translate)
+		{
+			IEnumerable<XElement> FoundTranslation = FoundTranslation = TranslationList.Where(el =>
+			{
+				if (el.Element(JPChildElement).Value.Equals(JPString)) return true;
+				if (el.Attribute("mode") != null)
+				{
+					if (el.Attribute("mode").Value.Equals("suffix")) {
+						int sl = el.Element(JPChildElement).Value.Length;
+						if (JPString.Length > sl)
+						{
+							if (el.Element(JPChildElement).Value.Equals(JPString.Substring(JPString.Length - sl))) return true;
+						}
+					}
+				}
+				return false;
+			});
+
+			foreach (XElement el in FoundTranslation)
+			{
+				// #if DEBUG
+				// 					if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+				// 						Debug.WriteLine(string.Format("Translation: {0,-20} {1,-20} {2}", JPString, el.Element(TRChildElement).Value, ID));
+				// #endif
+
+				if (el.Attribute("mode") != null && !el.Attribute("mode").Equals("normal"))
+				{
+					if (el.Attribute("mode").Value.Equals("suffix"))
+					{
+						string t = JPString.Substring(0, JPString.Length - el.Element(JPChildElement).Value.Length);
+						if (GetTranslation(t, TranslationList, JPChildElement, TRChildElement, -1, ref t))
+						{
+							if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID)
+							{
+								if ((el.Attribute("suffixType") != null) && el.Attribute("suffixType").Value.Equals("pre")) translate = el.Element(TRChildElement).Value + t;
+								else translate = t + el.Element(TRChildElement).Value;
+								return true;
+							}
+							else if (ID < 0)
+							{
+								if ((el.Attribute("suffixType") != null) && el.Attribute("suffixType").Value.Equals("pre")) translate = el.Element(TRChildElement).Value + t;
+								else translate = t + el.Element(TRChildElement).Value;
+								return true;
+							}
+						}
+					}
+					continue;
+				}
+
+				if (ID >= 0 && el.Element("ID") != null && Convert.ToInt32(el.Element("ID").Value) == ID) 
+				{
+					translate = el.Element(TRChildElement).Value;
+					return true;
+				}
+				else if (ID < 0)
+				{
+					translate = el.Element(TRChildElement).Value;
+					return true;
+				}
+			}
+						
+			return false;
 		}
 
 		public void AddTranslation(Object RawData, TranslationType Type)
