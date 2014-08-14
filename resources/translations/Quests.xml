@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Quests Version="1.0.7">
   <Quest>
     <ID>A1</ID>
@@ -415,7 +415,7 @@
   </Quest>
   <Quest>
     <ID>Bd5</ID>
-    <JP-Name>敵補給艦を３隻撃沈せよ！</JP-Name>
+    <JP-Name>敵補給艦を3隻撃沈せよ！</JP-Name>
     <TR-Name>Daily Sortie 5</TR-Name>
     <JP-Detail>艦隊を出撃させ、敵補給艦を捕捉、これを撃滅せよ！</JP-Detail>
     <TR-Detail>Sink 3 enemy transport ships.</TR-Detail>
@@ -679,14 +679,14 @@
     <JP-Detail>大型艦建造の準備をします！「工廠」で装備アイテムを4回「廃棄」してみてください！</JP-Detail>
     <TR-Detail>Scrap equipment 4 times.</TR-Detail>
   </Quest>
-    <Quest>
+  <Quest>
     <ID>F11</ID>
     <JP-Name>輸送用ドラム缶の準備</JP-Name>
     <TR-Name>Preparation for Transport Drum Canisters</TR-Name>
     <JP-Detail>「工廠」で装備アイテムを3回「廃棄」して、輸送用ドラム缶を準備します。</JP-Detail>
     <TR-Detail>Scrap equipment 3 times.</TR-Detail>
   </Quest>
-    <Quest>
+  <Quest>
     <ID>F12</ID>
     <JP-Name>資源の再利用</JP-Name>
     <TR-Name>Weekly Dismantlement</TR-Name>
@@ -811,13 +811,13 @@
     <TR-Name>Sortie an aviation battleship fleet!</TR-Name>
     <JP-Detail>航空戦艦2隻を基幹とする艦隊で、西方海域カスガダマ島の敵勢力を撃破せよ！</JP-Detail>
     <TR-Detail>Have 2 BBV ships in your main fleet and score a victory against World 4-4 Boss.</TR-Detail>
-  </Quest>  
+  </Quest>
   <Quest>
-	<ID>136</ID>
-	<JP-Name>「第三十駆逐隊(第二次)」を編成せよ！</JP-Name>
-	<TR-Name>Form the 30th Destroyer Fleet (Gen.2)</TR-Name>
-	<JP-Detail>「睦月」「弥生」「卯月」「望月」4隻による第三十駆逐隊(第二次)を編成せよ！</JP-Detail>
-	<TR-Detail>Have only Mutsuki (睦月), Yayoi (弥生), Uzuki (卯月) and Mochizuki (望月) in your fleet.</TR-Detail>
+    <ID>136</ID>
+    <JP-Name>「第三十駆逐隊(第二次)」を編成せよ！</JP-Name>
+    <TR-Name>Form the 30th Destroyer Fleet (Gen.2)</TR-Name>
+    <JP-Detail>「睦月」「弥生」「卯月」「望月」4隻による第三十駆逐隊(第二次)を編成せよ！</JP-Detail>
+    <TR-Detail>Have only Mutsuki (睦月), Yayoi (弥生), Uzuki (卯月) and Mochizuki (望月) in your fleet.</TR-Detail>
   </Quest>
   <Quest>
     <ID>137</ID>
@@ -834,7 +834,7 @@
     <TR-Detail>Have Hiryu kai2 (飛龍改二), Soryu (蒼龍) and 2 DD in your main fleet.</TR-Detail>
   </Quest>
   <Quest>
-  <ID>139</ID>
+    <ID>139</ID>
     <JP-Name>潜水艦隊「第六艦隊」を編成せよ！</JP-Name>
     <TR-Name>Form the 6th Submarine Tender Fleet</TR-Name>
     <JP-Detail>「潜水母艦」と複数の潜水艦(4隻以上)からなる潜水艦隊「第六艦隊」を編成せよ！</JP-Detail>
