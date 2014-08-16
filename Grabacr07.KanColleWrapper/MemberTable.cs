@@ -33,11 +33,6 @@ namespace Grabacr07.KanColleWrapper
 			this.dictionary = source.ToDictionary(x => x.Id);
 		}
 
-		public void Add(int Key, TValue Value)
-		{
-			this.dictionary.Add(Key, Value);
-		}
-
 
 		internal void Add(TValue value)
 		{

@@ -1,4 +1,4 @@
-﻿#################
+#################
 ## Eclipse
 #################
 
@@ -215,3 +215,5 @@ pip-log.txt
 .mr.developer.cfg
 /KanColleViewer-Compiled
 /*.rar
+
+*.orig

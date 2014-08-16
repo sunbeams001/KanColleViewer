@@ -66,27 +66,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 
 		#endregion
 
-		#region IsNotifyReturned 変更通知プロパティ
-
-		/// <summary>
-		/// 遠征帰投時にトースト通知を表示するかどうかを示す値を取得します。
-		/// </summary>
-		public bool IsNotifyReturned
-		{
-			get { return Settings.Current.NotifyExpeditionReturned; }
-			set
-			{
-				if (Settings.Current.NotifyExpeditionReturned != value)
-				{
-					Settings.Current.NotifyExpeditionReturned = value;
-					this.Fleets.ForEach(x => x.Expedition.IsNotifyReturned = value);
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-
-		#endregion
-
 		public bool IsSupportedNotification
 		{
 			get { return Helper.IsWindows8OrGreater; }
@@ -106,7 +85,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 		{
 			this.Fleets = KanColleClient.Current.Homeport.Organization.Fleets.Select(kvp => new FleetViewModel(kvp.Value)).ToArray();
 			this.SelectedFleet = this.Fleets.FirstOrDefault();
-			this.Fleets.ForEach(x => x.Expedition.IsNotifyReturned = this.IsNotifyReturned);
 		}
 	}
 }

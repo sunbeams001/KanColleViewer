@@ -5,13 +5,19 @@ using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Grabacr07.KanColleWrapper.Internal;
 using Livet;
+using Livet.EventListeners.WeakEvents;
 
 namespace Grabacr07.KanColleWrapper.Models
 {
+	/// <summary>
+	/// 複数の艦娘によって編成される艦隊を表します。
+	/// </summary>
 	public class Fleet : NotificationObject, IDisposable, IIdentifiable
 	{
 		private readonly Homeport homeport;
 		private Ship[] originalShips; // null も含んだやつ
+		private bool isInSortie;
+		private LivetCompositeDisposable compositeDisposable;
 
 		#region Id 変更通知プロパティ
 
@@ -73,6 +79,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+
 		#region AverageLevel 変更通知プロパティ
 
 		private double _AverageLevel;
@@ -100,7 +107,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		private int _TotalLevel;
 
 		public int TotalLevel
-		{ 
+		{
 			get { return this._TotalLevel; }
 			private set
 			{
@@ -180,6 +187,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+
 		#region State 変更通知プロパティ
 
 		private FleetState _State;
@@ -187,7 +195,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		public FleetState State
 		{
 			get { return this._State; }
-			set
+			private set
 			{
 				if (this._State != value)
 				{
@@ -200,23 +208,119 @@ namespace Grabacr07.KanColleWrapper.Models
 		#endregion
 
 		/// <summary>
-		/// 艦隊の再出撃に関するステータスを取得します。
+		/// 艦隊に編成されている艦娘のコンディションを取得します。
 		/// </summary>
-		public FleetReSortie ReSortie { get; private set; }
+		public FleetCondition Condition { get; private set; }
 
 		/// <summary>
 		/// 艦隊の遠征に関するステータスを取得します。
 		/// </summary>
 		public Expedition Expedition { get; private set; }
 
+		#region IsReady 変更通知プロパティ
+
+		private bool _IsReady;
+
+		/// <summary>
+		/// 艦隊の出撃準備ができているかどうかを示す値を取得します。
+		/// </summary>
+		public bool IsReady
+		{
+			get { return this._IsReady; }
+			private set
+			{
+				if (this._IsReady != value)
+				{
+					this._IsReady = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region IsWounded 変更通知プロパティ
+
+		private bool _IsWounded;
+
+		/// <summary>
+		/// 艦隊に大破した艦娘がいるかどうかを示す値を取得します。
+		/// </summary>
+		public bool IsWounded
+		{
+			get { return this._IsWounded; }
+			private set
+			{
+				if (this._IsWounded != value)
+				{
+					this._IsWounded = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region IsInShortSupply 変更通知プロパティ
+
+		private bool _IsInShortSupply;
+
+		/// <summary>
+		/// 艦隊に完全に補給されていない艦娘がいるかどうかを示す値を取得します。
+		/// </summary>
+		public bool IsInShortSupply
+		{
+			get { return this._IsInShortSupply; }
+			private set
+			{
+				if (this._IsInShortSupply != value)
+				{
+					this._IsInShortSupply = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region IsRepairling 変更通知プロパティ
+
+		private bool _IsRepairling;
+
+		/// <summary>
+		/// 艦隊に入渠中の艦娘がいるかどうかを示す値を取得します。
+		/// </summary>
+		public bool IsRepairling
+		{
+			get { return this._IsRepairling; }
+			private set
+			{
+				if (this._IsRepairling != value)
+				{
+					this._IsRepairling = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 
 		internal Fleet(Homeport parent, kcsapi_deck rawData)
 		{
 			this.homeport = parent;
 
-			this.ReSortie = new FleetReSortie();
+			this.Condition = new FleetCondition(this);
 			this.Expedition = new Expedition(this);
 			this.Update(rawData);
+
+			this.compositeDisposable = new LivetCompositeDisposable
+			{
+				new PropertyChangedWeakEventListener(KanColleClient.Current.Settings)
+				{
+					{ "ViewRangeCalcLogic", (sender, args) => this.Calculate() }
+				}
+			};
 		}
 
 
@@ -301,21 +405,64 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.TotalLevel = this.Ships.HasItems() ? this.Ships.Sum(x => x.Level) : 0;
 			this.AverageLevel = this.Ships.HasItems() ? (double)this.TotalLevel / this.Ships.Length : 0.0;
 			this.AirSuperiorityPotential = this.Ships.Sum(s => s.CalcAirSuperiorityPotential());
-			this.TotalViewRange = this.Ships.Sum(s => s.ViewRange);
+			this.TotalViewRange = this.CalcFleetViewRange(KanColleClient.Current.Settings.ViewRangeCalcLogic);
 			this.Speed = this.Ships.All(s => s.Info.Speed == Speed.Fast) ? Speed.Fast : Speed.Low;
 		}
 
+
+		internal void Sortie()
+		{
+			if (!this.isInSortie)
+			{
+				this.isInSortie = true;
+				this.UpdateStatus();
+			}
+		}
+
+		internal void Homing()
+		{
+			if (this.isInSortie)
+			{
+				this.isInSortie = false;
+				this.UpdateStatus();
+			}
+		}
+
+
 		/// <summary>
-		/// 現在の艦隊情報を使用して、<see cref="ReSortie"/> および <see cref="State"/> プロパティを更新します。
+		/// 現在の艦隊情報を使用して、<see cref="State"/> プロパティを更新します。
 		/// </summary>
 		internal void UpdateStatus()
 		{
-			this.ReSortie.Update(this.Ships, this.homeport.Repairyard);
+			this.Condition.Update(this.Ships);
+			this.IsWounded = this.Ships.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25);
+			this.IsRepairling = this.homeport.Repairyard.CheckRepairing(this);
+			this.IsInShortSupply = this.Ships.Any(s => s.Fuel.Current < s.Fuel.Maximum || s.Bull.Current < s.Bull.Maximum);
 
-			if (this.Ships.Length == 0) this.State = FleetState.Empty;
-			else if (this.Expedition.IsInExecution) this.State = FleetState.Expedition;
-			else if (this.homeport.Repairyard.CheckRepairing(this)) this.State = FleetState.Repairing;
-			else this.State = FleetState.Ready;
+			if (this.Ships.Length == 0)
+			{
+				this.State = FleetState.Empty;
+			}
+			else if (this.isInSortie)
+			{
+				this.State = FleetState.Sortie;
+			}
+
+			else if (this.Expedition.IsInExecution)
+			{
+				this.State = FleetState.Expedition;
+			}
+			else
+			{
+
+				this.State = FleetState.Homeport;
+			}
+
+			this.IsReady = this.State == FleetState.Homeport
+						   && !this.Condition.IsRejuvenating
+						   && !this.IsWounded
+						   && !this.IsRepairling
+						   && !this.IsInShortSupply;
 		}
 
 
@@ -336,10 +483,9 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public virtual void Dispose()
 		{
-			this.ReSortie.Dispose();
-			this.ReSortie.SafeDispose();
-			this.Expedition.Dispose();
+			this.compositeDisposable.Dispose();
 			this.Expedition.SafeDispose();
+			this.Condition.SafeDispose();
 		}
 	}
 }

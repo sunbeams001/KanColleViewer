@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
-using Grabacr07.KanColleWrapper.Internal;
 using Livet;
 
 namespace Grabacr07.KanColleWrapper
@@ -98,6 +94,7 @@ namespace Grabacr07.KanColleWrapper
 				this.Organization.Update(x.Data.api_ship);
 				this.Repairyard.Update(x.Data.api_ndock);
 				this.Organization.Update(x.Data.api_deck_port);
+				this.Organization.Combined = x.Data.api_combined_flag == 1;
 				this.Materials.Update(x.Data.api_material);
 				});
 			proxy.api_get_member_basic.TryParse<kcsapi_basic>().Subscribe(x => this.UpdateAdmiral(x.Data));
@@ -124,6 +121,13 @@ namespace Grabacr07.KanColleWrapper
 			{
 				System.Diagnostics.Debug.WriteLine("艦隊名の変更に失敗しました: {0}", ex);
 			}
-			}
 		}
+
+
+		internal void StartConditionCount()
+		{
+			//Observable.Timer(TimeSpan.FromSeconds(10), TimeSpan.FromMinutes(3))
+		}
+		
+	}
 }

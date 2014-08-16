@@ -182,12 +182,13 @@
 					   Padding="10" />
         </Grid>
 
-        <Grid MaxWidth="{Binding ElementName=QuestContent, Path=ActualWidth}">
+        <Grid Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
             <TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 				       TextWrapping="Wrap"
 				       FontSize="16"
 				       Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 				       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
                        TextAlignment="Center"
 				       Margin="20,40" />
         </Grid>

@@ -20,19 +20,11 @@
 	</UserControl.Resources>
 
 	<StackPanel>
-		<TextBlock Margin="0,0,0,10"
-				   IsEnabled="False">
-			<Run Text="Sortie Condition"
-				 Style="{DynamicResource PickupTextElementStyleKey}" />
-			<Run Text=" " />
-			<Run Text="{Binding Resources.Common_Implement_Oncoming, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-		</TextBlock>
+		<TextBlock Text="Sortie condition"
+				   Style="{DynamicResource SettingsHeaderTextStyleKey}" />
 
-		<StackPanel Margin="15,0,0,0"
-					IsEnabled="False">
-			<TextBlock>
-				<Run Text="Minimum fleet condition to be considered ready for sorties." />
-			</TextBlock>
+		<StackPanel Margin="20,0,0,0">
+			<TextBlock Text="Minimum fleet condition to be considered ready for sorties." />
 
 			<Grid Margin="0,10">
 				<Grid.ColumnDefinitions>
@@ -41,14 +33,21 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 
-				<metro:PromptTextBox Text="{Binding ReSortieCondition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}"
-									 Prompt="Default: 40"
-									 ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"
-									 Width="60"
-									 VerticalAlignment="Top" />
+				<metro:PromptTextBox Prompt="Default: 40"
+									 Width="60">
+					<metro:PromptTextBox.Text>
+						<Binding Source="{x:Static models:Settings.Current}"
+								 Path="KanColleClientSettings.ReSortieCondition"
+								 UpdateSourceTrigger="PropertyChanged">
+							<Binding.ValidationRules>
+								<metro:Int32Rule Min="0"
+												 Max="49" />
+							</Binding.ValidationRules>
+						</Binding>
+					</metro:PromptTextBox.Text>
+				</metro:PromptTextBox>
 				<TextBlock Grid.Column="2"
-						   TextWrapping="Wrap"
-						   Foreground="{DynamicResource InactiveForegroundBrushKey}">
+						   Style="{DynamicResource DetailTextStyleKey}">
 					<Run Text="※Value must be within the range of 40 and 49. (Default: 40)" />
 				</TextBlock>
 			</Grid>
@@ -58,17 +57,58 @@
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
 		<TextBlock Text="{Binding Resources.Settings_FleetCondition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-				   Style="{DynamicResource HeaderTextBlockStyleKey}"
+				   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 				   Margin="0,10"/>
 		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Notify_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalNotify}" Height="17" Margin="15,0,0,10"/>
-		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Accent_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalAccent}" Height="17" Margin="15,0,0,10"/>
-		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Notify_Fatigue}, Mode=OneWay}" IsChecked="{Binding EnableFatigueNotification}" Height="17" Margin="15,0,0,10"/>
-		<Rectangle Height="1"
-			Style="{DynamicResource SeparatorRectangleStyleKey}" />
+		<!-- <CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_Accent_CriticalCondition}, Mode=OneWay}" IsChecked="{Binding EnableCriticalAccent}" Height="17" Margin="15,0,0,10"/> -->
 
-		<TextBlock Text="{Binding Resources.Settings_UI, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-				   Style="{DynamicResource HeaderTextBlockStyleKey}"
-				   Margin="0,10"/>
-		<CheckBox Content="{Binding Source={x:Static properties:Resources.Settings_UI_Icon}, Mode=OneWay}" IsChecked="{Binding MenuIcon}" Height="17" Margin="15,0,0,10"/>
+		<Rectangle Height="1"
+				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+
+		<TextBlock Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoSCalculation}, Mode=OneWay}"
+				   Style="{DynamicResource SettingsHeaderTextStyleKey}"
+				   Margin="0,10" />
+
+		<StackPanel Margin="20,0,0,0">
+			<TextBlock Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_Title}, Mode=OneWay}" />
+
+			<StackPanel Margin="0,5">
+				<RadioButton IsChecked="{Binding ViewRangeType1}"
+							 Margin="0,5">
+					<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+							   LineHeight="16">
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_Simple}, Mode=OneWay}"
+							 Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}, Path=Foreground}" />
+						<LineBreak />
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_Simple_Description}, Mode=OneWay}" />
+					</TextBlock>
+				</RadioButton>
+
+				<RadioButton IsChecked="{Binding ViewRangeType2}"
+							 Margin="0,5">
+					<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+							   LineHeight="18">
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_New}, Mode=OneWay}"
+							 Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}, Path=Foreground}" />
+						<LineBreak />
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_New_Desc}, Mode=OneWay}" />
+						<LineBreak />
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_Recon}, Mode=OneWay}" />
+						<Run Text="…" />
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_SeaplaneRecon}, Mode=OneWay}"
+							 ToolTip="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_SeaplaneRecon_Tooltip}, Mode=OneWay}" />
+						<Run Text="・" />
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_SeaplaneBomber}, Mode=OneWay}"
+							 ToolTip="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_SeaplaneBomber_Tooltip}, Mode=OneWay}" />
+						<Run Text="・" />
+						<Run Text="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_CarrierBasedRecon}, Mode=OneWay}"
+							 ToolTip="{Binding Source={x:Static properties:Resources.Settings_Operation_LoS_CarrierBasedRecon_Tooltip}, Mode=OneWay}" />
+					</TextBlock>
+				</RadioButton>
+			</StackPanel>
+		</StackPanel>
+
+		<Rectangle Height="1"
+				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 	</StackPanel>
 </UserControl>

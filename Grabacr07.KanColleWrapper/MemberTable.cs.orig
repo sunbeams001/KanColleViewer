@@ -40,6 +40,7 @@ namespace Grabacr07.KanColleWrapper
 		}
 
 =======
+>>>>>>> 226f6e330bc4cd342014d0a25bb0dcbad6b71eed
 
 		internal void Add(TValue value)
 		{
@@ -57,7 +58,6 @@ namespace Grabacr07.KanColleWrapper
 		}
 
 
->>>>>>> 4911a058f073ded74d16adfe68e0dabee52504b0
 		#region IReadOnlyDictionary<TK, TV> members
 
 		public IEnumerator<KeyValuePair<int, TValue>> GetEnumerator()

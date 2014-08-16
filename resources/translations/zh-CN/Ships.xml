@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Ships Version="1.0.4">
+<Ships Version="1.0.13">
   <Ship>
     <JP-Name>長門</JP-Name>
     <TR-Name>Nagato</TR-Name>
@@ -1179,5 +1179,113 @@
   <Ship>
     <JP-Name>酒匂改</JP-Name>
     <TR-Name>Sakawa Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>浦風</JP-Name>
+    <TR-Name>Urakaze</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>浦風改</JP-Name>
+    <TR-Name>Urakaze Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>羽黒改二</JP-Name>
+    <TR-Name>Haguro Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>龍驤改二</JP-Name>
+    <TR-Name>Ryuujou Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>飛龍改二</JP-Name>
+    <TR-Name>Hiryuu Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>蒼龍改二</JP-Name>
+    <TR-Name>Souryuu Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>大鯨</JP-Name>
+    <TR-Name>Taigei</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>龍鳳</JP-Name>
+    <TR-Name>Ryuuhou</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>龍鳳改</JP-Name>
+    <TR-Name>Ryuuhou Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>川内改二</JP-Name>
+    <TR-Name>Sendai Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>綾波改二</JP-Name>
+    <TR-Name>Ayanami Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>妙高改二</JP-Name>
+    <TR-Name>Myoukou Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>榛名改二</JP-Name>
+    <TR-Name>Haruna Kai2</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>磯風</JP-Name>
+    <TR-Name>Isokaze</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>磯風改</JP-Name>
+    <TR-Name>Isokaze Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>大淀</JP-Name>
+    <TR-Name>Ooyodo</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>大淀改</JP-Name>
+    <TR-Name>Ooyodo Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>時津風</JP-Name>
+    <TR-Name>Tokitsukaze</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>時津風改</JP-Name>
+    <TR-Name>Tokitsukaze Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>雲龍</JP-Name>
+    <TR-Name>Unryuu</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>雲龍改</JP-Name>
+    <TR-Name>Unryuu Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>春雨</JP-Name>
+    <TR-Name>Harusame</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>春雨改</JP-Name>
+    <TR-Name>Harusame Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>早霜</JP-Name>
+    <TR-Name>Hayashimo</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>早霜改</JP-Name>
+    <TR-Name>Hayashimo Kai</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>清霜</JP-Name>
+    <TR-Name>Kiyoshimo</TR-Name>
+  </Ship>
+  <Ship>
+    <JP-Name>清霜改</JP-Name>
+    <TR-Name>Kiyoshimo Kai</TR-Name>
   </Ship>
 </Ships>

@@ -1,4 +1,4 @@
-﻿KanColleViewer! (提督業も忙しい！)
+﻿﻿KanColleViewer! (提督業も忙しい！)
 --
 **--This is the horizontal branch for those on computers not vertically endowed. Max width must be under 1440px**
 
@@ -17,8 +17,11 @@ This is the translation project of the original [KanColleViewer](http://grabacr.
 ## Downloads
 All builds can be found in the following links below.
 
-* [GitHub Releases](https://github.com/Zharay/KanColleViewer/releases) -- Major revision binaries
-* [SkyDrive](http://sdrv.ms/1b01S24) -- Major revision binaries
+* [GitHub Releases](https://github.com/Yuubari/KanColleViewer/releases) -- Major revision binaries
+
+## To Do
+* An update of the horizontal version of KCV
+* Some changes to the way construction/drop/development logging is handled
 
 ## Frequently Asked Questions
 
@@ -57,7 +60,7 @@ Clear your cache and relaunch KCV again. Especially after updates or playing bet
 Easiest way is to just disable translations in the options menu. You can also set the UI's language to Japanese which will disable all translations by default. If you only want certain things translated, deleting the corresponding XML file in the translation folder is your best bet (just be sure to disable auto update).
 
 #### I'm missing XXXX translations! (XXXX is in Japanese)
-Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me through pastebin on twitter (@Zharay) or as a bug in GitHub.
+Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me as a bug in GitHub.
 
 #### Custom Sound Notifications - What?
 These are sounds that play immediately when a normal windows notification is to be displayed. Supported formats are WAV and MP3. You must place them in the "Sounds" and under the sub-directory corresponding to the notification you require. It doesn't matter the name or the number you have; a random file will be chosen to be played every time.
@@ -72,7 +75,7 @@ Note! For those not in English UI, you may need to place them in the folders tha
 * Ranking information
 * EXP Calculator
 * Auto updating and version checking
-* Regional cookie setting.
+* Regional cookie setting
 * Flash quality settings
 * Custom sound notifications
 * Extra stat display on ships and equipment
@@ -85,7 +88,7 @@ KanColleViewer uses the web browser component of the Windows Presentation Founda
 Of course, we do not change the contents of the packets in anyway and is used to provide information to the program's components.
 
 ### About The Translation
-Main work on the translation of ships, equipment, and quests fall solely on the now defunct [silfumus' version of KanColleViewer](https://github.com/silfumus/KanColleViewer) and those who contributed to it. I manually merged the changes to this version of the fork and went from there.
+Main work on the translation of ships, equipment, and quests fall solely on the now defunct [silfumus' version of KanColleViewer](https://github.com/silfumus/KanColleViewer) and those who contributed to it. Zharay manually merged the changes to this version of the fork and went from there.
 
 The way the translation works is that it manually loads the translation from several text files which holds both the Japanese name and the English translation of the item in question. This can theoretically be used to translate the contents of the game easily to any language needed.
 
