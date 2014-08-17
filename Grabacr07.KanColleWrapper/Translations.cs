@@ -20,6 +20,7 @@ namespace Grabacr07.KanColleWrapper
 		private XDocument EquipmentXML;
 		private XDocument OperationsXML;
 		private XDocument QuestsXML;
+        private XDocument ExpeditionsXML;
 		private string CurrentCulture;
 
 		public bool EnableTranslations { get; set; }
@@ -120,6 +121,25 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
+        #region ExpeditionsVersion 変更通知プロパティ
+
+        private string _ExpeditionsVersion;
+
+        public string ExpeditionsVersion
+        {
+            get { return _ExpeditionsVersion; }
+            set
+            {
+                if (_ExpeditionsVersion != value)
+                {
+                    _ExpeditionsVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
 		internal Translations()
 		{
 			try
@@ -129,6 +149,7 @@ namespace Grabacr07.KanColleWrapper
 				if (File.Exists("Translations\\Equipment.xml")) EquipmentXML = XDocument.Load("Translations\\Equipment.xml");
 				if (File.Exists("Translations\\Operations.xml")) OperationsXML = XDocument.Load("Translations\\Operations.xml");
 				if (File.Exists("Translations\\Quests.xml")) QuestsXML = XDocument.Load("Translations\\Quests.xml");
+                if (File.Exists("Translations\\Expeditions.xml")) ExpeditionsXML = XDocument.Load("Translations\\Expeditions.xml");
 
 				GetVersions();
 			}
@@ -147,6 +168,7 @@ namespace Grabacr07.KanColleWrapper
 			EquipmentXML = null;
 			OperationsXML = null;
 			QuestsXML = null;
+            ExpeditionsXML = null;
 
 			if (!EnableTranslations || CurrentCulture == "ja-JP")
 				return;
@@ -160,6 +182,7 @@ namespace Grabacr07.KanColleWrapper
 				if (File.Exists("Translations\\" + CurrentCulture + "Equipment.xml")) EquipmentXML = XDocument.Load("Translations\\" + CurrentCulture + "Equipment.xml");
 				if (File.Exists("Translations\\" + CurrentCulture + "Operations.xml")) OperationsXML = XDocument.Load("Translations\\" + CurrentCulture + "Operations.xml");
 				if (File.Exists("Translations\\" + CurrentCulture + "Quests.xml")) QuestsXML = XDocument.Load("Translations\\" + CurrentCulture + "Quests.xml");
+                if (File.Exists("Translations\\" + CurrentCulture + "Expeditions.xml")) ExpeditionsXML = XDocument.Load("Translations\\Expeditions.xml");
 
 				GetVersions();
 			}
@@ -191,6 +214,7 @@ namespace Grabacr07.KanColleWrapper
 				QuestsVersion = QuestsXML.Root.Attribute("Version").Value;
 			else
 				QuestsVersion = "0.0.0";
+            ExpeditionsVersion = ExpeditionsXML != null ? ExpeditionsXML.Root.Attribute("Version").Value : "0.0.0";
 		}
 
 		private IEnumerable<XElement> GetTranslationList(TranslationType Type)
@@ -223,6 +247,12 @@ namespace Grabacr07.KanColleWrapper
 					if (QuestsXML != null) 
 						return QuestsXML.Descendants("Quest");
 					break;
+                case TranslationType.Expeditions:
+                case TranslationType.ExpeditionTitle:
+                case TranslationType.ExpeditionDetail:
+                    if (ExpeditionsXML != null)
+                        return ExpeditionsXML.Descendants("Expedition");
+                    break;
 			}
 
 			return null;
@@ -246,7 +276,7 @@ namespace Grabacr07.KanColleWrapper
 				string JPChildElement = "JP-Name";
 				string TRChildElement = "TR-Name";
 
-				if (Type == TranslationType.QuestDetail)
+				if (Type == TranslationType.QuestDetail || Type == TranslationType.ExpeditionDetail)
 				{
 					JPChildElement = "JP-Detail";
 					TRChildElement = "TR-Detail";
@@ -273,7 +303,7 @@ namespace Grabacr07.KanColleWrapper
 
 		public bool GetTranslation(string JPString, IEnumerable<XElement> TranslationList, String JPChildElement, String TRChildElement, int ID , ref string translate)
 		{
-			IEnumerable<XElement> FoundTranslation = FoundTranslation = TranslationList.Where(el =>
+			IEnumerable<XElement> FoundTranslation = TranslationList.Where(el =>
 			{
 				if (el.Element(JPChildElement).Value.Equals(JPString)) return true;
 				if (el.Attribute("mode") != null)
@@ -339,7 +369,7 @@ namespace Grabacr07.KanColleWrapper
 		{
 			if (RawData == null || !EnableAddUntranslated)
 				return;
-
+            
 			try
 			{
 				switch (Type)
@@ -491,6 +521,53 @@ namespace Grabacr07.KanColleWrapper
 
 						QuestsXML.Save("Translations\\" + CurrentCulture + "Quests.xml");
 						break;
+                    case TranslationType.Expeditions:
+                    case TranslationType.ExpeditionTitle:
+                    case TranslationType.ExpeditionDetail:
+                        if (ExpeditionsXML == null)
+                        {
+                            ExpeditionsXML = new XDocument();
+                            ExpeditionsXML.Add(new XElement("Expeditions"));
+                            ExpeditionsXML.Root.SetAttributeValue("Version", "0.0.0");
+                            ExpeditionsVersion = "0.0.0";
+                        }
+
+                        kcsapi_mission ExpeditionData = RawData as kcsapi_mission;
+
+                        if (ExpeditionData == null)
+							return;
+
+                        IEnumerable<XElement> FoundTranslationExpeditionDetail = ExpeditionsXML.Descendants("Expedition").Where(b => b.Element("JP-Detail").Value.Equals(ExpeditionData.api_details));
+                        IEnumerable<XElement> FoundTranslationExpeditionTitle = ExpeditionsXML.Descendants("Expedition").Where(b => b.Element("JP-Name").Value.Equals(ExpeditionData.api_name));
+                        
+                        // Check the current list for any errors and fix them before writing a whole new element.
+                        if (Type == TranslationType.ExpeditionTitle && FoundTranslationExpeditionDetail != null && FoundTranslationExpeditionDetail.Any())
+                        {
+                            // The title is wrong, but the detail is right. Fix the title.
+                            foreach (XElement el in FoundTranslationExpeditionDetail)
+                                el.Element("JP-Name").Value = ExpeditionData.api_name;
+
+                        }
+                        else if (Type == TranslationType.ExpeditionDetail && FoundTranslationExpeditionTitle != null && FoundTranslationExpeditionTitle.Any())
+                        {
+                            // We found an existing detail, the title must be broken. Fix it.
+                            foreach (XElement el in FoundTranslationExpeditionTitle)
+                                el.Element("JP-Detail").Value = ExpeditionData.api_details;
+                        }
+                        else
+                        {
+                            // The quest doesn't exist at all. Add it.
+                            ExpeditionsXML.Root.Add(new XElement("Expedition",
+                                new XElement("ID", ExpeditionData.api_id),
+                                new XElement("JP-Name", ExpeditionData.api_name),
+                                new XElement("TR-Name", ExpeditionData.api_name),
+                                new XElement("JP-Detail", ExpeditionData.api_details),
+                                new XElement("TR-Detail", ExpeditionData.api_details)
+                                ));
+                        }
+
+                        ExpeditionsXML.Save("Translations\\" + CurrentCulture + "Expeditions.xml");
+                        break;
 				}
 			}
 			catch (Exception ex)

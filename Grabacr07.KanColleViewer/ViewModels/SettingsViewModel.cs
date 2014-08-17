@@ -313,6 +313,23 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+        #region ExpeditionsVersion 変更通知プロパティ
+
+        public string ExpeditionsVersion
+        {
+            get { return KanColleClient.Current.Translations.ExpeditionsVersion; }
+            set
+            {
+                if (KanColleClient.Current.Translations.ExpeditionsVersion != value)
+                {
+                    KanColleClient.Current.Translations.ExpeditionsVersion = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
 		#region AppOnlineVersion 変更通知プロパティ
 
 		private string _AppOnlineVersion;
@@ -438,6 +455,27 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 		#endregion
+
+        #region ExpeditionsOnlineVersion 変更通知プロパティ
+
+        private string _ExpeditionsOnlineVersion;
+        public string ExpeditionsOnlineVersionURL { get; set; }
+
+        public string ExpeditionsOnlineVersion
+        {
+            get { return _ExpeditionsOnlineVersion; }
+            set
+            {
+                if (_ExpeditionsOnlineVersion != value)
+                {
+                    _ExpeditionsOnlineVersion = value;
+                    this.RaisePropertyChanged();
+                    this.RaisePropertyChanged("ExpeditionsOnlineVersionURL");
+                }
+            }
+        }
+
+        #endregion
 
 		#region EnableUpdateNotification 変更通知プロパティ
 
@@ -718,6 +756,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				QuestsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests, true);
 				ShipsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships, true);
 				ShipTypesOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes, true);
+                ExpeditionsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions, true);
 
 				AppOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App);
 				EquipmentOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment);
@@ -725,6 +764,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				QuestsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests);
 				ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
 				ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
+                ExpeditionsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions);
 			}
 			else
 			{

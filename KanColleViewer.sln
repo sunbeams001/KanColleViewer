@@ -54,6 +54,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Translations", "Translation
 	ProjectSection(SolutionItems) = preProject
 		resources\translations\equipment.txt = resources\translations\equipment.txt
 		resources\Translations\Equipment.xml = resources\Translations\Equipment.xml
+		resources\translations\Expeditions.xml = resources\translations\Expeditions.xml
 		resources\translations\operation.txt = resources\translations\operation.txt
 		resources\Translations\Operations.xml = resources\Translations\Operations.xml
 		resources\translations\quest.txt = resources\translations\quest.txt

@@ -30,4 +30,9 @@
 		<Version>1.0.4</Version>
 		<URL>https://raw.github.com/yuyuvn/KanColleViewer/master/resources/translations/ShipTypes.xml</URL>
 	</Item>
+	<Item>
+		<Name>Expeditions</Name>
+		<Version>1.0.0</Version>
+		<URL>https://raw.github.com/yuyuvn/KanColleViewer/master/resources/translations/Expeditions.xml</URL>
+	</Item>
 </Versions>

@@ -159,6 +159,25 @@ namespace Grabacr07.KanColleWrapper
 						}
 					}
 
+                    if (IsOnlineVersionGreater(TranslationType.Expeditions, TranslationsRef.ExpeditionsVersion))
+                    {
+                        Client.DownloadFile(TranslationURL + "Expeditions.xml", "Translations\\tmp\\Expeditions.xml");
+
+                        try
+                        {
+                            TestXML = XDocument.Load("Translations\\tmp\\Expeditions.xml");
+                            if (File.Exists("Translations\\" + CurrentCultureDir + "Expeditions.xml"))
+                                File.Delete("Translations\\" + CurrentCultureDir + "Expeditions.xml");
+                            File.Move("Translations\\tmp\\Expeditions.xml", "Translations\\" + CurrentCultureDir + "Expeditions.xml");
+                            ReturnValue = 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex);
+                            ReturnValue = -1;
+                        }
+                    }
+
 				}
 				catch (Exception ex)
 				{
@@ -205,6 +224,10 @@ namespace Grabacr07.KanColleWrapper
 					return Versions.Where(x => x.Element("Name").Value.Equals("Ships")).FirstOrDefault().Element(ElementName).Value;
 				case TranslationType.ShipTypes:
 					return Versions.Where(x => x.Element("Name").Value.Equals("ShipTypes")).FirstOrDefault().Element(ElementName).Value;
+                case TranslationType.Expeditions:
+                case TranslationType.ExpeditionDetail:
+                case TranslationType.ExpeditionTitle:
+                    return Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value;
 
 			}
 			return "";
@@ -243,7 +266,10 @@ namespace Grabacr07.KanColleWrapper
 					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Ships")).FirstOrDefault().Element(ElementName).Value)) < 0;
 				case TranslationType.ShipTypes:
 					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("ShipTypes")).FirstOrDefault().Element(ElementName).Value)) < 0;
-
+                case TranslationType.Expeditions:
+                case TranslationType.ExpeditionDetail:
+                case TranslationType.ExpeditionTitle:
+                    return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value)) < 0;
 			}
 
 			return false;
