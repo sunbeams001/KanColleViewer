@@ -74,7 +74,6 @@ namespace Grabacr07.KanColleViewer
 					}
 				}
 			}
-
 			ThemeService.Current.Initialize(this, Theme.Dark, Accent.Purple);
             
 			ViewModelRoot = new MainWindowViewModel();

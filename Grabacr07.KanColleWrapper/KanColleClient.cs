@@ -48,7 +48,6 @@ namespace Grabacr07.KanColleWrapper
 		/// Translation engine for ships, equipment, quests, and sorties.
 		/// </summary>
 		public Translations Translations { get; private set; }
-
 		#region IsStarted 変更通知プロパティ
 
 		private bool _IsStarted;

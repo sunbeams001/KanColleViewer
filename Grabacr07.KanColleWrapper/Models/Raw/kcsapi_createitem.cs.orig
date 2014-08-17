@@ -10,13 +10,17 @@ namespace Grabacr07.KanColleWrapper.Models.Raw
 	// ReSharper disable InconsistentNaming
 	public class kcsapi_createitem
 	{
+		public int api_id { get; set; }
+		public int api_slotitem_id { get; set; }
 		public int api_create_flag { get; set; }
 		public int api_shizai_flag { get; set; }
 		public kcsapi_slotitem api_slot_item { get; set; }
 		public int[] api_material { get; set; }
 		public int api_type3 { get; set; }
 		public int[] api_unsetslot { get; set; }
+		public string api_fdata { get; set; }
 	}
+	// ReSharper restore InconsistentNaming
 =======
 ﻿using System;
 using System.Collections.Generic;
@@ -37,7 +41,8 @@ namespace Grabacr07.KanColleWrapper.Models.Raw
 		public int[] api_material { get; set; }
 		public int api_type3 { get; set; }
 		public int[] api_unsetslot { get; set; }
+		public string api_fdata { get; set; }
 	}
->>>>>>> 4911a058f073ded74d16adfe68e0dabee52504b0
 	// ReSharper restore InconsistentNaming
+>>>>>>> d93ed6e11f6cea8252409b781e9fd6307c3a66b7
 }
