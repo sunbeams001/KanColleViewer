@@ -116,8 +116,7 @@
 					BorderThickness="1,1,0,0"
 					BorderBrush="{DynamicResource BackgroundBrushKey}"
 					Margin="0,8,0,0"
-					DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Settings}"
-					Visibility="{Binding ElementName=SettingsTab, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.ColumnSpan="3">
+					DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Settings}">
         <ScrollViewer VerticalScrollBarVisibility="Auto"
 							  PanningMode="Both">
             <TabControl 
@@ -135,7 +134,7 @@
 										Value="14" />
                     </Style>
                 </TabControl.Resources>
-                <TabItem>
+                <TabItem DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type views:StartContent}}, Path=DataContext}">
                     <TabItem.Header>
                         <TextBlock Text="Information"
 										   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
@@ -277,7 +276,7 @@
                                             <TableRow>
                                                 <TableCell>
                                                     <BlockUIContainer>
-                                                        <metro2:CallMethodButton Content="Delete cache"
+                                                        <metro2:CallMethodButton Content="{Binding DeleteInternetCacheButtonContent}"
 																		 MethodName="DeleteInternetCache"
 																		 IsEnabled="{Binding CanDeleteInternetCache}"
 																		 HorizontalAlignment="Center"
@@ -290,7 +289,7 @@
                                             <TableRow>
                                                 <TableCell>
                                                     <BlockUIContainer>
-                                                        <metro2:CallMethodButton Content="Set cookie region"
+                                                        <metro2:CallMethodButton Content="{Binding SetRegionCookieButtonContent}"
 																		 MethodName="SetRegionCookie"
 																		 IsEnabled="{Binding CanSetRegionCookie}"
 																		 HorizontalAlignment="Center"

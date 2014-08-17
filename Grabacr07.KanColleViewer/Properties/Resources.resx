@@ -583,7 +583,7 @@
     <value>Change window color when a ship is in critical condition</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value>Tools</value>
+    <value>ツール</value>
   </data>
   <data name="Tools_Icon" xml:space="preserve">
     <value>📝</value>
@@ -768,9 +768,6 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Rank_Vice_Admiral" xml:space="preserve">
     <value>中将</value>
   </data>
-  <data name="Tools" xml:space="preserve">
-    <value>ツール</value>
-  </data>
   <data name="Settings_Notifications" xml:space="preserve">
     <value>通信設定</value>
   </data>
@@ -938,5 +935,8 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Settings_Operation_LoS_Title" xml:space="preserve">
     <value>艦隊の索敵値の算出に使用する計算式は、以下を使用する</value>
+  </data>
+  <data name="Settings_Updates_CheckUpdatesBtn_ToolTip" xml:space="preserve">
+    <value>Check for new version of KCV and translate.</value>
   </data>
 </root>
