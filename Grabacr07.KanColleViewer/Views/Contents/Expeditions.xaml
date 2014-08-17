@@ -105,9 +105,13 @@
                                        HorizontalAlignment="Center"
 									   Visibility="Collapsed" />
 
-                            <StackPanel x:Name="ExpeditionInfo"
-                              ToolTip="{Binding Expedition.Mission.Id, Mode=OneWay}">
-								<TextBlock Text="{Binding Expedition.Mission.Title}"
+                            <StackPanel x:Name="ExpeditionInfo">
+                                <StackPanel.ToolTip>
+                                    <ToolTip 
+                                      Content="{Binding Expedition.Mission.Id, Mode=OneWay}"
+                                      ContentStringFormat="{}Expedition: {0}" />
+                                </StackPanel.ToolTip>
+                                <TextBlock Text="{Binding Expedition.Mission.Title}"
 										   Style="{DynamicResource EmphaticTextStyleKey}" />
 								<Border Height="4" />
 								<TextBlock Text="{Binding Expedition.Mission.Detail}"
