@@ -70,7 +70,7 @@
 									 Margin="6,0,0,8"
 									 Padding="3"
 									 Grid.Row="5"
-									 Grid.RowSpan="3"/>
+									 Grid.RowSpan="2"/>
 
 			<TextBlock Grid.Column="3"
 					   Grid.Row="0"
@@ -190,8 +190,17 @@
 					<Run Text="{Binding ShipTypesOnlineVersion, Mode=OneWay}" />
 				</metro2:HyperlinkEx>
 			</TextBlock>
-            <TextBlock Grid.Column="5"
-					   Grid.Row="6"
+            
+            <TextBlock Grid.Column="2"
+					   Grid.Row="7"
+					   Margin="8,0">Expeditions</TextBlock>
+            <TextBlock Grid.Column="3"
+					   Grid.Row="7"
+					   Margin="0,2"
+					   HorizontalAlignment="Center"
+					   Text="{Binding ExpeditionsVersion, Mode=OneWay}"/>
+            <TextBlock Grid.Column="4"
+					   Grid.Row="7"
 					   Margin="0,2"
 					   HorizontalAlignment="Center">
 				<metro2:HyperlinkEx Uri="{Binding ExpeditionsOnlineVersionURL, Mode=OneWay}"
