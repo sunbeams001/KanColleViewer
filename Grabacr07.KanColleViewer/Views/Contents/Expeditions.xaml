@@ -72,7 +72,10 @@
 		</Style>
 	</UserControl.Resources>
 
-    <StackPanel DataContext="{Binding Fleets}" Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
+    <ScrollViewer DataContext="{Binding Fleets}" 
+                  Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}"
+                  VerticalScrollBarVisibility="Auto"
+                  PanningMode="Both">
 		<ItemsControl ItemsSource="{Binding Fleets}"
 					  Margin="5,0,5,5"
 					  d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}">
@@ -162,5 +165,5 @@
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>
-	</StackPanel>
+	</ScrollViewer>
 </UserControl>
