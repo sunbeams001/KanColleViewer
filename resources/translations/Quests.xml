@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.0.7">
+<Quests Version="1.0.8">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -888,6 +888,13 @@
     <TR-Name>Convert model</TR-Name>
     <JP-Detail>「九九式艦爆(江草隊)」搭載空母を秘書艦にした状態で新たに「彗星」を2つ廃棄！</JP-Detail>
     <TR-Detail>Have flagship equipped with Type 99 Dive Bomber (Egusa Squadron), then scrap 2 Suisei (Comet)</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>616</ID>
+    <JP-Name>機種転換</JP-Name>
+    <TR-Name>Convert model</TR-Name>
+    <JP-Detail>「零戦52型丙(六〇一空)」搭載空母を秘書艦にした状態で新たに「烈風」を2つ廃棄！</JP-Detail>
+    <TR-Detail>Have flagship equipped with Zero Fighter Type 52 Type C (601 Air Group), then scrap 2 Reppuu (Strong Gale)</TR-Detail>
   </Quest>
   <Quest>
     <ID>252</ID>
