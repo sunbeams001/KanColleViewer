@@ -12,9 +12,9 @@ namespace Grabacr07.KanColleViewer.Plugins
 {
 	[Export(typeof(IToolPlugin))]
 	[ExportMetadata("Title", "Calculator")]
-	[ExportMetadata("Description", "start2 で取得される、艦これのマスター データを閲覧するためのビュー機能を提供します。")]
+    [ExportMetadata("Description", "Calculator experience")]
 	[ExportMetadata("Version", "1.0")]
-	[ExportMetadata("Author", "@Grabacr07")]
+    [ExportMetadata("Author", "@Zharay")]
 	public class KancolleCalculator : IToolPlugin
 	{
         private CalculatorViewModel calculatorViewModel;
