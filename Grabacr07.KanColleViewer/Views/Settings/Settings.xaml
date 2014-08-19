@@ -12,7 +12,8 @@
 			 d:DesignWidth="700"
 			 d:DesignHeight="400"
 			 DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Settings}"
-			 Background="{DynamicResource ThemeBrushKey}">
+			 Background="{DynamicResource ThemeBrushKey}"
+             Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
 	<UserControl.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>

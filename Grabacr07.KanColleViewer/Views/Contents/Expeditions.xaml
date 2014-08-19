@@ -17,7 +17,8 @@
 			 mc:Ignorable="d"
 			 d:DesignWidth="700"
 			 d:DesignHeight="300"
-			 d:DataContext="{d:DesignInstance vmContents:ExpeditionsViewModel}">
+			 d:DataContext="{d:DesignInstance vmContents:ExpeditionsViewModel}"
+             Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
 	<UserControl.Resources>
 		<Style TargetType="{x:Type GroupBox}">
 			<Setter Property="OverridesDefaultStyle"
@@ -72,8 +73,7 @@
 		</Style>
 	</UserControl.Resources>
 
-    <ScrollViewer DataContext="{Binding Fleets}" 
-                  Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}"
+    <ScrollViewer DataContext="{Binding Fleets}"
                   VerticalScrollBarVisibility="Auto"
                   PanningMode="Both">
 		<ItemsControl ItemsSource="{Binding Fleets}"

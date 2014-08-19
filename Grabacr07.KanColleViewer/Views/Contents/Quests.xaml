@@ -15,7 +15,7 @@
 			 d:DesignWidth="700"
 			 d:DesignHeight="300"
 			 d:DataContext="{d:DesignInstance vmContents:QuestsViewModel}"
-			 Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Path=ActualWidth}">
+             Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
     <ScrollViewer VerticalScrollBarVisibility="Auto"
 				  PanningMode="Both">        
         <Grid>
@@ -176,7 +176,6 @@
                 </Grid>
 
                 <TextBlock Grid.Row="1"
-                       MaxWidth="{Binding ElementName=QuestContent, Path=ActualWidth}"
 					   Text="{Binding Resources.Quests_Notice, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					   FontSize="10.5"
 					   TextTrimming="None"
@@ -184,16 +183,14 @@
 					   Padding="10" />
             </Grid>
 
-            <Grid Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
-                <TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-				       TextWrapping="Wrap"
+            <TextBlock Text="{Binding Resources.Quests_Untaken, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 				       FontSize="16"
+                       TextWrapping="Wrap"
 				       Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 				       HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        TextAlignment="Center"
 				       Margin="20,40" />
-            </Grid>
         </Grid>
     </ScrollViewer>
 </UserControl>
