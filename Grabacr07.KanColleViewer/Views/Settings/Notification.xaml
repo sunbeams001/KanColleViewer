@@ -102,12 +102,12 @@
 		<Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-		<TextBlock Text="通知プラグイン"
+        <TextBlock Text="Notification plugin"
 				   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 				   Margin="0,10,0,8" />
 
 		<StackPanel Margin="20,0,0,0">
-			<TextBlock Text="以下のプラグインを使用して通知されます。"
+            <TextBlock Text="Notification plugins active"
 					   Style="{DynamicResource DetailTextStyleKey}"
 					   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 
@@ -125,7 +125,7 @@
 										   HorizontalAlignment="Right"
 										   Visibility="{Binding ErrorMessage, Converter={StaticResource StringToVisiblityConverter}}" />
 								<controls:CallMethodButton DockPanel.Dock="Right"
-														   Content="テスト"
+														   Content="Test"
 														   MethodName="Test"
 														   Padding="8,6"
 														   Margin="5,0,0,0"
