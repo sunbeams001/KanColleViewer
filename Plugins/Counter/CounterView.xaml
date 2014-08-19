@@ -21,12 +21,9 @@
 					  Grid.IsSharedSizeScope="True">
 			<ItemsControl.Template>
 				<ControlTemplate TargetType="{x:Type ItemsControl}">
-					<ScrollViewer HorizontalScrollBarVisibility="Disabled"
-								  VerticalScrollBarVisibility="Auto">
-						<StackPanel IsItemsHost="True"
+                    <StackPanel IsItemsHost="True"
 									Margin="4" />
-					</ScrollViewer>
-				</ControlTemplate>
+                </ControlTemplate>
 			</ItemsControl.Template>
 
 			<ItemsControl.ItemTemplate>
