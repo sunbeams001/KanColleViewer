@@ -673,6 +673,24 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
         #endregion
 
+        #region Orientation
+
+        private WindowOrientaionMode _Orientation;
+
+        public WindowOrientaionMode Orientation
+        {
+            get { return this._Orientation; }
+            private set
+            {
+                if (this._Orientation != value)
+                {
+                    this._Orientation = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
 		#region MenuIcon
 
 		public bool MenuIcon
@@ -768,6 +786,15 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			});
 			this.BrowserZoomFactor = zoomFactor;
 
+            var orientationMode = new WindowOrientaionMode { CurrentMode = Settings.Current.OrientationMode };
+            this.CompositeDisposable.Add(new PropertyChangedEventListener(orientationMode)
+			{
+				{ "Current", (sender, args) => Settings.Current.Orientation = orientationMode.Current },
+                { "CurrentMode", (sender, args) => Settings.Current.OrientationMode = orientationMode.CurrentMode },
+			});
+            Settings.Current.Orientation = orientationMode.Current;
+            this.Orientation = orientationMode;
+
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Translations)
 			{
 				(sender, args) => this.RaisePropertyChanged(args.PropertyName),
@@ -825,16 +852,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		{
 			App.ViewModelRoot.Messenger.Raise(new SetWindowLocationMessage { MessageKey = "Window/Location", Left = 0.0 });
 		}
-
-        public void SetWindowsSize()
-        {
-            var window = System.Windows.Application.Current.MainWindow;
-            if (window != null && window.WindowState == System.Windows.WindowState.Normal)
-            {
-                window.SizeToContent = System.Windows.SizeToContent.Height;
-                window.SizeToContent = System.Windows.SizeToContent.Manual;
-            }
-        }
 
 		public void CheckForUpdates()
 		{

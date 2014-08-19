@@ -21,7 +21,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.6";
+		private static readonly string CurrentSettingsVersion = "1.7";
 
 		public static Settings Current { get; set; }
 
@@ -29,8 +29,7 @@ namespace Grabacr07.KanColleViewer.Models
 		{
 			try
 			{
-				Current = filePath.ReadXml<Settings>();
-                Current.Orientation = null;
+                Current = filePath.ReadXml<Settings>();
 				if (Current.SettingsVersion != CurrentSettingsVersion)
 					Current = GetInitialSettings();
 			}
@@ -71,6 +70,7 @@ namespace Grabacr07.KanColleViewer.Models
 				FlashWindow = "Opaque",
 				CustomSoundVolume = 50,
 				KanColleClientSettings = new KanColleClientSettings(),
+                OrientationMode = OrientationType.Auto,
 				MenuIcon = false,
 			};
 		}
@@ -941,22 +941,37 @@ namespace Grabacr07.KanColleViewer.Models
 		#endregion
 
 		#region Orientation
+        [XmlIgnore]
+        private OrientationType _Orientation;
 
-		[System.Xml.Serialization.XmlIgnore]
-		private String _Orientation;
-
-		public String Orientation
+        [XmlIgnore]
+        public OrientationType Orientation
 		{
-			get { return this._Orientation == null ? this._Orientation = KanColleViewer.Properties.Settings.Default.Orientation : this._Orientation; }
-			set
-			{
-				if (this._Orientation != value)
-				{
-					this._Orientation = value;
-					this.RaisePropertyChanged();
-				}
-			}
+            get { return this._Orientation & OrientationType.Horizontal; }
+            set
+            {
+                if (this._Orientation != value)
+                {
+                    this._Orientation = value;
+                    this.RaisePropertyChanged();
+                }
+            }
 		}
+
+
+        private OrientationType _OrientationMode;
+
+        public OrientationType OrientationMode
+        {
+            get { return this._OrientationMode; }
+            set
+            {
+                if (this._OrientationMode != value)
+                {
+                    this._OrientationMode = value;
+                }
+            }
+        }
 		#endregion
 
 		#region MenuIcon

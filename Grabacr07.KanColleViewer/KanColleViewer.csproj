@@ -146,10 +146,13 @@
     <Compile Include="Composition\IToolPlugin.cs" />
     <Compile Include="Composition\NotifyType.cs" />
     <Compile Include="Composition\PluginHost.cs" />
+    <Compile Include="Models\IOrientationMode.cs" />
+    <Compile Include="Models\WindowOrientaionMode.cs" />
     <Compile Include="Models\BrowserZoomFactor.cs" />
     <Compile Include="Composition\IPlugin.cs" />
     <Compile Include="Models\IZoomFactor.cs" />
     <Compile Include="Models\NotifierHost.cs" />
+    <Compile Include="Models\OrientationType.cs" />
     <Compile Include="Models\ProductInfo.cs" />
     <Compile Include="Models\Data\Xml\XmlFileReader.cs" />
     <Compile Include="Models\Data\Xml\XmlFileWriter.cs" />
@@ -226,6 +229,9 @@
     <Compile Include="Views\Behaviors\SetWindowLocationAction.cs" />
     <Compile Include="Views\Behaviors\TimerBehavior.cs" />
     <Compile Include="Views\Controls\CrossFrameIE.cs" />
+    <Compile Include="Views\Controls\OrientationModeSelector.xaml.cs">
+      <DependentUpon>OrientationModeSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Converters\BooleanToWidthConverter.cs" />
     <Compile Include="Views\Contents\StateDetailIndicator.xaml.cs">
       <DependentUpon>StateDetailIndicator.xaml</DependentUpon>
@@ -472,6 +478,10 @@
     <Page Include="Views\Contents\Quests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\OrientationModeSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Info.xaml">
       <Generator>MSBuild:Compile</Generator>
