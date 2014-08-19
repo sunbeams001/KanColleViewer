@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+					xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 					xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls">
 
 	<Style TargetType="{x:Type controls:SlotItemIcon}">
@@ -19,7 +20,13 @@
 			</Setter.Value>
 		</Setter>
 		<Style.Triggers>
-			<Trigger Property="Type"
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                <Setter Property="Width" Value="26"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                <Setter Property="Height" Value="22"/>
+            </DataTrigger>
+            <Trigger Property="Type"
 					 Value="MainCanonLight">
 				<Setter Property="Template">
 					<Setter.Value>

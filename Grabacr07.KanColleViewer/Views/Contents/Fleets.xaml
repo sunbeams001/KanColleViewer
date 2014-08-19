@@ -6,6 +6,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:livet="http://schemas.livet-mvvm.net/2011/wpf"
+					xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 			 xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 			 xmlns:views="clr-namespace:Grabacr07.KanColleViewer.Views"
 			 xmlns:vm="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
@@ -109,6 +110,7 @@
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
 											   Margin="4,0,5,0"
+                                               x:Name="ShipNameText"
 											   ToolTip="{Binding StatsToolTip, Mode=OneWay}"
 											   ToolTipService.InitialShowDelay="600">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
@@ -119,6 +121,7 @@
                                     <TextBlock Grid.Column="3"
 											   Grid.Row="0"
 											   Margin="5,0,5,10"
+                                               x:Name="ShipLevelText"
 											   Grid.RowSpan="2">
 										<Run Text="Lv." />
 										<Run Text="{Binding Ship.Level, Mode=OneWay}"
@@ -126,6 +129,7 @@
                                     </TextBlock>
                                     <TextBlock Grid.Column="3"
 											   Grid.Row="1"
+                                               x:Name="ShipExpText"
 											   Margin="5,0,5,-1">
 										<Run Text="Next:"
 											 FontSize="9" />
@@ -151,7 +155,7 @@
 															 Grid.Column="4"
 															 Height="6"
 															 VerticalAlignment="Bottom"
-															 Margin="10,0,10,2"
+															 Margin="5,0,5,2"
 															 LimitedValue="{Binding Ship.HP, Mode=OneWay}" 
 															 ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
 
@@ -170,6 +174,7 @@
 
                                     <TextBlock Grid.Column="5"
 											   Grid.Row="0"
+                                               x:Name="ShipConditionTypeText"
 											   Margin="5,0,5,10"
 											   Grid.RowSpan="2">
 										<InlineUIContainer>
@@ -180,6 +185,7 @@
                                     </TextBlock>
                                     <TextBlock Grid.Column="5"
 											   Grid.Row="1"
+                                               x:Name="ShipConditionText"
 											   Margin="5,0,5,-1">
 										<Run Text="condition"
 											 FontSize="9" />
@@ -201,6 +207,7 @@
                                     <ItemsControl Grid.Column="7"
 												  Grid.Row="0"
 												  Grid.RowSpan="2"
+                                                  x:Name="ShipSlotItems"
 												  ItemsSource="{Binding SlotItems}"
 												  Margin="5,0">
                                         <ItemsControl.Template>
@@ -213,9 +220,21 @@
                                             <DataTemplate>
                                                     <Border ToolTip="{Binding DetailedToolTip}"
 														Background="Transparent">
-                                                    <controls:SlotItemIcon Type="{Binding SlotItem.IconType}"
-																		   Margin="0,0" />
+                                                    <controls:SlotItemIcon x:Name="SlotItem" Type="{Binding SlotItem.IconType}"
+																		   Margin="3,0" />
                                                     </Border>
+                                                <DataTemplate.Triggers>
+                                                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                                                        <Setter TargetName="SlotItem"
+											                Property="Margin"
+											                Value="3,0" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                                                        <Setter TargetName="SlotItem"
+											                Property="Margin"
+											                Value="0,0" />
+                                                    </DataTrigger>
+                                                </DataTemplate.Triggers>
                                                 </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
@@ -237,6 +256,58 @@
                                     <Setter TargetName="RepairIndicator"
 											Property="Visibility"
 											Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                                    <Setter TargetName="ShipNameText"
+											                Property="Margin"
+											                Value="4,0,10,0" />
+                                    <Setter TargetName="ShipLevelText"
+											                Property="Margin"
+											                Value="10,0,10,10" />
+                                    <Setter TargetName="ShipExpText"
+											                Property="Margin"
+											                Value="10,0,10,-1" />
+                                    <Setter TargetName="HPText"
+											                Property="Margin"
+											                Value="10,0,10,10" />
+                                    <Setter TargetName="HPIndicator"
+											                Property="Margin"
+											                Value="10,0,10,2" />
+                                    <Setter TargetName="ShipConditionTypeText"
+											                Property="Margin"
+											                Value="10,0,10,10" />
+                                    <Setter TargetName="ShipConditionText"
+											                Property="Margin"
+											                Value="10,0,10,-1" />
+                                    <Setter TargetName="ShipSlotItems"
+											                Property="Margin"
+											                Value="10,0" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                                    <Setter TargetName="ShipNameText"
+											                Property="Margin"
+											                Value="4,0,5,0" />
+                                    <Setter TargetName="ShipLevelText"
+											                Property="Margin"
+											                Value="5,0,5,10" />
+                                    <Setter TargetName="ShipExpText"
+											                Property="Margin"
+											                Value="5,0,5,-1" />
+                                    <Setter TargetName="HPText"
+											                Property="Margin"
+											                Value="5,0,5,10" />
+                                    <Setter TargetName="HPIndicator"
+											                Property="Margin"
+											                Value="5,0,5,2" />
+                                    <Setter TargetName="ShipConditionTypeText"
+											                Property="Margin"
+											                Value="5,0,5,10" />
+                                    <Setter TargetName="ShipConditionText"
+											                Property="Margin"
+											                Value="5,0,5,-1" />
+                                    <Setter TargetName="ShipSlotItems"
+											                Property="Margin"
+											                Value="5,0" />
                                 </DataTrigger>
                             </DataTemplate.Triggers>
                         </DataTemplate>

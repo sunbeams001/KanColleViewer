@@ -29,6 +29,16 @@
 						Value="4" />
                 <Setter Property="Margin"
 						Value="5,0,5,5" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                        <Setter Property="Margin" Value="5,0,5,10"/>
+                        <Setter Property="Padding" Value="8"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                        <Setter Property="Margin" Value="5,0,5,5"/>
+                        <Setter Property="Padding" Value="4"/>
+                    </DataTrigger>
+                </Style.Triggers>
             </Style>
 
             <Style x:Key="JumbButtonStyleKey"
@@ -44,6 +54,16 @@
 						Value="Stretch" />
                 <Setter Property="Margin"
 						Value="5,0,5,5" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                        <Setter Property="Margin" Value="5,0,5,10"/>
+                        <Setter Property="Padding" Value="8"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                        <Setter Property="Margin" Value="5,0,5,5"/>
+                        <Setter Property="Padding" Value="4"/>
+                    </DataTrigger>
+                </Style.Triggers>
             </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Themes/Orientation.xaml" />
