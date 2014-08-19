@@ -26,8 +26,9 @@
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
 		<StackPanel Grid.ColumnSpan="2"
 					TextOptions.TextFormattingMode="Ideal">
@@ -138,7 +139,7 @@
 			</metro:BindableTextBlock>
 		</StackPanel>
 
-		<TextBlock Grid.Row="1"
+		<TextBlock Grid.Row="2"
 				   Grid.Column="0"
 				   FontFamily="Segoe UI"
 				   VerticalAlignment="Bottom"
@@ -158,6 +159,7 @@
 
 		<controls:AppIcon Grid.Row="1"
 						  Grid.Column="1"
+                          Grid.RowSpan="2"
 						  Width="210"
 						  HorizontalAlignment="Right"
 						  Background="{DynamicResource ThemeBrushKey}"
