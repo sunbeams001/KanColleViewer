@@ -969,6 +969,7 @@ namespace Grabacr07.KanColleViewer.Models
                 if (this._OrientationMode != value)
                 {
                     this._OrientationMode = value;
+                    this.RaisePropertyChanged();
                 }
             }
         }
