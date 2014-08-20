@@ -14,9 +14,19 @@
 			 mc:Ignorable="d"
 			 d:DesignWidth="700"
 			 d:DesignHeight="300"
-			 d:DataContext="{d:DesignInstance vmContents:QuestsViewModel}"
-             Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
+			 d:DataContext="{d:DesignInstance vmContents:QuestsViewModel}">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Themes/AdjustConverter.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}"
+                  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Path=ActualWidth, Converter={StaticResource AdjustConverter}, ConverterParameter={}-5, Mode=OneWay}"
 				  PanningMode="Both">        
         <Grid>
             <Grid Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">

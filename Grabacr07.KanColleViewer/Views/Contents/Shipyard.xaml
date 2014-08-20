@@ -12,7 +12,8 @@
 			 mc:Ignorable="d"
 			 d:DesignWidth="650"
 			 d:DesignHeight="400"
-			 d:DataContext="{d:DesignInstance viewModels:ShipyardViewModel}">
+			 d:DataContext="{d:DesignInstance viewModels:ShipyardViewModel}"
+             MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
 	<UserControl.Resources>
 		<Style TargetType="{x:Type GroupBox}">
 			<Setter Property="OverridesDefaultStyle"

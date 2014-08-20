@@ -17,7 +17,8 @@
 			 xmlns:behaviors="clr-namespace:Grabacr07.KanColleViewer.Views.Behaviors"
 			 mc:Ignorable="d"
 			 d:DataContext="{d:DesignInstance vmContents:OverviewViewModel}"
-			 d:DesignWidth="680">
+			 d:DesignWidth="680"
+             MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style TargetType="{x:Type Border}">
@@ -70,7 +71,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-
+    
     <i:Interaction.Triggers>
         <livet:InteractionMessageTrigger Messenger="{Binding Messenger}"
 										 MessageKey="Show/ShipCatalogWindow">
@@ -348,7 +349,7 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0"
@@ -466,6 +467,7 @@
                 </StackPanel>
 
                 <metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
+                                     MaxWidth="180"
 									 Grid.Row="2"
 									 Grid.ColumnSpan="2"
 											MethodName="Jump"
@@ -484,8 +486,7 @@
 							TextWrapping="Wrap"
 							Visibility="{Binding IsUntaken, Converter={StaticResource BooleanToVisibilityConverter}}"
 							HorizontalAlignment="Center"
-							Margin="0,5,0,0"
-                            MaxWidth="200"/>
+							Margin="0,5,0,0"/>
 
                         <ItemsControl ItemsSource="{Binding Current}"
 								Visibility="{Binding IsUntaken, Converter={StaticResource UniversalBooleanToVisibilityConverter}, ConverterParameter=Collapsed:Visible}">
@@ -508,6 +509,7 @@
                                         </Rectangle>
                                         <TextBlock Grid.Column="1"
 											VerticalAlignment="Center"
+                                            TextWrapping="Wrap"
 											Margin="4,0,0,0">
 									<Run x:Name="Title"
 											Text="{Binding Title, Mode=OneWay}" />

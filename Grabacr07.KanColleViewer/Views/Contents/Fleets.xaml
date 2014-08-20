@@ -13,10 +13,12 @@
 			 xmlns:behaviors="clr-namespace:Grabacr07.KanColleViewer.Views.Behaviors"
 			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
+			 xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
 			 mc:Ignorable="d"
 			 d:DesignWidth="800"
 			 d:DesignHeight="400"
-			 d:DataContext="{d:DesignInstance fleets:FleetsViewModel}">
+			 d:DataContext="{d:DesignInstance fleets:FleetsViewModel}"
+             MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto"
 				  PanningMode="Both">

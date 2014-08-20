@@ -8,17 +8,18 @@
 			 xmlns:root="clr-namespace:Grabacr07.KanColleViewer"
 			 xmlns:settings="clr-namespace:Grabacr07.KanColleViewer.Views.Settings"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
+			 xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
 			 mc:Ignorable="d"
 			 d:DesignWidth="700"
 			 d:DesignHeight="400"
 			 DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Settings}"
-			 Background="{DynamicResource ThemeBrushKey}"
-             Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Mode=OneWay}">
+			 Background="{DynamicResource ThemeBrushKey}">
 	<UserControl.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="Common.xaml" />
-			</ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common.xaml" />
+                <ResourceDictionary Source="../../Themes/AdjustConverter.xaml" />
+            </ResourceDictionary.MergedDictionaries>
 
 			<Style x:Key="TabHeaderTextStyleKey"
 				   TargetType="{x:Type TextBlock}"
@@ -33,7 +34,9 @@
 		</ResourceDictionary>
 	</UserControl.Resources>
 
-	<ScrollViewer VerticalScrollBarVisibility="Auto"
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}"
+                  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Path=ActualWidth, Converter={StaticResource AdjustConverter}, ConverterParameter={}-5, Mode=OneWay}"
 				  PanningMode="Both">
 		<TabControl Style="{DynamicResource VerticalTabControlStyleKey}">
 			<TabItem>

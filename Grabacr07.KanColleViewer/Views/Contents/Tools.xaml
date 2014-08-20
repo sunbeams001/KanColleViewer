@@ -15,8 +15,10 @@
 			 d:DesignWidth="700"
 			 d:DesignHeight="300"
 			 d:DataContext="{d:DesignInstance vm:ToolsViewModel}">
+
     <ScrollViewer VerticalScrollBarVisibility="Auto"
-				  PanningMode="Both">
+				  PanningMode="Both"
+                  MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"
