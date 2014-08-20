@@ -467,7 +467,7 @@
                 </StackPanel>
 
                 <metro2:CallMethodButton Style="{StaticResource JumbButtonStyleKey}"
-                                     MaxWidth="180"
+                                     MaxWidth="190"
 									 Grid.Row="2"
 									 Grid.ColumnSpan="2"
 											MethodName="Jump"
