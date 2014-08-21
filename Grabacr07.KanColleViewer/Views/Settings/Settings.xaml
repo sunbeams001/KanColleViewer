@@ -36,7 +36,7 @@
 
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}"
-                  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ScrollViewer}}, Path=ActualWidth, Converter={StaticResource AdjustConverter}, ConverterParameter={}-5, Mode=OneWay}"
+                  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type ScrollContentPresenter}}, Path=ActualWidth, Converter={StaticResource AdjustConverter}, ConverterParameter={}-5, Mode=OneWay}"
 				  PanningMode="Both">
 		<TabControl Style="{DynamicResource VerticalTabControlStyleKey}">
 			<TabItem>
