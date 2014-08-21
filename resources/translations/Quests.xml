@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.0.9">
+<Quests Version="1.0.8">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -46,12 +46,12 @@
     <ID>A7</ID>
     <JP-Name>「重巡戦隊」を編成せよ！</JP-Name>
     <TR-Name>Form a Heavy Cruiser Squadron!</TR-Name>
-    <JP-Detail>重巡洋艦2隻を擁する重巡艦隊を編成せよ！</JP-Detail>
+    <JP-Detail>重巡洋艦２隻を擁する重巡艦隊を編成せよ！</JP-Detail>
     <TR-Detail>Have 2 CA in your main fleet.</TR-Detail>
   </Quest>
   <Quest>
     <ID>A8</ID>
-    <JP-Name>「天龍」型軽巡姉妹の全2艦を編成せよ！</JP-Name>
+    <JP-Name>「天龍」型軽巡姉妹の全２艦を編成せよ！</JP-Name>
     <TR-Name>Form the Tenryuu-class!</TR-Name>
     <JP-Detail>天龍型軽巡洋艦「天龍」「龍田」を同一艦隊に配属せよ！</JP-Detail>
     <TR-Detail>Have Tenryuu (天龍) and Tatsuta (龍田) in your main fleet.</TR-Detail>
@@ -93,14 +93,14 @@
   </Quest>
   <Quest>
     <ID>A14</ID>
-    <JP-Name>「川内」型軽巡姉妹の全3艦を編成せよ！</JP-Name>
+    <JP-Name>「川内」型軽巡姉妹の全３艦を編成せよ！</JP-Name>
     <TR-Name>Form the Sendai-class!</TR-Name>
     <JP-Detail>川内型軽巡洋艦、「川内」「神通」「那珂」を同一艦隊に編成せよ！</JP-Detail>
     <TR-Detail>Have Sendai (川内), Jintsuu (神通) and Naka (那珂) in your main fleet.</TR-Detail>
   </Quest>
   <Quest>
     <ID>A15</ID>
-    <JP-Name>「妙高」型重巡姉妹の全4隻を編成せよ！</JP-Name>
+    <JP-Name>「妙高」型重巡姉妹の全４隻を編成せよ！</JP-Name>
     <TR-Name>Form the Myoukou-class!</TR-Name>
     <JP-Detail>妙高型重巡洋艦「妙高」「那智」「足柄」「羽黒」を同一艦隊に配属せよ！</JP-Detail>
     <TR-Detail>Have Myoukou (妙高), Nachi (那智), Ashigara (足柄) and Haguro (羽黒) in your main fleet.</TR-Detail>
@@ -114,14 +114,14 @@
   </Quest>
   <Quest>
     <ID>A17</ID>
-    <JP-Name>「扶桑」型戦艦姉妹の全2隻を編成せよ！</JP-Name>
+    <JP-Name>「扶桑」型戦艦姉妹の全２隻を編成せよ！</JP-Name>
     <TR-Name>Form the Fusou-class!</TR-Name>
     <JP-Detail>扶桑型戦艦「扶桑」「山城」を同一艦隊に配属せよ！</JP-Detail>
     <TR-Detail>Have Fusou (扶桑) and Yamashiro (山城) in your main fleet.</TR-Detail>
   </Quest>
   <Quest>
     <ID>A18</ID>
-    <JP-Name>「伊勢」型戦艦姉妹の全2隻を編成せよ！</JP-Name>
+    <JP-Name>「伊勢」型戦艦姉妹の全２隻を編成せよ！</JP-Name>
     <TR-Name>Form the Ise-class!</TR-Name>
     <JP-Detail>伊勢型戦艦「伊勢」「日向」を同一艦隊に配属せよ！</JP-Detail>
     <TR-Detail>Have Ise (伊勢) and Hyuuga (日向) in your main fleet.</TR-Detail>
@@ -401,14 +401,14 @@
   </Quest>
   <Quest>
     <ID>Bd3</ID>
-    <JP-Name>敵艦隊を10回邀撃せよ！</JP-Name>
+    <JP-Name>敵艦隊を１０回邀撃せよ！</JP-Name>
     <TR-Name>Daily Sortie 3</TR-Name>
     <JP-Detail>艦隊全力出撃！遊弋する敵艦隊を10回邀撃せよ！</JP-Detail>
     <TR-Detail>Defeat 10 enemy fleets.</TR-Detail>
   </Quest>
   <Quest>
     <ID>Bd4</ID>
-    <JP-Name>敵空母を3隻撃沈せよ！</JP-Name>
+    <JP-Name>敵空母を３隻撃沈せよ！</JP-Name>
     <TR-Name>Daily Sortie 4</TR-Name>
     <JP-Detail>艦隊の脅威となる敵空母群。これを捕捉撃滅し、3隻轟沈せよ！</JP-Detail>
     <TR-Detail>Sink 3 enemy aircraft carriers.</TR-Detail>
@@ -541,14 +541,14 @@
   </Quest>
   <Quest>
     <ID>D2</ID>
-    <JP-Name>「遠征」を3回成功させよう！</JP-Name>
+    <JP-Name>「遠征」を３回成功させよう！</JP-Name>
     <TR-Name>Daily Expeditions 1</TR-Name>
-    <JP-Detail>本日中に「遠征」3回成功させよう！</JP-Detail>
+    <JP-Detail>本日中に「遠征」３回成功させよう！</JP-Detail>
     <TR-Detail>Perform 3 successful expeditions within the same day.</TR-Detail>
   </Quest>
   <Quest>
     <ID>D3</ID>
-    <JP-Name>「遠征」を10回成功させよう！</JP-Name>
+    <JP-Name>「遠征」を１０回成功させよう！</JP-Name>
     <TR-Name>Daily Expeditions 2</TR-Name>
     <JP-Detail>本日中に「遠征」10回成功させよう！</JP-Detail>
     <TR-Detail>Perform 10 successful expeditions within the same day.</TR-Detail>
@@ -571,7 +571,7 @@
     <ID>D6</ID>
     <JP-Name>第二次潜水艦派遣作戦</JP-Name>
     <TR-Name>The Second Submarine Operation</TR-Name>
-    <JP-Detail>第2次潜水艦派遣作戦を成功させよう！</JP-Detail>
+    <JP-Detail>第２次潜水艦派遣作戦を成功させよう！</JP-Detail>
     <TR-Detail>Complete Expedition 30 one more time.</TR-Detail>
   </Quest>
   <Quest>
@@ -704,14 +704,14 @@
     <ID>G2</ID>
     <JP-Name>艦の「近代化改修」を実施せよ！</JP-Name>
     <TR-Name>Daily Modernization</TR-Name>
-    <JP-Detail>近代化改修を実施して、2回以上これを成功させよ！</JP-Detail>
+    <JP-Detail>近代化改修を実施して、２回以上これを成功させよ！</JP-Detail>
     <TR-Detail>Perform 2 successful modernizations within the same day.</TR-Detail>
   </Quest>
   <Quest>
     <ID>G3</ID>
     <JP-Name>「近代化改修」を進め、戦備を整えよ！</JP-Name>
     <TR-Name>Weekly Modernization</TR-Name>
-    <JP-Detail>一週間の間に、近代化改修を15回成功させよ！</JP-Detail>
+    <JP-Detail>一週間の間に、近代化改修を１5回成功させよ！</JP-Detail>
     <TR-Detail>Perform 15 successful modernizations within the same week.</TR-Detail>
   </Quest>
   <Quest>
