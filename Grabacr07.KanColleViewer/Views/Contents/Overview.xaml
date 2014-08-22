@@ -313,7 +313,7 @@
 										 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
                                             </TextBlock>
                                             <DataTemplate.Triggers>
-                                                <DataTrigger Binding="{Binding CanDisplayShipName}"
+                                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=CanDisplayBuildingShipName}"
 												 Value="False">
                                                     <Setter TargetName="ShipName"
 												Property="Text"
@@ -361,7 +361,7 @@
 										 Text="{Binding Remaining, StringFormat=- {0}, Mode=OneWay}" />
                                             </TextBlock>
                                             <DataTemplate.Triggers>
-                                                <DataTrigger Binding="{Binding CanDisplayShipName}"
+                                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=CanDisplayBuildingShipName}"
 												 Value="False">
                                                     <Setter TargetName="ShipName"
 												Property="Text"
