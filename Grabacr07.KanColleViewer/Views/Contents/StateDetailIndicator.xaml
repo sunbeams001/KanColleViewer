@@ -34,13 +34,31 @@
 				</Grid>
 
 				<DataTemplate.Triggers>
-					<DataTrigger Binding="{Binding Condition.IsRejuvenating}"
+					<!--<DataTrigger Binding="{Binding Condition.IsRejuvenating}"
 								 Value="False">
 						<Setter TargetName="Text"
 								Property="Text"
 								Value="{Binding Resources.StateDetail_MoraleRecovering, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-					</DataTrigger>
-					<DataTrigger Binding="{Binding Fleet.IsReady}"
+					</DataTrigger>-->
+                    <DataTrigger Binding="{Binding Fleet.IsInShortSupply}"
+								 Value="True">
+                        <Setter TargetName="Text"
+								Property="Text"
+								Value="{Binding Resources.StateDetail_ShortSupply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Fleet.IsWounded}"
+								 Value="True">
+                        <Setter TargetName="Text"
+								Property="Text"
+								Value="{Binding Resources.StateDetail_CriticalDamage, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Fleet.IsRepairling}"
+								 Value="True">
+                        <Setter TargetName="Text"
+								Property="Text"
+								Value="{Binding Resources.StateDetail_Repairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Fleet.IsReady}"
 								 Value="True">
 						<Setter TargetName="Border"
 								Property="Background"

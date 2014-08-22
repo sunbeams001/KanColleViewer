@@ -939,4 +939,10 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_Updates_CheckUpdatesBtn_ToolTip" xml:space="preserve">
     <value>Check for new version of KCV and translate.</value>
   </data>
+  <data name="StateDetail_Repairing" xml:space="preserve">
+    <value>艦隊に入渠中の艦娘がいます。</value>
+  </data>
+  <data name="StateDetail_ShortSupply" xml:space="preserve">
+    <value>艦隊に未補給の艦娘がいます。</value>
+  </data>
 </root>

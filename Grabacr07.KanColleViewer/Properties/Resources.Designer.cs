@@ -2085,6 +2085,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 艦隊に入渠中の艦娘がいます。.
+        /// </summary>
+        public static string StateDetail_Repairing {
+            get {
+                return ResourceManager.GetString("StateDetail_Repairing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 艦隊に未補給の艦娘がいます。.
+        /// </summary>
+        public static string StateDetail_ShortSupply {
+            get {
+                return ResourceManager.GetString("StateDetail_ShortSupply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accuracy.
         /// </summary>
         public static string Stats_Accuracy {

@@ -902,4 +902,10 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_UI_Icon" xml:space="preserve">
     <value>Use menu icon</value>
   </data>
+  <data name="StateDetail_Repairing" xml:space="preserve">
+    <value>There are ships in your fleet currently docked for repairs.</value>
+  </data>
+  <data name="StateDetail_ShortSupply" xml:space="preserve">
+    <value>There are ships in your fleet that need resupplying.</value>
+  </data>
 </root>
