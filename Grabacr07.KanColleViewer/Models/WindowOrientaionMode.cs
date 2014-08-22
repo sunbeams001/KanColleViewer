@@ -133,10 +133,13 @@ namespace Grabacr07.KanColleViewer.Models
 		{
 			if (type.Equals(OrientationType.Horizontal))
 			{
-				if (window != null && window.WindowState == System.Windows.WindowState.Normal && !this._Current.Equals(OrientationType.Horizontal))
+				if (window != null && !this._Current.Equals(OrientationType.Horizontal))
 				{
-					this.VerticalWidth = window.Width;
-					this.VerticalHeight = window.Height;
+					if (window.WindowState == System.Windows.WindowState.Normal)
+					{
+						this.VerticalWidth = window.Width;
+						this.VerticalHeight = window.Height;
+					}
 
 					window.Height = this.HorizontalHeight;
 					window.Width = this.HorizontalWidth;
@@ -144,10 +147,13 @@ namespace Grabacr07.KanColleViewer.Models
 			}
 			else
 			{
-				if (window != null && window.WindowState == System.Windows.WindowState.Normal && !this._Current.Equals(OrientationType.Vertical))
+				if (window != null && !this._Current.Equals(OrientationType.Vertical))
 				{
-					this.HorizontalHeight = window.Height;
-					this.HorizontalWidth = window.Width;
+					if (window.WindowState == System.Windows.WindowState.Normal)
+					{
+						this.HorizontalHeight = window.Height;
+						this.HorizontalWidth = window.Width;
+					}
 
 					window.Width = this.VerticalWidth;
 					window.Height = this.VerticalHeight;
