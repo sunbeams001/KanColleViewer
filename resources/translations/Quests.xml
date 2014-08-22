@@ -401,7 +401,7 @@
   </Quest>
   <Quest>
     <ID>Bd3</ID>
-    <JP-Name>敵艦隊を１０回邀撃せよ！</JP-Name>
+    <JP-Name>敵艦隊を10回邀撃せよ！</JP-Name>
     <TR-Name>Daily Sortie 3</TR-Name>
     <JP-Detail>艦隊全力出撃！遊弋する敵艦隊を10回邀撃せよ！</JP-Detail>
     <TR-Detail>Defeat 10 enemy fleets.</TR-Detail>
