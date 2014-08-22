@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Livet;
+using AppSettings = Grabacr07.KanColleViewer.Properties.Settings;
 
 namespace Grabacr07.KanColleViewer.Models
 {
-    public class WindowOrientaionMode : NotificationObject, IOrientationMode
+    public class WindowOrientaionMode : NotificationObject, IOrientationMode, IDisposable
 	{
-
         public OrientationType[] SupportedModes
 		{
 			get {
@@ -28,7 +28,8 @@ namespace Grabacr07.KanColleViewer.Models
 			private set
 			{
                 if (this._Current != value)
-                {
+				{
+					ChangeWindowSize(value);
                     this._Current = value;
                     this.RaisePropertyChanged();
                     this.RaisePropertyChanged("CurrentModeString");
@@ -53,7 +54,7 @@ namespace Grabacr07.KanColleViewer.Models
                     if (value.Equals(OrientationType.Auto))
                     {
                         System.Windows.SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
-                        updateOrientationMode();
+						updateOrientationMode();
                     }
                     else
                     {
@@ -68,42 +69,27 @@ namespace Grabacr07.KanColleViewer.Models
 
         #endregion
 
-        public void updateOrientationMode()
+		#region Backup window size
+
+		private double HorizontalWidth;
+		private double HorizontalHeight;
+		private double VerticalWidth;
+		private double VerticalHeight;
+
+		#endregion
+
+		public void updateOrientationMode()
         {
+			Console.WriteLine("Triged");
             if (!this.CurrentMode.Equals(OrientationType.Auto)) return;
 
-            try
+            if (System.Windows.SystemParameters.FullPrimaryScreenWidth >= System.Windows.SystemParameters.FullPrimaryScreenHeight)
             {
-                var window = System.Windows.Application.Current.MainWindow;
-                if (System.Windows.SystemParameters.FullPrimaryScreenWidth >= System.Windows.SystemParameters.FullPrimaryScreenHeight)
-                {
-                    this.Current = OrientationType.Horizontal;
-
-                    if (window != null && window.WindowState == System.Windows.WindowState.Normal)
-                    {
-                        window.Height = 0;
-                        window.Width = 1440;
-                    }
-                }
-                else
-                {
-                    this.Current = OrientationType.Vertical;
-
-                    if (window != null && window.WindowState == System.Windows.WindowState.Normal)
-                    {
-                        window.Width = 0;
-                        window.Height = 1000;
-                    }
-                }
-            } catch {
-                if (System.Windows.SystemParameters.FullPrimaryScreenWidth >= System.Windows.SystemParameters.FullPrimaryScreenHeight)
-                {
-                    this.Current = OrientationType.Horizontal;
-                }
-                else
-                {
-                    this.Current = OrientationType.Vertical;
-                }
+				this.Current = OrientationType.Horizontal;
+            }
+            else
+            {
+				this.Current = OrientationType.Vertical;
             }
         }
 
@@ -130,5 +116,55 @@ namespace Grabacr07.KanColleViewer.Models
                 }
             }
         }
-    }
+
+		public WindowOrientaionMode()
+		{
+			this.HorizontalWidth = AppSettings.Default.HorizontalWidth;
+			this.HorizontalHeight = AppSettings.Default.HorizontalHeight;
+			this.VerticalWidth = AppSettings.Default.VerticalWidth;
+			this.VerticalHeight = AppSettings.Default.VerticalHeight;
+		}
+
+		public void Dispose()
+		{
+			System.Windows.SystemParameters.StaticPropertyChanged -= SystemParameters_StaticPropertyChanged;
+		}
+
+		private void ChangeWindowSize(OrientationType type, System.Windows.Window window)
+		{
+			if (type.Equals(OrientationType.Horizontal))
+			{
+				if (window != null && window.WindowState == System.Windows.WindowState.Normal && !this._Current.Equals(OrientationType.Horizontal))
+				{
+					this.VerticalWidth = window.Width;
+					this.VerticalHeight = window.Height;
+
+					window.Height = this.HorizontalHeight;
+					window.Width = this.HorizontalWidth;
+				}
+			}
+			else
+			{
+				if (window != null && window.WindowState == System.Windows.WindowState.Normal && !this._Current.Equals(OrientationType.Vertical))
+				{
+					this.HorizontalHeight = window.Height;
+					this.HorizontalWidth = window.Width;
+
+					window.Width = this.VerticalWidth;
+					window.Height = this.VerticalHeight;
+				}
+			}
+		}
+
+		private void ChangeWindowSize(OrientationType type)
+		{
+			try
+			{
+				ChangeWindowSize(type, System.Windows.Application.Current.MainWindow);
+			}
+			catch (Exception e)
+			{
+			}
+		}
+	}
 }

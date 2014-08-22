@@ -170,5 +170,41 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ((global::System.Uri)(this["KCVUpdateUrl"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1440")]
+        public double HorizontalWidth {
+            get {
+                return ((double)(this["HorizontalWidth"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double HorizontalHeight {
+            get {
+                return ((double)(this["HorizontalHeight"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double VerticalWidth {
+            get {
+                return ((double)(this["VerticalWidth"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public double VerticalHeight {
+            get {
+                return ((double)(this["VerticalHeight"]));
+            }
+        }
     }
 }
