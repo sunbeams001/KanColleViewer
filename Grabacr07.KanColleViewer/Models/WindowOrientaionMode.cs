@@ -80,7 +80,6 @@ namespace Grabacr07.KanColleViewer.Models
 
 		public void updateOrientationMode()
         {
-			Console.WriteLine("Triged");
             if (!this.CurrentMode.Equals(OrientationType.Auto)) return;
 
             if (System.Windows.SystemParameters.FullPrimaryScreenWidth >= System.Windows.SystemParameters.FullPrimaryScreenHeight)
