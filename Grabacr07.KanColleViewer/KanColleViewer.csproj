@@ -228,6 +228,9 @@
     <Compile Include="Views\Behaviors\SetStyleSheetBehavior.cs" />
     <Compile Include="Views\Behaviors\SetWindowLocationAction.cs" />
     <Compile Include="Views\Behaviors\TimerBehavior.cs" />
+    <Compile Include="Views\Contents\Overviews\Repairyard.xaml.cs">
+      <DependentUpon>Repairyard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\CrossFrameIE.cs" />
     <Compile Include="Views\Controls\OrientationModeSelector.xaml.cs">
       <DependentUpon>OrientationModeSelector.xaml</DependentUpon>
@@ -454,6 +457,10 @@
     <Page Include="Views\Catalogs\SlotItemCatalogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Contents\Overviews\Repairyard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Contents\StateDetailIndicator.xaml">
       <SubType>Designer</SubType>
