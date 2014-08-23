@@ -184,6 +184,7 @@
     <Compile Include="ViewModels\Contents\AdmiralViewModel.cs" />
     <Compile Include="ViewModels\Contents\BuildingDockViewModel.cs" />
     <Compile Include="ViewModels\Contents\CreatedSlotItemViewModel.cs" />
+    <Compile Include="ViewModels\Contents\Fleets\RepairingViewModel.cs" />
     <Compile Include="ViewModels\Contents\RepairingDockViewModel.cs" />
     <Compile Include="ViewModels\Contents\ExpeditionsViewModel.cs" />
     <Compile Include="ViewModels\Contents\Fleets\ConditionViewModel.cs" />
@@ -638,6 +639,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ko-KR.resx">
       <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -646,6 +648,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
       <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

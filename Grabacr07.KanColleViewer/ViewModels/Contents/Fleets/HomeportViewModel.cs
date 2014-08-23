@@ -16,13 +16,18 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 		public Fleet Fleet { get; private set; }
 
 		public ConditionViewModel Condition { get; private set; }
-		
+
+		public RepairingViewModel Reparing { get; private set; }
+
 		public HomeportViewModel(Fleet fleet)
 		{
 			this.Fleet = fleet;
 
 			this.Condition = new ConditionViewModel(fleet.Condition);
 			this.CompositeDisposable.Add(this.Condition);
+
+			this.Reparing = new RepairingViewModel(this.Fleet);
+			this.CompositeDisposable.Add(this.Reparing);
 		}
 	}
 }

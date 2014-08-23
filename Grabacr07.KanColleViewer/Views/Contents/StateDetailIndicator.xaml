@@ -56,7 +56,7 @@
 								 Value="True">
                         <Setter TargetName="Text"
 								Property="Text"
-								Value="{Binding Resources.StateDetail_Repairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+								Value="{Binding Reparing.Remaining, StringFormat=In dock - {0}, Mode=OneWay}" />
                     </DataTrigger>
                     <DataTrigger Binding="{Binding Fleet.IsReady}"
 								 Value="True">
