@@ -220,7 +220,8 @@
                                                 <controls:ColorIndicator Grid.Row="1"
 																		 Height="6"
 																		 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
-																		 Margin="0,2,0,0" />
+																		 Margin="0,2,0,0"
+                                                                         ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
                                             </Grid>
 
                                             <Grid x:Name="RepairIndicator"
