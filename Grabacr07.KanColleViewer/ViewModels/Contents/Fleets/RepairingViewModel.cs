@@ -48,13 +48,9 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 			this.Fleet = fleet;
 
 			if (this.Fleet.IsRepairling) this.Update();
-			this.CompositeDisposable.Add(new PropertyChangedEventListener(this.Fleet) 
-			{
-				{
-					"Ships",
-					(sender, args) => {if (this.Fleet.State == FleetState.Homeport) this.Update();}
-				},
-			});
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(this.Fleet, 
+				(sender, args) => {if (this.Fleet.State == FleetState.Homeport) this.Update();})
+			);
 		}
 
 		internal void Update()

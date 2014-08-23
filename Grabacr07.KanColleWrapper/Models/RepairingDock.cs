@@ -95,6 +95,17 @@ namespace Grabacr07.KanColleWrapper.Models
 					if (newShip != null) newShip.IsInRepairing = true;
 
 					this.target = value;
+
+					if (oldShip != null)
+					{
+						var fleet = homeport.Organization.GetFleet(oldShip.Id);
+						if (fleet != null) fleet.UpdateStatus();
+					}
+					if (newShip != null)
+					{
+						var fleet = homeport.Organization.GetFleet(newShip.Id);
+						if (fleet != null) fleet.UpdateStatus();
+					}
 					this.RaisePropertyChanged();
 				}
 			}
