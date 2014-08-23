@@ -90,8 +90,9 @@
 
 
     <ScrollViewer VerticalScrollBarVisibility="Auto"
-				  PanningMode="Both">
-        <Grid Margin="-5,0,-5,-5">
+				  PanningMode="Both"
+                  Margin="-5,0,-5,-5">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="210" />
