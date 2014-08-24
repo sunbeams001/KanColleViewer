@@ -167,7 +167,7 @@ namespace Grabacr07.KanColleViewer.Models
 			{
 				ChangeWindowSize(type, System.Windows.Application.Current.MainWindow);
 			}
-			catch (Exception e)
+			catch 
 			{
 			}
 		}

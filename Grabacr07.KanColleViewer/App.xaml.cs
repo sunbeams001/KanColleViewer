@@ -121,23 +121,20 @@ ERROR, date = {0}, sender = {1},
 
         private void FixWindowSize()
         {
-            if (Settings.Current.OrientationMode.Equals(OrientationType.Auto))
-            {
-                var window = System.Windows.Application.Current.MainWindow;
-                if (window != null && window.WindowState == System.Windows.WindowState.Normal)
-                {
-                    if (Settings.Current.Orientation.Equals(OrientationType.Horizontal))
-                    {
-                        window.Width = 1440;
-                        window.Height = 0;
-                    }
-                    else
-                    {
-                        window.Width = 0;
-                        window.Height = 1000;
-                    }
-                }
-            }
+			var window = System.Windows.Application.Current.MainWindow;
+			if (window != null)
+			{
+				if (Settings.Current.Orientation == OrientationType.Horizontal)
+				{
+					window.Width = AppSettings.Default.HorizontalWidth;
+					window.Height = AppSettings.Default.HorizontalHeight;
+				}
+				else
+				{
+					window.Width = AppSettings.Default.VerticalWidth;
+					window.Height = AppSettings.Default.VerticalHeight;
+				}
+			}
         }
 	}
 }

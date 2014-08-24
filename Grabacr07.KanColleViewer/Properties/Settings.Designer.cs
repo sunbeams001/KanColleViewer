@@ -171,39 +171,51 @@ namespace Grabacr07.KanColleViewer.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1440")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1280")]
         public double HorizontalWidth {
             get {
                 return ((double)(this["HorizontalWidth"]));
             }
+            set {
+                this["HorizontalWidth"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double HorizontalHeight {
             get {
                 return ((double)(this["HorizontalHeight"]));
             }
+            set {
+                this["HorizontalHeight"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double VerticalWidth {
             get {
                 return ((double)(this["VerticalWidth"]));
             }
+            set {
+                this["VerticalWidth"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public double VerticalHeight {
             get {
                 return ((double)(this["VerticalHeight"]));
+            }
+            set {
+                this["VerticalHeight"] = value;
             }
         }
     }

@@ -16,10 +16,7 @@
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
 				   Title="{Binding Title}"
-				   Width="960"
-				   Height="575"
 				   MinWidth="{Binding ElementName=KanColleHost, Path=MinWidth}"
-                   MaxWidth="{x:Static SystemParameters.FullPrimaryScreenWidth}"
 				   Topmost="{Binding TopMost}"
 				   FontSize="12"
 				   Background="{DynamicResource ThemeBrushKey}"
@@ -61,7 +58,7 @@
 			<livet:WindowInteractionMessageAction />
 		</livet:InteractionMessageTrigger>
 	</i:Interaction.Triggers>
-
+	
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
