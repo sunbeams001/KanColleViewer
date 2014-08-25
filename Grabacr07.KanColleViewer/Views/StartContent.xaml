@@ -115,7 +115,6 @@
     <Border
 					BorderThickness="1,1,0,0"
 					BorderBrush="{DynamicResource BackgroundBrushKey}"
-					Margin="0,8,0,0"
 					DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Settings}">
         <ScrollViewer VerticalScrollBarVisibility="Disabled"
                       HorizontalScrollBarVisibility="Auto"
