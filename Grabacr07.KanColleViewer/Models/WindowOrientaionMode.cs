@@ -68,16 +68,7 @@ namespace Grabacr07.KanColleViewer.Models
         }
 
         #endregion
-
-		#region Backup window size
-
-		private double HorizontalWidth;
-		private double HorizontalHeight;
-		private double VerticalWidth;
-		private double VerticalHeight;
-
-		#endregion
-
+		
 		public void updateOrientationMode()
         {
             if (!this.CurrentMode.Equals(OrientationType.Auto)) return;
@@ -118,10 +109,7 @@ namespace Grabacr07.KanColleViewer.Models
 
 		public WindowOrientaionMode()
 		{
-			this.HorizontalWidth = AppSettings.Default.HorizontalWidth;
-			this.HorizontalHeight = AppSettings.Default.HorizontalHeight;
-			this.VerticalWidth = AppSettings.Default.VerticalWidth;
-			this.VerticalHeight = AppSettings.Default.VerticalHeight;
+
 		}
 
 		public void Dispose()
@@ -137,12 +125,11 @@ namespace Grabacr07.KanColleViewer.Models
 				{
 					if (window.WindowState == System.Windows.WindowState.Normal)
 					{
-						this.VerticalWidth = window.Width;
-						this.VerticalHeight = window.Height;
+						Settings.Current.VerticalSize = new System.Windows.Point(window.Width, window.Height);
 					}
 
-					window.Height = this.HorizontalHeight;
-					window.Width = this.HorizontalWidth;
+					window.Height = Settings.Current.HorizontalSize.Y;
+					window.Width = Settings.Current.HorizontalSize.X;
 				}
 			}
 			else
@@ -151,12 +138,11 @@ namespace Grabacr07.KanColleViewer.Models
 				{
 					if (window.WindowState == System.Windows.WindowState.Normal)
 					{
-						this.HorizontalHeight = window.Height;
-						this.HorizontalWidth = window.Width;
+						Settings.Current.HorizontalSize = new System.Windows.Point(window.Width, window.Height);
 					}
 
-					window.Width = this.VerticalWidth;
-					window.Height = this.VerticalHeight;
+					window.Height = Settings.Current.VerticalSize.Y;
+					window.Width = Settings.Current.VerticalSize.X;
 				}
 			}
 		}

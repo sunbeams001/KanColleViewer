@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Grabacr07.KanColleViewer.Models.Data.Xml;
@@ -21,7 +22,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.7";
+		private static readonly string CurrentSettingsVersion = "1.8";
 
 		public static Settings Current { get; set; }
 
@@ -72,6 +73,8 @@ namespace Grabacr07.KanColleViewer.Models
 				KanColleClientSettings = new KanColleClientSettings(),
                 OrientationMode = OrientationType.Auto,
 				MenuIcon = false,
+				HorizontalSize = new Point(1280,0),
+				VerticalSize = new Point(0,1000),
 			};
 		}
 
@@ -991,6 +994,40 @@ namespace Grabacr07.KanColleViewer.Models
 				}
 			}
 		}
+		#endregion
+
+		#region BackupSize
+
+		private Point _HorizontalSize;
+
+		public Point HorizontalSize
+		{
+			get { return this._HorizontalSize;  }
+			set
+			{
+				if (this._HorizontalSize != value)
+				{
+					this._HorizontalSize = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		private Point _VerticalSize;
+
+		public Point VerticalSize
+		{
+			get { return this._VerticalSize; }
+			set
+			{
+				if (this._VerticalSize != value)
+				{
+					this._VerticalSize = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
 		#endregion
 
 		public void Save()

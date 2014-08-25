@@ -81,7 +81,7 @@ namespace Grabacr07.KanColleViewer
 			this.MainWindow = new MainWindow { DataContext = ViewModelRoot };
 			this.MainWindow.Show();
 
-            FixWindowSize();
+            RestoreWindowSize();
 		}
 
 		protected override void OnExit(ExitEventArgs e)
@@ -119,20 +119,20 @@ ERROR, date = {0}, sender = {1},
 			}
 		}
 
-        private void FixWindowSize()
+        private void RestoreWindowSize()
         {
 			var window = System.Windows.Application.Current.MainWindow;
 			if (window != null)
 			{
 				if (Settings.Current.Orientation == OrientationType.Horizontal)
 				{
-					window.Width = AppSettings.Default.HorizontalWidth;
-					window.Height = AppSettings.Default.HorizontalHeight;
+					window.Width = Settings.Current.HorizontalSize.X;
+					window.Height = Settings.Current.HorizontalSize.Y;
 				}
 				else
 				{
-					window.Width = AppSettings.Default.VerticalWidth;
-					window.Height = AppSettings.Default.VerticalHeight;
+					window.Width = Settings.Current.VerticalSize.X;
+					window.Height = Settings.Current.VerticalSize.Y;
 				}
 			}
         }
