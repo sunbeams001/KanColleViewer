@@ -16,6 +16,8 @@
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
 				   Title="{Binding Title}"
+				   Width="960"
+				   Height="575"
 				   MinWidth="{Binding ElementName=KanColleHost, Path=MinWidth}"
 				   Topmost="{Binding TopMost}"
 				   FontSize="12"
