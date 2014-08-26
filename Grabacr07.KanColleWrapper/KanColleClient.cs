@@ -43,7 +43,6 @@ namespace Grabacr07.KanColleWrapper
 		/// Application update notifications and downloads.
 		/// </summary>
 		public Updater Updater { get; private set; }
-
 		/// <summary>
 		/// Translation engine for ships, equipment, quests, and sorties.
 		/// </summary>

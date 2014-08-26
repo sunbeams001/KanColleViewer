@@ -70,7 +70,6 @@ namespace Grabacr07.KanColleViewer
 							KanColleViewer.Properties.Resources.Updater_Notification_Title,
 							KanColleViewer.Properties.Resources.Updater_Notification_TransUpdate_Success,
 							() => App.ViewModelRoot.Activate());
-
 						KanColleClient.Current.Translations.ChangeCulture(Settings.Current.Culture);
 					}
 				}
