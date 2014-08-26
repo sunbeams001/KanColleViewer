@@ -67,7 +67,7 @@
 		<DockPanel Grid.Row="1">
 			<Border DockPanel.Dock="Top"
 					Margin="8,0">
-				<metro2:CallMethodButton Content="Regresh"
+				<metro2:CallMethodButton Content="Refresh"
 										 Padding="40,6"
 										 MethodName="Update"
 										 HorizontalAlignment="Left" />
