@@ -804,7 +804,10 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			this._ViewRangeType1 = Settings.Current.KanColleClientSettings.ViewRangeCalcLogic == ViewRangeCalcLogic.Type1;
 			this._ViewRangeType2 = Settings.Current.KanColleClientSettings.ViewRangeCalcLogic == ViewRangeCalcLogic.Type2;
 
-			this.CheckForUpdates();
+			if (Settings.Current.EnableUpdateNotification)
+			{
+				this.CheckForUpdates();
+			}
 			this.ReloadPlugins();
 		}
 
