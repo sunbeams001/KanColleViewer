@@ -16,15 +16,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 			protected set { throw new NotImplementedException(); }
 		}
 
-        public override string Icon
-        {
-            get
-            {
-                return Resources.Repairyard_Icon;
-            }
-            protected set { throw new NotImplementedException(); }
-        }
-
 		#region RepairingDocks 変更通知プロパティ
 
 		private RepairingDockViewModel[] _RepairingDocks;

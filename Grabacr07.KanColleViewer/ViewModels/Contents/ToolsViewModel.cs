@@ -13,13 +13,7 @@ using Livet;
 namespace Grabacr07.KanColleViewer.ViewModels.Contents
 {
 	public class ToolsViewModel : TabItemViewModel
-	{
-        	public override string Icon
-        	{
-            		get { return Properties.Resources.Tools_Icon; }
-            		protected set { throw new NotImplementedException(); }
-        	}
-        
+	{        
 		public override string Name
 		{
 			get { return Resources.Tools; }

@@ -83,8 +83,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 		#endregion
-
-		public abstract string Icon { get; protected set; }
 		
 		protected TabItemViewModel()
 
