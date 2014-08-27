@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleViewer.Properties;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
 using Livet;
 using Livet.EventListeners;
+using Settings = Grabacr07.KanColleViewer.Models.Settings;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 {
@@ -122,6 +124,23 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 			{
 				(sender, args) => this.RaisePropertyChanged(args.PropertyName),
 				{ () => fleet.Ships, (sender, args) => this.RaisePropertyChanged("Planes") },
+			});
+
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(fleet)
+			{
+				{
+					"IsWounded", (sender, args) => 
+					{
+						var source = (Fleet)sender;
+						if (source.IsWounded && Settings.Current.EnableCriticalNotify)
+						{
+							PluginHost.Instance.GetNotifier().Show(NotifyType.Wounded,
+								Resources.Notifications_CriticalCondition_Title,
+								string.Format(Resources.Notifications_CriticalCondition, source.Name),
+								() => App.ViewModelRoot.Activate());
+						}
+					}
+				}
 			});
 
 			this.Sortie = new SortieViewModel(fleet);

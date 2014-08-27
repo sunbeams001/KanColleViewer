@@ -330,14 +330,8 @@
   <data name="Reparyard_Unused" xml:space="preserve">
     <value>未使用</value>
   </data>
-  <data name="ReSortie_NotificationMessage" xml:space="preserve">
-    <value>「{0}」の全艦娘の疲労が回復しました。</value>
-  </data>
   <data name="Dockyard_Icon" xml:space="preserve">
     <value>🔨</value>
-  </data>
-  <data name="ReSortie_NotificationMessage_Title" xml:space="preserve">
-    <value>疲労回復完了</value>
   </data>
   <data name="Expedition_Icon" xml:space="preserve">
     <value>🔦</value>
@@ -567,10 +561,10 @@
   <data name="Stats_AttackRange" xml:space="preserve">
     <value>Attack Rng</value>
   </data>
-  <data name="ReSortie_CriticalConditionMessage" xml:space="preserve">
-    <value>「{0}」 in {1} is in critical condition!</value>
+  <data name="Notifications_CriticalCondition" xml:space="preserve">
+    <value>{0} has a ship is in critical condition!</value>
   </data>
-  <data name="ReSortie_CriticalConditionMessage_Title" xml:space="preserve">
+  <data name="Notifications_CriticalCondition_Title" xml:space="preserve">
     <value>Critical Ship Warning</value>
   </data>
   <data name="Settings_FleetCondition" xml:space="preserve">

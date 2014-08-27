@@ -601,6 +601,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} has a ship is in critical condition!.
+        /// </summary>
+        public static string Notifications_CriticalCondition {
+            get {
+                return ResourceManager.GetString("Notifications_CriticalCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Critical Ship Warning.
+        /// </summary>
+        public static string Notifications_CriticalCondition_Title {
+            get {
+                return ResourceManager.GetString("Notifications_CriticalCondition_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 疲労回復完了.
         /// </summary>
         public static string Notifications_MoraleRestored {
@@ -939,42 +957,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Reparyard_Unused {
             get {
                 return ResourceManager.GetString("Reparyard_Unused", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 「{0}」 in {1} is in critical condition!.
-        /// </summary>
-        public static string ReSortie_CriticalConditionMessage {
-            get {
-                return ResourceManager.GetString("ReSortie_CriticalConditionMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Critical Ship Warning.
-        /// </summary>
-        public static string ReSortie_CriticalConditionMessage_Title {
-            get {
-                return ResourceManager.GetString("ReSortie_CriticalConditionMessage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 「{0}」の全艦娘の疲労が回復しました。.
-        /// </summary>
-        public static string ReSortie_NotificationMessage {
-            get {
-                return ResourceManager.GetString("ReSortie_NotificationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 疲労回復完了.
-        /// </summary>
-        public static string ReSortie_NotificationMessage_Title {
-            get {
-                return ResourceManager.GetString("ReSortie_NotificationMessage_Title", resourceCulture);
             }
         }
         
