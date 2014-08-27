@@ -122,8 +122,8 @@ namespace Grabacr07.KanColleViewer.Plugins
 
 			if (header == Resources.Expedition_NotificationMessage_Title) SelFolder = "\\expedition";
 			else if (header == Resources.Repairyard_NotificationMessage_Title) SelFolder = "\\repair";
-			else if (header == Resources.ReSortie_NotificationMessage_Title) SelFolder = "\\resortie";
-			else if (header == Resources.ReSortie_CriticalConditionMessage_Title) SelFolder = "\\Critical";
+			else if (header == Resources.Notifications_MoraleRestored) SelFolder = "\\resortie";
+			else if (header == Resources.Notifications_CriticalCondition_Title) SelFolder = "\\Critical";
 			else SelFolder = "";
 
 			string MP3path = Main_folder + SelFolder + "\\notify.mp3";
