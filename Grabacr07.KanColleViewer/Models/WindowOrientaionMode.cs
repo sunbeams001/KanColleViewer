@@ -10,6 +10,7 @@ namespace Grabacr07.KanColleViewer.Models
 {
     public class WindowOrientaionMode : NotificationObject, IOrientationMode, IDisposable
 	{
+		public static bool EventSetted { get; private set; }
         public OrientationType[] SupportedModes
 		{
 			get {
@@ -53,12 +54,15 @@ namespace Grabacr07.KanColleViewer.Models
                     this._CurrentMode = value;
                     if (value.Equals(OrientationType.Auto))
                     {
-                        System.Windows.SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
+						if (!EventSetted)
+							System.Windows.SystemParameters.StaticPropertyChanged += SystemParameters_StaticPropertyChanged;
+						EventSetted = true;
 						updateOrientationMode();
                     }
                     else
                     {
                         System.Windows.SystemParameters.StaticPropertyChanged -= SystemParameters_StaticPropertyChanged;
+						EventSetted = false;
                         this.Current = value;
                     }
                     this.RaisePropertyChanged("CurrentModeString");
@@ -109,7 +113,6 @@ namespace Grabacr07.KanColleViewer.Models
 
 		public WindowOrientaionMode()
 		{
-
 		}
 
 		public void Dispose()
