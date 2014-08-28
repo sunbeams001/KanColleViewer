@@ -4,11 +4,11 @@
     {
         $ErrorActionPreference = 'stop'
  
-        $target = 'Release'
+        $target = 'KanColleViewer-Compiled'
         $result = 'KanColleViewer'
-        $bin = '..\Grabacr07.KanColleViewer\bin\'
+        $bin = '..\'
  
-        $targetKeywords = '*.exe','*.dll','*.exe.config','*.txt','*.VisualElementsManifest.xml'
+        $targetKeywords = '*.exe','*.dll','*.exe.config','*.txt','*.xml'
         $ignoreKeywords = '*.vshost.exe','Microsoft.*.resources.dll','ExPlugin.*.dll'
  
         $exeSource  = 'KanColleViewer.exe'
@@ -35,7 +35,7 @@
             if ((Test-Path $versionSource) -and (Test-Path $target))
             {
                 $version = (Get-ChildItem $versionSource).VersionInfo
-                $result  = $result + ' ver.{0}.{1}' -f $version.ProductMajorPart, $version.ProductMinorPart
+                $result  = $result + ' ver.{0}.{1}.{2}r{3}' -f $version.ProductMajorPart, $version.ProductMinorPart, $version.ProductBuildPart, $version.ProductPrivatePart
  
                 Rename-Item -NewName $result -Path $target
                 New-ZipCompression -source $(Join-Path $(Get-Location) $result) -destination $(Join-Path $(Get-Location).Path ('./' + $result + '.zip'))
