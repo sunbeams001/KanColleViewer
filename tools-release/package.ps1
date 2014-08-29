@@ -4,12 +4,13 @@
     {
         $ErrorActionPreference = 'stop'
  
-        $target = 'KanColleViewer-Compiled'
+        $target = 'Release'
         $result = 'KanColleViewer'
-        $bin = '..\'
+        $bin = '..\Grabacr07.KanColleViewer\bin\'
  
-        $targetKeywords = '*.exe','*.dll','*.exe.config','*.txt','*.xml'
-        $ignoreKeywords = '*.vshost.exe','Microsoft.*.resources.dll','ExPlugin.*.dll'
+        $targetKeywords = '*.exe','*.dll','*.exe.config','*.txt'
+        $ignoreKeywords = '*.vshost.exe*','Microsoft.*.resources.dll','ExPlugin.*.dll'
+		$languages = 'en','de','ko-KR','zh-CN'
  
         $exeSource  = 'KanColleViewer.exe'
  
@@ -29,6 +30,22 @@
  
             Copy-StrictedFilterFileWithDirectoryStructure -Path $(Join-Path $bin $target) -Destination '.\' -Targets $targetKeywords -Exclude $ignoreKeywords
  
+			# Copy translate
+			Copy-StrictedFilterFileWithDirectoryStructure -Path $(Join-Path $(Join-Path $bin $target) 'Translations') -Destination $target -Targets '*'
+			
+			# move *dll to lib folder
+			New-Item -ItemType directory -Path $(Join-Path $target 'lib')
+			Get-ChildItem -Path $target -Filter '*.dll' | % {
+				move-item $_.FullName -Destination $(Join-Path $(Join-Path $target 'lib') $_) -Force
+			}
+			Foreach ($language in $languages)
+			{
+				#move language lib to lib folder
+				Get-ChildItem -Path $target -Filter $language | % {
+					move-item $_.FullName -Destination $(Join-Path $(Join-Path $target 'lib') $_) -Force
+				}
+			}
+			
             # valid path check
             $versionSource = Join-Path $target $exeSource -Resolve
  

@@ -725,28 +725,13 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(TargetDir)KanColleViewer.exe" "$(SolutionDir)KanColleViewer-Compiled"
-xcopy /Y "$(TargetDir)KanColleViewer.exe.config" "$(SolutionDir)KanColleViewer-Compiled"
-xcopy /Y "$(TargetDir)*.dll" "$(SolutionDir)KanColleViewer-Compiled\lib"
-xcopy /Y /E /I "$(TargetDir)en" "$(SolutionDir)KanColleViewer-Compiled\lib\en"
-xcopy /Y /E /I "$(TargetDir)de\KanColleViewer*.*" "$(SolutionDir)KanColleViewer-Compiled\lib\de"
-xcopy /Y /E /I "$(TargetDir)zh-CN" "$(SolutionDir)KanColleViewer-Compiled\lib\zh-CN"
-xcopy /Y /E /I "$(TargetDir)ko-KR" "$(SolutionDir)KanColleViewer-Compiled\lib\ko-KR"
-xcopy /Y "$(TargetDir)Plugins\*.dll" "$(SolutionDir)KanColleViewer-Compiled\Plugins"
-xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(SolutionDir)KanColleViewer-Compiled\Translations"
+    <PostBuildEvent>
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(TargetDir)Translations"
-xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(SolutionDir)KanColleViewer-Compiled\Sounds"
 xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(TargetDir)Sounds"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>rd /S /Q "$(TargetDir)Translations"
 rd /S /Q "$(TargetDir)Sounds"
-rd /S /Q "$(SolutionDir)KanColleViewer-Compiled"
-md "$(SolutionDir)KanColleViewer-Compiled"
-md "$(SolutionDir)KanColleViewer-Compiled\lib"
-md "$(SolutionDir)KanColleViewer-Compiled\Translations"
-md "$(SolutionDir)KanColleViewer-Compiled\Sounds"
-md "$(SolutionDir)KanColleViewer-Compiled\Plugins"
 md "$(TargetDir)Translations"
 md "$(TargetDir)Sounds"</PreBuildEvent>
   </PropertyGroup>
