@@ -466,7 +466,7 @@
 							BorderBrush="{DynamicResource BorderBrushKey}"
 							Margin="0,8,0,0"
 							Padding="5">
-						<WrapPanel DataContext="{Binding ShipSallyAreaFilter}">
+						<!--<WrapPanel DataContext="{Binding ShipSallyAreaFilter}">
 							<TextBlock Margin="0,2">
 								<Run Text="{Binding Resources.ShipCatalog_SortieWaters, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" /><Run Text=":" />
 							</TextBlock>
@@ -480,7 +480,7 @@
 							<CheckBox Content="{Binding Resources.ShipCatalog_Operation_MI, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 									  IsChecked="{Binding Midway}"
 									  Margin="10,0" />
-						</WrapPanel>
+						</WrapPanel>-->
 					</Border>
 				</StackPanel>
 			</Expander>
@@ -838,7 +838,7 @@
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>
 
-							<GridViewColumn Width="65">
+							<!--<GridViewColumn Width="65">
 								<GridViewColumn.Header>
 									<TextBlock Text="{Binding Resources.ShipCatalog_SortieWaters, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 								</GridViewColumn.Header>
@@ -873,7 +873,7 @@
 										</DataTemplate.Triggers>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>
-							</GridViewColumn>
+							</GridViewColumn>-->
 
 							<GridViewColumn Width="110">
 								<GridViewColumn.Header>
