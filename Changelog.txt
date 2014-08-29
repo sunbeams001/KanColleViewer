@@ -2,6 +2,13 @@
 	KCV Change Log
 ========================
 
+v3.3.0 r508 - 8/29/2014
+	* Remove function support event
+	* Change icon of menu
+	* Change icon of orientation mode
+	* Fix critical notify
+	* Fix bugs
+
 v3.3.0 r507 - 8/26/2014
 	* Add Fleet COmmand Facility icon
 	* Save & restore windows size when changing orientation mode
