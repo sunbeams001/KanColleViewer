@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.0.8">
+<Quests Version="1.0.9">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -923,5 +923,19 @@
     <TR-Name>Deploy the 601st Naval Air Group!</TR-Name>
     <JP-Detail>雲龍型航空母艦「雲龍改」含む機動部隊で珊瑚島沖に出撃、敵機動部隊を撃滅せよ！</JP-Detail>
     <TR-Detail>Consist of Unryuu Kai. You may add up to 5 additional ships. You MUST deploy to world 5-2, and obtain an S rank victory at the boss.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>254</ID>
+    <JP-Name>「軽空母」戦隊、出撃せよ！</JP-Name>
+    <TR-Name>Deploy the light carrier fleet!</TR-Name>
+    <JP-Detail>軽空母1～2隻、軽巡1隻、駆逐艦3～4隻の艦隊でカムラン半島の敵を撃滅せよ！</JP-Detail>
+    <TR-Detail>Consist of 1~2 CVL, 1CL, 3~4 DD. Score a victory against World 2-1 Boss!</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>255</ID>
+    <JP-Name>「水雷戦隊」バシー島沖緊急展開</JP-Name>
+    <TR-Name>Deployment torpedo squadron</TR-Name>
+    <JP-Detail>軽巡を旗艦とした水雷戦隊(軽巡最大2隻他駆逐艦)でバシー島沖の敵を撃滅せよ！</JP-Detail>
+    <TR-Detail>Have a CL as flagship, 1 other CL (optional), remains are DDs. Score a victory against World 2-2 Boss!</TR-Detail>
   </Quest>
 </Quests>
