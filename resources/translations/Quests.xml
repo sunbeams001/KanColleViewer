@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.0">
+<Quests Version="1.1.1">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -344,7 +344,7 @@
     <TR-Detail>Deploy a fleet with Choukai, Aoba, Kinugasa, Kako, Furutaka and Tenryuu. Score a victory against World 2-3 Boss.</TR-Detail>
   </Quest>
   <Quest>
-    <ID>256</ID>
+    <ID>231</ID>
     <JP-Name>「潜水艦隊」出撃せよ！</JP-Name>
     <TR-Name>Sortie a Submarine Fleet!</TR-Name>
     <JP-Detail>伊号潜水艦2隻からなる潜水艦隊でオリョール海の敵を撃滅せよ！</JP-Detail>
@@ -754,7 +754,7 @@
     <JP-Name>二人でする初めての任務！</JP-Name>
     <TR-Name>Your First Mission Together!</TR-Name>
     <JP-Detail>強い絆を結んだ艦娘を旗艦とした第一艦隊でリランカ島へ出撃、敵中枢を撃滅せよ！</JP-Detail>
-    <TR-Detail>Deploy a fleet to 4-3 with a bonded ship of Lv.100 or more as flagship and score an S vectory or higher against the boss.</TR-Detail>
+    <TR-Detail>Deploy a fleet to 4-3 with a bonded ship of Lv.100 or more as flagship and score an S victory or higher against the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>612</ID>
