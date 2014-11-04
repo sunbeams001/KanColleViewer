@@ -520,6 +520,7 @@ namespace Grabacr07.KanColleWrapper
 						else
 						{
 							int n;
+							bool need_add = true;
 							IEnumerable<XElement> FoundTranslationDetail = QuestsXML.Descendants("Quest").Where(b => b.Element("JP-Detail").Value.Equals(QuestData.api_detail));
 							IEnumerable<XElement> FoundTranslationTitle = QuestsXML.Descendants("Quest").Where(b => b.Element("JP-Name").Value.Equals(QuestData.api_title));
 
@@ -530,7 +531,10 @@ namespace Grabacr07.KanColleWrapper
 								foreach (XElement el in FoundTranslationDetail)
 								{
 									if (!Int32.TryParse(el.Element("ID").Value, out n))
+									{
 										el.Element("JP-Name").Value = QuestData.api_title;
+										need_add = false;
+									}
 								}
 
 							}
@@ -540,10 +544,14 @@ namespace Grabacr07.KanColleWrapper
 								foreach (XElement el in FoundTranslationTitle)
 								{
 									if (!Int32.TryParse(el.Element("ID").Value, out n))
+									{
 										el.Element("JP-Detail").Value = QuestData.api_detail;
+										need_add = false;
+									}
 								}									
 							}
-							else
+							
+							if (need_add)
 							{
 								// The quest doesn't exist at all. Add it.
 								QuestsXML.Root.Add(new XElement("Quest",
