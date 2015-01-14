@@ -24,12 +24,35 @@ namespace Grabacr07.KanColleWrapper
 		/// <returns>True: Successful, False: Failed</returns>
 		public bool LoadVersion(string UpdateURL)
 		{
+			return LoadVersion(UpdateURL, UpdateURL);
+		}
+
+		public bool LoadVersion(string UpdateURL, string UpdateTransURL)
+		{
 			try
 			{
 				VersionXML = XDocument.Load(UpdateURL);
 
 				if (VersionXML == null)
 					return false;
+
+				if (UpdateURL != UpdateTransURL)
+				{
+					XDocument TransVersionXML = XDocument.Load(UpdateTransURL);
+					if (TransVersionXML != null)
+					{
+						IEnumerable<XElement> Versions = VersionXML.Root.Descendants("Item");
+						foreach (XElement node in TransVersionXML.Root.Elements("Item"))
+						{
+							// skip app version
+							if (!node.Element("Name").Value.Equals("App"))
+							{
+								var OldNode = Versions.Where(x => x.Element("Name").Value.Equals(node.Element("Name").Value)).FirstOrDefault();
+								OldNode.ReplaceWith(node);
+							}
+						}
+					}
+				}
 			}
 			catch (Exception ex)
 			{
@@ -206,29 +229,35 @@ namespace Grabacr07.KanColleWrapper
 			IEnumerable<XElement> Versions = VersionXML.Root.Descendants("Item");
 			string ElementName =  !bGetURL ? "Version" : "URL";
 
-			switch (Type)
+			try
 			{
-				case TranslationType.App:
-					return Versions.Where(x => x.Element("Name").Value.Equals("App")).FirstOrDefault().Element(ElementName).Value;
-				case TranslationType.Equipment:
-					return Versions.Where(x => x.Element("Name").Value.Equals("Equipment")).FirstOrDefault().Element(ElementName).Value;
-				case TranslationType.Operations:
-				case TranslationType.OperationSortie:
-				case TranslationType.OperationMaps:
-					return Versions.Where(x => x.Element("Name").Value.Equals("Operations")).FirstOrDefault().Element(ElementName).Value;
-				case TranslationType.Quests:
-				case TranslationType.QuestDetail:
-				case TranslationType.QuestTitle:
-					return Versions.Where(x => x.Element("Name").Value.Equals("Quests")).FirstOrDefault().Element(ElementName).Value;
-				case TranslationType.Ships:
-					return Versions.Where(x => x.Element("Name").Value.Equals("Ships")).FirstOrDefault().Element(ElementName).Value;
-				case TranslationType.ShipTypes:
-					return Versions.Where(x => x.Element("Name").Value.Equals("ShipTypes")).FirstOrDefault().Element(ElementName).Value;
-                case TranslationType.Expeditions:
-                case TranslationType.ExpeditionDetail:
-                case TranslationType.ExpeditionTitle:
-                    return Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value;
+				switch (Type)
+				{
+					case TranslationType.App:
+						return Versions.Where(x => x.Element("Name").Value.Equals("App")).FirstOrDefault().Element(ElementName).Value;
+					case TranslationType.Equipment:
+						return Versions.Where(x => x.Element("Name").Value.Equals("Equipment")).FirstOrDefault().Element(ElementName).Value;
+					case TranslationType.Operations:
+					case TranslationType.OperationSortie:
+					case TranslationType.OperationMaps:
+						return Versions.Where(x => x.Element("Name").Value.Equals("Operations")).FirstOrDefault().Element(ElementName).Value;
+					case TranslationType.Quests:
+					case TranslationType.QuestDetail:
+					case TranslationType.QuestTitle:
+						return Versions.Where(x => x.Element("Name").Value.Equals("Quests")).FirstOrDefault().Element(ElementName).Value;
+					case TranslationType.Ships:
+						return Versions.Where(x => x.Element("Name").Value.Equals("Ships")).FirstOrDefault().Element(ElementName).Value;
+					case TranslationType.ShipTypes:
+						return Versions.Where(x => x.Element("Name").Value.Equals("ShipTypes")).FirstOrDefault().Element(ElementName).Value;
+					case TranslationType.Expeditions:
+					case TranslationType.ExpeditionDetail:
+					case TranslationType.ExpeditionTitle:
+						return Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value;
 
+				}
+			} catch
+			{
+				return "";
 			}
 			return "";
 		}
@@ -248,28 +277,35 @@ namespace Grabacr07.KanColleWrapper
 			string ElementName = "Version";
 			Version LocalVersion = new Version(LocalVersionString);
 
-			switch (Type)
+			try
 			{
-				case TranslationType.App:
-					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("App")).FirstOrDefault().Element(ElementName).Value)) < 0;
-				case TranslationType.Equipment:
-					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Equipment")).FirstOrDefault().Element(ElementName).Value)) < 0;
-				case TranslationType.Operations:
-				case TranslationType.OperationSortie:
-				case TranslationType.OperationMaps:
-					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Operations")).FirstOrDefault().Element(ElementName).Value)) < 0;
-				case TranslationType.Quests:
-				case TranslationType.QuestDetail:
-				case TranslationType.QuestTitle:
-					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Quests")).FirstOrDefault().Element(ElementName).Value)) < 0;
-				case TranslationType.Ships:
-					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Ships")).FirstOrDefault().Element(ElementName).Value)) < 0;
-				case TranslationType.ShipTypes:
-					return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("ShipTypes")).FirstOrDefault().Element(ElementName).Value)) < 0;
-                case TranslationType.Expeditions:
-                case TranslationType.ExpeditionDetail:
-                case TranslationType.ExpeditionTitle:
-                    return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value)) < 0;
+				switch (Type)
+				{
+					case TranslationType.App:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("App")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.Equipment:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Equipment")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.Operations:
+					case TranslationType.OperationSortie:
+					case TranslationType.OperationMaps:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Operations")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.Quests:
+					case TranslationType.QuestDetail:
+					case TranslationType.QuestTitle:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Quests")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.Ships:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Ships")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.ShipTypes:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("ShipTypes")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.Expeditions:
+					case TranslationType.ExpeditionDetail:
+					case TranslationType.ExpeditionTitle:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value)) < 0;
+				}
+			}
+			catch
+			{
+				return false;
 			}
 
 			return false;
