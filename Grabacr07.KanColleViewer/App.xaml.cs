@@ -64,7 +64,7 @@ namespace Grabacr07.KanColleViewer
 
 				if (Settings.Current.EnableUpdateTransOnStart)
 				{
-					if (KanColleClient.Current.Updater.UpdateTranslations(AppSettings.Default.XMLTransUrl.AbsoluteUri, Settings.Current.Culture, KanColleClient.Current.Translations) > 0)
+					if (KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations) > 0)
 					{
 						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
 							KanColleViewer.Properties.Resources.Updater_Notification_Title,

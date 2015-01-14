@@ -883,7 +883,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public void UpdateTranslations()
 		{
-			int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(Properties.Settings.Default.XMLTransUrl.AbsoluteUri, Culture, KanColleClient.Current.Translations);
+			int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations);
 			
 			if (UpdateStatus > 0)
 			{

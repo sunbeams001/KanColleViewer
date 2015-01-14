@@ -179,13 +179,12 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				if (!Directory.Exists("Translations")) Directory.CreateDirectory("Translations");
-				if (!Directory.Exists("Translations\\" + CurrentCulture)) Directory.CreateDirectory("Translations\\" + CurrentCulture);
-				if (File.Exists("Translations\\" + CurrentCulture + "Ships.xml")) ShipsXML = XDocument.Load("Translations\\" + CurrentCulture + "Ships.xml");
-				if (File.Exists("Translations\\" + CurrentCulture + "ShipTypes.xml")) ShipTypesXML = XDocument.Load("Translations\\" + CurrentCulture + "ShipTypes.xml");
-				if (File.Exists("Translations\\" + CurrentCulture + "Equipment.xml")) EquipmentXML = XDocument.Load("Translations\\" + CurrentCulture + "Equipment.xml");
-				if (File.Exists("Translations\\" + CurrentCulture + "Operations.xml")) OperationsXML = XDocument.Load("Translations\\" + CurrentCulture + "Operations.xml");
-				if (File.Exists("Translations\\" + CurrentCulture + "Quests.xml")) QuestsXML = XDocument.Load("Translations\\" + CurrentCulture + "Quests.xml");
-                if (File.Exists("Translations\\" + CurrentCulture + "Expeditions.xml")) ExpeditionsXML = XDocument.Load("Translations\\Expeditions.xml");
+				if (File.Exists("Translations\\Ships.xml")) ShipsXML = XDocument.Load("Translations\\Ships.xml");
+				if (File.Exists("Translations\\ShipTypes.xml")) ShipTypesXML = XDocument.Load("Translations\\ShipTypes.xml");
+				if (File.Exists("Translations\\Equipment.xml")) EquipmentXML = XDocument.Load("Translations\\Equipment.xml");
+				if (File.Exists("Translations\\Operations.xml")) OperationsXML = XDocument.Load("Translations\\Operations.xml");
+				if (File.Exists("Translations\\Quests.xml")) QuestsXML = XDocument.Load("Translations\\Quests.xml");
+                if (File.Exists("Translations\\Expeditions.xml")) ExpeditionsXML = XDocument.Load("Translations\\Expeditions.xml");
 
 				GetVersions();
 			}
@@ -410,7 +409,7 @@ namespace Grabacr07.KanColleWrapper
 							new XElement("TR-Name", ShipData.api_name)
 						));
 
-						ShipsXML.Save("Translations\\" + CurrentCulture + "Ships.xml");
+						ShipsXML.Save("Translations\\Ships.xml");
 						break;
 
 					case TranslationType.ShipTypes:
@@ -433,7 +432,7 @@ namespace Grabacr07.KanColleWrapper
 							new XElement("TR-Name", TypeData.api_name)
 							));
 
-						ShipTypesXML.Save("Translations\\" + CurrentCulture + "ShipTypes.xml");
+						ShipTypesXML.Save("Translations\\ShipTypes.xml");
 						break;
 
 					case TranslationType.Equipment:
@@ -455,7 +454,7 @@ namespace Grabacr07.KanColleWrapper
 							new XElement("TR-Name", EqiupData.api_name)
 							));
 
-						EquipmentXML.Save("Translations\\" + CurrentCulture + "Equipment.xml");
+						EquipmentXML.Save("Translations\\Equipment.xml");
 						break;
 
 					case TranslationType.OperationMaps:
@@ -488,7 +487,7 @@ namespace Grabacr07.KanColleWrapper
 								));
 						}
 
-						OperationsXML.Save("Translations\\" + CurrentCulture + "Operations.xml");
+						OperationsXML.Save("Translations\\Operations.xml");
 						break;
 
 					case TranslationType.Quests:
@@ -564,7 +563,7 @@ namespace Grabacr07.KanColleWrapper
 							}
 						}
 
-						QuestsXML.Save("Translations\\" + CurrentCulture + "Quests.xml");
+						QuestsXML.Save("Translations\\Quests.xml");
 						break;
                     case TranslationType.Expeditions:
                     case TranslationType.ExpeditionTitle:
@@ -606,7 +605,7 @@ namespace Grabacr07.KanColleWrapper
                                 ));
                         }
 
-                        ExpeditionsXML.Save("Translations\\" + CurrentCulture + "Expeditions.xml");
+                        ExpeditionsXML.Save("Translations\\Expeditions.xml");
                         break;
 				}
 			}

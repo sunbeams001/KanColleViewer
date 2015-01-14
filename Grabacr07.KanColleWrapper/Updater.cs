@@ -70,33 +70,29 @@ namespace Grabacr07.KanColleWrapper
 		/// <param name="Culture">Language version to download</param>
 		/// <param name="TranslationsRef">Link to the translation engine to obtain current translation versions.</param>
 		/// <returns>Returns a state code depending on how it ran. [-1: Error, 0: Nothing to update, 1: Update Successful]</returns>
-		public int UpdateTranslations(string BaseTranslationURL, string Culture, Translations TranslationsRef)
+		public int UpdateTranslations(Translations TranslationsRef)
 		{
 			using (WebClient Client = new WebClient())
 			{
-				string CurrentCulture = (Culture == null || Culture == "en-US" || Culture == "ja-JP" || Culture == "en") ? "" : Culture;
-				string CurrentCultureDir = (CurrentCulture != "" ? CurrentCulture + "\\" : "");
-                string TranslationURL = (BaseTranslationURL.TrimEnd(new[] { '/' }) + "/" + CurrentCulture).TrimEnd(new[] { '/' }) + "/";
 				XDocument TestXML;
 				int ReturnValue = 0;
 
 				try
 				{
 					if (!Directory.Exists("Translations")) Directory.CreateDirectory("Translations");
-					if (!Directory.Exists("Translations\\" + CurrentCultureDir)) Directory.CreateDirectory("Translations\\" + CurrentCultureDir);
 					if (!Directory.Exists("Translations\\tmp\\")) Directory.CreateDirectory("Translations\\tmp\\");
 
 					// In every one of these we download it to a temp folder, check if the file works, then move it over.
 					if (IsOnlineVersionGreater(TranslationType.Equipment, TranslationsRef.EquipmentVersion))
 					{
-						Client.DownloadFile(TranslationURL + "Equipment.xml", "Translations\\tmp\\Equipment.xml");
+						Client.DownloadFile(GetOnlineVersion(TranslationType.Equipment, true), "Translations\\tmp\\Equipment.xml");
 
 						try
 						{
 							TestXML = XDocument.Load("Translations\\tmp\\Equipment.xml");
-							if (File.Exists("Translations\\" + CurrentCultureDir + "Equipment.xml")) 
-								File.Delete("Translations\\" + CurrentCultureDir + "Equipment.xml");
-							File.Move("Translations\\tmp\\Equipment.xml", "Translations\\" + CurrentCultureDir + "Equipment.xml");
+							if (File.Exists("Translations\\Equipment.xml")) 
+								File.Delete("Translations\\Equipment.xml");
+							File.Move("Translations\\tmp\\Equipment.xml", "Translations\\Equipment.xml");
 							ReturnValue = 1;
 						}
 						catch (Exception ex)
@@ -108,14 +104,14 @@ namespace Grabacr07.KanColleWrapper
 
 					if (IsOnlineVersionGreater(TranslationType.Operations, TranslationsRef.OperationsVersion))
 					{
-						Client.DownloadFile(TranslationURL + "Operations.xml", "Translations\\tmp\\Operations.xml");
+						Client.DownloadFile(GetOnlineVersion(TranslationType.Operations, true), "Translations\\tmp\\Operations.xml");
 
 						try
 						{
 							TestXML = XDocument.Load("Translations\\tmp\\Operations.xml");
-							if (File.Exists("Translations\\" + CurrentCultureDir + "Operations.xml"))
-								File.Delete("Translations\\" + CurrentCultureDir + "Operations.xml");
-							File.Move("Translations\\tmp\\Operations.xml", "Translations\\" + CurrentCultureDir + "Operations.xml");
+							if (File.Exists("Translations\\Operations.xml"))
+								File.Delete("Translations\\Operations.xml");
+							File.Move("Translations\\tmp\\Operations.xml", "Translations\\Operations.xml");
 							ReturnValue = 1;
 						}
 						catch (Exception ex)
@@ -127,14 +123,14 @@ namespace Grabacr07.KanColleWrapper
 
 					if (IsOnlineVersionGreater(TranslationType.Quests, TranslationsRef.QuestsVersion))
 					{
-						Client.DownloadFile(TranslationURL + "Quests.xml", "Translations\\tmp\\Quests.xml");
+						Client.DownloadFile(GetOnlineVersion(TranslationType.Quests, true), "Translations\\tmp\\Quests.xml");
 
 						try
 						{
 							TestXML = XDocument.Load("Translations\\tmp\\Quests.xml");
-							if (File.Exists("Translations\\" + CurrentCultureDir + "Quests.xml"))
-								File.Delete("Translations\\" + CurrentCultureDir + "Quests.xml");
-							File.Move("Translations\\tmp\\Quests.xml", "Translations\\" + CurrentCultureDir + "Quests.xml");
+							if (File.Exists("Translations\\Quests.xml"))
+								File.Delete("Translations\\Quests.xml");
+							File.Move("Translations\\tmp\\Quests.xml", "Translations\\Quests.xml");
 							ReturnValue = 1;
 						}
 						catch (Exception ex)
@@ -146,14 +142,14 @@ namespace Grabacr07.KanColleWrapper
 
 					if (IsOnlineVersionGreater(TranslationType.Ships, TranslationsRef.ShipsVersion))
 					{
-						Client.DownloadFile(TranslationURL + "Ships.xml", "Translations\\tmp\\Ships.xml");
+						Client.DownloadFile(GetOnlineVersion(TranslationType.Ships, true), "Translations\\tmp\\Ships.xml");
 
 						try
 						{
 							TestXML = XDocument.Load("Translations\\tmp\\Ships.xml");
-							if (File.Exists("Translations\\" + CurrentCultureDir + "Ships.xml"))
-								File.Delete("Translations\\" + CurrentCultureDir + "Ships.xml");
-							File.Move("Translations\\tmp\\Ships.xml", "Translations\\" + CurrentCultureDir + "Ships.xml");
+							if (File.Exists("Translations\\Ships.xml"))
+								File.Delete("Translations\\Ships.xml");
+							File.Move("Translations\\tmp\\Ships.xml", "Translations\\Ships.xml");
 							ReturnValue = 1;
 						}
 						catch (Exception ex)
@@ -165,14 +161,14 @@ namespace Grabacr07.KanColleWrapper
 
 					if (IsOnlineVersionGreater(TranslationType.ShipTypes, TranslationsRef.ShipTypesVersion))
 					{
-						Client.DownloadFile(TranslationURL + "ShipTypes.xml", "Translations\\tmp\\ShipTypes.xml");
+						Client.DownloadFile(GetOnlineVersion(TranslationType.ShipTypes, true), "Translations\\tmp\\ShipTypes.xml");
 
 						try
 						{
 							TestXML = XDocument.Load("Translations\\tmp\\ShipTypes.xml");
-							if (File.Exists("Translations\\" + CurrentCultureDir + "ShipTypes.xml"))
-								File.Delete("Translations\\" + CurrentCultureDir + "ShipTypes.xml");
-							File.Move("Translations\\tmp\\ShipTypes.xml", "Translations\\" + CurrentCultureDir + "ShipTypes.xml");
+							if (File.Exists("Translations\\ShipTypes.xml"))
+								File.Delete("Translations\\ShipTypes.xml");
+							File.Move("Translations\\tmp\\ShipTypes.xml", "Translations\\ShipTypes.xml");
 							ReturnValue = 1;
 						}
 						catch (Exception ex)
@@ -184,14 +180,14 @@ namespace Grabacr07.KanColleWrapper
 
                     if (IsOnlineVersionGreater(TranslationType.Expeditions, TranslationsRef.ExpeditionsVersion))
                     {
-                        Client.DownloadFile(TranslationURL + "Expeditions.xml", "Translations\\tmp\\Expeditions.xml");
+						Client.DownloadFile(GetOnlineVersion(TranslationType.Expeditions, true), "Translations\\tmp\\Expeditions.xml");
 
                         try
                         {
                             TestXML = XDocument.Load("Translations\\tmp\\Expeditions.xml");
-                            if (File.Exists("Translations\\" + CurrentCultureDir + "Expeditions.xml"))
-                                File.Delete("Translations\\" + CurrentCultureDir + "Expeditions.xml");
-                            File.Move("Translations\\tmp\\Expeditions.xml", "Translations\\" + CurrentCultureDir + "Expeditions.xml");
+                            if (File.Exists("Translations\\Expeditions.xml"))
+                                File.Delete("Translations\\Expeditions.xml");
+                            File.Move("Translations\\tmp\\Expeditions.xml", "Translations\\Expeditions.xml");
                             ReturnValue = 1;
                         }
                         catch (Exception ex)

@@ -154,15 +154,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://yuyuvn.github.io/KanColleViewer/resources/translations")]
-        public global::System.Uri XMLTransUrl {
-            get {
-                return ((global::System.Uri)(this["XMLTransUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://yuyuvn.github.io/KanColleViewer/resources/Version.xml")]
         public global::System.Uri KCVUpdateUrl {
             get {
