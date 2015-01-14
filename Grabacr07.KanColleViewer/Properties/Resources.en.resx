@@ -1061,4 +1061,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Homeport_ImprovementMaterial" xml:space="preserve">
     <value>Remodel Kits:</value>
   </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
 </root>
