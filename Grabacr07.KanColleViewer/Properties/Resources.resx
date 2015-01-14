@@ -568,7 +568,7 @@
     <value>Download Translations</value>
   </data>
   <data name="Settings_Updates_UpdateTransBtn_ToolTip" xml:space="preserve">
-    <value>Downloads translations only for selected UI language!</value>
+    <value>Downloads new translations</value>
   </data>
   <data name="Updater_Notification_CheckFailed" xml:space="preserve">
     <value>KCV was unable to check for updates!</value>
@@ -995,5 +995,11 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>情報</value>
+  </data>
+  <data name="Settings_Updates_ForceUpdateTransBtn" xml:space="preserve">
+    <value>Force download</value>
+  </data>
+  <data name="Settings_Updates_ForceUpdateTransBtn_ToolTip" xml:space="preserve">
+    <value>Download all translatations without check version!</value>
   </data>
 </root>

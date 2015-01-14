@@ -70,7 +70,7 @@ namespace Grabacr07.KanColleWrapper
 		/// <param name="Culture">Language version to download</param>
 		/// <param name="TranslationsRef">Link to the translation engine to obtain current translation versions.</param>
 		/// <returns>Returns a state code depending on how it ran. [-1: Error, 0: Nothing to update, 1: Update Successful]</returns>
-		public int UpdateTranslations(Translations TranslationsRef)
+		public int UpdateTranslations(Translations TranslationsRef, bool CheckVersion = true)
 		{
 			using (WebClient Client = new WebClient())
 			{
@@ -83,7 +83,7 @@ namespace Grabacr07.KanColleWrapper
 					if (!Directory.Exists("Translations\\tmp\\")) Directory.CreateDirectory("Translations\\tmp\\");
 
 					// In every one of these we download it to a temp folder, check if the file works, then move it over.
-					if (IsOnlineVersionGreater(TranslationType.Equipment, TranslationsRef.EquipmentVersion))
+					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Equipment, TranslationsRef.EquipmentVersion))
 					{
 						Client.DownloadFile(GetOnlineVersion(TranslationType.Equipment, true), "Translations\\tmp\\Equipment.xml");
 
@@ -102,7 +102,7 @@ namespace Grabacr07.KanColleWrapper
 						}
 					}
 
-					if (IsOnlineVersionGreater(TranslationType.Operations, TranslationsRef.OperationsVersion))
+					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Operations, TranslationsRef.OperationsVersion))
 					{
 						Client.DownloadFile(GetOnlineVersion(TranslationType.Operations, true), "Translations\\tmp\\Operations.xml");
 
@@ -121,7 +121,7 @@ namespace Grabacr07.KanColleWrapper
 						}
 					}
 
-					if (IsOnlineVersionGreater(TranslationType.Quests, TranslationsRef.QuestsVersion))
+					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Quests, TranslationsRef.QuestsVersion))
 					{
 						Client.DownloadFile(GetOnlineVersion(TranslationType.Quests, true), "Translations\\tmp\\Quests.xml");
 
@@ -140,7 +140,7 @@ namespace Grabacr07.KanColleWrapper
 						}
 					}
 
-					if (IsOnlineVersionGreater(TranslationType.Ships, TranslationsRef.ShipsVersion))
+					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Ships, TranslationsRef.ShipsVersion))
 					{
 						Client.DownloadFile(GetOnlineVersion(TranslationType.Ships, true), "Translations\\tmp\\Ships.xml");
 
@@ -159,7 +159,7 @@ namespace Grabacr07.KanColleWrapper
 						}
 					}
 
-					if (IsOnlineVersionGreater(TranslationType.ShipTypes, TranslationsRef.ShipTypesVersion))
+					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.ShipTypes, TranslationsRef.ShipTypesVersion))
 					{
 						Client.DownloadFile(GetOnlineVersion(TranslationType.ShipTypes, true), "Translations\\tmp\\ShipTypes.xml");
 
@@ -178,7 +178,7 @@ namespace Grabacr07.KanColleWrapper
 						}
 					}
 
-                    if (IsOnlineVersionGreater(TranslationType.Expeditions, TranslationsRef.ExpeditionsVersion))
+					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Expeditions, TranslationsRef.ExpeditionsVersion))
                     {
 						Client.DownloadFile(GetOnlineVersion(TranslationType.Expeditions, true), "Translations\\tmp\\Expeditions.xml");
 

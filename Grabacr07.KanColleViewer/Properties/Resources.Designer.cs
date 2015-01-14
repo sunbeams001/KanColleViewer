@@ -1671,6 +1671,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Force download.
+        /// </summary>
+        public static string Settings_Updates_ForceUpdateTransBtn {
+            get {
+                return ResourceManager.GetString("Settings_Updates_ForceUpdateTransBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download all translatations without check version!.
+        /// </summary>
+        public static string Settings_Updates_ForceUpdateTransBtn_ToolTip {
+            get {
+                return ResourceManager.GetString("Settings_Updates_ForceUpdateTransBtn_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get Latest KCV.
         /// </summary>
         public static string Settings_Updates_GetKCVBtn {
@@ -1725,7 +1743,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Downloads translations only for selected UI language!.
+        ///   Looks up a localized string similar to Downloads new translations.
         /// </summary>
         public static string Settings_Updates_UpdateTransBtn_ToolTip {
             get {
