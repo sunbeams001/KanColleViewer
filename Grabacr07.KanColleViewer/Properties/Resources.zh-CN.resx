@@ -220,13 +220,13 @@
     <value>高速修复材料:</value>
   </data>
   <data name="Homeport_NoOfEquipment" xml:space="preserve">
-    <value>所持有的装备:</value>
+    <value>持有的装备:</value>
   </data>
   <data name="Homeport_NoOfShips" xml:space="preserve">
-    <value>所持有的舰娘:</value>
+    <value>持有的舰娘:</value>
   </data>
   <data name="IntegratedView" xml:space="preserve">
-    <value>総合</value>
+    <value>综合</value>
   </data>
   <data name="MessageBar_Expedition" xml:space="preserve">
     <value>当前舰队正在远征中。</value>
@@ -238,10 +238,10 @@
     <value> 剩余时间:</value>
   </data>
   <data name="MessageBar_Repairing" xml:space="preserve">
-    <value>艦隊に入渠中の艦娘がいます。 完了時刻: {0:MM/dd HH\:mm} 完了まで: {1}:{2:mm\:ss}</value>
+    <value>当前舰队中有正在维修的舰娘。 完成时间: {0:MM/dd HH\:mm} 剩余时间: {1}:{2:mm\:ss}</value>
   </data>
   <data name="MessageBar_Repairing_Null" xml:space="preserve">
-    <value>艦隊に入渠中の艦娘がいます。</value>
+    <value>当前舰队中有正在维修的舰娘。</value>
   </data>
   <data name="MessageBar_ReSortie_BadCondition" xml:space="preserve">
     <value>舰娘仍在疲劳期</value>
@@ -250,7 +250,7 @@
     <value>艦隊に{0}がいます。</value>
   </data>
   <data name="MessageBar_ReSortie_CanReSortie" xml:space="preserve">
-    <value>准备出击！</value>
+    <value>可以出击！</value>
   </data>
   <data name="MessageBar_ReSortie_LackForResources" xml:space="preserve">
     <value>舰娘没充分补给</value>
@@ -274,7 +274,7 @@
     <value>每日任务</value>
   </data>
   <data name="Quests_Notice" xml:space="preserve">
-    <value>※任务完成状况(50 %, 80 %) 和游戏内显示的相同。敌方舰队击破数和远征成功数等不能被显示</value>
+    <value>※任务完成状况 (50%, 80%) 和游戏内显示的相同。敌方舰队击破数和远征成功数等不能被显示</value>
   </data>
   <data name="Quests_Untaken" xml:space="preserve">
     <value>请点击游戏中的 [任務 (クエスト)]，以便取得任务信息</value>
@@ -343,7 +343,7 @@
     <value>设置</value>
   </data>
   <data name="Settings_BrowserControl" xml:space="preserve">
-    <value>浏览设置</value>
+    <value>浏览</value>
   </data>
   <data name="Settings_BrowserControl_ClearZoomFactorButton" xml:space="preserve">
     <value>重新设置窗口大小(100%缩放)</value>
@@ -355,22 +355,22 @@
     <value>※请注意这将会离开游戏</value>
   </data>
   <data name="Settings_Display" xml:space="preserve">
-    <value>显示设置</value>
+    <value>显示</value>
   </data>
   <data name="Settings_Language" xml:space="preserve">
     <value>语言</value>
   </data>
   <data name="Settings_Network" xml:space="preserve">
-    <value>网络设置</value>
+    <value>网络</value>
   </data>
   <data name="Settings_Operation" xml:space="preserve">
-    <value>行为设置</value>
+    <value>操作</value>
   </data>
   <data name="Settings_Other" xml:space="preserve">
     <value>其他</value>
   </data>
   <data name="Settings_Proxy" xml:space="preserve">
-    <value>代理设置</value>
+    <value>代理</value>
   </data>
   <data name="Settings_Proxy_Enable" xml:space="preserve">
     <value>使用代理来连接服务器</value>
@@ -409,7 +409,7 @@
     <value>关于</value>
   </data>
   <data name="Settings_Window" xml:space="preserve">
-    <value>窗口设置</value>
+    <value>窗口</value>
   </data>
   <data name="Settings_WindowControl" xml:space="preserve">
     <value>窗口位置</value>
@@ -683,7 +683,7 @@
     <value>翻译文件已经更新.</value>
   </data>
   <data name="Fleets_AirSuperiorityPotential" xml:space="preserve">
-    <value>空中优势</value>
+    <value>制空战力</value>
   </data>
   <data name="Fleets_Average" xml:space="preserve">
     <value>平均</value>
@@ -760,7 +760,7 @@ GPU: 慢! 适用于平板设备.</value>
     <value>显示菜单图标</value>
   </data>
   <data name="Settings_Notifications" xml:space="preserve">
-    <value>通知设置</value>
+    <value>通知</value>
   </data>
   <data name="Settings_Notifications_AheadOfTime" xml:space="preserve">
     <value>提前通知:</value>
@@ -799,7 +799,7 @@ GPU: 慢! 适用于平板设备.</value>
     <value>※必须设定在 40 ~ 49 间. (默认: 40)</value>
   </data>
   <data name="Settings_Operation_SortieCondition_Title" xml:space="preserve">
-    <value>出击的最低要求</value>
+    <value>出击的最低士气要求</value>
   </data>
   <data name="Settings_Network_Proxy_Auth_Password" xml:space="preserve">
     <value>密码</value>
@@ -850,7 +850,7 @@ GPU: 慢! 适用于平板设备.</value>
     <value>这个舰队没有舰娘.</value>
   </data>
   <data name="StateDetail_IsReady" xml:space="preserve">
-    <value>准备出击!</value>
+    <value>可以出击!</value>
   </data>
   <data name="StateDetail_MoraleRecovering" xml:space="preserve">
     <value>疲劳已经恢复</value>
@@ -1063,7 +1063,7 @@ GPU: 慢! 适用于平板设备.</value>
     <value>信息</value>
   </data>
   <data name="Settings_Updates_ForceUpdateTransBtn" xml:space="preserve">
-    <value>强制下载</value>
+    <value>强制更新翻译文件</value>
   </data>
   <data name="Settings_Updates_ForceUpdateTransBtn_ToolTip" xml:space="preserve">
     <value>只更新翻译文件不检测版本号</value>
