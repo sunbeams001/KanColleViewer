@@ -163,7 +163,7 @@
 										</StackPanel.Resources>
 
                                         <Rectangle Height="1"
-												   Margin="0,0,0,4"
+												   Margin="0,0,0,2"
 												   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
                                         <Grid HorizontalAlignment="Left">
@@ -252,9 +252,6 @@
 													 FontSize="9" />
 											</TextBlock>
 										</Grid>
-										<Rectangle Height="1"
-												   Margin="0,4,0,0"
-												   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 									</StackPanel>
 
 									<DataTemplate.Triggers>
