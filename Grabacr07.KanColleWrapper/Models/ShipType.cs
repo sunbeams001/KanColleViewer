@@ -19,14 +19,8 @@ namespace Grabacr07.KanColleWrapper.Models
 	    public string Name => KanColleClient.Current.Translations.GetTranslation(RawData.api_name, TranslationType.ShipTypes, this.RawData, this.Id);
 
 	    public int SortNumber => this.RawData.api_sortno;
-		}
 
-		public double RepairMultiplier
-		{
-			get
-			{
-				return this.RawData.api_scnt * 0.5;
-			}
+		public double RepairMultiplier => this.RawData.api_scnt * 0.5;
 
 	    public ShipType(kcsapi_mst_stype rawData) : base(rawData) { }
 
