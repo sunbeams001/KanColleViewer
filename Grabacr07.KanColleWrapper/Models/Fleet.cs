@@ -18,6 +18,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		private Ship[] originalShips; // null も含んだやつ
 		private bool isInSortie;
 		private LivetCompositeDisposable compositeDisposable;
+		private int[] escapedShip;
 
 		#region Id 変更通知プロパティ
 
@@ -415,6 +416,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			if (!this.isInSortie)
 			{
 				this.isInSortie = true;
+				this.escapedShip = null;
 				this.UpdateStatus();
 			}
 		}
@@ -424,7 +426,8 @@ namespace Grabacr07.KanColleWrapper.Models
 			if (this.isInSortie)
 			{
 				this.isInSortie = false;
-				this.UpdateStatus();
+				this.escapedShip = null;
+                this.UpdateStatus();
 			}
 		}
 
@@ -436,7 +439,9 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			this.Condition.Update(this.Ships);
 			this.IsRepairling = this.homeport.Repairyard.CheckRepairing(this);
-			this.IsWounded = this.Ships.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25 && !this.homeport.Repairyard.CheckRepairing(s.Id));
+			this.IsWounded = this.Ships.Any(s => (s.HP.Current / (double)s.HP.Maximum) <= 0.25 
+				&& !this.homeport.Repairyard.CheckRepairing(s.Id) 
+				&& (this.escapedShip == null || !this.escapedShip.Any(id => id == s.Id)));
 			this.IsInShortSupply = this.Ships.Any(s => s.Fuel.Current < s.Fuel.Maximum || s.Bull.Current < s.Bull.Maximum);
 
 			if (this.Ships.Length == 0)
@@ -487,5 +492,10 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.Expedition.SafeDispose();
 			this.Condition.SafeDispose();
 		}
-	}
+
+		public void Escape(int shipsIds)
+		{
+			this.escapedShip = escapedShip.Union(new int[] { shipsIds }).ToArray();
+        }
+    }
 }

@@ -58,7 +58,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// </summary>
 		public int ExpForNextLevel => this.RawData.api_exp.Get(1) ?? 0;
 
-	    #region HP 変更通知プロパティ
+		#region HP 変更通知プロパティ
 
 		private LimitedValue _HP;
 
