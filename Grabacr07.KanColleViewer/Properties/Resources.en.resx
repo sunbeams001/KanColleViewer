@@ -1076,4 +1076,22 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_Browser_ZoomDescription" xml:space="preserve">
     <value>You can change the display size of the game (IE) with the zoom button at the top of the window. Screenshots are not affected by this setting and will always be taken at 100% scale.</value>
   </data>
+  <data name="Settings_Updates_ForceUpdateTransBtn" xml:space="preserve">
+    <value>Force download</value>
+  </data>
+  <data name="Settings_Updates_ForceUpdateTransBtn_ToolTip" xml:space="preserve">
+    <value>Download all translatations without check version!</value>
+  </data>
+  <data name="Browser_GoBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Browser_GoForward" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="Browser_ReNavigate" xml:space="preserve">
+    <value>Reload (F5)</value>
+  </data>
+  <data name="Browser_URLTip" xml:space="preserve">
+    <value>Enter the URL and press ENTER.</value>
+  </data>
 </root>
