@@ -48,19 +48,13 @@
                     </DataTrigger>
                     <DataTrigger Binding="{Binding Fleet.IsWounded}"
 								 Value="True">
-                        <Setter TargetName="Border"
-								Property="Background"
-								Value="#FFB40000" />
                         <Setter TargetName="Text"
 								Property="Text"
 								Value="{Binding Resources.StateDetail_CriticalDamage, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
                     </DataTrigger>
                     <DataTrigger Binding="{Binding Fleet.IsRepairling}"
 								 Value="True">
-                        <Setter TargetName="Border"
-								Property="Background"
-								Value="#FF5A2020" />
-                        <Setter TargetName="Text"
+						<Setter TargetName="Text"
 								Property="Text">
 							<Setter.Value>
 								<MultiBinding StringFormat="{}{0} - {1}">
@@ -166,8 +160,7 @@
 						Background="#FF204080">
 					<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 							   Foreground="{DynamicResource ActiveForegroundBrushKey}">
-						<Run Text="{Binding Resources.StateDetail_OnExpedition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-						<Run Text=":" />
+						<Run Text="{Binding Resources.StateDetail_OnExpedition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" /><Run Text=":" />
 						<Run Text="{Binding Mission.Title, Mode=OneWay}" />
 						<Run Text="-" />
 						<Run Text="{Binding Remaining, Mode=OneWay}" />
