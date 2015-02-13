@@ -410,8 +410,8 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				this.escapingShips = new int[2] {
-					source.api_escape.api_escape_idx[0],
-					source.api_escape.api_tow_idx[0]
+					source.api_escape.api_escape_idx[0] - 1,
+					source.api_escape.api_tow_idx[0] - 1
 				};
 			}
 			catch (Exception ex)
@@ -422,7 +422,10 @@ namespace Grabacr07.KanColleWrapper
 
 		private void Escape(SvData data)
 		{
-			this.escapingShips.Do(x => Fleets[x/6].Escape(Fleets[x/6].Ships[x%6].Id));
+			foreach (int x in this.escapingShips)
+			{
+				Fleets[x / 6 + 1].Escape(Fleets[x / 6 + 1].Ships[x % 6].Id);
+            }
 		}
-    }
+	}
 }

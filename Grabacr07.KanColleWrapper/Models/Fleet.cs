@@ -495,7 +495,10 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public void Escape(int shipsIds)
 		{
-			this.escapedShip = escapedShip.Union(new int[] { shipsIds }).ToArray();
+			if (this.escapedShip == null)
+				this.escapedShip = new int[] { shipsIds };
+			else
+				this.escapedShip = escapedShip.Union(new int[] { shipsIds }).ToArray();
         }
     }
 }
