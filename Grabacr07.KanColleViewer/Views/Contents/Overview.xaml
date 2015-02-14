@@ -240,6 +240,17 @@
 														   Style="{DynamicResource EmphaticTextStyleKey}"
 														   HorizontalAlignment="Center" />
 											</Grid>
+                                            
+                                            <Grid x:Name="RetreatIndicator"
+												  Grid.Column="2"
+												  Visibility="Collapsed"
+												  Margin="8,2,8,0">
+												<Border Background="{DynamicResource FleetRepairingBrushKey}"
+														Opacity=".4" />
+												<TextBlock Text="{Binding Resources.Ship_Retreat, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+														   Style="{DynamicResource EmphaticTextStyleKey}"
+														   HorizontalAlignment="Center" />
+											</Grid>
 
 											<TextBlock Grid.Column="3">
 												<InlineUIContainer>
@@ -261,6 +272,15 @@
 													Property="Opacity"
 													Value=".2" />
 											<Setter TargetName="RepairIndicator"
+													Property="Visibility"
+													Value="Visible" />
+										</DataTrigger>
+                                        <DataTrigger Binding="{Binding Ship.IsRetreat}"
+													 Value="True">
+											<Setter TargetName="HPIndicator"
+													Property="Opacity"
+													Value=".2" />
+											<Setter TargetName="RetreatIndicator"
 													Property="Visibility"
 													Value="Visible" />
 										</DataTrigger>

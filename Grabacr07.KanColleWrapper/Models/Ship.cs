@@ -352,6 +352,28 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+		#region IsRetreat 変更通知プロパティ
+
+		private bool _IsRetreat;
+
+		/// <summary>
+		/// この艦が入渠中かどうかを示す値を取得します。
+		/// </summary>
+		public bool IsRetreat
+		{
+			get { return this._IsRetreat; }
+			internal set
+			{
+				if (this._IsRetreat != value)
+				{
+					this._IsRetreat = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		/// <summary>
 		/// この艦が出撃した海域を識別する整数値を取得します。
 		/// </summary>

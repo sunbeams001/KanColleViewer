@@ -1139,4 +1139,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StartContent_Introduction4" xml:space="preserve">
     <value>This program is updated often. Please check below for updates.</value>
   </data>
+  <data name="Ship_Retreat" xml:space="preserve">
+    <value>Retreat</value>
+  </data>
 </root>

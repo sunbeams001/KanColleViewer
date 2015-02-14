@@ -1923,6 +1923,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 退避.
+        /// </summary>
+        public static string Ship_Retreat {
+            get {
+                return ResourceManager.GetString("Ship_Retreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to すべて.
         /// </summary>
         public static string ShipCatalog_All {

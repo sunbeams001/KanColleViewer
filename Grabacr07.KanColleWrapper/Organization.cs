@@ -409,7 +409,7 @@ namespace Grabacr07.KanColleWrapper
 
 			try
 			{
-				this.escapingShips = new int[2] {
+				this.escapingShips = new int[] {
 					source.api_escape.api_escape_idx[0] - 1,
 					source.api_escape.api_tow_idx[0] - 1
 				};
@@ -424,7 +424,7 @@ namespace Grabacr07.KanColleWrapper
 		{
 			foreach (int x in this.escapingShips)
 			{
-				Fleets[x / 6 + 1].Escape(Fleets[x / 6 + 1].Ships[x % 6].Id);
+				Fleets[x / 6 + 1].Ships[x % 6].IsRetreat = true;
             }
 		}
 	}

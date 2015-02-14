@@ -1071,4 +1071,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_ShipType_Submarines" xml:space="preserve">
     <value>潜水艦</value>
   </data>
+  <data name="Ship_Retreat" xml:space="preserve">
+    <value>退避</value>
+  </data>
 </root>
