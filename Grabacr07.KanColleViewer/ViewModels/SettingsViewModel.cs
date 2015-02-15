@@ -965,7 +965,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 					if (value)
 					{
 						Settings.Current.KanColleClientSettings.ViewRangeCalcType = this.Logic.Id;
-						foreach (var f in KanColleClient.Current.Homeport.Organization.Fleets) f.Value.Calculate();
+						if (KanColleClient.Current.Homeport != null)
+							foreach (var f in KanColleClient.Current.Homeport.Organization.Fleets) f.Value.Calculate();
 					}
 				}
 			}
