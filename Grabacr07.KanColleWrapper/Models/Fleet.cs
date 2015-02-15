@@ -472,7 +472,19 @@ namespace Grabacr07.KanColleWrapper.Models
 		private void UpdateShips(Ship[] ships)
 		{
 			this.originalShips = ships;
-			this.Ships = ships.Where(x => x != null).ToArray();
+			if (this.Ships != null && this.isInSortie)
+			{
+				int[] RetreatedShip = this.Ships.Where(x => x.IsRetreat).Select(x => x.Id).ToArray();
+				this.Ships = ships.Where(x => x != null).Select(x =>
+				{
+					if (RetreatedShip.Where(id => id == x.Id).Any()) x.IsRetreat = true;
+					return x;
+				}).ToArray();
+			}
+			else
+			{
+				this.Ships = ships.Where(x => x != null).ToArray();
+			}
 
 			this.Calculate();
 			this.UpdateStatus();
