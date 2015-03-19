@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment Version="1.0.16">
+<Equipment Version="1.0.17">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -515,5 +515,9 @@
   <Item>
     <JP-Name>25mm三連装機銃 集中配備</JP-Name>
     <TR-Name>25mm Triple Autocannon Mount (Concentrated Deployment)</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>零式水中聴音機</JP-Name>
+    <TR-Name>Type 0 Passive Sonar</TR-Name>
   </Item>
 </Equipment>
