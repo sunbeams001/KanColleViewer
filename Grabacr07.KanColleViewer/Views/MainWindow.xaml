@@ -123,7 +123,7 @@
             </ContentControl.Resources>
         </ContentControl>
 
-        <DockPanel Grid.Row="2">
+        <DockPanel Grid.Row="2" Background="Black">
             <Grid Style="{DynamicResource DockOrientation}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
