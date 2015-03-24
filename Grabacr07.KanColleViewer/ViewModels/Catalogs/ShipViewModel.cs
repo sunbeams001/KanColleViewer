@@ -12,13 +12,13 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		public int Index { get; private set; }
 		public Ship Ship { get; private set; }
-		public List<SlotItemViewModel> SlotItems { get; private set; }
+        public List<SlotItemViewModel> SlotItems { get; private set; }
 
 		public ShipViewModel(int index, Ship ship)
 		{
 			this.Index = index;
 			this.Ship = ship;
-			this.SlotItems = ship.EquippedSlots.Select(i => new SlotItemViewModel { SlotItem = i.Item.Info, Level = i.Item.Level }).ToList();
+            this.SlotItems = ship.EquippedSlots.Select(i => new SlotItemViewModel { SlotItem = i.Item.Info, Level = i.Item.Level }).ToList();
 		}
 	}
 }

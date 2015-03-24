@@ -23,7 +23,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.8";
+		private static readonly string CurrentSettingsVersion = "1.9";
 
 		public static Settings Current { get; set; }
 
@@ -54,8 +54,6 @@ namespace Grabacr07.KanColleViewer.Models
 				EnableLogging = false,
 				EnableTranslations = true,
 				EnableAddUntranslated = true,
-				EnableCriticalNotify = true,
-				EnableCriticalAccent = true,
 				EnableUpdateNotification = true,
 				EnableUpdateTransOnStart = true,
 				ShipCatalog_SaveFilters = false,
@@ -67,7 +65,8 @@ namespace Grabacr07.KanColleViewer.Models
 				ShipCatalog_ShowMoreStats = true,
 				NotifyBuildingCompleted = true,
 				NotifyRepairingCompleted = true,
-				NotifyExpeditionReturned = true,
+                NotifyExpeditionReturned = true,
+                NotifyCritical = true,
 				FlashQuality = "High",
 				FlashWindow = "Opaque",
 				CustomSoundVolume = 50,
@@ -454,18 +453,18 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 		#endregion
 
-		#region EnableCriticalNotify 変更通知プロパティ
+        #region NotifyCritical 変更通知プロパティ
 
-		private bool _EnableCriticalNotify;
+        private bool _NotifyCritical;
 
-		public bool EnableCriticalNotify
+        public bool NotifyCritical
 		{
-			get { return this._EnableCriticalNotify; }
+            get { return this._NotifyCritical; }
 			set
 			{
-				if (this._EnableCriticalNotify != value)
+                if (this._NotifyCritical != value)
 				{
-					this._EnableCriticalNotify = value;
+                    this._NotifyCritical = value;
 					this.RaisePropertyChanged();
 				}
 			}

@@ -242,43 +242,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 		#endregion
-
-        #region EnableCriticalNotify 変更通知プロパティ
-
-        public bool EnableCriticalNotify
-        {
-            get { return Settings.Current.EnableCriticalNotify; }
-            set
-            {
-                if (Settings.Current.EnableCriticalNotify != value)
-                {
-                    Settings.Current.EnableCriticalNotify = value;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
-
-        #endregion
-
-        #region EnableCriticalAccent 変更通知プロパティ
-
-        public bool EnableCriticalAccent
-        {
-            get { return Settings.Current.EnableCriticalAccent; }
-            set
-            {
-                if (Settings.Current.EnableCriticalAccent != value)
-                {
-                    Settings.Current.EnableCriticalAccent = value;
-                    if (!Settings.Current.EnableCriticalAccent && App.ViewModelRoot.Mode == Mode.CriticalCondition)
-                        App.ViewModelRoot.Mode = Mode.Started;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
-
-        #endregion
-
+        
 		#region EnableLogging 変更通知プロパティ
 
 		public bool EnableLogging
@@ -965,8 +929,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 					if (value)
 					{
 						Settings.Current.KanColleClientSettings.ViewRangeCalcType = this.Logic.Id;
-						if (KanColleClient.Current.Homeport != null)
-							foreach (var f in KanColleClient.Current.Homeport.Organization.Fleets) f.Value.Calculate();
 					}
 				}
 			}

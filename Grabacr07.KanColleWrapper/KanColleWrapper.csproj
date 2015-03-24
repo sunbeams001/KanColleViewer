@@ -98,8 +98,15 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="Counter.cs" />
+    <Compile Include="DisposableNotifier.cs" />
     <Compile Include="Dockyard.cs" />
     <Compile Include="Models\DroppedShip.cs" />
+    <Compile Include="Models\CombinedFleet.cs" />
+    <Compile Include="Models\FleetSpeed.cs" />
+    <Compile Include="Models\FleetState.cs" />
+    <Compile Include="Models\HeavilyDamagedEventArgs.cs" />
+    <Compile Include="Models\MapArea.cs" />
+    <Compile Include="Models\MapInfo.cs" />
     <Compile Include="Models\Mission.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Itemyard.cs" />
@@ -108,6 +115,8 @@
     <Compile Include="Models\ConditionRejuvenatedEventArgs.cs" />
     <Compile Include="Models\CreatedSlotItem.cs" />
     <Compile Include="Models\FleetCondition.cs" />
+    <Compile Include="Models\Raw\kcsapi_mst_maparea.cs" />
+    <Compile Include="Models\Raw\kcsapi_mst_mapinfo.cs" />
     <Compile Include="Models\Raw\kcsapi_remodel_slot.cs" />
     <Compile Include="Models\Raw\kcsapi_hensei_combined.cs" />
     <Compile Include="Models\Raw\kcsapi_combined_battle_battleresult.cs" />
@@ -123,6 +132,8 @@
     <Compile Include="Models\Raw\kcsapi_powerup.cs" />
     <Compile Include="Models\Raw\kcsapi_remodel_slotlist.cs" />
     <Compile Include="Models\Raw\kcsapi_remodel_slotlist_detail.cs" />
+    <Compile Include="Models\ShipSituation.cs" />
+    <Compile Include="Models\ShipSlot.cs" />
     <Compile Include="Models\SlotItemType.cs" />
     <Compile Include="Models\ViewRange.cs" />
     <Compile Include="Organization.cs" />
@@ -134,7 +145,7 @@
     <Compile Include="Logger.cs" />
     <Compile Include="MemberTable.cs" />
     <Compile Include="Models\ExpeditionReturnedEventArgs.cs" />
-    <Compile Include="Models\FleetState.cs" />
+    <Compile Include="Models\FleetSituation.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\QuestCategory.cs" />
     <Compile Include="Models\QuestProgress.cs" />
@@ -177,7 +188,7 @@
     <Compile Include="Models\ShipType.cs" />
     <Compile Include="Models\ShipTypeId.cs" />
     <Compile Include="Models\SlotItemIconType.cs" />
-    <Compile Include="Models\Speed.cs" />
+    <Compile Include="Models\ShipSpeed.cs" />
     <Compile Include="Models\ModernizableStatus.cs" />
     <Compile Include="Models\TranslationType.cs" />
     <Compile Include="Models\UseItemInfo.cs" />

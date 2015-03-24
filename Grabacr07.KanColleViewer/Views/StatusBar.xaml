@@ -48,18 +48,18 @@
 
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Level, StringFormat='{}{0} '}" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Total, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding TotalLevel}"
+                        <TextBlock Text="{Binding State.TotalLevel}"
 								   MinWidth="35" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Average, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding AverageLevel}"
+                        <TextBlock Text="{Binding State.AverageLevel}"
 								   MinWidth="75" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_ViewRange, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding TotalViewRange}"
+                        <TextBlock Text="{Binding State.ViewRange}"
 								   MinWidth="60" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_AirSuperiorityPotential, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding AirSuperiorityPotential}"
+                        <TextBlock Text="{Binding State.AirSuperiorityPotential}"
 								   MinWidth="60" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding Speed}"
+                        <TextBlock Text="{Binding State.Speed}"
 								   MinWidth="60" Style="{DynamicResource DefaultTextStyleKey}" />
 					</StackPanel>
 				</DataTemplate>
@@ -81,18 +81,18 @@
 
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Level, StringFormat='{}{0} '}" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Total, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding TotalLevel}"
+						<TextBlock Text="{Binding State.TotalLevel}"
 								   MinWidth="35" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_Average, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding AverageLevel}"
+						<TextBlock Text="{Binding State.AverageLevel}"
 								   MinWidth="75" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_ViewRange, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding TotalViewRange}"
+						<TextBlock Text="{Binding State.ViewRange}"
 								   MinWidth="60" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_AirSuperiorityPotential, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding AirSuperiorityPotential}"
+						<TextBlock Text="{Binding State.AirSuperiorityPotential}"
 								   MinWidth="60" Style="{DynamicResource DefaultTextStyleKey}" />
-						<TextBlock Text="{Binding Speed}"
+						<TextBlock Text="{Binding State.Speed}"
 								   MinWidth="60" Style="{DynamicResource DefaultTextStyleKey}" />
 					</StackPanel>
 				</DataTemplate>

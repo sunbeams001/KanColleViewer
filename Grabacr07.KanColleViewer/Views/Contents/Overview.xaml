@@ -22,6 +22,8 @@
              MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
     <UserControl.Resources>
         <ResourceDictionary>
+			<converters:HasFlagConverter x:Key="HasFlagConverter" />
+			
             <Style TargetType="{x:Type Border}">
                 <Setter Property="BorderBrush"
 						Value="{DynamicResource BorderBrushKey}" />
@@ -241,13 +243,13 @@
 														   HorizontalAlignment="Center" />
 											</Grid>
                                             
-                                            <Grid x:Name="RetreatIndicator"
+											<Grid x:Name="EvacuationIndicator"
 												  Grid.Column="2"
 												  Visibility="Collapsed"
 												  Margin="8,2,8,0">
 												<Border Background="{DynamicResource FleetRepairingBrushKey}"
 														Opacity=".4" />
-												<TextBlock Text="{Binding Resources.Ship_Retreat, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+												<TextBlock Text="退避済"
 														   Style="{DynamicResource EmphaticTextStyleKey}"
 														   HorizontalAlignment="Center" />
 											</Grid>
@@ -266,7 +268,7 @@
 									</StackPanel>
 
 									<DataTemplate.Triggers>
-										<DataTrigger Binding="{Binding Ship.IsInRepairing}"
+										<DataTrigger Binding="{Binding Ship.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Repair}"
 													 Value="True">
 											<Setter TargetName="HPIndicator"
 													Property="Opacity"
@@ -275,12 +277,12 @@
 													Property="Visibility"
 													Value="Visible" />
 										</DataTrigger>
-                                        <DataTrigger Binding="{Binding Ship.IsRetreat}"
+										<DataTrigger Binding="{Binding Ship.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Tow|Evacuation}"
 													 Value="True">
 											<Setter TargetName="HPIndicator"
 													Property="Opacity"
 													Value=".2" />
-											<Setter TargetName="RetreatIndicator"
+											<Setter TargetName="EvacuationIndicator"
 													Property="Visibility"
 													Value="Visible" />
 										</DataTrigger>

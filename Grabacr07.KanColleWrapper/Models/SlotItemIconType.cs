@@ -165,9 +165,9 @@ namespace Grabacr07.KanColleWrapper.Models
         /// </summary>
         RocketLauncher = 31,
 
-        /// <summary>
-        /// 見張。
-        /// </summary>
-        Lookout = 32,
+		/// <summary>
+		/// 水上艦要員。
+		/// </summary>
+		SurfaceShipPersonnel = 32,
     }
 }

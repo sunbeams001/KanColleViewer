@@ -49,9 +49,9 @@ namespace Grabacr07.KanColleViewer.Models
 
 			client.Homeport.Organization.PropertyChanged += (sender, args) =>
 			{
-				if (args.PropertyName == "Fleets") UpdateExpedition(client.Homeport.Organization);
+				if (args.PropertyName == "Fleets") UpdateFleets(client.Homeport.Organization);
 			};
-			UpdateExpedition(client.Homeport.Organization);
+			UpdateFleets(client.Homeport.Organization);
 		}
 
 		private static void UpdateRepairyard(Repairyard repairyard)
@@ -94,7 +94,7 @@ namespace Grabacr07.KanColleViewer.Models
 			}
 		}
 
-		private static void UpdateExpedition(Organization organization)
+		private static void UpdateFleets(Organization organization)
 		{
 			foreach (var fleet in organization.Fleets.Values)
 			{
@@ -110,7 +110,7 @@ namespace Grabacr07.KanColleViewer.Models
 					}
 				};
 
-				fleet.Condition.Rejuvenated += (sender, args) =>
+				fleet.State.Condition.Rejuvenated += (sender, args) =>
 				{
 					if (Settings.Current.NotifyFleetRejuvenated)
 					{
@@ -121,6 +121,18 @@ namespace Grabacr07.KanColleViewer.Models
 							() => App.ViewModelRoot.Activate());
 					}
 				};
+
+                fleet.State.HeavilyDamaged += (sender, args) =>
+                    {
+                        if (Settings.Current.NotifyCritical)
+                        {
+                            PluginHost.Instance.GetNotifier().Show(
+                                NotifyType.Wounded,
+                                Resources.Notifications_CriticalCondition_Title,
+                                string.Format(Resources.Notifications_CriticalCondition, args.FleetName),
+                                () => App.ViewModelRoot.Activate());
+                        }
+                    };
 			}
 		}
 	}

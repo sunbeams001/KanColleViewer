@@ -120,15 +120,18 @@ namespace Grabacr07.KanColleWrapper
 		}
 
 		internal void RemoveFromRemodel(kcsapi_remodel_slot source)
-		{
+		{            
 			if (source.api_use_slot_id != null)
 			{
 				foreach (var id in source.api_use_slot_id)
 				{
 					this.SlotItems.Remove(id);
 				}
-				this.RaiseSlotItemsChanged();
 			}
+
+            this.SlotItems.Remove(source.api_after_slot.api_id);
+            this.SlotItems.Add(new SlotItem(source.api_after_slot));
+            this.RaiseSlotItemsChanged();
 		}
 
 		private void CreateItem(kcsapi_createitem source)

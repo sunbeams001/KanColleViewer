@@ -91,8 +91,8 @@ namespace Grabacr07.KanColleWrapper.Models
 				{
 					var oldShip = this.target;
 					var newShip = value;
-					if (oldShip != null) oldShip.IsInRepairing = false;
-					if (newShip != null) newShip.IsInRepairing = true;
+					if (oldShip != null) oldShip.Situation &= ~ShipSituation.Repair;
+					if (newShip != null) newShip.Situation |= ShipSituation.Repair;
 
 					this.target = value;
 					this.RaisePropertyChanged();
@@ -166,11 +166,11 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.State = (RepairingDockState)rawData.api_state;
 			this.ShipId = rawData.api_ship_id;
 			this.Ship = this.State == RepairingDockState.Repairing ? this.homeport.Organization.Ships[this.ShipId] : null;
-			if (this.State == RepairingDockState.Repairing)
-			{
-				var fleet = this.homeport.Organization.GetFleet(this.ShipId);
-				if (fleet != null) fleet.UpdateStatus();
-			}
+            if (this.State == RepairingDockState.Repairing)
+            {
+                var fleet = this.homeport.Organization.GetFleet(this.ShipId);
+                if (fleet != null) fleet.State.Update();
+            }
 			this.CompleteTime = this.State == RepairingDockState.Repairing
 				? (DateTimeOffset?)Definitions.UnixEpoch.AddMilliseconds(rawData.api_complete_time)
 				: null;
