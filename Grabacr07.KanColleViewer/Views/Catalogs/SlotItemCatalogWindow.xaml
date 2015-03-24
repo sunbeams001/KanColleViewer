@@ -165,7 +165,7 @@
                             
 							<GridViewColumn Width="52">
 								<GridViewColumn.Header>
-									<TextBlock Text="合計" />
+                                    <TextBlock Text="{Binding Resources.SlotItemCatalog_Total, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 								</GridViewColumn.Header>
 								<GridViewColumn.CellTemplate>
 									<DataTemplate DataType="{x:Type viewModels:SlotItemCounter}">
@@ -182,9 +182,9 @@
 										<Border Width="52"
 												BorderThickness="0,0,1,0"
 												BorderBrush="{DynamicResource BorderBrushKey}">
-											<TextBlock Text="改修" />
+                                            <TextBlock Text="{Binding Resources.SlotItemCatalog_Improvement, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 										</Border>
-										<Border Width="82"
+										<Border Width="86"
 												BorderThickness="0,0,1,0"
 												BorderBrush="{DynamicResource BorderBrushKey}">
 											<TextBlock>

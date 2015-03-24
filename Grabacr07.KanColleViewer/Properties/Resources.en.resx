@@ -1142,4 +1142,124 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Ship_Retreat" xml:space="preserve">
     <value>Retreat</value>
   </data>
+  <data name="FleetDetail_AirSuperiorityPotential" xml:space="preserve">
+    <value>Air Superiority</value>
+  </data>
+  <data name="FleetDetail_AverageLevel" xml:space="preserve">
+    <value>Average Level</value>
+  </data>
+  <data name="FleetDetail_LoSValue" xml:space="preserve">
+    <value>LOS</value>
+  </data>
+  <data name="FleetDetail_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="FleetDetail_Title" xml:space="preserve">
+    <value>Fleet Details</value>
+  </data>
+  <data name="FleetDetail_TotalLevel" xml:space="preserve">
+    <value>Total Level</value>
+  </data>
+  <data name="Fleets_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Fleets_Speed_Mixed" xml:space="preserve">
+    <value>Mixed Speed Fleet</value>
+  </data>
+  <data name="ShipCatalog_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ShipCatalog_Condition" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="ShipCatalog_ExpForNextLevel" xml:space="preserve">
+    <value>Exp for next level</value>
+  </data>
+  <data name="ShipCatalog_HP" xml:space="preserve">
+    <value>HP</value>
+  </data>
+  <data name="ShipCatalog_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="ShipCatalog_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ShipCatalog_SortSettings" xml:space="preserve">
+    <value>Sorting options</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Ascending" xml:space="preserve">
+    <value>ASC</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Descending" xml:space="preserve">
+    <value>DESC</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Description" xml:space="preserve">
+    <value>Arrange the ship in the following orders.</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_SortCriteria" xml:space="preserve">
+    <value>Sort criteria</value>
+  </data>
+  <data name="Ship_Healthy" xml:space="preserve">
+    <value>Healthy</value>
+  </data>
+  <data name="Ship_HealthyDamageControlled" xml:space="preserve">
+    <value>Healthy (has damcon)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged" xml:space="preserve">
+    <value>Heavily damaged (may sink)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged_CanUseDamcon" xml:space="preserve">
+    <value>Heavily damaged (can use damcon)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged_Retreated" xml:space="preserve">
+    <value>Heavily damaged (Retreated)</value>
+  </data>
+  <data name="Ship_Retreated" xml:space="preserve">
+    <value>Retreated (Escort)</value>
+  </data>
+  <data name="SlotItemCatalog_Improvement" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="SlotItemCatalog_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="StateDetail_Fatigued" xml:space="preserve">
+    <value>Morale will be restored in</value>
+  </data>
+  <data name="StateDetail_HeavilyDamaged" xml:space="preserve">
+    <value>Fleet has heavily damaged ship</value>
+  </data>
+  <data name="StateDetail_NotFatigued" xml:space="preserve">
+    <value>There aren't ship in fleet that is fatigued</value>
+  </data>
+  <data name="StateDetail_NotHeavilyDamaged" xml:space="preserve">
+    <value>Fleet don't has heavily damaged ship</value>
+  </data>
+  <data name="StateDetail_NotOnExpedition" xml:space="preserve">
+    <value>Fleet is not on expedition</value>
+  </data>
+  <data name="StateDetail_NotOnShortSupply" xml:space="preserve">
+    <value>There aren't ship in fleet that need resupplying</value>
+  </data>
+  <data name="StateDetail_NotOnSortie" xml:space="preserve">
+    <value>Fleet is not on sortie</value>
+  </data>
+  <data name="StateDetail_NotReady" xml:space="preserve">
+    <value>Fleet is not ready</value>
+  </data>
+  <data name="StateDetail_NotReparing" xml:space="preserve">
+    <value>There aren't ship in fleet that is reparing</value>
+  </data>
+  <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
+    <value>Fleet is on expedition</value>
+  </data>
+  <data name="StateDetail_OnShortSupply" xml:space="preserve">
+    <value>There are ships in fleet that need resupplying</value>
+  </data>
+  <data name="StateDetail_Ready" xml:space="preserve">
+    <value>Fleet is ready to sortie!</value>
+  </data>
+  <data name="StateDetail_Reparing" xml:space="preserve">
+    <value>There are ship in fleet that is reparing</value>
+  </data>
 </root>

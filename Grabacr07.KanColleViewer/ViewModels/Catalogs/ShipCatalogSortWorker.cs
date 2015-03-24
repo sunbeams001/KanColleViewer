@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
+using Grabacr07.KanColleViewer.Properties;
 using Livet;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
@@ -13,20 +14,20 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
         #region static members
 
         private const int selectorNum = 4;
-        public static readonly SortableColumn NoneColumn = new SortableColumn { Name = "なし", KeySelector = null };
+        public static readonly SortableColumn NoneColumn = new SortableColumn { Name = Resources.ShipCatalog_None, KeySelector = null };
         public static readonly SortableColumn IdColumn = new SortableColumn { Name = "ID", KeySelector = x => x.Id, };
-        public static readonly SortableColumn StypeColumn = new SortableColumn { Name = "艦種", KeySelector = x => x.Info.ShipType.SortNumber, };
-        public static readonly SortableColumn NameColumn = new SortableColumn { Name = "艦名", KeySelector = x => x.Info.SortId, };
-        public static readonly SortableColumn LevelColumn = new SortableColumn { Name = "レベル", KeySelector = x => x.Level, DefaultIsDescending = true, };
-        public static readonly SortableColumn ExpColumn = new SortableColumn { Name = "次のレベルまでの経験値", KeySelector = x => x.ExpForNextLevel, };
-        public static readonly SortableColumn CondColumn = new SortableColumn { Name = "Condition 値", KeySelector = x => x.Condition, DefaultIsDescending = true, };
-        public static readonly SortableColumn FirepowerColumn = new SortableColumn { Name = "火力", KeySelector = x => x.Firepower.Current, DefaultIsDescending = true, };
-        public static readonly SortableColumn TorpedoColumn = new SortableColumn { Name = "雷装", KeySelector = x => x.Torpedo.Current, DefaultIsDescending = true, };
-        public static readonly SortableColumn AAColumn = new SortableColumn { Name = "対空", KeySelector = x => x.AA.Current, DefaultIsDescending = true, };
-        public static readonly SortableColumn ArmerColumn = new SortableColumn { Name = "装甲", KeySelector = x => x.Armer.Current, DefaultIsDescending = true, };
-        public static readonly SortableColumn LuckColumn = new SortableColumn { Name = "運", KeySelector = x => x.Luck.Current, DefaultIsDescending = true, };
-        public static readonly SortableColumn HPColumn = new SortableColumn { Name = "耐久", KeySelector = x => x.HP.Maximum, DefaultIsDescending = true, };
-        public static readonly SortableColumn ViewRangeColumn = new SortableColumn { Name = "索敵", KeySelector = x => x.ViewRange, DefaultIsDescending = true, };
+        public static readonly SortableColumn StypeColumn = new SortableColumn { Name = Resources.ShipCatalog_ShipType, KeySelector = x => x.Info.ShipType.SortNumber, };
+        public static readonly SortableColumn NameColumn = new SortableColumn { Name = Resources.ShipCatalog_Name, KeySelector = x => x.Info.SortId, };
+        public static readonly SortableColumn LevelColumn = new SortableColumn { Name = Resources.ShipCatalog_Level, KeySelector = x => x.Level, DefaultIsDescending = true, };
+        public static readonly SortableColumn ExpColumn = new SortableColumn { Name = Resources.ShipCatalog_ExpForNextLevel, KeySelector = x => x.ExpForNextLevel, };
+        public static readonly SortableColumn CondColumn = new SortableColumn { Name = Resources.ShipCatalog_Condition, KeySelector = x => x.Condition, DefaultIsDescending = true, };
+        public static readonly SortableColumn FirepowerColumn = new SortableColumn { Name = Resources.ShipCatalog_Firepower, KeySelector = x => x.Firepower.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn TorpedoColumn = new SortableColumn { Name = Resources.ShipCatalog_Torpedo, KeySelector = x => x.Torpedo.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn AAColumn = new SortableColumn { Name = Resources.ShipCatalog_AntiAir, KeySelector = x => x.AA.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn ArmerColumn = new SortableColumn { Name = Resources.ShipCatalog_Armor, KeySelector = x => x.Armer.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn LuckColumn = new SortableColumn { Name = Resources.ShipCatalog_Luck, KeySelector = x => x.Luck.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn HPColumn = new SortableColumn { Name = Resources.ShipCatalog_HP, KeySelector = x => x.HP.Maximum, DefaultIsDescending = true, };
+        public static readonly SortableColumn ViewRangeColumn = new SortableColumn { Name = Resources.ShipCatalog_LoS, KeySelector = x => x.ViewRange, DefaultIsDescending = true, };
 
         public static SortableColumn[] Columns { get; set; }
 

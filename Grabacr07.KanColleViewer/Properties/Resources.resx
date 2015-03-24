@@ -1072,6 +1072,126 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>潜水艦</value>
   </data>
   <data name="Ship_Retreat" xml:space="preserve">
-    <value>退避</value>
+    <value>退避済</value>
+  </data>
+  <data name="ShipCatalog_Clear" xml:space="preserve">
+    <value>クリア</value>
+  </data>
+  <data name="ShipCatalog_Condition" xml:space="preserve">
+    <value>Condition 値</value>
+  </data>
+  <data name="ShipCatalog_ExpForNextLevel" xml:space="preserve">
+    <value>次のレベルまでの経験値</value>
+  </data>
+  <data name="ShipCatalog_HP" xml:space="preserve">
+    <value>耐久</value>
+  </data>
+  <data name="ShipCatalog_None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="ShipCatalog_Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="ShipCatalog_SortSettings" xml:space="preserve">
+    <value>並べ替え設定</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Ascending" xml:space="preserve">
+    <value>昇順</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Descending" xml:space="preserve">
+    <value>降順</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Description" xml:space="preserve">
+    <value>艦娘を以下の順序で並べ替えます。</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_SortCriteria" xml:space="preserve">
+    <value>並べ替え方法</value>
+  </data>
+  <data name="SlotItemCatalog_Improvement" xml:space="preserve">
+    <value>改修</value>
+  </data>
+  <data name="SlotItemCatalog_Total" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="FleetDetail_AirSuperiorityPotential" xml:space="preserve">
+    <value>制空戦力</value>
+  </data>
+  <data name="FleetDetail_AverageLevel" xml:space="preserve">
+    <value>平均レベル</value>
+  </data>
+  <data name="FleetDetail_LoSValue" xml:space="preserve">
+    <value>索敵値</value>
+  </data>
+  <data name="FleetDetail_Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="FleetDetail_Title" xml:space="preserve">
+    <value>艦隊詳細</value>
+  </data>
+  <data name="FleetDetail_TotalLevel" xml:space="preserve">
+    <value>合計レベル</value>
+  </data>
+  <data name="Fleets_Details" xml:space="preserve">
+    <value>艦隊詳細</value>
+  </data>
+  <data name="Fleets_Speed_Mixed" xml:space="preserve">
+    <value>速度混成艦隊</value>
+  </data>
+  <data name="Ship_Healthy" xml:space="preserve">
+    <value>健在</value>
+  </data>
+  <data name="Ship_HealthyDamageControlled" xml:space="preserve">
+    <value>健在・ダメコン搭載</value>
+  </data>
+  <data name="Ship_HeavilyDamaged" xml:space="preserve">
+    <value>大破 (轟沈の可能性あり)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged_CanUseDamcon" xml:space="preserve">
+    <value>大破 (ダメコン使用可能)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged_Retreated" xml:space="preserve">
+    <value>大破 (退避済み)</value>
+  </data>
+  <data name="Ship_Retreated" xml:space="preserve">
+    <value>撤退 (護衛退避)</value>
+  </data>
+  <data name="StateDetail_Fatigued" xml:space="preserve">
+    <value>疲労回復まで</value>
+  </data>
+  <data name="StateDetail_HeavilyDamaged" xml:space="preserve">
+    <value>艦隊に大破した艦娘がいます</value>
+  </data>
+  <data name="StateDetail_NotFatigued" xml:space="preserve">
+    <value>艦隊の艦娘は疲労していません</value>
+  </data>
+  <data name="StateDetail_NotHeavilyDamaged" xml:space="preserve">
+    <value>艦隊の艦娘に大きなダメージはありません</value>
+  </data>
+  <data name="StateDetail_NotOnExpedition" xml:space="preserve">
+    <value>艦隊は遠征中ではありません</value>
+  </data>
+  <data name="StateDetail_NotOnShortSupply" xml:space="preserve">
+    <value>艦隊は補給済みです</value>
+  </data>
+  <data name="StateDetail_NotOnSortie" xml:space="preserve">
+    <value>艦隊は出撃していません</value>
+  </data>
+  <data name="StateDetail_NotReady" xml:space="preserve">
+    <value>艦隊の出撃準備は完了していません</value>
+  </data>
+  <data name="StateDetail_NotReparing" xml:space="preserve">
+    <value>艦隊の艦娘は入渠していません</value>
+  </data>
+  <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
+    <value>艦隊は遠征中です</value>
+  </data>
+  <data name="StateDetail_OnShortSupply" xml:space="preserve">
+    <value>艦隊に未補給の艦娘がいます</value>
+  </data>
+  <data name="StateDetail_Ready" xml:space="preserve">
+    <value>出撃準備完了！</value>
+  </data>
+  <data name="StateDetail_Reparing" xml:space="preserve">
+    <value>艦隊に入渠中の艦娘がいます</value>
   </data>
 </root>

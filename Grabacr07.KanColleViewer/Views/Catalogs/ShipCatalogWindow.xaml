@@ -494,7 +494,7 @@
 					  Margin="8,0"
 					  IsExpanded="{Binding IsOpenSortSettings, Mode=TwoWay}">
                 <Expander.Header>
-                    <TextBlock Text="並べ替え設定"
+                    <TextBlock Text="{Binding Resources.ShipCatalog_SortSettings, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 							   Style="{DynamicResource HeaderTextStyleKey}"
 							   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
                 </Expander.Header>
@@ -506,19 +506,19 @@
                     <DockPanel LastChildFill="False">
                         <metro2:CallMethodButton DockPanel.Dock="Right"
 												 MethodName="Update"
-												 Content="更新"
+												 Content="{Binding Resources.ShipCatalog_Refresh, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 												 Margin="8,3,3,3"
 												 Padding="12,4" />
 
                         <metro2:CallMethodButton DockPanel.Dock="Right"
 												 MethodTarget="{Binding SortWorker}"
 												 MethodName="Clear"
-												 Content="クリア"
+												 Content="{Binding Resources.ShipCatalog_Clear, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 												 Margin="8,3,0,3"
 												 Padding="12,4" />
 
                         <TextBlock DockPanel.Dock="Top"
-								   Text="艦娘を以下の順序で並べ替えます。"
+								   Text="{Binding Resources.ShipCatalog_SortSettings_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   Margin="3,2,0,8" />
 
@@ -550,7 +550,7 @@
                                         <metro:PromptComboBox DockPanel.Dock="Bottom"
 															  ItemsSource="{Binding SelectableColumns}"
 															  SelectedItem="{Binding Current, Mode=TwoWay}"
-															  Prompt="並べ替え方法"
+															  Prompt="{Binding Resources.ShipCatalog_SortSettings_SortCriteria, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 															  Width="120"
 															  Margin="1,4,0,0">
                                             <metro:PromptComboBox.ItemsPanel>
@@ -566,10 +566,10 @@
                                             </metro:PromptComboBox.ItemTemplate>
                                         </metro:PromptComboBox>
                                         <RadioButton DockPanel.Dock="Left"
-													 Content="昇順"
+													 Content="{Binding Resources.ShipCatalog_SortSettings_Ascending, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 													 IsChecked="{Binding IsAscending, Mode=TwoWay}" />
                                         <RadioButton DockPanel.Dock="Left"
-													 Content="降順"
+													 Content="{Binding Resources.ShipCatalog_SortSettings_Descending, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 													 IsChecked="{Binding IsDescending, Mode=OneWay}"
 													 Margin="12,0,0,0" />
                                     </DockPanel>
@@ -970,7 +970,7 @@
 					Margin="8"
 					Padding="20"
 					Visibility="{Binding IsReloading, Converter={StaticResource BooleanToVisibilityConverter}}">
-                <TextBlock Text="一覧を生成しています..."
+                <TextBlock Text="{Binding Resources.CommonCatalog_GeneratingList, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   FontSize="16"
 						   Background="{DynamicResource ThemeBrushKey}"
