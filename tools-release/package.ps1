@@ -4,7 +4,7 @@
     {
         $ErrorActionPreference = 'stop'
  
-        $target = 'Release'
+        $target = 'Release (beta)'
         $result = 'KanColleViewer'
         $bin = '..\Grabacr07.KanColleViewer\bin\'
  
