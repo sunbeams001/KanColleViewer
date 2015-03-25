@@ -28,6 +28,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
         public static readonly SortableColumn LuckColumn = new SortableColumn { Name = Resources.ShipCatalog_Luck, KeySelector = x => x.Luck.Current, DefaultIsDescending = true, };
         public static readonly SortableColumn HPColumn = new SortableColumn { Name = Resources.ShipCatalog_HP, KeySelector = x => x.HP.Maximum, DefaultIsDescending = true, };
         public static readonly SortableColumn ViewRangeColumn = new SortableColumn { Name = Resources.ShipCatalog_LoS, KeySelector = x => x.ViewRange, DefaultIsDescending = true, };
+        public static readonly SortableColumn EvasionColumn = new SortableColumn { Name = Resources.ShipCatalog_Evasion, KeySelector = x => x.Evasion.Current, DefaultIsDescending = true, };
+        public static readonly SortableColumn AntiSubColumn = new SortableColumn { Name = Resources.ShipCatalog_AntiSub, KeySelector = x => x.AntiSub.Current, DefaultIsDescending = true, };
 
         public static SortableColumn[] Columns { get; set; }
 
@@ -48,6 +50,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 				LuckColumn,
 				HPColumn,
 				ViewRangeColumn,
+                EvasionColumn,
+                AntiSubColumn
 			};
         }
 
@@ -101,23 +105,30 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
         {
             if (!this.Selectors.HasItems()) return;
 
-            if (column == StypeColumn)
+            if (this.Selectors[0].Current == column)
             {
-                // 列ヘッダーから艦種が選択されたときは、艦種 (降順) -> 艦名 (昇順) に設定
-                // (ゲーム内の艦種ソートと同じ動作)
-
-                this.Selectors[0].SafeUpdate(StypeColumn);
-                this.Selectors[0].SafeUpdate(false);
-                if (this.Selectors.Length >= 2)
-                {
-                    this.Selectors[1].SafeUpdate(NameColumn);
-                    this.Selectors[1].SafeUpdate(true);
-                }
+                this.Selectors[0].SafeUpdate(this.Selectors[0].IsDescending);
             }
             else
             {
-                this.Selectors[0].SafeUpdate(column);
-                this.Selectors[0].SafeUpdate(!column.DefaultIsDescending);
+                if (column == StypeColumn)
+                {
+                    // 列ヘッダーから艦種が選択されたときは、艦種 (降順) -> 艦名 (昇順) に設定
+                    // (ゲーム内の艦種ソートと同じ動作)
+
+                    this.Selectors[0].SafeUpdate(StypeColumn);
+                    this.Selectors[0].SafeUpdate(false);
+                    if (this.Selectors.Length >= 2)
+                    {
+                        this.Selectors[1].SafeUpdate(NameColumn);
+                        this.Selectors[1].SafeUpdate(true);
+                    }
+                }
+                else
+                {
+                    this.Selectors[0].SafeUpdate(column);
+                    this.Selectors[0].SafeUpdate(!column.DefaultIsDescending);
+                }
             }
 
             this.UpdateSelectors();
