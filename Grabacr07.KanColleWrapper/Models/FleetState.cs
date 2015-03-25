@@ -19,6 +19,8 @@ namespace Grabacr07.KanColleWrapper.Models
 		/// </summary>
 		public FleetCondition Condition { get; private set; }
 
+        public FleetDock Dock { get; private set; }
+
 		#region AverageLevel 変更通知プロパティ
 
 		private double _AverageLevel;
@@ -194,7 +196,9 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.source = fleets ?? new Fleet[0];
 
 			this.Condition = new FleetCondition();
+            this.Dock = new FleetDock();
 			this.CompositeDisposable.Add(this.Condition);
+            this.CompositeDisposable.Add(this.Dock);
 			this.CompositeDisposable.Add(new PropertyChangedWeakEventListener(KanColleClient.Current.Settings)
 			{
 				{ "ViewRangeCalcType", (sender, args) => this.Calculate() },
@@ -276,6 +280,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			}
 
 			this.Condition.Update(ships);
+            this.Dock.Update(ships);
 			this.Condition.IsEnabled = state.HasFlag(FleetSituation.Homeport); // 疲労回復通知は母港待機中の艦隊でのみ行う
 
 			if (state.HasFlag(FleetSituation.Homeport))

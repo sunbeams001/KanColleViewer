@@ -60,9 +60,15 @@
                     <DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Homeport|Repairing}"
 								 Value="True">
                         <Setter TargetName="Text"
-								Property="Text"
-								Value="{Binding Resources.StateDetail_Repairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-					</DataTrigger>
+								Property="Text">
+                            <Setter.Value>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Resources.StateDetail_Repairing" Source="{x:Static models:ResourceService.Current}" />
+                                    <Binding Path="Repairing.Remaining" />
+                                </MultiBinding>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
 					<DataTrigger Binding="{Binding State.IsReady}"
 								 Value="True">
 						<Setter TargetName="Border"

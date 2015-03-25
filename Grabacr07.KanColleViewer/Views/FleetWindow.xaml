@@ -759,9 +759,15 @@
 														<Condition Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Repairing}"
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
-													<Setter Property="Text"
-															Value="{Binding Resources.StateDetail_Repairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-													<Setter Property="Foreground"
+                                                    <Setter Property="Text">
+                                                        <Setter.Value>
+                                                            <MultiBinding StringFormat="{}{0} - {1}">
+                                                                <Binding Path="Resources.StateDetail_Repairing" Source="{x:Static models:ResourceService.Current}" />
+                                                                <Binding Path="State.Homeport.Repairing.Remaining" />
+                                                            </MultiBinding>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="Foreground"
 															Value="{DynamicResource ActiveForegroundBrushKey}" />
 													<Setter Property="Background"
 															Value="{DynamicResource FleetRepairingBrushKey}" />

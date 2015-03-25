@@ -102,6 +102,7 @@
     <Compile Include="Dockyard.cs" />
     <Compile Include="Models\DroppedShip.cs" />
     <Compile Include="Models\CombinedFleet.cs" />
+    <Compile Include="Models\FleetDock.cs" />
     <Compile Include="Models\FleetSpeed.cs" />
     <Compile Include="Models\FleetState.cs" />
     <Compile Include="Models\HeavilyDamagedEventArgs.cs" />

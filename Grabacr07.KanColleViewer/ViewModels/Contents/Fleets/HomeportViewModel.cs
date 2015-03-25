@@ -15,12 +15,16 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents.Fleets
 		// 状況に応じた型がそれぞれ必要。これはその 1 つ。
 
 		public ConditionViewModel Condition { get; private set; }
-		
+
+        public RepairingViewModel Repairing { get; private set; }
+
 		public HomeportViewModel(FleetState state)
 			: base(state)
 		{
 			this.Condition = new ConditionViewModel(state.Condition);
+            this.Repairing = new RepairingViewModel(state.Dock);
 			this.CompositeDisposable.Add(this.Condition);
+            this.CompositeDisposable.Add(this.Repairing);
 		}
 	}
 }

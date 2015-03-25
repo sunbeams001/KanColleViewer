@@ -208,11 +208,5 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			return string.Format("ID = {0}, Name = \"{1}\", Ships = {2}", this.Id, this.Name, this.Ships.Select(s => "\"" + s.Info.Name + "\"").ToString(","));
 		}
-
-		internal void CleanEscape()
-		{
-			foreach (Ship ship in this.Ships)
-				ship.IsRetreat = false;
-		}
     }
 }
