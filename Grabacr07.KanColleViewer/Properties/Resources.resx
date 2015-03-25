@@ -841,7 +841,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>アップデートがあるかどうかチェックします</value>
   </data>
   <data name="StateDetail_Repairing" xml:space="preserve">
-    <value>艦娘入渠まで</value>
+    <value>艦隊に入渠中の艦娘がいます</value>
   </data>
   <data name="StateDetail_ShortSupply" xml:space="preserve">
     <value>艦隊に未補給の艦娘がいます。</value>
@@ -1179,7 +1179,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StateDetail_NotReady" xml:space="preserve">
     <value>艦隊の出撃準備は完了していません</value>
   </data>
-  <data name="StateDetail_NotReparing" xml:space="preserve">
+  <data name="StateDetail_NotRepairing" xml:space="preserve">
     <value>艦隊の艦娘は入渠していません</value>
   </data>
   <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
@@ -1191,7 +1191,19 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StateDetail_Ready" xml:space="preserve">
     <value>出撃準備完了！</value>
   </data>
-  <data name="StateDetail_Reparing" xml:space="preserve">
-    <value>艦隊に入渠中の艦娘がいます</value>
+  <data name="FleetDetail_DayCombat" xml:space="preserve">
+    <value>弾着観測射撃</value>
+  </data>
+  <data name="FleetDetail_NightBattleCutin" xml:space="preserve">
+    <value>夜戦カットイン</value>
+  </data>
+  <data name="Fleet_Combined" xml:space="preserve">
+    <value>連合艦隊</value>
+  </data>
+  <data name="ShipCatalog_LOS_description" xml:space="preserve">
+    <value>装備によるステータス上昇を含んだ値です</value>
+  </data>
+  <data name="StateDetail_CanNotDoExpedition" xml:space="preserve">
+    <value>連合艦隊は遠征に参加できません</value>
   </data>
 </root>

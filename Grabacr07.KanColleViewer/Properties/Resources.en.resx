@@ -900,10 +900,10 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Use menu icon</value>
   </data>
   <data name="StateDetail_Repairing" xml:space="preserve">
-    <value>There are ships in your fleet currently docked for repairs.</value>
+    <value>There are ships in fleet currently docked for repairs.</value>
   </data>
   <data name="StateDetail_ShortSupply" xml:space="preserve">
-    <value>There are ships in your fleet that need resupplying.</value>
+    <value>There are ships in fleet that need resupplying.</value>
   </data>
   <data name="Quests_Monthly" xml:space="preserve">
     <value>Monthly</value>
@@ -1233,7 +1233,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>There aren't ship in fleet that is fatigued</value>
   </data>
   <data name="StateDetail_NotHeavilyDamaged" xml:space="preserve">
-    <value>Fleet don't has heavily damaged ship</value>
+    <value>Fleet doesn't have heavily damaged ship</value>
   </data>
   <data name="StateDetail_NotOnExpedition" xml:space="preserve">
     <value>Fleet is not on expedition</value>
@@ -1247,8 +1247,8 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StateDetail_NotReady" xml:space="preserve">
     <value>Fleet is not ready</value>
   </data>
-  <data name="StateDetail_NotReparing" xml:space="preserve">
-    <value>There aren't ship in fleet that is reparing</value>
+  <data name="StateDetail_NotRepairing" xml:space="preserve">
+    <value>There aren't ship in fleet that is repairing</value>
   </data>
   <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
     <value>Fleet is on expedition</value>
@@ -1259,7 +1259,19 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StateDetail_Ready" xml:space="preserve">
     <value>Fleet is ready to sortie!</value>
   </data>
-  <data name="StateDetail_Reparing" xml:space="preserve">
-    <value>There are ship in fleet that is reparing</value>
+  <data name="FleetDetail_DayCombat" xml:space="preserve">
+    <value>Day combat</value>
+  </data>
+  <data name="FleetDetail_NightBattleCutin" xml:space="preserve">
+    <value>Night battle Cut-in</value>
+  </data>
+  <data name="Fleet_Combined" xml:space="preserve">
+    <value>Combined Fleet</value>
+  </data>
+  <data name="ShipCatalog_LOS_description" xml:space="preserve">
+    <value>LOS value is include equip's stats</value>
+  </data>
+  <data name="StateDetail_CanNotDoExpedition" xml:space="preserve">
+    <value>Combined fleet cann't do expedition</value>
   </data>
 </root>

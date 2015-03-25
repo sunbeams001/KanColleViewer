@@ -287,7 +287,7 @@
 				Padding="20"
 				Visibility="{Binding IsReloading, Converter={StaticResource BooleanToVisibilityConverter}}"
 				d:IsHidden="True">
-			<TextBlock Text="一覧を生成しています..."
+            <TextBlock Text="{Binding Resources.CommonCatalog_GeneratingList, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					   Style="{DynamicResource EmphaticTextStyleKey}"
 					   FontSize="16"
 					   Background="{DynamicResource ThemeBrushKey}"

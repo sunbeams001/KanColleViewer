@@ -832,7 +832,7 @@
                                     <metro2:SortButton MethodName="Sort"
 													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.ViewRangeColumn}">
                                         <TextBlock Text="{Binding Resources.ShipCatalog_LoS, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-												   ToolTip="装備によるステータス上昇を含んだ値です" />
+												   ToolTip="{Binding Resources.ShipCatalog_LOS_description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
                                     </metro2:SortButton>
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
