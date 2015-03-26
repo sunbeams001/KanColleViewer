@@ -1274,4 +1274,25 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StateDetail_CanNotDoExpedition" xml:space="preserve">
     <value>Combined fleet cann't do expedition</value>
   </data>
+  <data name="Settings_Browser_HorizontalPosition" xml:space="preserve">
+    <value>Horizontal mode</value>
+  </data>
+  <data name="Settings_Browser_HorizontalPosition_Description" xml:space="preserve">
+    <value>Position of browser when orientation mode is horizontal</value>
+  </data>
+  <data name="Settings_Browser_Position" xml:space="preserve">
+    <value>Browser Position</value>
+  </data>
+  <data name="Settings_Browser_VerticalPosition" xml:space="preserve">
+    <value>Vertical mode</value>
+  </data>
+  <data name="Settings_Browser_VerticalPosition_Description" xml:space="preserve">
+    <value>Position of browser when orientation mode is vertical</value>
+  </data>
+  <data name="Settings_Orientation" xml:space="preserve">
+    <value>Orientation mode</value>
+  </data>
+  <data name="FleetDetatils_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
 </root>

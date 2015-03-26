@@ -121,7 +121,7 @@
 							BorderBrush="{DynamicResource AccentBrushKey}"
 							BorderThickness="1">
 						<StackPanel Margin="8">
-							<TextBlock Text="Orientation mode" />
+                            <TextBlock Text="{Binding Resources.Settings_Orientation, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 							<Rectangle Height="1"
 									   Fill="{DynamicResource InactiveForegroundBrushKey}"
 									   Margin="0,8" />

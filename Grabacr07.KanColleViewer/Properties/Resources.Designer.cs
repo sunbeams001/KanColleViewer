@@ -466,6 +466,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ステータス.
+        /// </summary>
+        public static string FleetDetatils_Status {
+            get {
+                return ResourceManager.GetString("FleetDetatils_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 艦隊.
         /// </summary>
         public static string Fleets {
@@ -1141,6 +1150,33 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 水平モード.
+        /// </summary>
+        public static string Settings_Browser_HorizontalPosition {
+            get {
+                return ResourceManager.GetString("Settings_Browser_HorizontalPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 水平モードを利用時ゲーム画面の立場.
+        /// </summary>
+        public static string Settings_Browser_HorizontalPosition_Description {
+            get {
+                return ResourceManager.GetString("Settings_Browser_HorizontalPosition_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ゲーム画面の立場.
+        /// </summary>
+        public static string Settings_Browser_Position {
+            get {
+                return ResourceManager.GetString("Settings_Browser_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ゲーム画面を .
         /// </summary>
         public static string Settings_Browser_ResetZoom_Pre {
@@ -1164,6 +1200,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Browser_ResetZoomDescription {
             get {
                 return ResourceManager.GetString("Settings_Browser_ResetZoomDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 垂直モード.
+        /// </summary>
+        public static string Settings_Browser_VerticalPosition {
+            get {
+                return ResourceManager.GetString("Settings_Browser_VerticalPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 垂直モードを利用時ゲーム画面の立場.
+        /// </summary>
+        public static string Settings_Browser_VerticalPosition_Description {
+            get {
+                return ResourceManager.GetString("Settings_Browser_VerticalPosition_Description", resourceCulture);
             }
         }
         
@@ -1640,6 +1694,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Operation_SortieCondition_Title {
             get {
                 return ResourceManager.GetString("Settings_Operation_SortieCondition_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to オリエンテーションモード.
+        /// </summary>
+        public static string Settings_Orientation {
+            get {
+                return ResourceManager.GetString("Settings_Orientation", resourceCulture);
             }
         }
         

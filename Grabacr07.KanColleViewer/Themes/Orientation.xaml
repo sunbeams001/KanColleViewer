@@ -4,6 +4,16 @@
 					xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
 					xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
 					xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro">
+    <Style x:Key="BroswerDockOrientation">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+                <Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserVerticalPosition}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+                <Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserHorizontalPosition}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
     <Style x:Key="DockOrientation">
         <Style.Triggers>
             <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">

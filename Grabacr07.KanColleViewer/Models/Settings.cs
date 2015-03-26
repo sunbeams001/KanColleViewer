@@ -23,7 +23,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.9";
+		private static readonly string CurrentSettingsVersion = "1.10";
 
 		public static Settings Current { get; set; }
 
@@ -75,6 +75,8 @@ namespace Grabacr07.KanColleViewer.Models
 				MenuIcon = false,
 				HorizontalSize = new Point(1280,0),
 				VerticalSize = new Point(0,1000),
+                BrowserVerticalPosition = "Top",
+                BrowserHorizontalPosition = "Left",
 			};
 		}
 
@@ -1029,6 +1031,40 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 
 		#endregion
+
+        #region BrowserPosition
+
+        private string _BrowserHorizontalPosition;
+
+        public string BrowserHorizontalPosition
+        {
+            get { return this._BrowserHorizontalPosition; }
+            set
+            {
+                if (this._BrowserHorizontalPosition != value)
+                {
+                    this._BrowserHorizontalPosition = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        private string _BrowserVerticalPosition;
+
+        public string BrowserVerticalPosition
+        {
+            get { return this._BrowserVerticalPosition; }
+            set
+            {
+                if (this._BrowserVerticalPosition != value)
+                {
+                    this._BrowserVerticalPosition = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
 
 		public void Save()
 		{

@@ -74,7 +74,48 @@
 					   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 		</DockPanel>
 
-		<Rectangle Height="1"
+        <Rectangle Height="1"
+				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+        <TextBlock Text="{Binding Resources.Settings_Browser_Position, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
+						   Style="{DynamicResource SettingsHeaderTextStyleKey}"
+						   Margin="0,10,0,0"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Resources.Settings_Browser_VerticalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+            <metro:PromptComboBox Margin="8"
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding BrowserVerticalPositionList}"
+										  SelectedValue="{Binding Source={x:Static models:Settings.Current}, Path=BrowserVerticalPosition}"
+										  ToolTip="{Binding Resources.Settings_Browser_VerticalPosition_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"/>
+
+            <TextBlock Grid.Row="1"
+							   Text="{Binding Resources.Settings_Browser_HorizontalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
+
+            <metro:PromptComboBox Margin="8"
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding BrowserHorizontalPositionList}"
+										  SelectedValue="{Binding Source={x:Static models:Settings.Current}, Path=BrowserHorizontalPosition}"
+										  ToolTip="{Binding Resources.Settings_Browser_HorizontalPosition_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"
+										  Grid.Row="1" />
+
+        </Grid>
+
+        <Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 		<TextBlock Text="{Binding Resources.Settings_Flash, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
 						   Style="{DynamicResource SettingsHeaderTextStyleKey}"

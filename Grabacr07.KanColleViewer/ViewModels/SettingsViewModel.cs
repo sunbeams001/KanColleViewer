@@ -39,6 +39,12 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		public IEnumerable<string> FlashWindowList { get; private set; }
 		public string[] FlashWindows = { "Opaque", "Direct", "GPU" };
 
+        public IEnumerable<string> BrowserVerticalPositionList { get; private set; }
+        public string[] BrowserVerticalPositions = { "Top", "Bottom"};
+
+        public IEnumerable<string> BrowserHorizontalPositionList { get; private set; }
+        public string[] BrowserHorizontalPositions = { "Left", "Right" };
+
 		#region ScreenshotFolder 変更通知プロパティ
 
 		public string ScreenshotFolder
@@ -693,6 +699,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 			this.FlashQualityList = FlashQualities.ToList();
 			this.FlashWindowList = FlashWindows.ToList();
+            this.BrowserVerticalPositionList = BrowserVerticalPositions.ToList();
+            this.BrowserHorizontalPositionList = BrowserHorizontalPositions.ToList();
 
 			this.Libraries = App.ProductInfo.Libraries.Aggregate(
 				new List<BindableTextViewModel>(),

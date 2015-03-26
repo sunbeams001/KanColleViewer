@@ -124,7 +124,7 @@
         </ContentControl>
 
         <DockPanel Grid.Row="2" Background="Black">
-            <Grid Style="{DynamicResource DockOrientation}">
+            <Grid Style="{DynamicResource BroswerDockOrientation}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto" />

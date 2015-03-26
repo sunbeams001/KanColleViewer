@@ -1206,4 +1206,25 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="StateDetail_CanNotDoExpedition" xml:space="preserve">
     <value>連合艦隊は遠征に参加できません</value>
   </data>
+  <data name="Settings_Browser_HorizontalPosition" xml:space="preserve">
+    <value>水平モード</value>
+  </data>
+  <data name="Settings_Browser_HorizontalPosition_Description" xml:space="preserve">
+    <value>水平モードを利用時ゲーム画面の立場</value>
+  </data>
+  <data name="Settings_Browser_Position" xml:space="preserve">
+    <value>ゲーム画面の立場</value>
+  </data>
+  <data name="Settings_Browser_VerticalPosition" xml:space="preserve">
+    <value>垂直モード</value>
+  </data>
+  <data name="Settings_Browser_VerticalPosition_Description" xml:space="preserve">
+    <value>垂直モードを利用時ゲーム画面の立場</value>
+  </data>
+  <data name="Settings_Orientation" xml:space="preserve">
+    <value>オリエンテーションモード</value>
+  </data>
+  <data name="FleetDetatils_Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
 </root>
