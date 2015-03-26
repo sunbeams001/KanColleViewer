@@ -67,11 +67,31 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+        #region IsOpenStatus 変更通知プロパティ
+
+        private bool _IsOpenStatus;
+
+        public bool IsOpenStatus
+        {
+            get { return this._IsOpenStatus; }
+            set
+            {
+                if (this._IsOpenStatus != value)
+                {
+                    this._IsOpenStatus = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        #endregion
+
 
 		public FleetWindowViewModel()
 		{
             this.Title = Resources.FleetDetail_Title;
 			this.Fleets = new ItemViewModel[0];
+            this.IsOpenStatus = true;
 
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Organization)
 			{
