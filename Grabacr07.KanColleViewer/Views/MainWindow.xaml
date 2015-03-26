@@ -193,13 +193,16 @@
     <metro:MetroWindow.TaskbarItemInfo>
         <TaskbarItemInfo x:Name="taskBarItem">
             <TaskbarItemInfo.ThumbnailClipMargin>
-                <MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,90">
+                <MultiBinding Converter="{StaticResource PreviewSizeConverter}" ConverterParameter="0,90,0,23">
                     <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualWidth" Mode="OneWay"/>
                     <Binding RelativeSource="{RelativeSource AncestorType={x:Type metro:MetroWindow}}" Path="ActualHeight" Mode="OneWay"/>
                     <Binding ElementName="KancolleBrowser" Path="ActualWidth" Mode="OneWay"/>
                     <Binding ElementName="KancolleBrowser" Path="ActualHeight" Mode="OneWay"/>
                     <Binding ElementName="ContentPosX" Path="ActualWidth" Mode="OneWay"/>
                     <Binding ElementName="ContentPosY" Path="ActualHeight" Mode="OneWay"/>
+                    <Binding Source="{x:Static models:Settings.Current}" Path="Orientation" Mode="OneWay"/>
+                    <Binding Source="{x:Static models:Settings.Current}" Path="BrowserHorizontalPosition" Mode="OneWay"/>
+                    <Binding Source="{x:Static models:Settings.Current}" Path="BrowserVerticalPosition" Mode="OneWay"/>
                 </MultiBinding>
             </TaskbarItemInfo.ThumbnailClipMargin>
         </TaskbarItemInfo>

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Controls;
 using System.Windows;
+using Grabacr07.KanColleViewer.Models;
+using Setting = Grabacr07.KanColleViewer.Models.Settings;
 
 namespace Grabacr07.KanColleViewer.Views.Converters
 {
@@ -15,18 +17,29 @@ namespace Grabacr07.KanColleViewer.Views.Converters
         {
 			try
 			{
-				if (values.Length != 6) throw new ArgumentException();
-				String[] posString = ((String)parameter).Split(',');
-				Double posX = Double.Parse(posString[0]) + (Double)values[4];
-				Double posY = Double.Parse(posString[1]) + (Double)values[5];
+				if (values.Length != 9) throw new ArgumentException();
+                double[] posString = ((String)parameter).Split(',').Select(x => Double.Parse(x)).ToArray();
+                Double posX = posString[0] + (Double)values[4];
+                Double posY = posString[1] + (Double)values[5];
 				Double rootWidth = (Double)values[0];
 				Double rootHeight = (Double)values[1];
 				Double contentWidth = (Double)values[2];
 				Double contentHeight = (Double)values[3];
+                if (Setting.Current.Orientation == OrientationType.Horizontal && 
+                    Setting.Current.BrowserHorizontalPosition == "Right")
+                {
+                    posX = rootWidth - contentWidth - posX - posString[2] + posString[0];
+                }
+                else if (Setting.Current.Orientation == OrientationType.Vertical &&
+                    Setting.Current.BrowserVerticalPosition == "Bottom")
+                {
+                    posY = rootHeight - contentHeight - posY - posString[3] + posString[1];
+                }
 				return new Thickness(posX, posY, rootWidth - contentWidth - posX, rootHeight - contentHeight - posY);
 			}
-			catch
+			catch (Exception e)
 			{
+                Console.WriteLine(e);
 				return new Thickness(0,0,0,0);
 			}
         }
