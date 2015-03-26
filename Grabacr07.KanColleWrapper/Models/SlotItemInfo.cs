@@ -139,7 +139,9 @@ namespace Grabacr07.KanColleWrapper.Models
 					|| this.Type == SlotItemType.艦上攻撃機
 					|| this.Type == SlotItemType.艦上爆撃機
 					|| this.Type == SlotItemType.水上偵察機
-					|| this.Type == SlotItemType.水上爆撃機;
+					|| this.Type == SlotItemType.水上爆撃機
+                    || this.Type == SlotItemType.オートジャイロ
+                    || this.Type == SlotItemType.対潜哨戒機;
 			}
 		}
 

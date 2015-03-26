@@ -19,6 +19,9 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		応急修理要員 = 23,
 
+        オートジャイロ = 25,
+        対潜哨戒機 = 26,
+
 		探照灯 = 29,
 	}
 }

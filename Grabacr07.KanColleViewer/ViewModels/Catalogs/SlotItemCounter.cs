@@ -31,7 +31,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		{
 			this.Target = target;
 
-            this.SlotItem = new SlotItemViewModel(target);
+            this.SlotItem = new SlotItemViewModel { Info = target};
 
 			this.itemsByLevel = items
 				.GroupBy(x => x.Level)

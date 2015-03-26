@@ -942,12 +942,38 @@
                                             </ItemsControl.Template>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <Border ToolTip="{Binding DetailedToolTip}"
+                                                    <Border 
 															Background="Transparent"
 															Height="20"
 															Padding="0,1">
+                                                        <Border.ToolTip>
+                                                            <StackPanel Orientation="Vertical">
+                                                                <TextBlock>
+                                                                <Run Text="{Binding Slot.Item.Info.Name, Mode=OneWay}" />
+                                                                <TextBlock Margin="5,0">
+                                                                        <TextBlock.Style>
+                                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                                <Setter Property="Text"
+                                                                                    Value="{Binding Slot.Item.LevelText, Mode=OneWay}" />
+                                                                                <Setter Property="Foreground"
+                                                                                    Value="#FF45A9A5" />
+                                                                            </Style>
+                                                                        </TextBlock.Style>
+                                                                </TextBlock>
+                                                                <TextBlock Visibility="{Binding Slot.Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                                                    <Run Text="[" />
+                                                                    <Run Text="{Binding Slot.Current}" />
+                                                                    <Run Text="/" />
+                                                                    <Run Text="{Binding Slot.Maximum}" />
+                                                                    <Run Text="]" />
+                                                                </TextBlock>
+                                                            </TextBlock>
+                                                                <TextBlock Text="{Binding Detail, Mode=OneWay}"
+                                                                       Visibility="{Binding IsHasDetail, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                            </StackPanel>
+                                                        </Border.ToolTip>
                                                         <Viewbox>
-                                                            <controls:SlotItemIcon Type="{Binding SlotItem.IconType}"
+                                                            <controls:SlotItemIcon Type="{Binding Slot.Item.Info.IconType}"
 																				   Margin="0,0,4,0" />
                                                         </Viewbox>
                                                     </Border>
