@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.11">
+<Quests Version="1.1.12">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -1089,7 +1089,7 @@
     <ID>149</ID>
     <JP-Name>「第十一駆逐隊」を編成せよ！</JP-Name>
     <TR-Name>Organize the 11th Destroyer Division!</TR-Name>
-    <JP-Detail>特Ⅰ型駆逐艦「吹雪」「白雪」「初雪」「叢雲」4隻による第十一駆逐隊を編成せよ！</JP-Detail>
+    <JP-Detail>特I型駆逐艦「吹雪」「白雪」「初雪」「叢雲」4隻による第十一駆逐隊を編成せよ</JP-Detail>
     <TR-Detail>Form a Fleet with the 4 Special-Class Destroyers: Fubuki, Shirayuki, Hatsuyuki and Murakumo.</TR-Detail>
   </Quest>
   <Quest>
