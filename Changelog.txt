@@ -2,6 +2,13 @@
 	KCV Change Log
 ========================
 
+v3.7.0β r542 - 3/27/2015
+	* Show level of equipment
+	* Sort options in ships list
+	* Fleet details window
+	* You can change position of browser (top, bottom, left, right)
+	* Equip tooltip have more details (level, number of fighters)
+
 v3.6.1 r531 - 3/1/2015
 	* Add Lookout icon
 	* Improvement sort in ship catalog
