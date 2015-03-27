@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.12">
+<Quests Version="1.1.13">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -1161,5 +1161,47 @@
     <TR-Name>Implement the decoy task force support strategy!</TR-Name>
     <JP-Detail>「囮機動部隊支援作戦」を実施し、これを成功させよ！</JP-Detail>
     <TR-Detail>Complete Expedition 15 once</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>152</ID>
+    <JP-Name>「三川艦隊」を新編、突入準備せよ！</JP-Name>
+    <TR-Name>Reform the Mikawa fleet!</TR-Name>
+    <JP-Detail>第一艦隊において、「鳥海改二」を旗艦とする三川艦隊を編成せよ！</JP-Detail>
+    <TR-Detail>Have Choukai Kai2 as the flagship, and Aoba, Kinugasa, Kako, Furutaka and Tenryuu in the fleet.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>274</ID>
+    <JP-Name>「第六駆逐隊」対潜哨戒なのです！</JP-Name>
+    <TR-Name>Destroyer Division 6 Anti-submarine Patrol nanodesu!</TR-Name>
+    <JP-Detail>「第六駆逐隊」を含む艦隊で鎮守府正面へ展開、対潜哨戒を実施せよ！</JP-Detail>
+    <TR-Detail>Deploy a fleet with ONLY Akatsuki, Hibiki, Inazuma, and Ikazuchi. Deploy to world 1-5 and obtain an C rank or better at the boss.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>307</ID>
+    <JP-Name>艦隊の練度向上に努めよ！</JP-Name>
+    <TR-Name>Practice to improve fleet!</TR-Name>
+    <JP-Detail>作戦前に艦隊の練度向上を図る！本日中に「演習」で3回以上「勝利」をおさめよう！</JP-Detail>
+    <TR-Detail>Get 3 victories in practice mode within the same day.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>273</ID>
+    <JP-Name>新編「三川艦隊」ソロモン方面へ！</JP-Name>
+    <TR-Name>Mikawa Fleet to the Solomon Seas!</TR-Name>
+    <JP-Detail>第一艦隊に編成した「三川艦隊」を南方海域に進出させ、同方面の敵艦隊を撃滅せよ！</JP-Detail>
+    <TR-Detail>Deploy a fleet with Choukai Kai2 as the flagship, and Aoba, Kinugasa, Kako, Furutaka, Tenryuu. Deploy to world 5-1 and obtain an S victory at the boss.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>275</ID>
+    <JP-Name>抜錨！「第十八戦隊」</JP-Name>
+    <TR-Name>Sortie! Cruiser Division 18</TR-Name>
+    <JP-Detail>「天龍」「龍田」を基幹戦力とした「第十八戦隊」で出撃し、オリョール海の敵主力を撃滅せよ！</JP-Detail>
+    <TR-Detail>Deploy a fleet with Tenryuu, Tatsuta, and 2 or more other ships. Deploy to world 5-1 and obtain an S victory at the boss.</TR-Detail>
+  </Quest>
+  <Quest>
+    <ID>153</ID>
+    <JP-Name>「第十八戦隊」を新編成せよ！</JP-Name>
+    <TR-Name>Form the 18th Fleet!</TR-Name>
+    <JP-Detail>軽巡洋艦「天龍」「龍田」を基幹戦力とした「第十八戦隊」を4隻以上で新編成せよ！</JP-Detail>
+    <TR-Detail>Have Choukai Tenryuu, Tatsuta, and 2 or more other ships in the fleet.</TR-Detail>
   </Quest>
 </Quests>
