@@ -17,7 +17,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
         public static readonly SortableColumn NoneColumn = new SortableColumn { Name = Resources.ShipCatalog_None, KeySelector = null };
         public static readonly SortableColumn IdColumn = new SortableColumn { Name = "ID", KeySelector = x => x.Id, };
         public static readonly SortableColumn StypeColumn = new SortableColumn { Name = Resources.ShipCatalog_ShipType, KeySelector = x => x.Info.ShipType.SortNumber, };
-        public static readonly SortableColumn NameColumn = new SortableColumn { Name = Resources.ShipCatalog_Name, KeySelector = x => x.Info.SortId, };
+		public static readonly SortableColumn NameColumn = new SortableColumn { Name = Resources.ShipCatalog_Name, KeySelector = x => x.Info.Name, };
         public static readonly SortableColumn LevelColumn = new SortableColumn { Name = Resources.ShipCatalog_Level, KeySelector = x => x.Level, DefaultIsDescending = true, };
         public static readonly SortableColumn ExpColumn = new SortableColumn { Name = Resources.ShipCatalog_ExpForNextLevel, KeySelector = x => x.ExpForNextLevel, };
         public static readonly SortableColumn CondColumn = new SortableColumn { Name = Resources.ShipCatalog_Condition, KeySelector = x => x.Condition, DefaultIsDescending = true, };
@@ -279,6 +279,6 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
     {
         public string Name { get; set; }
         public bool DefaultIsDescending { get; set; }
-        public Func<Ship, int> KeySelector { get; set; }
+		public Func<Ship, object> KeySelector { get; set; }
     }
 }

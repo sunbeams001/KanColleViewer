@@ -37,9 +37,8 @@ namespace Grabacr07.KanColleViewer.Views.Converters
                 }
 				return new Thickness(posX, posY, rootWidth - contentWidth - posX, rootHeight - contentHeight - posY);
 			}
-			catch (Exception e)
+			catch
 			{
-                Console.WriteLine(e);
 				return new Thickness(0,0,0,0);
 			}
         }

@@ -140,8 +140,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		private void UpdateBuildingDocks()
 		{
 			this.BuildingDocks = KanColleClient.Current.Homeport.Dockyard.Docks.Select(kvp => new BuildingDockViewModel(kvp.Value)).ToArray();
-            this.HalfBuildingDocks1 = this.BuildingDocks.Take(this.BuildingDocks.Length / 2).ToArray();
-            this.HalfBuildingDocks2 = this.BuildingDocks.Skip(this.BuildingDocks.Length / 2).ToArray();
+            this.HalfBuildingDocks1 = this.BuildingDocks.Where(x => x.Id % 2 != 0).ToArray();
+			this.HalfBuildingDocks2 = this.BuildingDocks.Where(x => x.Id % 2 == 0).ToArray();
 		}
 
 		private void UpdateSlotItem()

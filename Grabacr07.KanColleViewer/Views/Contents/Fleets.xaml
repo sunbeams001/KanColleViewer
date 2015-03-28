@@ -448,20 +448,15 @@
                                                     </Border.ToolTip>
 													<controls:SlotItemIcon x:Name="SlotItem"
 																		   Type="{Binding Slot.Item.Info.IconType}"																		   
-																		   Margin="3,0" />
+																		   Margin="0,0" />
                                                     </Border>
-                                                <DataTemplate.Triggers>
-                                                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
-                                                        <Setter TargetName="SlotItem"
-											                Property="Margin"
-											                Value="3,0" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
-                                                        <Setter TargetName="SlotItem"
-											                Property="Margin"
-											                Value="0,0" />
-                                                    </DataTrigger>
-                                                </DataTemplate.Triggers>
+													<DataTemplate.Triggers>
+														<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
+															<Setter TargetName="SlotItem"
+																Property="Margin"
+																Value="3,0" />
+														</DataTrigger>
+													</DataTemplate.Triggers>
                                                 </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
@@ -521,32 +516,6 @@
                                     <Setter TargetName="ShipSlotItems"
 											                Property="Margin"
 											                Value="10,0" />
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
-                                    <Setter TargetName="ShipNameText"
-											                Property="Margin"
-											                Value="4,0,5,0" />
-                                    <Setter TargetName="ShipLevelText"
-											                Property="Margin"
-											                Value="5,0,5,10" />
-                                    <Setter TargetName="ShipExpText"
-											                Property="Margin"
-											                Value="5,0,5,-1" />
-                                    <Setter TargetName="HPText"
-											                Property="Margin"
-											                Value="5,0,5,10" />
-                                    <Setter TargetName="HPIndicator"
-											                Property="Margin"
-											                Value="5,0,5,2" />
-                                    <Setter TargetName="ShipConditionTypeText"
-											                Property="Margin"
-											                Value="5,0,5,10" />
-                                    <Setter TargetName="ShipConditionText"
-											                Property="Margin"
-											                Value="5,0,5,-1" />
-                                    <Setter TargetName="ShipSlotItems"
-											                Property="Margin"
-											                Value="5,0" />
                                 </DataTrigger>
                             </DataTemplate.Triggers>
                         </DataTemplate>

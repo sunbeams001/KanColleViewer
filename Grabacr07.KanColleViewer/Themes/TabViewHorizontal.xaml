@@ -7,67 +7,26 @@
 					xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 					xmlns:vms="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
 					xmlns:dev="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Dev">
-    <Style x:Key="StackPanelOrientation"
-           TargetType="{x:Type StackPanel}">
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Vertical">
-                <Setter Property="Orientation" Value="Vertical"/>
-            </DataTrigger>
-            <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
-                <Setter Property="Orientation" Value="Horizontal"/>
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
     <Style x:Key="OrientationTabViewStyle"
 		   TargetType="{x:Type metro:TabView}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type metro:TabView}">
                     <StackPanel Background="{TemplateBinding Background}">
-                        <StackPanel IsItemsHost="True" Style="{DynamicResource StackPanelOrientation}"/>
-                    </StackPanel>
+						<StackPanel IsItemsHost="True">
+							<StackPanel.Style>
+								<Style TargetType="{x:Type StackPanel}">
+									<Setter Property="Orientation" Value="Vertical"/>
+									<Style.Triggers>
+										<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation}" Value="Horizontal">
+											<Setter Property="Orientation" Value="Horizontal"/>
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</StackPanel.Style>
+						</StackPanel>
+					</StackPanel>
                 </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-        <Setter Property="ItemContainerStyle">
-            <Setter.Value>
-                <Style TargetType="{x:Type ListBoxItem}">
-                    <Setter Property="ToolTip" Value="{Binding Name}" />
-                    <Setter Property="Foreground"
-Value="{DynamicResource ActiveForegroundBrushKey}" />
-                    <Setter Property="Height"
-Value="38" />
-                    <Setter Property="IsSelected"
-Value="{Binding IsSelected}" />
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter />
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="FocusVisualStyle"
-Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}" />
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver"
-Value="True">
-                            <Setter Property="Background"
-Value="{DynamicResource AccentHighlightBrushKey}" />
-                            <Setter Property="Foreground"
-Value="{DynamicResource AccentForegroundBrushKey}" />
-                        </Trigger>
-                        <Trigger Property="IsSelected"
-Value="True">
-                            <Setter Property="Background"
-Value="{DynamicResource AccentBrushKey}" />
-                            <Setter Property="Foreground"
-Value="{DynamicResource AccentForegroundBrushKey}" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
             </Setter.Value>
         </Setter>
 		
@@ -260,34 +219,6 @@ Value="{DynamicResource AccentForegroundBrushKey}" />
 										</DataTemplate>
 									</ContentControl.Resources>
 								</ContentControl>
-								<metro:Badge Grid.Column="1"
-										Grid.ColumnSpan="2"
-										Count="{Binding Badge}"
-										Margin="0,4,4,0"
-										HorizontalAlignment="Right"
-										VerticalAlignment="Top" />
-							</Grid>
-						</DataTemplate>
-					</Setter.Value>
-				</Setter>
-			</DataTrigger>
-			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=MenuIcon}" Value="False">
-				<Setter Property="ItemTemplate">
-					<Setter.Value>
-						<DataTemplate DataType="{x:Type metro:ITabItem}">
-							<Grid>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="20" />
-									<ColumnDefinition Width="*" />
-									<ColumnDefinition Width="25" />
-								</Grid.ColumnDefinitions>
-								<TextBlock Grid.Column="1"
-								   Text="{Binding Name}"
-								   FontSize="14"
-								   Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
-								   VerticalAlignment="Center"
-								   TextTrimming="CharacterEllipsis"
-								   TextOptions.TextFormattingMode="Display" />
 								<metro:Badge Grid.Column="1"
 										Grid.ColumnSpan="2"
 										Count="{Binding Badge}"
