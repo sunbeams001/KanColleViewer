@@ -2,6 +2,11 @@
 	KCV Change Log
 ========================
 
+v3.7.0β r543 - 3/29/2015
+	* LogViewer plugin
+	* Show fleet state in overview panel
+	* Fix security bug
+
 v3.7.0β r542 - 3/27/2015
 	* Show level of equipment
 	* Sort options in ships list
