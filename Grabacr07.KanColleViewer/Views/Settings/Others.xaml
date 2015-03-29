@@ -180,5 +180,5 @@
 				  Height="17"
 				  Margin="15,0,0,10" />-->
 
-	</StackPanel>
+    </StackPanel>
 </UserControl>

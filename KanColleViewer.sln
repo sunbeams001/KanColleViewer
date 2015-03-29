@@ -2,6 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanColleViewer", "Grabacr07.KanColleViewer\KanColleViewer.csproj", "{C5F0111F-3F68-4A74-BB20-BB762564D080}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -96,6 +97,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Plugins\Calculator\Calculator.csproj", "{6E50D373-FB81-477C-B642-0A5F7DE7C082}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RankViewer", "Plugins\RankViewer\RankViewer.csproj", "{E6709081-C22B-4293-BB83-EA2746A8F40D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer", "Plugins\LogViewer\LogViewer.csproj", "{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -206,6 +208,15 @@ Global
 		{E6709081-C22B-4293-BB83-EA2746A8F40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6709081-C22B-4293-BB83-EA2746A8F40D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E6709081-C22B-4293-BB83-EA2746A8F40D}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Release (beta)|Any CPU.ActiveCfg = Release|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Release (beta)|Any CPU.Build.0 = Release|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Release (beta)|x86.ActiveCfg = Release|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -223,5 +234,8 @@ Global
 		{EB7BC13B-398E-4A1C-88D0-FE4D6BA44608} = {74D8B001-9382-4515-8709-5A09B55EB540}
 		{F356D021-8A8B-47F1-9235-3DFBBA09C03C} = {74D8B001-9382-4515-8709-5A09B55EB540}
 		{7945DA4F-E951-4E9E-95CA-B48C0F5A392F} = {74D8B001-9382-4515-8709-5A09B55EB540}
+		{DE2400A1-2AAE-4AB0-BCD5-A88DC78033A7} = {D844E42C-9406-43BF-9681-4F06F6CB3AD9}
+		{08226BB3-A7A0-49E3-84DE-ED5B7A7D293E} = {D844E42C-9406-43BF-9681-4F06F6CB3AD9}
+		{7C65FB60-6573-4F7A-B251-C6BCD4357EE7} = {D844E42C-9406-43BF-9681-4F06F6CB3AD9}
 	EndGlobalSection
 EndGlobal
