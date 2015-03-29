@@ -1295,4 +1295,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="FleetDetatils_Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="ShipCatalog_CustomSort" xml:space="preserve">
+    <value>Game's sort</value>
+  </data>
 </root>

@@ -62,7 +62,7 @@ namespace Grabacr07.KanColleViewer.Models
 				ShipCatalog_SpeedFilter_Both = true,
 				ShipCatalog_RemodelFilter_Both = true,
 				ShipCatalog_ModernFilter_Both = true,
-				ShipCatalog_ShowMoreStats = true,
+				ShipCatalog_ShowMoreStats = false,
 				NotifyBuildingCompleted = true,
 				NotifyRepairingCompleted = true,
                 NotifyExpeditionReturned = true,

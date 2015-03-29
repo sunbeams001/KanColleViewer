@@ -1227,4 +1227,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="FleetDetatils_Status" xml:space="preserve">
     <value>ステータス</value>
   </data>
+  <data name="ShipCatalog_CustomSort" xml:space="preserve">
+    <value>ゲーム内</value>
+  </data>
 </root>

@@ -176,7 +176,7 @@
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>
 
-                            <GridViewColumn Width="650">
+                            <GridViewColumn Width="550">
 								<GridViewColumn.Header>
 									<DockPanel>
 										<Border Width="52"

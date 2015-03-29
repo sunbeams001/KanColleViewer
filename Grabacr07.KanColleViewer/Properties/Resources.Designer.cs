@@ -2202,6 +2202,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ゲーム内.
+        /// </summary>
+        public static string ShipCatalog_CustomSort {
+            get {
+                return ResourceManager.GetString("ShipCatalog_CustomSort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 装備.
         /// </summary>
         public static string ShipCatalog_Equips {
