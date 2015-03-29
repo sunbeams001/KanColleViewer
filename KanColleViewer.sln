@@ -97,6 +97,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Plugins\Calculator\Calculator.csproj", "{6E50D373-FB81-477C-B642-0A5F7DE7C082}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RankViewer", "Plugins\RankViewer\RankViewer.csproj", "{E6709081-C22B-4293-BB83-EA2746A8F40D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer", "Plugins\LogViewer\LogViewer.csproj", "{7C65FB60-6573-4F7A-B251-C6BCD4357EE7}"
 EndProject
 Global
