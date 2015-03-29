@@ -56,7 +56,10 @@ Clear your cache and relaunch KCV again. Especially after updates or playing bet
 Easiest way is to just disable translations in the options menu. You can also set the UI's language to Japanese which will disable all translations by default. If you only want certain things translated, deleting the corresponding XML file in the translation folder is your best bet (just be sure to disable auto update).
 
 #### I'm missing XXXX translations! (XXXX is in Japanese)
-Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me through pastebin on twitter (@Zharay) or as a bug in GitHub.
+Please help me with these when you run into them. The translation engine has the ability to add untranslated text to the corresponding XML file found in translations. Find the untranslated parts at the bottom of the list and message it to me as a bug in GitHub.
+
+#### Ships/item/etc are showing in english event I setted language to other language
+I no longer support multi-language translations. If you want to use translation from another fork, in file KanColleViewer.exe.config, just copy KCVUpdateUrl's value from another fork and paste to KCVUpdateTransUrl's value (not KCVUpdateUrl). Then go to setting/update and click "Force download" button. Depend on version and another fork, translation may be supported or not.
 
 #### Custom Sound Notifications - What?
 These are sounds that play immediately when a normal windows notification is to be displayed. Supported formats are WAV and MP3. You must place them in the "Sounds" and under the sub-directory corresponding to the notification you require. It doesn't matter the name or the number you have; a random file will be chosen to be played every time.
@@ -64,13 +67,14 @@ These are sounds that play immediately when a normal windows notification is to 
 Note! For those not in English UI, you may need to place them in the folders that are generated *after* a notification is played once. Any missing folders will be created for you.
 
 #### What is the difference between this and the original KCV by Grabarc07?
-* Support both Vertical and Horizontal in one version. 
+* Support both Vertical and Horizontal in one version
 * The translation of all equipment, ships, quests and expeditions
 * Detailed equipment information
 * Ranking information
 * EXP Calculator
+* Log viewer
 * Auto updating and version checking
-* Regional cookie setting.
+* Regional cookie setting
 * Flash quality settings
 * Custom sound notifications
 * Extra stat display on ships and equipment
