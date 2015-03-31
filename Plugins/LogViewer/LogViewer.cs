@@ -20,7 +20,7 @@ namespace Grabacr07.KanColleViewer.Plugins
 
 		public string ToolName
 		{
-            get { return "LogViewer"; }
+            get { return "Log Viewer"; }
 		}
 
 

@@ -114,7 +114,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 		#region SelectorMaterials 変更通知プロパティ
 
-		private bool selectorMaterials = true;
+		private bool selectorMaterials;
 
 		public bool SelectorMaterials
 		{

@@ -1089,7 +1089,7 @@
     <ID>149</ID>
     <JP-Name>「第十一駆逐隊」を編成せよ！</JP-Name>
     <TR-Name>Organize the 11th Destroyer Division!</TR-Name>
-    <JP-Detail>特I型駆逐艦「吹雪」「白雪」「初雪」「叢雲」4隻による第十一駆逐隊を編成せよ</JP-Detail>
+    <JP-Detail>特I型駆逐艦「吹雪」「白雪」「初雪」「叢雲」4隻による第十一駆逐隊を編成せよ！</JP-Detail>
     <TR-Detail>Form a Fleet with the 4 Special-Class Destroyers: Fubuki, Shirayuki, Hatsuyuki and Murakumo.</TR-Detail>
   </Quest>
   <Quest>
@@ -1166,7 +1166,7 @@
     <ID>152</ID>
     <JP-Name>「三川艦隊」を新編、突入準備せよ！</JP-Name>
     <TR-Name>Reform the Mikawa fleet!</TR-Name>
-    <JP-Detail>第一艦隊において、「鳥海改二」を旗艦とする三川艦隊を編成せよ！</JP-Detail>
+    <JP-Detail>第一艦隊において、「鳥海改ニ」を旗艦とする「三川艦隊」を編成せよ！</JP-Detail>
     <TR-Detail>Have Choukai Kai2 as the flagship, and Aoba, Kinugasa, Kako, Furutaka and Tenryuu in the fleet.</TR-Detail>
   </Quest>
   <Quest>

@@ -900,10 +900,10 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Use menu icon</value>
   </data>
   <data name="StateDetail_Repairing" xml:space="preserve">
-    <value>There are ships in fleet currently docked for repairs.</value>
+    <value>There are ships currently docked for repairs.</value>
   </data>
   <data name="StateDetail_ShortSupply" xml:space="preserve">
-    <value>There are ships in fleet that need resupplying.</value>
+    <value>There are ships need resupplying.</value>
   </data>
   <data name="Quests_Monthly" xml:space="preserve">
     <value>Monthly</value>
