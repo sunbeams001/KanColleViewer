@@ -780,10 +780,10 @@ GPU: 慢! 适用于平板设备.</value>
     <value>数据</value>
   </data>
   <data name="Overview_EquipmentList" xml:space="preserve">
-    <value>装备</value>
+    <value>装备一览</value>
   </data>
   <data name="Overview_ShipList" xml:space="preserve">
-    <value>舰娘</value>
+    <value>舰娘一览</value>
   </data>
   <data name="Shipyard" xml:space="preserve">
     <value>工厂</value>
@@ -792,7 +792,7 @@ GPU: 慢! 适用于平板设备.</value>
     <value>建造</value>
   </data>
   <data name="Shipyard_Development" xml:space="preserve">
-    <value>开发 / 拆解</value>
+    <value>开发/掉落</value>
   </data>
   <data name="Shipyard_Development_Result_Failure" xml:space="preserve">
     <value>失败</value>
@@ -1156,5 +1156,137 @@ GPU: 慢! 适用于平板设备.</value>
   </data>
   <data name="Fleets_Speed_Mixed" xml:space="preserve">
     <value>混合速度舰队</value>
+  </data>
+  <data name="ShipCatalog_Clear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="ShipCatalog_Condition" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="ShipCatalog_ExpForNextLevel" xml:space="preserve">
+    <value>距离下一级的经验</value>
+  </data>
+  <data name="ShipCatalog_HP" xml:space="preserve">
+    <value>HP</value>
+  </data>
+  <data name="ShipCatalog_None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="ShipCatalog_Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="ShipCatalog_SortSettings" xml:space="preserve">
+    <value>排序选项</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Ascending" xml:space="preserve">
+    <value>升序</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Descending" xml:space="preserve">
+    <value>降序</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_Description" xml:space="preserve">
+    <value>舰娘将以该方式排序</value>
+  </data>
+  <data name="ShipCatalog_SortSettings_SortCriteria" xml:space="preserve">
+    <value>排序条件</value>
+  </data>
+  <data name="Ship_Healthy" xml:space="preserve">
+    <value>健康</value>
+  </data>
+  <data name="Ship_HealthyDamageControlled" xml:space="preserve">
+    <value>健康・损管搭載</value>
+  </data>
+  <data name="Ship_HeavilyDamaged" xml:space="preserve">
+    <value>大破 (击沉可能)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged_CanUseDamcon" xml:space="preserve">
+    <value>大破 (损管使用可能)</value>
+  </data>
+  <data name="Ship_HeavilyDamaged_Retreated" xml:space="preserve">
+    <value>大破 (退避)</value>
+  </data>
+  <data name="Ship_Retreated" xml:space="preserve">
+    <value>撤退 (退避护航)</value>
+  </data>
+  <data name="SlotItemCatalog_Improvement" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="SlotItemCatalog_Total" xml:space="preserve">
+    <value>总数</value>
+  </data>
+  <data name="StateDetail_Fatigued" xml:space="preserve">
+    <value>疲劳恢复</value>
+  </data>
+  <data name="StateDetail_HeavilyDamaged" xml:space="preserve">
+    <value>舰队中有大破的舰娘</value>
+  </data>
+  <data name="StateDetail_NotFatigued" xml:space="preserve">
+    <value>舰队中没有疲劳的舰娘</value>
+  </data>
+  <data name="StateDetail_NotHeavilyDamaged" xml:space="preserve">
+    <value>舰队中没有大破的舰娘</value>
+  </data>
+  <data name="StateDetail_NotOnExpedition" xml:space="preserve">
+    <value>舰队不在远征中</value>
+  </data>
+  <data name="StateDetail_NotOnShortSupply" xml:space="preserve">
+    <value>舰队中没有未补给的舰娘</value>
+  </data>
+  <data name="StateDetail_NotOnSortie" xml:space="preserve">
+    <value>舰队未出击</value>
+  </data>
+  <data name="StateDetail_NotReady" xml:space="preserve">
+    <value>舰队出击准备未完成</value>
+  </data>
+  <data name="StateDetail_NotRepairing" xml:space="preserve">
+    <value>舰队中没有修理中的舰娘</value>
+  </data>
+  <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
+    <value>舰队远征中</value>
+  </data>
+  <data name="StateDetail_OnShortSupply" xml:space="preserve">
+    <value>舰队中有未补给的舰娘</value>
+  </data>
+  <data name="StateDetail_Ready" xml:space="preserve">
+    <value>出击准备完成！</value>
+  </data>
+  <data name="FleetDetail_DayCombat" xml:space="preserve">
+    <value>昼战</value>
+  </data>
+  <data name="FleetDetail_NightBattleCutin" xml:space="preserve">
+    <value>夜战</value>
+  </data>
+  <data name="Fleet_Combined" xml:space="preserve">
+    <value>联合舰队</value>
+  </data>
+  <data name="ShipCatalog_LOS_description" xml:space="preserve">
+    <value>装备属性已计入</value>
+  </data>
+  <data name="StateDetail_CanNotDoExpedition" xml:space="preserve">
+    <value>联合舰队不能参加远征</value>
+  </data>
+  <data name="Settings_Browser_HorizontalPosition" xml:space="preserve">
+    <value>横向模式</value>
+  </data>
+  <data name="Settings_Browser_HorizontalPosition_Description" xml:space="preserve">
+    <value>使用横向显示模式/value>
+  </data>
+  <data name="Settings_Browser_Position" xml:space="preserve">
+    <value>浏览器的位置</value>
+  </data>
+  <data name="Settings_Browser_VerticalPosition" xml:space="preserve">
+    <value>垂直模式</value>
+  </data>
+  <data name="Settings_Browser_VerticalPosition_Description" xml:space="preserve">
+    <value>使用垂直显示模式</value>
+  </data>
+  <data name="Settings_Orientation" xml:space="preserve">
+    <value>方向模式</value>
+  </data>
+  <data name="FleetDetatils_Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="ShipCatalog_CustomSort" xml:space="preserve">
+    <value>游戏</value>
   </data>
 </root>
