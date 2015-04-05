@@ -1269,7 +1269,7 @@ GPU: 慢! 适用于平板设备.</value>
     <value>横向模式</value>
   </data>
   <data name="Settings_Browser_HorizontalPosition_Description" xml:space="preserve">
-    <value>使用横向显示模式/value>
+    <value>使用横向显示模式</value>
   </data>
   <data name="Settings_Browser_Position" xml:space="preserve">
     <value>浏览器的位置</value>
