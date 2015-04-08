@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.14">
+<Quests Version="1.1.15">
   <Quest>
     <ID>A1</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -1195,7 +1195,7 @@
     <JP-Name>抜錨！「第十八戦隊」</JP-Name>
     <TR-Name>Sortie! Cruiser Division 18</TR-Name>
     <JP-Detail>「天龍」「龍田」を基幹戦力とした「第十八戦隊」で出撃し、オリョール海の敵主力を撃滅せよ！</JP-Detail>
-    <TR-Detail>Deploy a fleet with Tenryuu, Tatsuta, and 2 or more other ships. Deploy to world 5-1 and obtain an S victory at the boss.</TR-Detail>
+    <TR-Detail>Deploy a fleet with Tenryuu, Tatsuta, and 2 or more other ships. Deploy to world 2-3 and obtain an S victory at the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>153</ID>
