@@ -177,7 +177,7 @@
   </Expedition>
   <Expedition>
     <ID>27</ID>
-    <JP-Name>Submarine Commerce Destruction Strategy</JP->
+    <JP-Name>Submarine Commerce Destruction Strategy</JP-Name>
     <TR-Name>Expedition 27</TR-Name>
     <JP-Detail>潜水艦2隻以上を伴う艦隊で敵後方へ進出、通商破壊作戦を実施せよ！</JP-Detail>
     <TR-Detail>Deploy a fleet of two submarines to seek and destroy trade ships entering the enemy's home-port via the rear!</TR-Detail>
