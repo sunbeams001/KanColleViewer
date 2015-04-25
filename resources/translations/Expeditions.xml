@@ -215,7 +215,7 @@
     <JP-Name>遠洋練習航海</JP-Name>
     <TR-Name>Expedition 32: Seafaring Training</TR-Name>
     <JP-Detail>練習巡洋艦を旗艦とした練習艦隊で遠洋練習航海を実施、基礎練度向上に努めよ！</JP-Detail>
-    <TR-Detail>Bring the Training Vessel Katori on a special training voyage to improve the skills and abilities of your fleet! (Katori was a reward from the Winter 2015 Event. You cannot do this expedition if you do not own Katori.)</TR-Detail>
+    <TR-Detail>Bring the Training Vessel Katori on a special training voyage to improve the skills and abilities of your fleet!</TR-Detail>
   </Expedition>
   <Expedition>
     <ID>33</ID>
