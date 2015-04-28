@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Expeditions Version="1.2.21" Author="Super Scoops">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Expeditions Version="1.2.22" Author="Super Scoops">
   <Expedition>
     <ID>1</ID>
     <JP-Name>練習航海</JP-Name>
@@ -177,7 +177,7 @@
   </Expedition>
   <Expedition>
     <ID>27</ID>
-    <JP-Name>Submarine Commerce Destruction Strategy</JP-Name>
+    <JP-Name>潜水艦通商破壊作戦</JP-Name>
     <TR-Name>Expedition 27</TR-Name>
     <JP-Detail>潜水艦2隻以上を伴う艦隊で敵後方へ進出、通商破壊作戦を実施せよ！</JP-Detail>
     <TR-Detail>Deploy a fleet of two submarines to seek and destroy trade ships entering the enemy's home-port via the rear!</TR-Detail>
@@ -210,7 +210,7 @@
     <JP-Detail>潜水艦4隻以上で構成される艦隊を編成・派遣し、海外艦との邂逅を試みよ！</JP-Detail>
     <TR-Detail>Deploy a fleet of four submarines to meet up with a foreign ship in a friendly meet-up!</TR-Detail>
   </Expedition>
-    <Expedition>
+  <Expedition>
     <ID>32</ID>
     <JP-Name>遠洋練習航海</JP-Name>
     <TR-Name>Expedition 32: Seafaring Training</TR-Name>
@@ -291,6 +291,20 @@
     <ID>142</ID>
     <JP-Name>艦隊決戦支援任務</JP-Name>
     <TR-Name>Expedition 142: General Fleet Battle Support Missions</TR-Name>
+    <JP-Detail>主力艦隊支援を行う別動隊を出撃させ、艦隊決戦を援護せよ！(要:駆逐2隻)</JP-Detail>
+    <TR-Detail>Deploy a support fleet to assist our main forces battle out against an enemy boss! (Sortie-Support Expedition)</TR-Detail>
+  </Expedition>
+  <Expedition>
+    <ID>149</ID>
+    <JP-Name>前衛支援任務</JP-Name>
+    <TR-Name>Expedition 149: General Vanguard Support Missions</TR-Name>
+    <JP-Detail>支援艦隊を出撃させ、主力艦隊の進撃を援護せよ！(要:駆逐2隻)</JP-Detail>
+    <TR-Detail>Deploy a support fleet to assist in defending against the enemy invasion force! (Sortie-Support Expedition))</TR-Detail>
+  </Expedition>
+  <Expedition>
+    <ID>150</ID>
+    <JP-Name>艦隊決戦支援任務</JP-Name>
+    <TR-Name>Expedition 150: General Fleet Battle Support Missions</TR-Name>
     <JP-Detail>主力艦隊支援を行う別動隊を出撃させ、艦隊決戦を援護せよ！(要:駆逐2隻)</JP-Detail>
     <TR-Detail>Deploy a support fleet to assist our main forces battle out against an enemy boss! (Sortie-Support Expedition)</TR-Detail>
   </Expedition>

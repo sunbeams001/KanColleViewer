@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Equipment Version="1.0.19">
+<Equipment Version="1.0.20">
   <Item>
     <JP-Name>12cm単装砲</JP-Name>
     <TR-Name>12cm Single Cannon</TR-Name>
@@ -527,5 +527,25 @@
   <Item>
     <JP-Name>381mm/50 三連装砲</JP-Name>
     <TR-Name>381mm / 50 Triple Gun Mount</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>二式大艇</JP-Name>
+    <TR-Name>Type 2 Large-sized Flying Boat</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>381mm/50 三連装砲改</JP-Name>
+    <TR-Name>381mm/50 Triple Gun Mount Kai</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>OTO 152mm三連装速射砲</JP-Name>
+    <TR-Name>OTO 152mm Triple Rapid Fire Gun Mount</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>90mm単装高角砲</JP-Name>
+    <TR-Name>90mm Single High-angle Gun Mount</TR-Name>
+  </Item>
+  <Item>
+    <JP-Name>プリエーゼ式水中防御隔壁</JP-Name>
+    <TR-Name>Pugliese Underwater Protection Bulkhead</TR-Name>
   </Item>
 </Equipment>

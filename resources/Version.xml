@@ -7,17 +7,17 @@
   </Item>
   <Item>
     <Name>Equipment</Name>
-    <Version>1.0.19</Version>
+    <Version>1.0.20</Version>
     <URL>http://yuyuvn.github.io/KanColleViewer/resources/translations/Equipment.xml</URL>
   </Item>
   <Item>
     <Name>Expeditions</Name>
-    <Version>1.2.21</Version>
+    <Version>1.2.22</Version>
     <URL>http://yuyuvn.github.io/KanColleViewer/resources/translations/Expeditions.xml</URL>
   </Item>
   <Item>
     <Name>Operations</Name>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <URL>http://yuyuvn.github.io/KanColleViewer/resources/translations/Operations.xml</URL>
   </Item>
   <Item>
@@ -27,7 +27,7 @@
   </Item>
   <Item>
     <Name>Ships</Name>
-    <Version>1.1.4</Version>
+    <Version>1.1.5</Version>
     <URL>http://yuyuvn.github.io/KanColleViewer/resources/translations/Ships.xml</URL>
   </Item>
   <Item>
