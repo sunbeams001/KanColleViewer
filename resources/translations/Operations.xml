@@ -529,7 +529,7 @@
     <TR-Name>World 5-5</TR-Name>
   </Sortie>
   <Sortie>
-    <JP-Name>沖ノ島沖戦闘哨戒</JP-Name>
+    <JP-Name>沖ノ島沖</JP-Name>
     <TR-Name>World 2-5</TR-Name>
   </Sortie>
   <Sortie>
@@ -601,12 +601,28 @@
     <TR-Name>1-6-L</TR-Name>
   </Sortie>
   <Map>
-    <JP-Name>沖ノ島沖</JP-Name>
+    <JP-Name>カレー洋</JP-Name>
+    <TR-Name>World E1</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>カレー洋リランカ島沖</JP-Name>
     <TR-Name>World E2</TR-Name>
   </Map>
   <Map>
-    <JP-Name>カレー洋</JP-Name>
-    <TR-Name>World E1</TR-Name>
+    <JP-Name>ベーグル湾</JP-Name>
+    <TR-Name>World E3</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>カレー洋リランカ島沖</JP-Name>
+    <TR-Name>World E4</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>アンズ環礁沖</JP-Name>
+    <TR-Name>World E5</TR-Name>
+  </Map>
+  <Map>
+    <JP-Name>ステビア海</JP-Name>
+    <TR-Name>World E6</TR-Name>
   </Map>
   <Sortie>
     <JP-Name>深海東洋艦隊 警戒部隊旗艦</JP-Name>
