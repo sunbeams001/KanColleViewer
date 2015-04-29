@@ -23,7 +23,7 @@ namespace Grabacr07.KanColleViewer.Views.Converters
 						return p.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
 							.Select(x => x.Trim())
 							.Select(x => Enum.Parse(enumValue.GetType(), x) as Enum)
-							.Any(x => enumValue.HasFlag(x));
+							.All(x => enumValue.HasFlag(x));
 					}
 				}
 			}
