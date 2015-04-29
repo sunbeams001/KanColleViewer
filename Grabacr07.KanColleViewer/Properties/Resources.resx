@@ -783,11 +783,11 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_SortieWaters" xml:space="preserve">
     <value>出撃海域</value>
   </data>
-  <data name="ShipCatalog_SortieWaters_AL" xml:space="preserve">
-    <value>AL 作戦</value>
+  <data name="ShipCatalog_SortieWaters_1" xml:space="preserve">
+    <value>通商破壊</value>
   </data>
-  <data name="ShipCatalog_SortieWaters_MI" xml:space="preserve">
-    <value>MI 作戦</value>
+  <data name="ShipCatalog_SortieWaters_2" xml:space="preserve">
+    <value>攻略作戦</value>
   </data>
   <data name="ShipCatalog_Operation_AL" xml:space="preserve">
     <value>AL 作戦参加済み</value>
@@ -1229,5 +1229,8 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="ShipCatalog_CustomSort" xml:space="preserve">
     <value>ゲーム内</value>
+  </data>
+  <data name="ShipCatalog_SortieWaters_3" xml:space="preserve">
+    <value>泊地攻撃</value>
   </data>
 </root>

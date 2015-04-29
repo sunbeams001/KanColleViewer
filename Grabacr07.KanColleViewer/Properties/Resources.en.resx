@@ -839,11 +839,11 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_SortieWaters" xml:space="preserve">
     <value>Operation</value>
   </data>
-  <data name="ShipCatalog_SortieWaters_AL" xml:space="preserve">
-    <value>AL</value>
+  <data name="ShipCatalog_SortieWaters_1" xml:space="preserve">
+    <value>E3</value>
   </data>
-  <data name="ShipCatalog_SortieWaters_MI" xml:space="preserve">
-    <value>MI</value>
+  <data name="ShipCatalog_SortieWaters_2" xml:space="preserve">
+    <value>E4</value>
   </data>
   <data name="ShipCatalog_Operation_AL" xml:space="preserve">
     <value>Participated in AL</value>
@@ -1297,5 +1297,8 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="ShipCatalog_CustomSort" xml:space="preserve">
     <value>Game's sort</value>
+  </data>
+  <data name="ShipCatalog_SortieWaters_3" xml:space="preserve">
+    <value>E5</value>
   </data>
 </root>

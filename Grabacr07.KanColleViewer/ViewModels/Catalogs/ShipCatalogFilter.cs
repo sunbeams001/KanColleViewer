@@ -448,18 +448,18 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#endregion
 
-		#region Aleutian 変更通知プロパティ
+		#region Area1 変更通知プロパティ
 
-		private bool _Aleutian = true;
+		private bool _Area1 = true;
 
-		public bool Aleutian
+		public bool Area1
 		{
-			get { return this._Aleutian; }
+			get { return this._Area1; }
 			set
 			{
-				if (this._Aleutian != value)
+				if (this._Area1 != value)
 				{
-					this._Aleutian = value;
+					this._Area1 = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -468,18 +468,38 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#endregion
 
-		#region Midway 変更通知プロパティ
+		#region Area2 変更通知プロパティ
 
-		private bool _Midway = true;
+		private bool _Area2 = true;
 
-		public bool Midway
+		public bool Area2
 		{
-			get { return this._Midway; }
+			get { return this._Area2; }
 			set
 			{
-				if (this._Midway != value)
+				if (this._Area2 != value)
 				{
-					this._Midway = value;
+					this._Area2 = value;
+					this.RaisePropertyChanged();
+					this.Update();
+				}
+			}
+		}
+
+		#endregion
+
+		#region Area3 変更通知プロパティ
+
+		private bool _Area3 = true;
+
+		public bool Area3
+		{
+			get { return this._Area3; }
+			set
+			{
+				if (this._Area3 != value)
+				{
+					this._Area3 = value;
 					this.RaisePropertyChanged();
 					this.Update();
 				}
@@ -493,13 +513,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		public override bool Predicate(Ship ship)
 		{
-			//if (this.None && ship.SallyArea == 0) return true;
-			//if (this.Aleutian && ship.SallyArea == 1) return true;
-			//if (this.Midway && ship.SallyArea == 2) return true;
+			if (this.None && ship.SallyArea == 0) return true;
+			if (this.Area1 && ship.SallyArea == 1) return true;
+			if (this.Area2 && ship.SallyArea == 2) return true;
+			if (this.Area3 && ship.SallyArea == 3) return true;
 
-			//return false;
+			return false;
 
-			return true;
+			//return true;
 		}
 	}
 }
