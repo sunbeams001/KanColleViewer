@@ -2,6 +2,11 @@
 	KCV Change Log
 ========================
 
+v3.7.0β r544 - 4/29/2015
+	* Fix bug: Evacuation Indicator not show correctly
+	* Plugin MapHP viewer
+	* Ships lock filter
+
 v3.7.0β r543 - 3/29/2015
 	* LogViewer plugin
 	* Show fleet state in overview panel
