@@ -200,7 +200,7 @@
 									<Style TargetType="{x:Type TextBlock}"
 										   BasedOn="{StaticResource DefaultTextStyleKey}">
 										<Setter Property="Text"
-												Value="健在" />
+												Value="{Binding Resources.Ship_Healthy, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 										<Setter Property="Background"
 												Value="{DynamicResource BackgroundBrushKey}" />
 										<Style.Triggers>
@@ -210,7 +210,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="健在・ダメコン搭載" />
+														Value="{Binding Resources.Ship_HealthyDamageControlled, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											</MultiDataTrigger>
 											<MultiDataTrigger>
 												<MultiDataTrigger.Conditions>
@@ -218,7 +218,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="大破 (轟沈の可能性あり)" />
+														Value="{Binding Resources.Ship_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Foreground"
 														Value="White" />
 												<Setter Property="Background"
@@ -230,7 +230,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="大破 (ダメコン使用可能)" />
+														Value="{Binding Resources.Ship_HeavilyDamaged_CanUseDamcon, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Background"
 														Value="{DynamicResource FleetRepairingBrushKey}" />
 											</MultiDataTrigger>
@@ -240,7 +240,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="大破 (退避済み)" />
+														Value="{Binding Resources.Ship_HeavilyDamaged_Retreated, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Background"
 														Value="{DynamicResource FleetRepairingBrushKey}" />
 											</MultiDataTrigger>
@@ -250,7 +250,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="撤退 (護衛退避)" />
+														Value="{Binding Resources.Ship_Retreated, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Background"
 														Value="{DynamicResource FleetRepairingBrushKey}" />
 											</MultiDataTrigger>
@@ -260,7 +260,7 @@
 															   Value="True" />
 												</MultiDataTrigger.Conditions>
 												<Setter Property="Text"
-														Value="入渠中" />
+														Value="{Binding Resources.Ship_Repairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Background"
 														Value="{DynamicResource FleetRepairingBrushKey}" />
 											</MultiDataTrigger>
@@ -397,7 +397,7 @@
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource DefaultTextStyleKey}">
 											<Setter Property="Text"
-													Value="弾着観測射撃" />
+													Value="{Binding Resources.FleetDetail_DayCombat, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											<Setter Property="Foreground"
 													Value="{DynamicResource ActiveForegroundBrushKey}" />
 											<Setter Property="Background"
@@ -412,8 +412,13 @@
 									<TextBlock.Style>
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource DefaultTextStyleKey}">
-											<Setter Property="Text"
-													Value="夜戦カットイン: 30 %" />
+											<Setter Property="Text">
+												<Setter.Value>
+													<MultiBinding StringFormat="{}{0}: 30 %">
+														<Binding Path="Resources.FleetDetail_NightBattleCutin" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
+													</MultiBinding>
+												</Setter.Value>
+											</Setter>
 											<Setter Property="Foreground"
 													Value="{DynamicResource ActiveForegroundBrushKey}" />
 											<Setter Property="Background"
@@ -540,7 +545,7 @@
 						<DataTemplate DataType="{x:Type fleetsVm:CombinedFleetViewModel}">
 							<Border Padding="16,6">
 								<StackPanel VerticalAlignment="Center">
-									<TextBlock Text="連合艦隊"
+									<TextBlock Text="{Binding Resources.Fleet_Combined, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 											   Margin="0,0,0,2"
 											   Style="{DynamicResource EmphaticTextStyleKey}"
 											   HorizontalAlignment="Center" />
@@ -586,7 +591,7 @@
 									   HorizontalAlignment="Right"
 									   VerticalAlignment="Bottom"
 									   Margin="1,2">
-									<Run Text="合計レベル" />
+									<Run Text="{Binding Resources.FleetDetail_TotalLevel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
 							</TextBlock>
 							<TextBlock Grid.Row="0"
@@ -602,7 +607,7 @@
 									   HorizontalAlignment="Right"
 									   VerticalAlignment="Bottom"
 									   Margin="1,2">
-									<Run Text="平均レベル" />
+									<Run Text="{Binding Resources.FleetDetail_AverageLevel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
 							</TextBlock>
 							<TextBlock Grid.Row="1"
@@ -618,7 +623,7 @@
 									   HorizontalAlignment="Right"
 									   VerticalAlignment="Bottom"
 									   Margin="1,2">
-									<Run Text="索敵値" />
+									<Run Text="{Binding Resources.FleetDetail_LoSValue, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
 							</TextBlock>
 							<TextBlock Grid.Row="3"
@@ -634,7 +639,7 @@
 									   HorizontalAlignment="Right"
 									   VerticalAlignment="Bottom"
 									   Margin="1,2">
-									<Run Text="制空戦力" />
+									<Run Text="{Binding Resources.FleetDetail_AirSuperiorityPotential, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
 							</TextBlock>
 							<TextBlock Grid.Row="4"
@@ -661,7 +666,7 @@
 									   VerticalAlignment="Bottom"
 									   Margin="1,2"
 									   Visibility="Collapsed">
-									<Run Text="ステータス" />
+									<Run Text="{Binding Resources.FleetDetail_Status, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
 							</TextBlock>
 							<TextBlock Grid.Row="7"
@@ -718,7 +723,7 @@
 									<Style TargetType="{x:Type TextBlock}"
 										   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 										<Setter Property="Text"
-												Value="艦隊は出撃していません" />
+												Value="{Binding Resources.StateDetail_NotOnSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 										<Setter Property="FontFamily"
 												Value="{DynamicResource EmphaticFontFamilyKey}" />
 										<Setter Property="FontSize"
@@ -731,7 +736,7 @@
 											<DataTrigger Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Sortie}"
 														 Value="True">
 												<Setter Property="Text"
-														Value="艦隊は出撃中です！" />
+														Value="{Binding Resources.StateDetail_OnSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 												<Setter Property="Background"
@@ -748,12 +753,12 @@
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 											<Setter Property="Text"
-													Value="艦隊の出撃準備は完了していません" />
+													Value="{Binding Resources.StateDetail_NotReady, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											<Style.Triggers>
 												<DataTrigger Binding="{Binding Source.State.IsReady}"
 															 Value="True">
 													<Setter Property="Text"
-															Value="出撃準備完了！" />
+															Value="{Binding Resources.StateDetail_Ready, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 													<Setter Property="Foreground"
 															Value="{DynamicResource ActiveForegroundBrushKey}" />
 													<Setter Property="Background"
@@ -762,7 +767,7 @@
 												<DataTrigger Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Sortie}"
 															 Value="True">
 													<Setter Property="Text"
-															Value="出撃準備完了！" />
+															Value="{Binding Resources.StateDetail_Ready, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 												</DataTrigger>
 											</Style.Triggers>
 										</Style>
@@ -777,7 +782,7 @@
 													<Style TargetType="{x:Type TextBlock}"
 														   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 														<Setter Property="Text"
-																Value="艦隊は遠征中ではありません" />
+																Value="{Binding Resources.StateDetail_NotOnExpedition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 														<Style.Triggers>
 															<MultiDataTrigger>
 																<MultiDataTrigger.Conditions>
@@ -786,7 +791,8 @@
 																</MultiDataTrigger.Conditions>
 																<Setter Property="Text">
 																	<Setter.Value>
-																		<MultiBinding StringFormat="艦隊は遠征中です: {0} - {1}">
+																		<MultiBinding StringFormat="{}{0}: {1} - {2}">
+																			<Binding Path="Resources.StateDetail_OnExpeditionDetail" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
 																			<Binding Path="Expedition.Mission.Title" />
 																			<Binding Path="Expedition.Remaining" />
 																		</MultiBinding>
@@ -808,7 +814,7 @@
 													<Style TargetType="{x:Type TextBlock}"
 														   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 														<Setter Property="Text"
-																Value="連合艦隊は遠征に参加できません" />
+																Value="{Binding Resources.StateDetail_CanNotDoExpedition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 													</Style>
 												</TextBlock.Style>
 											</TextBlock>
@@ -828,7 +834,7 @@
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 											<Setter Property="Text"
-													Value="艦隊の艦娘に大きなダメージはありません" />
+													Value="{Binding Resources.StateDetail_NotHeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											<Style.Triggers>
 												<MultiDataTrigger>
 													<MultiDataTrigger.Conditions>
@@ -836,7 +842,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="艦隊に大破した艦娘がいます" />
+															Value="{Binding Resources.StateDetail_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 													<Setter Property="Foreground"
 															Value="{DynamicResource ActiveForegroundBrushKey}" />
 													<Setter Property="Background"
@@ -848,7 +854,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="艦隊に大破した艦娘がいます！" />
+															Value="{Binding Resources.StateDetail_HeavilyDamaged, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 													<Setter Property="Foreground"
 															Value="{DynamicResource ActiveForegroundBrushKey}" />
 												</MultiDataTrigger>
@@ -862,15 +868,21 @@
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 											<Setter Property="Text"
-													Value="艦隊の艦娘は入渠していません" />
+													Value="{Binding Resources.StateDetail_NotRepairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											<Style.Triggers>
 												<MultiDataTrigger>
 													<MultiDataTrigger.Conditions>
 														<Condition Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Repairing}"
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
-													<Setter Property="Text"
-															Value="艦隊に入渠中の艦娘がいます" />
+													<Setter Property="Text">
+														<Setter.Value>
+															<MultiBinding StringFormat="{}{0} - {1}">
+																<Binding Path="Resources.StateDetail_Repairing" Source="{x:Static models:ResourceService.Current}" />
+																<Binding Path="State.Homeport.Repairing.Remaining" />
+															</MultiBinding>
+														</Setter.Value>
+													</Setter>
 													<Setter Property="Foreground"
 															Value="{DynamicResource ActiveForegroundBrushKey}" />
 													<Setter Property="Background"
@@ -886,7 +898,7 @@
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 											<Setter Property="Text"
-													Value="艦隊は補給済みです" />
+													Value="{Binding Resources.StateDetail_NotOnShortSupply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											<Style.Triggers>
 												<MultiDataTrigger>
 													<MultiDataTrigger.Conditions>
@@ -894,7 +906,7 @@
 																   Value="True" />
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text"
-															Value="艦隊に未補給の艦娘がいます" />
+															Value="{Binding Resources.StateDetail_OnShortSupply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 													<Setter Property="Foreground"
 															Value="{DynamicResource ActiveForegroundBrushKey}" />
 													<Setter Property="Background"
@@ -910,7 +922,7 @@
 										<Style TargetType="{x:Type TextBlock}"
 											   BasedOn="{StaticResource IndicatorTextBlockStyleKey}">
 											<Setter Property="Text"
-													Value="艦隊の艦娘は疲労していません" />
+													Value="{Binding Resources.StateDetail_NotFatigued, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 											<Style.Triggers>
 												<MultiDataTrigger>
 													<MultiDataTrigger.Conditions>
@@ -921,7 +933,8 @@
 													</MultiDataTrigger.Conditions>
 													<Setter Property="Text">
 														<Setter.Value>
-															<MultiBinding StringFormat="疲労回復まで: {0}">
+															<MultiBinding StringFormat="{}{0}: {1}">
+																<Binding Path="Resources.StateDetail_Fatigued" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
 																<Binding Path="State.Homeport.Condition.Remaining" />
 															</MultiBinding>
 														</Setter.Value>
