@@ -384,6 +384,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 					_AppOnlineVersion = value;
 					this.RaisePropertyChanged();
 					this.RaisePropertyChanged("AppOnlineVersionURL");
+					this.RaisePropertyChanged("IsUpdateAvailable");
 				}
 			}
 		}
@@ -692,6 +693,14 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
+		#region IsUpdateAvailable 変更通知プロパティ
+
+		public bool IsUpdateAvailable
+		{
+			get { return KanColleClient.Current.Updater.IsOnlineVersionGreater(0, App.ProductInfo.Version.ToString()); }
+		}
+
+		#endregion
 
 		public SettingsViewModel()
 		{
@@ -747,7 +756,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				(sender, args) => this.RaisePropertyChanged(args.PropertyName),
 			});
-
 
 			if (Settings.Current.EnableUpdateNotification)
 			{
@@ -809,31 +817,35 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		public void CheckForUpdates()
 		{
-			if (KanColleClient.Current.Updater.LoadVersion(Properties.Settings.Default.KCVUpdateUrl.AbsoluteUri, Properties.Settings.Default.KCVUpdateTransUrl.AbsoluteUri))
-			{
-				AppOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App, true);
-				EquipmentOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment, true);
-				OperationsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations, true);
-				QuestsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests, true);
-				ShipsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships, true);
-				ShipTypesOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes, true);
-                ExpeditionsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions, true);
+			Task.Factory.StartNew(
+				() =>
+				{
+					if (KanColleClient.Current.Updater.LoadVersion(Properties.Settings.Default.KCVUpdateUrl.AbsoluteUri, Properties.Settings.Default.KCVUpdateTransUrl.AbsoluteUri))
+					{
+						AppOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App, true);
+						EquipmentOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment, true);
+						OperationsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations, true);
+						QuestsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests, true);
+						ShipsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships, true);
+						ShipTypesOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes, true);
+						ExpeditionsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions, true);
 
-				AppOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App);
-				EquipmentOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment);
-				OperationsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations);
-				QuestsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests);
-				ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
-				ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
-                ExpeditionsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions);
-			}
-			else
-			{
-				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-					Resources.Updater_Notification_Title,
-					Resources.Updater_Notification_CheckFailed,
-					() => App.ViewModelRoot.Activate());
-			}
+						AppOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App);
+						EquipmentOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment);
+						OperationsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Operations);
+						QuestsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Quests);
+						ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
+						ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
+						ExpeditionsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions);
+					}
+					else
+					{
+						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+							Resources.Updater_Notification_Title,
+							Resources.Updater_Notification_CheckFailed,
+							() => App.ViewModelRoot.Activate());
+					}
+				});
 		}
 
 		public void UpdateTranslations()
@@ -843,28 +855,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				() =>
 				{
 					int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations);
-
-					if (UpdateStatus > 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Success,
-							() => App.ViewModelRoot.Activate());
-					}
-					else if (UpdateStatus < 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Fail,
-							() => App.ViewModelRoot.Activate());
-					}
-					else
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Same,
-							() => App.ViewModelRoot.Activate());
-					}
+					NotifyUpdate(UpdateStatus);
 				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(Culture), ts);
 
 		}
@@ -876,30 +867,34 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				() =>
 				{
 					int UpdateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations, false);
-
-					if (UpdateStatus > 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Success,
-							() => App.ViewModelRoot.Activate());
-					}
-					else if (UpdateStatus < 0)
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Fail,
-							() => App.ViewModelRoot.Activate());
-					}
-					else
-					{
-						PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
-							Resources.Updater_Notification_Title,
-							Resources.Updater_Notification_TransUpdate_Same,
-							() => App.ViewModelRoot.Activate());
-					}
+					NotifyUpdate(UpdateStatus);
 				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(Culture), ts);
 
+		}
+
+		private void NotifyUpdate(int UpdateStatus) 
+		{
+			if (UpdateStatus > 0)
+			{
+				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Success,
+					() => App.ViewModelRoot.Activate());
+			}
+			else if (UpdateStatus < 0)
+			{
+				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Fail,
+					() => App.ViewModelRoot.Activate());
+			}
+			else
+			{
+				PluginHost.Instance.GetNotifier().Show(NotifyType.Other,
+					Resources.Updater_Notification_Title,
+					Resources.Updater_Notification_TransUpdate_Same,
+					() => App.ViewModelRoot.Activate());
+			}
 		}
 
 		public void OpenKCVLink()
