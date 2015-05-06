@@ -1301,4 +1301,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_SortieWaters_3" xml:space="preserve">
     <value>E5</value>
   </data>
+  <data name="Settings_Updates_CheckUpdatesBtn_ToolTip" xml:space="preserve">
+    <value>Check lastest translations version</value>
+  </data>
 </root>
