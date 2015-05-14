@@ -1304,4 +1304,16 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_Updates_CheckUpdatesBtn_ToolTip" xml:space="preserve">
     <value>Check lastest translations version</value>
   </data>
+  <data name="ExitDialogConfirm" xml:space="preserve">
+    <value>「KanColleViewer!」 will close. Are you sure?</value>
+  </data>
+  <data name="Settings_ExitConfirm" xml:space="preserve">
+    <value>Exit Confirm Dialog</value>
+  </data>
+  <data name="Settings_ExitConfirmOnlyWhenInSortie" xml:space="preserve">
+    <value>Only show dialog when in sortie</value>
+  </data>
+  <data name="Settings_ExitConfirmOption" xml:space="preserve">
+    <value>Show confirm dialog when close Kancolleviewer</value>
+  </data>
 </root>

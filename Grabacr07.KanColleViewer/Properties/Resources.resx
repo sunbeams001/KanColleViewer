@@ -1233,4 +1233,19 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_SortieWaters_3" xml:space="preserve">
     <value>泊地攻撃</value>
   </data>
+  <data name="ExitDialogConfirm" xml:space="preserve">
+    <value>「提督業も忙しい！」 を終了します。 よろしいですか？</value>
+  </data>
+  <data name="ExitDialogTitle" xml:space="preserve">
+    <value>EXIT KanColleViewer</value>
+  </data>
+  <data name="Settings_ExitConfirm" xml:space="preserve">
+    <value>終了確認</value>
+  </data>
+  <data name="Settings_ExitConfirmOnlyWhenInSortie" xml:space="preserve">
+    <value>出撃の時だけ</value>
+  </data>
+  <data name="Settings_ExitConfirmOption" xml:space="preserve">
+    <value>終了確認ダイアログを利用する</value>
+  </data>
 </root>

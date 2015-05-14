@@ -313,6 +313,24 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 「提督業も忙しい！」 を終了します。 よろしいですか？.
+        /// </summary>
+        public static string ExitDialogConfirm {
+            get {
+                return ResourceManager.GetString("ExitDialogConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXIT KanColleViewer.
+        /// </summary>
+        public static string ExitDialogTitle {
+            get {
+                return ResourceManager.GetString("ExitDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 遠征.
         /// </summary>
         public static string Expedition {
@@ -1290,6 +1308,33 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string Settings_Display {
             get {
                 return ResourceManager.GetString("Settings_Display", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 終了確認.
+        /// </summary>
+        public static string Settings_ExitConfirm {
+            get {
+                return ResourceManager.GetString("Settings_ExitConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 出撃の時だけ.
+        /// </summary>
+        public static string Settings_ExitConfirmOnlyWhenInSortie {
+            get {
+                return ResourceManager.GetString("Settings_ExitConfirmOnlyWhenInSortie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 終了確認ダイアログを利用する.
+        /// </summary>
+        public static string Settings_ExitConfirmOption {
+            get {
+                return ResourceManager.GetString("Settings_ExitConfirmOption", resourceCulture);
             }
         }
         
