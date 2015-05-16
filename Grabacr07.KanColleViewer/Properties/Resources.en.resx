@@ -1316,4 +1316,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_ExitConfirmOption" xml:space="preserve">
     <value>Show confirm dialog when close Kancolleviewer</value>
   </data>
+  <data name="Settings_ChangeOrientationMode" xml:space="preserve">
+    <value>Change Orientation Mode</value>
+  </data>
 </root>

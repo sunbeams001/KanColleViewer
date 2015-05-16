@@ -1285,6 +1285,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to オリエンテーションモードを変化する.
+        /// </summary>
+        public static string Settings_ChangeOrientationMode {
+            get {
+                return ResourceManager.GetString("Settings_ChangeOrientationMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 通知音を設定.
         /// </summary>
         public static string Settings_CustomSound {

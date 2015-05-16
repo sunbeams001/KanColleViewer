@@ -1248,4 +1248,7 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Settings_ExitConfirmOption" xml:space="preserve">
     <value>終了確認ダイアログを利用する</value>
   </data>
+  <data name="Settings_ChangeOrientationMode" xml:space="preserve">
+    <value>オリエンテーションモードを変化する</value>
+  </data>
 </root>

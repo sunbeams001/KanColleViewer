@@ -115,7 +115,7 @@
 							VerticalAlignment="Top"
 							WindowChrome.IsHitTestVisibleInChrome="True">
                     <controls:OrientationModeSelector OrientationMode="{Binding Settings.Orientation, Mode=OneWay}"
-												 ToolTip="Change Orientation Mode"
+												 ToolTip="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Settings_ChangeOrientationMode}"
 												 Margin="4,0" />
 					<controls:ZoomFactorSelector ZoomFactor="{Binding Settings.BrowserZoomFactor, Mode=OneWay}"
 												 ToolTip="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.ZoomFactorSelector_Tooltip}"

@@ -16,6 +16,7 @@ using Livet.Messaging;
 using Livet.Messaging.IO;
 using MetroRadiance;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
+using Livet;
 
 namespace Grabacr07.KanColleViewer.ViewModels
 {
@@ -761,14 +762,13 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				this.CheckForUpdates();
 			}
-			
+
 			this.ViewRangeSettingsCollection = ViewRangeCalcLogic.Logics
 				.Select(x => new ViewRangeSettingsViewModel(x))
 				.ToList();
-				
+
 			this.ReloadPlugins();
 		}
-
 
 		public void OpenScreenshotFolderSelectionDialog()
 		{
@@ -918,7 +918,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		}
 
 
-		public class ViewRangeSettingsViewModel
+		public class ViewRangeSettingsViewModel : ViewModel
 		{
 			private bool selected;
 
@@ -941,6 +941,14 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			{
 				this.Logic = logic;
 				this.selected = Settings.Current.KanColleClientSettings.ViewRangeCalcType == logic.Id;
+
+				this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+				{
+					(sender, args) =>
+					{
+						this.RaisePropertyChanged("Logic");
+					},
+				});
 			}
 		}
 	}
