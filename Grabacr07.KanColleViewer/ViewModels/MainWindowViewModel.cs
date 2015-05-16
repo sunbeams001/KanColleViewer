@@ -180,7 +180,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 				{ () => KanColleClient.Current.IsInSortie, (sender, args) => this.UpdateMode() },
 			});
 
-			UpdateCloseConfirm();
+			this.UpdateCloseConfirm();
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(Setting.Current)
 			{
 				{ "CloseConfirm", (sender, args) => UpdateCloseConfirm() },

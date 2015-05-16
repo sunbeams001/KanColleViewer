@@ -12,9 +12,9 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 {
     public class RankingsViewModel : ViewModel
 	{
-		private readonly ConcurrentDictionary<int, RankingViewModel[]> CurrentData;
+		private readonly ConcurrentDictionary<int, RankingViewModel[]> currentData;
 
-		private int MyRankingsPage;
+		private int myRankingsPage;
 
         #region Rankings
 
@@ -164,31 +164,31 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			if (this.Rankings.Any(x => x.NickName.Equals(KanColleClient.Current.Homeport.Admiral.Nickname)))
 			{
 				//if (this.MyRankingsPage != this.CurrentPage) this.CurrentData.Clear();
-				this.MyRankingsPage = this.CurrentPage;
+				this.myRankingsPage = this.CurrentPage;
 			}
 
 			//if (this.CurrentData.Keys.Any(x => x == this.CurrentPage)) this.CurrentData.Clear();
-			this.CurrentData.GetOrAdd(this.CurrentPage, this.Rankings);
+			this.currentData.GetOrAdd(this.CurrentPage, this.Rankings);
         }
 
         public RankingsViewModel()
         {
-			this.CurrentData = new ConcurrentDictionary<int, RankingViewModel[]>();
-			this.MyRankingsPage = 0;
+			this.currentData = new ConcurrentDictionary<int, RankingViewModel[]>();
+			this.myRankingsPage = 0;
 			
 			this.Update();
             this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Rankings)
             {
                 {
                     () => KanColleClient.Current.Homeport.Rankings.Current,
-                    (sender, args) => Update()
+                    (sender, args) => this.Update()
                 },
             });
         }
 
 		public void ToMyRank()
 		{
-			this.ToPage(this.MyRankingsPage);
+			this.ToPage(this.myRankingsPage);
 		}
 
 		public void ToTop1()
@@ -215,7 +215,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		{
 			try
 			{
-				this.Rankings = this.CurrentData.First(x => x.Key == page).Value;
+				this.Rankings = this.currentData.First(x => x.Key == page).Value;
 			}
 			catch
 			{
