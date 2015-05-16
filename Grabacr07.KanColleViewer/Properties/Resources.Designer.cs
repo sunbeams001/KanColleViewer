@@ -2492,9 +2492,9 @@ namespace Grabacr07.KanColleViewer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to 作戦出撃なし.
         /// </summary>
-        public static string ShipCatalog_Operation_NeitherALnorMI {
+        public static string ShipCatalog_Operation_NotLocked {
             get {
-                return ResourceManager.GetString("ShipCatalog_Operation_NeitherALnorMI", resourceCulture);
+                return ResourceManager.GetString("ShipCatalog_Operation_NotLocked", resourceCulture);
             }
         }
         
@@ -2666,33 +2666,6 @@ namespace Grabacr07.KanColleViewer.Properties {
         public static string ShipCatalog_SortieWaters {
             get {
                 return ResourceManager.GetString("ShipCatalog_SortieWaters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 通商破壊.
-        /// </summary>
-        public static string ShipCatalog_SortieWaters_1 {
-            get {
-                return ResourceManager.GetString("ShipCatalog_SortieWaters_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 攻略作戦.
-        /// </summary>
-        public static string ShipCatalog_SortieWaters_2 {
-            get {
-                return ResourceManager.GetString("ShipCatalog_SortieWaters_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 泊地攻撃.
-        /// </summary>
-        public static string ShipCatalog_SortieWaters_3 {
-            get {
-                return ResourceManager.GetString("ShipCatalog_SortieWaters_3", resourceCulture);
             }
         }
         

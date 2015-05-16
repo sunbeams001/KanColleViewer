@@ -61,6 +61,33 @@ namespace Grabacr07.KanColleWrapper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 通商破壊.
+        /// </summary>
+        internal static string SallyArea_Area1_Name {
+            get {
+                return ResourceManager.GetString("SallyArea_Area1_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 攻略作戦.
+        /// </summary>
+        internal static string SallyArea_Area2_Name {
+            get {
+                return ResourceManager.GetString("SallyArea_Area2_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 泊地攻撃.
+        /// </summary>
+        internal static string SallyArea_Area3_Name {
+            get {
+                return ResourceManager.GetString("SallyArea_Area3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 艦娘と装備の索敵値の単純な合計値.
         /// </summary>
         internal static string ViewRange_Type1_Description {

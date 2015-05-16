@@ -7,6 +7,7 @@ using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
 using Livet;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
+using Livet.EventListeners;
 
 namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 {
@@ -430,7 +431,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 	{
 		#region None 変更通知プロパティ
 
-		private bool _None = true;
+		private bool _None;
 
 		public bool None
 		{
@@ -448,79 +449,63 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		#endregion
 
-		#region Area1 変更通知プロパティ
+		public IReadOnlyCollection<SallyAreaViewModel> Areas { get; private set; }
 
-		private bool _Area1 = true;
 
-		public bool Area1
+		public ShipSallyAreaFilter(Action updateAction) : base(updateAction)
 		{
-			get { return this._Area1; }
-			set
-			{
-				if (this._Area1 != value)
-				{
-					this._Area1 = value;
-					this.RaisePropertyChanged();
-					this.Update();
-				}
-			}
+			this.None = true;
+			this.Areas = SallyArea.Areas.Select(x => new SallyAreaViewModel(x, updateAction)).ToList();
 		}
-
-		#endregion
-
-		#region Area2 変更通知プロパティ
-
-		private bool _Area2 = true;
-
-		public bool Area2
-		{
-			get { return this._Area2; }
-			set
-			{
-				if (this._Area2 != value)
-				{
-					this._Area2 = value;
-					this.RaisePropertyChanged();
-					this.Update();
-				}
-			}
-		}
-
-		#endregion
-
-		#region Area3 変更通知プロパティ
-
-		private bool _Area3 = true;
-
-		public bool Area3
-		{
-			get { return this._Area3; }
-			set
-			{
-				if (this._Area3 != value)
-				{
-					this._Area3 = value;
-					this.RaisePropertyChanged();
-					this.Update();
-				}
-			}
-		}
-
-		#endregion
-
-
-		public ShipSallyAreaFilter(Action updateAction) : base(updateAction) { }
 
 		public override bool Predicate(Ship ship)
 		{
 			if (this.None && ship.SallyArea == 0) return true;
-			if (this.Area1 && ship.SallyArea == 1) return true;
-			if (this.Area2 && ship.SallyArea == 2) return true;
-			if (this.Area3 && ship.SallyArea == 3) return true;
+			if (this.Areas.Any(x => x.IsSelected && x.Area.Id == ship.SallyArea)) return true;
 
 			return false;
+		}
+	}
 
-			//return true;
+	public class SallyAreaViewModel : ViewModel
+	{
+		public ISallyArea Area { get; set; }
+
+		private Action action;
+
+		#region Selected 変更通知プロパティ
+
+		private bool _IsSelected;
+
+		public bool IsSelected
+		{
+			get { return this._IsSelected; }
+			set
+			{
+				if (this._IsSelected != value)
+				{
+					this._IsSelected = value;
+					if (this.action != null) this.action();
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		public SallyAreaViewModel(ISallyArea area, Action updateAction)
+		{
+			this.Area = area;
+			this.IsSelected = true;
+			this.action = updateAction;
+
+			this.CompositeDisposable.Add(new PropertyChangedEventListener(ResourceServiceWrapper.Current)
+			{
+				(sender, args) =>
+				{
+					this.RaisePropertyChanged("Area");
+				},
+			});
 		}
 	}
 }
