@@ -66,7 +66,7 @@
 								   Text="{Binding Info.Name, Mode=OneWay}" />
 						<TextBlock Grid.Column="1"
 								   Style="{DynamicResource DefaultTextStyleKey}"
-								   Text="{Binding Level, Mode=OneWay, StringFormat=[Lv.{0}]}" />
+								   Text="{Binding Level, Mode=OneWay, StringFormat= [Lv.{0}]}" />
 					</Grid>
 				</DataTemplate>
 			</metro:PromptComboBox.ItemTemplate>
