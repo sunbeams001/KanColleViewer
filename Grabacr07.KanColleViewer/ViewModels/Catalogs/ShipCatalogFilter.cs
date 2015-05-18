@@ -455,15 +455,19 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public ShipSallyAreaFilter(Action updateAction) : base(updateAction)
 		{
 			this.None = true;
-			this.Areas = SallyArea.Areas.Select(x => new SallyAreaViewModel(x, updateAction)).ToList();
+			// event only
+			//this.Areas = SallyArea.Areas.Select(x => new SallyAreaViewModel(x, updateAction)).ToList();
+
+			this.Areas = null;
 		}
 
 		public override bool Predicate(Ship ship)
 		{
-			if (this.None && ship.SallyArea == 0) return true;
-			if (this.Areas.Any(x => x.IsSelected && x.Area.Id == ship.SallyArea)) return true;
+			// event only
+			//if (this.None && ship.SallyArea == 0) return true;
+			//return this.Areas.Any(x => x.IsSelected && x.Area.Id == ship.SallyArea);
 
-			return false;
+			return true;
 		}
 	}
 

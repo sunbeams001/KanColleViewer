@@ -465,7 +465,8 @@
                         </WrapPanel>
                     </Border>
 
-					<Border BorderThickness="1"
+					<!-- Event only -->
+					<!--<Border BorderThickness="1"
 							BorderBrush="{DynamicResource BorderBrushKey}"
 							Margin="0,8,0,0"
 							Padding="5">
@@ -494,7 +495,7 @@
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
 						</WrapPanel>
-					</Border>
+					</Border>-->
 				</StackPanel>
             </Expander>
 
@@ -899,7 +900,8 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-							<GridViewColumn Width="65">
+							<!-- Event only -->
+							<!--<GridViewColumn Width="65">
 								<GridViewColumn.Header>
 									<TextBlock Text="{Binding Resources.ShipCatalog_SortieWaters, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 								</GridViewColumn.Header>
@@ -926,7 +928,7 @@
 										</DataTemplate.Triggers>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>
-							</GridViewColumn>
+							</GridViewColumn>-->
 
 							<GridViewColumn Width="110">
                                 <GridViewColumn.Header>
