@@ -2,6 +2,9 @@
 	KCV Change Log
 ========================
 
+v3.8.0 r551 - 5/18/2015
+	* Fix for 2015/05/18 update
+
 v3.7.0 r550 - 5/18/2015
 	* Change FleetWindow's layout
 	* Add Large-sized Flying Boat icon
