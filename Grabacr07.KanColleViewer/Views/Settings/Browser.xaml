@@ -79,7 +79,7 @@
         <TextBlock Text="{Binding Resources.Settings_Browser_Position, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
 						   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 						   Margin="0,10,0,0"/>
-		<Grid Margin="20,0,0,0">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -90,19 +90,17 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="{Binding Resources.Settings_Browser_VerticalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
             <metro:PromptComboBox Margin="8"
-								  HorizontalAlignment="Left"
-								  Prompt=""
-								  ItemsSource="{Binding BrowserVerticalPositionList}"
-								  SelectedValue="{Binding Source={x:Static models:Settings.Current}, Path=BrowserVerticalPosition}"
-								  ToolTip="{Binding Resources.Settings_Browser_VerticalPosition_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-								  IsReadOnly="True"
-								  MinWidth="70"
-								  Grid.Row="0"
-								  Grid.Column="1"/>
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding BrowserVerticalPositionList}"
+										  SelectedValue="{Binding Source={x:Static models:Settings.Current}, Path=BrowserVerticalPosition}"
+										  ToolTip="{Binding Resources.Settings_Browser_VerticalPosition_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"/>
 
             <TextBlock Grid.Row="1"
-					   Grid.Column="0"
-					   Text="{Binding Resources.Settings_Browser_HorizontalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
+							   Text="{Binding Resources.Settings_Browser_HorizontalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
 
             <metro:PromptComboBox Margin="8"
 										  HorizontalAlignment="Left"
@@ -123,12 +121,7 @@
 						   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 						   Margin="0,10,0,0"/>
 
-		<CheckBox Content="{Binding Resources.Settings_Flash_Enable, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-				  IsChecked="{Binding EnableFlashQuality, Source={x:Static models:Settings.Current}, Mode=TwoWay}"
-				  Margin="20,20,0,10" />
-
-		<Grid Margin="20,0,0,0"
-			  IsEnabled="{Binding EnableFlashQuality, Source={x:Static models:Settings.Current}, Mode=OneWay}">
+		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition />
 				<RowDefinition />
@@ -142,42 +135,39 @@
 			<TextBlock Text="{Binding Resources.Settings_Flash_Quality, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
 
 			<metro:PromptComboBox Margin="8"
-								  HorizontalAlignment="Left"
-								  Prompt=""
-								  ItemsSource="{Binding FlashQualityList}"
-								  SelectedValue="{Binding FlashQuality, Mode=TwoWay}"
-								  ToolTip="{Binding Resources.Settings_Flash_Quality_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-								  IsReadOnly="True"
-								  MinWidth="70"
-								  Grid.Row="0"
-								  Grid.Column="1"/>
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding FlashQualityList}"
+										  SelectedValue="{Binding FlashQuality, Mode=TwoWay}"
+										  ToolTip="{Binding Resources.Settings_Flash_Quality_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"/>
 
 			<TextBlock Grid.Row="1"
-					   Grid.Column="0"
-					   Text="{Binding Resources.Settings_Flash_Window, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
+							   Text="{Binding Resources.Settings_Flash_Window, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
 
 			<metro:PromptComboBox Margin="8"
-								  HorizontalAlignment="Left"
-								  Prompt=""
-								  ItemsSource="{Binding FlashWindowList}"
-								  SelectedValue="{Binding FlashWindow, Mode=TwoWay}"
-								  ToolTip="{Binding Resources.Settings_Flash_Window_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
-								  IsReadOnly="True"
-								  MinWidth="70"
-								  Grid.Column="1"
-								  Grid.Row="1" />
+										  HorizontalAlignment="Left"
+										  Prompt=""
+										  ItemsSource="{Binding FlashWindowList}"
+										  SelectedValue="{Binding FlashWindow, Mode=TwoWay}"
+										  ToolTip="{Binding Resources.Settings_Flash_Window_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										  IsReadOnly="True"
+										  MinWidth="70"
+										  Grid.Column="1"
+										  Grid.Row="1" />
 
 			<Grid Grid.Column="2"
-				  Grid.Row="0"
 				  Grid.RowSpan="2">
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
 					<ColumnDefinition Width="Auto" />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<TextBlock Grid.Column="1"
 						   Text="※"/>
 				<TextBlock Grid.Column="2"
+						   TextWrapping="Wrap"
 						   Padding="10"
 						   Margin="8,0,10,0"
 						   Text="{Binding Resources.Settings_Flash_Message, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
