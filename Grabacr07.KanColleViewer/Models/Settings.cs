@@ -67,6 +67,7 @@ namespace Grabacr07.KanColleViewer.Models
 				NotifyRepairingCompleted = true,
                 NotifyExpeditionReturned = true,
                 NotifyCritical = true,
+				EnableFlashQuality = false,
 				FlashQuality = "High",
 				FlashWindow = "Opaque",
 				CustomSoundVolume = 50,
@@ -533,6 +534,7 @@ namespace Grabacr07.KanColleViewer.Models
 
 		#endregion
 
+		// ReSharper disable InconsistentNaming
 		#region ShipCatalog_SaveFilters 変更通知プロパティ
 
 		private bool _ShipCatalog_SaveFilters;
@@ -873,6 +875,25 @@ namespace Grabacr07.KanColleViewer.Models
 			}
 		}
 
+		#endregion
+		// ReSharper restore InconsistentNaming
+
+		#region EnableFlashQuality 変更通知プロパティ
+
+		private bool _EnableFlashQuality;
+
+		public bool EnableFlashQuality
+		{
+			get { return this._EnableFlashQuality; }
+			set
+			{
+				if (this._EnableFlashQuality != value)
+				{
+					this._EnableFlashQuality = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
 		#endregion
 
 		#region FlashQuality 変更通知プロパティ

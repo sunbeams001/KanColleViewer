@@ -59,7 +59,8 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 			if (newBrowser != null)
 			{
 				newBrowser.LoadCompleted += instance.HandleLoadCompleted;
-				newBrowser.LoadCompleted += instance.ApplyFlashQualityScript;
+				if (KCVSettings.Current.EnableFlashQuality)
+					newBrowser.LoadCompleted += instance.ApplyFlashQualityScript;
 			}
 			if (instance.scrollViewer != null)
 			{
