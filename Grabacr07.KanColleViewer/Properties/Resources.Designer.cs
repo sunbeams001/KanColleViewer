@@ -1348,7 +1348,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Flash.
+        ///   Looks up a localized string similar to Flashの設定.
         /// </summary>
         public static string Settings_Flash {
             get {
@@ -1357,8 +1357,16 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This works with DMM.com. OSAPI, and API links now!
-        ///[You must reload the game for the changes to take affect.].
+        ///   Looks up a localized string similar to Flashの設定をへんかする.
+        /// </summary>
+        public static string Settings_Flash_Enable {
+            get {
+                return ResourceManager.GetString("Settings_Flash_Enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 効果があるため、再起動するのは必要です.
         /// </summary>
         public static string Settings_Flash_Message {
             get {
@@ -1367,7 +1375,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Set Flash Quality:.
+        ///   Looks up a localized string similar to Flashの質さ.
         /// </summary>
         public static string Settings_Flash_Quality {
             get {
@@ -1390,7 +1398,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Set Flash Window:.
+        ///   Looks up a localized string similar to Flashのタイプ.
         /// </summary>
         public static string Settings_Flash_Window {
             get {
@@ -1878,7 +1886,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translations.
+        ///   Looks up a localized string similar to 翻訳.
         /// </summary>
         public static string Settings_Translations {
             get {
@@ -1887,7 +1895,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Append untranslated items to the translation files?.
+        ///   Looks up a localized string similar to ゲームの原文をファイルに書く.
         /// </summary>
         public static string Settings_Translations_Add_Enable {
             get {
@@ -1896,7 +1904,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translate game items, ships, and quests to selected language?.
+        ///   Looks up a localized string similar to ゲームの原文を言語化する.
         /// </summary>
         public static string Settings_Translations_Enable {
             get {
@@ -2967,7 +2975,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make sure DMM.com is set to Japanese (日本語).
+        ///   Looks up a localized string similar to 日本語を選ぶのは必要です.
         /// </summary>
         public static string StartContent_SetRegionCookieToolTip {
             get {
