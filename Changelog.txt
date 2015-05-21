@@ -2,10 +2,6 @@
 	KCV Change Log
 ========================
 
-v3.8.1 r553 - 5/21/2015
-	* Add flash change settings
-	* Fix some untranslated in japanese
-
 v3.8.1 r552 - 5/19/2015
 	* Fix fleet state doesn't update when sortie
 	* Add pagination for log viewer
