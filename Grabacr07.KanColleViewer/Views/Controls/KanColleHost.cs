@@ -174,11 +174,11 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
 			this.Update();
 
-            //var window = Window.GetWindow(this.WebBrowser);
-            //if (window != null)
-            //{
-            //    window.Width = this.WebBrowser.Width;
-            //}
+			//var window = Window.GetWindow(this.WebBrowser);
+			//if (window != null)
+			//{
+			//    window.Width = this.WebBrowser.Width;
+			//}
 		}
 
 		private void ApplyStyleSheet()

@@ -25,12 +25,12 @@ namespace Grabacr07.KanColleViewer.Views.Converters
 				Double rootHeight = (Double)values[1];
 				Double contentWidth = (Double)values[2];
 				Double contentHeight = (Double)values[3];
-                if (Setting.Current.Orientation == OrientationType.Horizontal && 
+				if (Setting.Current.Orientation.Mode == Orientation.Horizontal && 
                     Setting.Current.BrowserHorizontalPosition == "Right")
                 {
                     posX = rootWidth - contentWidth - posX - posString[2] + posString[0];
                 }
-                else if (Setting.Current.Orientation == OrientationType.Vertical &&
+				else if (Setting.Current.Orientation.Mode == Orientation.Vertical &&
                     Setting.Current.BrowserVerticalPosition == "Bottom")
                 {
                     posY = rootHeight - contentHeight - posY - posString[3] + posString[1];
