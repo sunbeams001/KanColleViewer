@@ -8,9 +8,9 @@ namespace Grabacr07.KanColleViewer.Models
 {
 	[Flags]
 	public enum OrientationType
-    {
-        Vertical,
-        Horizontal,
+	{
+		Vertical,
+		Horizontal,
         Auto,
     }
 }

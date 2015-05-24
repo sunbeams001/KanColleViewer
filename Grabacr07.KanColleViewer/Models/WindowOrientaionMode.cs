@@ -58,20 +58,7 @@ namespace Grabacr07.KanColleViewer.Models
 				if (this._CurrentMode != value)
 				{
 					this._CurrentMode = value;
-
-					if (value.Equals(OrientationType.Auto))
-					{
-						if (!EventSetted)
-							System.Windows.SystemParameters.StaticPropertyChanged += this.SystemParameters_StaticPropertyChanged;
-						EventSetted = true;
-						this.UpdateOrientationMode();
-					}
-					else
-					{
-						System.Windows.SystemParameters.StaticPropertyChanged -= this.SystemParameters_StaticPropertyChanged;
-						EventSetted = false;
-						this.Mode = value == OrientationType.Horizontal ? Orientation.Horizontal : Orientation.Vertical;
-					}
+					this.Refresh();
 					this.RaisePropertyChanged();
 				}
 			}
@@ -137,6 +124,23 @@ namespace Grabacr07.KanColleViewer.Models
 		public void Dispose()
 		{
 			System.Windows.SystemParameters.StaticPropertyChanged -= this.SystemParameters_StaticPropertyChanged;
+		}
+
+		public void Refresh()
+		{
+			if (this.CurrentMode == OrientationType.Auto)
+			{
+				if (!EventSetted)
+					System.Windows.SystemParameters.StaticPropertyChanged += this.SystemParameters_StaticPropertyChanged;
+				EventSetted = true;
+				this.UpdateOrientationMode();
+			}
+			else
+			{
+				System.Windows.SystemParameters.StaticPropertyChanged -= this.SystemParameters_StaticPropertyChanged;
+				EventSetted = false;
+				this.Mode = this.CurrentMode == OrientationType.Horizontal ? Orientation.Horizontal : Orientation.Vertical;
+			}
 		}
 	}
 }

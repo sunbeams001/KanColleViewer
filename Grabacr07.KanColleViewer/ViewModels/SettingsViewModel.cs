@@ -625,6 +625,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			this.BrowserZoomFactor = zoomFactor;
 
 			var orientationMode = new WindowOrientaionMode { CurrentMode = Settings.Current.OrientationMode };
+			orientationMode.Refresh();
 			this.CompositeDisposable.Add(orientationMode);
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(orientationMode)
 			{
