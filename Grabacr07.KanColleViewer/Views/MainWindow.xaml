@@ -42,8 +42,8 @@
     </metro:MetroWindow.Resources>
 
     <metro:MetroWindow.MinHeight>
-        <Binding ElementName="KancolleBrowser"
-                Path="ActualHeight"
+        <Binding ElementName="KanColleHost"
+                Path="MinHeight"
                 Converter="{StaticResource AdjustConverter}"
                 ConverterParameter="113"
                 Mode="OneWay" />
@@ -152,7 +152,13 @@
 													 MessageKey="WebBrowser/Zoom">
                             <behaviors:ZoomAction />
                         </livet:InteractionMessageTrigger>
-                    </i:Interaction.Triggers>
+						<livet:LivetDataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
+							<livet:LivetCallMethodAction MethodName="Update" MethodTarget="{Binding ElementName=KanColleHost}"/>
+						</livet:LivetDataTrigger>
+					<livet:LivetDataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
+						<livet:LivetCallMethodAction MethodName="Update" MethodTarget="{Binding ElementName=KanColleHost}"/>
+					</livet:LivetDataTrigger>
+				</i:Interaction.Triggers>
                     <WebBrowser Navigated="WebBrowser_Navigated" LoadCompleted="WebBrowser_LoadCompleted" Navigating="WebBrowser_Navigating" x:Name="KancolleBrowser">
                         <i:Interaction.Behaviors>
                             <behaviors:NavigatorBehavior Navigator="{Binding Navigator}" />
