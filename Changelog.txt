@@ -2,6 +2,9 @@
 	KCV Change Log
 ========================
 
+v3.8.1 r555 - 5/24/2015
+	* Fix orientation startup
+
 v3.8.1 r554 - 5/24/2015
 	* Fix loading forever when startup
 	* Update ship number realtime
