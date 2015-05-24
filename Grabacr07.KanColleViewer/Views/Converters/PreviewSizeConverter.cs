@@ -19,12 +19,14 @@ namespace Grabacr07.KanColleViewer.Views.Converters
 			{
 				if (values.Length != 9) throw new ArgumentException();
                 double[] posString = ((String)parameter).Split(',').Select(x => Double.Parse(x)).ToArray();
-                Double posX = posString[0] + (Double)values[4];
-                Double posY = posString[1] + (Double)values[5];
 				Double rootWidth = (Double)values[0];
 				Double rootHeight = (Double)values[1];
 				Double contentWidth = (Double)values[2];
 				Double contentHeight = (Double)values[3];
+				Double containerWidth = (Double)values[4];
+				Double containerHeight = (Double)values[5];
+				Double posX = posString[0] + (containerWidth - contentWidth) / 2;
+				Double posY = posString[1] + (containerHeight - contentHeight) / 2;
 				if (Setting.Current.Orientation.Mode == Orientation.Horizontal && 
                     Setting.Current.BrowserHorizontalPosition == "Right")
                 {
