@@ -1895,7 +1895,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ゲームの原文をファイルに書く.
+        ///   Looks up a localized string similar to ゲームの原文をファイルに書き込む.
         /// </summary>
         public static string Settings_Translations_Add_Enable {
             get {
@@ -3128,7 +3128,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 遠征中.
+        ///   Looks up a localized string similar to 遠征中:.
         /// </summary>
         public static string StateDetail_OnExpedition {
             get {
@@ -3137,7 +3137,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 艦隊は遠征中です.
+        ///   Looks up a localized string similar to 艦隊は遠征中です:.
         /// </summary>
         public static string StateDetail_OnExpeditionDetail {
             get {

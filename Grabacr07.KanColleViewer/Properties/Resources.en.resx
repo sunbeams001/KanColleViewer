@@ -825,7 +825,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Morale will be restored in</value>
   </data>
   <data name="StateDetail_OnExpedition" xml:space="preserve">
-    <value>On expedition</value>
+    <value>On</value>
   </data>
   <data name="StateDetail_OnSortie" xml:space="preserve">
     <value>On sortie!</value>
@@ -1245,7 +1245,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>There aren't ship in fleet that is repairing</value>
   </data>
   <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
-    <value>Fleet is on expedition</value>
+    <value>Fleet is on</value>
   </data>
   <data name="StateDetail_OnShortSupply" xml:space="preserve">
     <value>There are ships in fleet that need resupplying</value>

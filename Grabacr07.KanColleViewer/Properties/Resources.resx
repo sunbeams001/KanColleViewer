@@ -768,7 +768,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>疲労回復まで</value>
   </data>
   <data name="StateDetail_OnExpedition" xml:space="preserve">
-    <value>遠征中</value>
+    <value>遠征中:</value>
   </data>
   <data name="StateDetail_OnSortie" xml:space="preserve">
     <value>艦隊は出撃中です！</value>
@@ -1176,7 +1176,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>艦隊の艦娘は入渠していません</value>
   </data>
   <data name="StateDetail_OnExpeditionDetail" xml:space="preserve">
-    <value>艦隊は遠征中です</value>
+    <value>艦隊は遠征中です:</value>
   </data>
   <data name="StateDetail_OnShortSupply" xml:space="preserve">
     <value>艦隊に未補給の艦娘がいます</value>
