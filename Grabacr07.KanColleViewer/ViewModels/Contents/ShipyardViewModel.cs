@@ -152,7 +152,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
 		private void UpdateDroppedShip()
 		{
-			var droppedShip = KanColleClient.Current.Homeport.Organization.DroppedShips.LastOrDefault().Value;
+			var droppedShip = KanColleClient.Current.Homeport.Organization.DroppedShips.LastOrDefault();
 			if (droppedShip != null)
 			{
 				this.DroppedShip.Update(droppedShip);

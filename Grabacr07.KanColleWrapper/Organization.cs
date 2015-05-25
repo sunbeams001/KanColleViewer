@@ -108,12 +108,12 @@ namespace Grabacr07.KanColleWrapper
 
 		#region DroppedShips 変更通知プロパティ
 
-		private MemberTable<DroppedShip> _DroppedShips;
+		private List<DroppedShip> _DroppedShips;
 
 		/// <summary>
 		/// どロプされた艦娘のコレクションを取得します。
 		/// </summary>
-		public MemberTable<DroppedShip> DroppedShips
+		public List<DroppedShip> DroppedShips
 		{
 			get { return this._DroppedShips; }
 			private set
@@ -135,7 +135,7 @@ namespace Grabacr07.KanColleWrapper
 
 			this.Ships = new MemberTable<Ship>();
 			this.Fleets = new MemberTable<Fleet>();
-			this.DroppedShips = new MemberTable<DroppedShip>();
+			this.DroppedShips = new List<DroppedShip>();
 
 			proxy.api_get_member_ship.TryParse<kcsapi_ship2[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_ship2.TryParse<kcsapi_ship2[]>().Subscribe(x =>
@@ -476,7 +476,7 @@ namespace Grabacr07.KanColleWrapper
 		{
 			this.evacuatedShipsIds.Clear();
 			this.towShipIds.Clear();
-			this.DroppedShips = new MemberTable<DroppedShip>();
+			this.DroppedShips.Clear();
 			this.RaisePropertyChanged("DroppedShips");
 
 			foreach (var ship in this.Ships.Values)

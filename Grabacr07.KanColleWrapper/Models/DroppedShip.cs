@@ -9,7 +9,7 @@ namespace Grabacr07.KanColleWrapper.Models
 	/// <summary>
 	/// 工廠で開発された装備アイテムを表します。
 	/// </summary>
-	public class DroppedShip : RawDataWrapper<kcsapi_battleresult_getship>, IIdentifiable
+	public class DroppedShip : RawDataWrapper<kcsapi_battleresult_getship>
 	{
 		public ShipInfo ShipInfo { get; private set; }
 
@@ -24,11 +24,6 @@ namespace Grabacr07.KanColleWrapper.Models
 			{
 				System.Diagnostics.Debug.WriteLine(ex);
 			}
-		}
-
-		public int Id
-		{
-			get { return this.RawData.api_ship_id; }
 		}
 	}
 }
