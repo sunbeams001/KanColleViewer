@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.19">
+<Quests Version="1.1.20">
   <Quest>
     <ID>101</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -1244,14 +1244,14 @@
     <JP-Name>新編「第六駆逐隊」を編成せよ！</JP-Name>
     <TR-Name>Form the new Destroyer Division 6!</TR-Name>
     <JP-Detail>「暁改二」を旗艦とした「響」「雷」「電」4隻による第六駆逐隊を編成せよ！</JP-Detail>
-    <TR-Detail>Have ONLY Akatsuki as flagship, and hibiki, Ikazuchi, Inazuma in the fleet.</TR-Detail>
+    <TR-Detail>Have ONLY Akatsuki kai2 as flagship, and Hibiki, Ikazuchi, Inazuma in the fleet.</TR-Detail>
   </Quest>
   <Quest>
     <ID>277</ID>
     <JP-Name>「第六駆逐隊」対潜哨戒を徹底なのです！</JP-Name>
     <TR-Name>Complete Destroyer Division 6 Anti-Submarine Mission!</TR-Name>
     <JP-Detail>「第六駆逐隊」を含む艦隊で鎮守府正面で対潜哨戒を実施、敵潜水艦部隊を痛打せよ！</JP-Detail>
-    <TR-Detail>Deploy a fleet with Akatsuki as flagship, and hibiki, Ikazuchi, Inazuma to world 1-5 and obtain an A victory or better at the boss.</TR-Detail>
+    <TR-Detail>Deploy a fleet with Akatsuki kai2 as flagship, and Hibiki, Ikazuchi, Inazuma to world 1-5 and obtain an A victory or better at the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>276</ID>
