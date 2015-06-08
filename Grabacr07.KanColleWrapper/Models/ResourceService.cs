@@ -29,6 +29,7 @@ namespace Grabacr07.KanColleWrapper.Models
 			"ja", // Resources.resx
 			"en",
 			"zh-CN",
+			"zh-TW",
 		};
 
 		/// <summary>

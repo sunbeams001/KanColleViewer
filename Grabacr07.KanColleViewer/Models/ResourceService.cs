@@ -33,6 +33,7 @@ namespace Grabacr07.KanColleViewer.Models
 			"ja", // Resources.resx
 			"en",
 			"zh-CN",
+			"zh-TW",
 		};
 
 		/// <summary>
