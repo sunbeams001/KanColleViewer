@@ -261,9 +261,6 @@
   <data name="MessageBar_ReSortie_Separator" xml:space="preserve">
     <value>, </value>
   </data>
-  <data name="MessageBar_ReSortie_Wounded" xml:space="preserve">
-    <value>are heavily damaged</value>
-  </data>
   <data name="Quests" xml:space="preserve">
     <value>Quests</value>
   </data>
@@ -281,21 +278,6 @@
   </data>
   <data name="Quests_Weekly" xml:space="preserve">
     <value>Weekly</value>
-  </data>
-  <data name="Quest_Detail_Untaken" xml:space="preserve">
-    <value>Please visit all of the quest pages.</value>
-  </data>
-  <data name="Quest_Progress_50" xml:space="preserve">
-    <value> 50% </value>
-  </data>
-  <data name="Quest_Progress_80" xml:space="preserve">
-    <value> 80% </value>
-  </data>
-  <data name="Quest_State_Accomplished" xml:space="preserve">
-    <value> Complete </value>
-  </data>
-  <data name="Quest_Title_Untaken" xml:space="preserve">
-    <value>(Unknown quest)</value>
   </data>
   <data name="Repairyard" xml:space="preserve">
     <value>Repair</value>
@@ -477,6 +459,9 @@
   <data name="StartContent_SetRegionCookieButton" xml:space="preserve">
     <value>Set Region Cookie</value>
   </data>
+  <data name="MessageBar_ReSortie_Wounded" xml:space="preserve">
+    <value>are heavily damaged</value>
+  </data>
   <data name="StartContent_SetRegionCookieMessage" xml:space="preserve">
     <value>Cookie has been set</value>
   </data>
@@ -491,45 +476,6 @@
   </data>
   <data name="StartContent_SetRegionCookieToolTip" xml:space="preserve">
     <value>Make sure DMM.com is set to Japanese (日本語)</value>
-  </data>
-  <data name="Stats_Accuracy" xml:space="preserve">
-    <value>Accuracy</value>
-  </data>
-  <data name="Stats_AntiAir" xml:space="preserve">
-    <value>Anti-Air</value>
-  </data>
-  <data name="Stats_AntiSub" xml:space="preserve">
-    <value>Anti-Sub</value>
-  </data>
-  <data name="Stats_Armor" xml:space="preserve">
-    <value>Armor</value>
-  </data>
-  <data name="Stats_DiveBomb" xml:space="preserve">
-    <value>Dive Bomb</value>
-  </data>
-  <data name="Stats_Evasion" xml:space="preserve">
-    <value>Evasion</value>
-  </data>
-  <data name="Stats_Firepower" xml:space="preserve">
-    <value>Firepower</value>
-  </data>
-  <data name="Stats_Health" xml:space="preserve">
-    <value>Health</value>
-  </data>
-  <data name="Stats_Luck" xml:space="preserve">
-    <value>Luck</value>
-  </data>
-  <data name="Stats_SightRange" xml:space="preserve">
-    <value>Range</value>
-  </data>
-  <data name="Stats_Speed" xml:space="preserve">
-    <value>Speed</value>
-  </data>
-  <data name="Stats_Torpedo" xml:space="preserve">
-    <value>Torpedo</value>
-  </data>
-  <data name="Stats_AttackRange" xml:space="preserve">
-    <value>Attack Rng</value>
   </data>
   <data name="Notifications_CriticalCondition" xml:space="preserve">
     <value>{0} has a ship is in critical condition!</value>

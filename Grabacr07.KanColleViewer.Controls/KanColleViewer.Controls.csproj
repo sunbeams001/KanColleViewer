@@ -130,6 +130,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls.Globalization\Resources.en.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls.Globalization\Resources.zh-TW.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls.Globalization\Resources.zh-CN.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Interactivity\CountdownBehavior.cs" />
     <Compile Include="Interactivity\TimerBehavior.cs" />
     <Compile Include="Controls\BuildingDock.cs" />
@@ -143,6 +155,7 @@
     <EmbeddedResource Include="Controls.Globalization\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <AppDesigner Include="Properties\" />
   </ItemGroup>

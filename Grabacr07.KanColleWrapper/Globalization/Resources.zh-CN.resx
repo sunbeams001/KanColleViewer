@@ -126,6 +126,51 @@
   <data name="SallyArea_Area3_Name" xml:space="preserve">
     <value>泊地攻击</value>
   </data>
+  <data name="Ship_RepairDockToolTip" xml:space="preserve">
+    <value>维修: {0}</value>
+  </data>
+  <data name="Ship_RepairFacilityToolTip" xml:space="preserve">
+    <value>建设: {0}</value>
+  </data>
+  <data name="Stats_Accuracy" xml:space="preserve">
+    <value>命中</value>
+  </data>
+  <data name="Stats_AntiAir" xml:space="preserve">
+    <value>对空</value>
+  </data>
+  <data name="Stats_AntiSub" xml:space="preserve">
+    <value>对潜</value>
+  </data>
+  <data name="Stats_Armor" xml:space="preserve">
+    <value>装甲</value>
+  </data>
+  <data name="Stats_AttackRange" xml:space="preserve">
+    <value>射程</value>
+  </data>
+  <data name="Stats_DiveBomb" xml:space="preserve">
+    <value>爆装</value>
+  </data>
+  <data name="Stats_Evasion" xml:space="preserve">
+    <value>闪避</value>
+  </data>
+  <data name="Stats_Firepower" xml:space="preserve">
+    <value>火力</value>
+  </data>
+  <data name="Stats_Health" xml:space="preserve">
+    <value>耐久</value>
+  </data>
+  <data name="Stats_Luck" xml:space="preserve">
+    <value>幸运</value>
+  </data>
+  <data name="Stats_SightRange" xml:space="preserve">
+    <value>索敌</value>
+  </data>
+  <data name="Stats_Speed" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="Stats_Torpedo" xml:space="preserve">
+    <value>雷装</value>
+  </data>
   <data name="ViewRange_Type1_Description" xml:space="preserve">
     <value>舰娘与装备的索敌值总和</value>
   </data>

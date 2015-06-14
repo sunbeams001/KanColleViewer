@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grabacr07.KanColleWrapper.Properties {
+namespace Grabacr07.KanColleWrapper.Globalization {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Grabacr07.KanColleWrapper.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Grabacr07.KanColleWrapper.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Grabacr07.KanColleWrapper.Globalization.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -84,6 +84,141 @@ namespace Grabacr07.KanColleWrapper.Properties {
         internal static string SallyArea_Area3_Name {
             get {
                 return ResourceManager.GetString("SallyArea_Area3_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 入渠: {0}.
+        /// </summary>
+        internal static string Ship_RepairDockToolTip {
+            get {
+                return ResourceManager.GetString("Ship_RepairDockToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 施設: {0}.
+        /// </summary>
+        internal static string Ship_RepairFacilityToolTip {
+            get {
+                return ResourceManager.GetString("Ship_RepairFacilityToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 命中.
+        /// </summary>
+        internal static string Stats_Accuracy {
+            get {
+                return ResourceManager.GetString("Stats_Accuracy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 対空.
+        /// </summary>
+        internal static string Stats_AntiAir {
+            get {
+                return ResourceManager.GetString("Stats_AntiAir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 対潜.
+        /// </summary>
+        internal static string Stats_AntiSub {
+            get {
+                return ResourceManager.GetString("Stats_AntiSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 装甲.
+        /// </summary>
+        internal static string Stats_Armor {
+            get {
+                return ResourceManager.GetString("Stats_Armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 射程.
+        /// </summary>
+        internal static string Stats_AttackRange {
+            get {
+                return ResourceManager.GetString("Stats_AttackRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 爆装.
+        /// </summary>
+        internal static string Stats_DiveBomb {
+            get {
+                return ResourceManager.GetString("Stats_DiveBomb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 回避.
+        /// </summary>
+        internal static string Stats_Evasion {
+            get {
+                return ResourceManager.GetString("Stats_Evasion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 火力.
+        /// </summary>
+        internal static string Stats_Firepower {
+            get {
+                return ResourceManager.GetString("Stats_Firepower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 耐久.
+        /// </summary>
+        internal static string Stats_Health {
+            get {
+                return ResourceManager.GetString("Stats_Health", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 運.
+        /// </summary>
+        internal static string Stats_Luck {
+            get {
+                return ResourceManager.GetString("Stats_Luck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 索敵.
+        /// </summary>
+        internal static string Stats_SightRange {
+            get {
+                return ResourceManager.GetString("Stats_SightRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 速力.
+        /// </summary>
+        internal static string Stats_Speed {
+            get {
+                return ResourceManager.GetString("Stats_Speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 雷装.
+        /// </summary>
+        internal static string Stats_Torpedo {
+            get {
+                return ResourceManager.GetString("Stats_Torpedo", resourceCulture);
             }
         }
         

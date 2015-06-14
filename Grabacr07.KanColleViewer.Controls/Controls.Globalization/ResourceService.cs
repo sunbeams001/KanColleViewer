@@ -32,7 +32,7 @@ namespace Grabacr07.KanColleViewer.Controls.Globalization
 			"ja", // Resources.resx
 			"en",
 			"zh-CN",
-			"ko-KR",
+			"zh-TW",
 		};
 
 		/// <summary>

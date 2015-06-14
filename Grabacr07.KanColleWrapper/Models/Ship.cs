@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fiddler;
+using Grabacr07.KanColleWrapper.Globalization;
 using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models.Raw;
 
@@ -240,6 +241,33 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+		public string AllStats
+		{
+			get
+			{
+				string details = "";
+				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Firepower, this.Firepower.Current, (this.Firepower.IsMax ? @"MAX" : "+" + (this.Firepower.Max - this.Firepower.Current).ToString()));
+				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Torpedo, this.Torpedo.Current, (this.Torpedo.IsMax ? @"MAX" : "+" + (this.Torpedo.Max - this.Torpedo.Current).ToString()));
+				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_AntiAir, this.AA.Current, (this.AA.IsMax ? @"MAX" : "+" + (this.AA.Max - this.AA.Current).ToString()));
+				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Armor, this.Armer.Current, (this.Armer.IsMax ? @"MAX" : "+" + (this.Armer.Max - this.Armer.Current).ToString()));
+				details += string.Format("{0}: {1} ({2})", Resources.Stats_Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
+
+				return details;
+			}
+		}
+
+		public string RepairTime
+		{
+			get
+			{
+				if (!this.IsDamaged)
+					return "OK";
+
+				// Only need to show Facility time when they are not the same time and if the ship is lightly damaged
+				return string.Format(Resources.Ship_RepairDockToolTip, this.RepairDockTime)
+					+ (this.IsLightlyDamaged && this.RepairFacilityTime != this.RepairDockTime ? "\n" + string.Format(Resources.Ship_RepairFacilityToolTip, this.RepairFacilityTime) : "");
+			}
+		}
 
 		#region Slots 変更通知プロパティ
 
