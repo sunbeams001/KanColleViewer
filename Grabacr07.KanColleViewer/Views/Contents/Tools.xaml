@@ -15,85 +15,85 @@
 			 d:DesignWidth="700"
 			 d:DesignHeight="300"
 			 d:DataContext="{d:DesignInstance vm:ToolsViewModel}">
-	
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
-				  PanningMode="Both"
-                  MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"
-							  MinWidth="100" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
 
-            <ListBox ItemsSource="{Binding Tools}"
+	<ScrollViewer VerticalScrollBarVisibility="Auto"
+				  PanningMode="Both"
+				  MinWidth="{Binding Source={x:Static properties:Settings.Default}, Path=UIContentWidth, Mode=OneTime}">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"
+							  MinWidth="100" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<ListBox ItemsSource="{Binding Tools}"
 				 SelectedValue="{Binding SelectedTool}"
 				 Background="{DynamicResource BackgroundBrushKey}"
 				 ScrollViewer.PanningMode="Both">
-                <ListBox.Template>
-                    <ControlTemplate TargetType="{x:Type ListBox}">
-                        <StackPanel Background="{TemplateBinding Background}">
-                            <StackPanel IsItemsHost="True" />
-                        </StackPanel>
-                    </ControlTemplate>
-                </ListBox.Template>
+				<ListBox.Template>
+					<ControlTemplate TargetType="{x:Type ListBox}">
+						<StackPanel Background="{TemplateBinding Background}">
+							<StackPanel IsItemsHost="True" />
+						</StackPanel>
+					</ControlTemplate>
+				</ListBox.Template>
 
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Foreground"
+				<ListBox.ItemContainerStyle>
+					<Style TargetType="{x:Type ListBoxItem}">
+						<Setter Property="Foreground"
 							Value="{DynamicResource ActiveForegroundBrushKey}" />
-                        <Setter Property="Height"
+						<Setter Property="Height"
 							Value="38" />
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter />
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="FocusVisualStyle"
+						<Setter Property="Template">
+							<Setter.Value>
+								<ControlTemplate TargetType="{x:Type ListBoxItem}">
+									<Border Background="{TemplateBinding Background}">
+										<ContentPresenter />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter Property="FocusVisualStyle"
 							Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}" />
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected"
+						<Style.Triggers>
+							<Trigger Property="IsSelected"
 								 Value="True">
-                                <Setter Property="Background"
+								<Setter Property="Background"
 									Value="{DynamicResource ThemeBrushKey}" />
-                                <Setter Property="Foreground"
+								<Setter Property="Foreground"
 									Value="{DynamicResource AccentHighlightBrushKey}" />
-                            </Trigger>
-                            <Trigger Property="IsMouseOver"
+							</Trigger>
+							<Trigger Property="IsMouseOver"
 								 Value="True">
-                                <Setter Property="Background"
+								<Setter Property="Background"
 									Value="{DynamicResource ActiveBackgroundBrushKey}" />
-                                <Setter Property="Foreground"
+								<Setter Property="Foreground"
 									Value="{DynamicResource ActiveForegroundBrushKey}" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListBox.ItemContainerStyle>
+							</Trigger>
+						</Style.Triggers>
+					</Style>
+				</ListBox.ItemContainerStyle>
 
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="15" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="1"
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="10" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="15" />
+							</Grid.ColumnDefinitions>
+							<TextBlock Grid.Column="1"
 								   Text="{Binding ToolName}"
 								   Style="{DynamicResource HeaderTextStyleKey}"
 								   Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
 								   TextTrimming="CharacterEllipsis" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
 
-            <ContentControl Grid.Column="1" Content="{Binding SelectedTool.View}"
+			<ContentControl Grid.Column="1" Content="{Binding SelectedTool.View}"
 							Margin="8,0,8,8" />
-        </Grid>
-    </ScrollViewer>
+		</Grid>
+	</ScrollViewer>
 </UserControl>

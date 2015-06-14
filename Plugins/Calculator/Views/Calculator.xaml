@@ -20,34 +20,34 @@
 			 d:DesignHeight="300"
 			 FontSize="12"
 			 d:DataContext="{d:DesignInstance tools:CalculatorViewModel}">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ObjectDataProvider x:Key="EnumerableRange"
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ObjectDataProvider x:Key="EnumerableRange"
 								xmlns:sys="clr-namespace:System;assembly=mscorlib"
 								xmlns:linq="clr-namespace:System.Linq;assembly=System.Core"
 								ObjectType="{x:Type linq:Enumerable}" MethodName="Range">
-                <ObjectDataProvider.MethodParameters>
-                    <sys:Int32>1</sys:Int32>
-                    <sys:Int32>150</sys:Int32>
-                </ObjectDataProvider.MethodParameters>
-            </ObjectDataProvider>
+				<ObjectDataProvider.MethodParameters>
+					<sys:Int32>1</sys:Int32>
+					<sys:Int32>150</sys:Int32>
+				</ObjectDataProvider.MethodParameters>
+			</ObjectDataProvider>
 
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Themes/Dark.xaml" />
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Themes/Dark.xaml" />
 
-                <ResourceDictionary Source="pack://application:,,,/Desktop.Metro;component/Styles/Controls.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Desktop.Metro;component/Styles/Controls.xaml" />
 
-                <ResourceDictionary Source="pack://application:,,,/KanColleViewer;component/Styles/Colors.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/KanColleViewer;component/Styles/Controls.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+				<ResourceDictionary Source="pack://application:,,,/KanColleViewer.Controls;component/Styles/Colors.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/KanColleViewer.Controls;component/Styles/Controls.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
 
-    </UserControl.Resources>
+	</UserControl.Resources>
 
-    <StackPanel>
+	<StackPanel>
 
-        <metro:PromptComboBox Margin="0,8"
+		<metro:PromptComboBox Margin="0,8"
 							  HorizontalAlignment="Left"
 							  Prompt="Select a Ship Girl"
 							  ItemsSource="{Binding Ships}"
@@ -72,36 +72,36 @@
 				</DataTemplate>
 			</metro:PromptComboBox.ItemTemplate>
 		</metro:PromptComboBox>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
 
-                <TextBlock HorizontalAlignment="Left"
+				<TextBlock HorizontalAlignment="Left"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   Margin="2,0,0,0"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Text="Current Level" />
 
-                <metro:PromptComboBox Margin="8"
+				<metro:PromptComboBox Margin="8"
 									  ItemsSource="{Binding Source={StaticResource EnumerableRange}}"
 									  HorizontalAlignment="Left"
 									  Prompt=""
@@ -110,7 +110,7 @@
 									  MinWidth="50"
 									  Grid.Column="1"/>
 
-                <metro:PromptTextBox Grid.Column="2"
+				<metro:PromptTextBox Grid.Column="2"
 									 Text="{Binding CurrentExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									 Prompt=""
 									 Padding="2"
@@ -119,15 +119,15 @@
 									 HorizontalAlignment="Left"
 									 IsReadOnly="True" />
 
-                <TextBlock HorizontalAlignment="Left"
+				<TextBlock HorizontalAlignment="Left"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   Margin="2,0,0,0"
 						   Grid.Column="0"
 						   Grid.Row="1"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Text="Target Level" />
 
-                <metro:PromptComboBox Margin="8"
+				<metro:PromptComboBox Margin="8"
 									  ItemsSource="{Binding Source={StaticResource EnumerableRange}}"
 									  HorizontalAlignment="Left"
 									  Prompt=""
@@ -137,7 +137,7 @@
 									  Grid.Column="1"
 									  Grid.Row="1"/>
 
-                <metro:PromptTextBox Grid.Column="2"
+				<metro:PromptTextBox Grid.Column="2"
 									 Grid.Row="1"
 									 Text="{Binding TargetExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									 Prompt=""
@@ -146,23 +146,23 @@
 									 MinWidth="70"
 									 HorizontalAlignment="Left"
 									 IsReadOnly="True" />
-            </Grid>
+			</Grid>
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+			<Grid Grid.Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
 
-                <TextBlock HorizontalAlignment="Left"
+				<TextBlock HorizontalAlignment="Left"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   Margin="2,0,8,0"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Text="Map" />
 
-                <metro:PromptComboBox Margin="8"
+				<metro:PromptComboBox Margin="8"
 									  ItemsSource="{Binding SeaList}"
 									  HorizontalAlignment="Left"
 									  Prompt=""
@@ -171,14 +171,14 @@
 									  MinWidth="50"
 									  Grid.Column="1" />
 
-                <TextBlock HorizontalAlignment="Left"
+				<TextBlock HorizontalAlignment="Left"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   Margin="8,0"
 						   Grid.Column="2"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Text="Result" />
 
-                <metro:PromptComboBox Margin="8"
+				<metro:PromptComboBox Margin="8"
 									  ItemsSource="{Binding ResultList}"
 									  HorizontalAlignment="Left"
 									  Prompt=""
@@ -186,33 +186,33 @@
 									  IsReadOnly="True"
 									  MinWidth="50"
 									  Grid.Column="3" />
-            </Grid>
+			</Grid>
 
-            <Rectangle Height="1"
+			<Rectangle Height="1"
 					   Margin="8"
 					   Grid.Row="2"
 					   Grid.ColumnSpan="2"
 					   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+			<Grid Grid.Row="3">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
 
-                <TextBlock HorizontalAlignment="Left"
+				<TextBlock HorizontalAlignment="Left"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   Margin="12,0,8,0"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Text="Sortie Exp" />
 
-                <metro:PromptTextBox Grid.Column="1"
+				<metro:PromptTextBox Grid.Column="1"
 									 Text="{Binding SortieExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									 Prompt=""
 									 Padding="2"
@@ -221,12 +221,12 @@
 									 HorizontalAlignment="Left"
 									 IsReadOnly="True" />
 
-                <TextBlock Margin="5,0"
+				<TextBlock Margin="5,0"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Grid.Column="2">x</TextBlock>
 
-                <metro:PromptTextBox Grid.Column="3"
+				<metro:PromptTextBox Grid.Column="3"
 									 Text="{Binding RunCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									 Prompt=""
 									 Padding="2"
@@ -235,14 +235,14 @@
 									 HorizontalAlignment="Left"
 									 IsReadOnly="True" />
 
-                <TextBlock HorizontalAlignment="Left"
+				<TextBlock HorizontalAlignment="Left"
 						   Style="{DynamicResource EmphaticTextStyleKey}"
 						   Margin="12,0,8,0"
 						   Grid.Row="1"
-                           VerticalAlignment="Center"
+						   VerticalAlignment="Center"
 						   Text="Remaining" />
 
-                <metro:PromptTextBox Grid.Column="1"
+				<metro:PromptTextBox Grid.Column="1"
 									 Grid.Row="1"
 									 Text="{Binding RemainingExp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 									 Prompt=""
@@ -252,16 +252,16 @@
 									 HorizontalAlignment="Left"
 									 IsReadOnly="True" />
 
-            </Grid>
+			</Grid>
 
-            <StackPanel Grid.Column="1"
+			<StackPanel Grid.Column="1"
 						Grid.RowSpan="2"
 						VerticalAlignment="Center">
 				<CheckBox Content="Flagship" IsChecked="{Binding IsFlagship}" Height="17" Margin="8,0,0,10"/>
 				<CheckBox Content="MVP" IsChecked="{Binding IsMVP}" Height="17" Margin="8,0,0,10"/>
-            </StackPanel>
+			</StackPanel>
 
-        </Grid>
+		</Grid>
 
-    </StackPanel>
+	</StackPanel>
 </UserControl>

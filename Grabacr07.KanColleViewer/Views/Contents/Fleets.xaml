@@ -6,22 +6,23 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:livet="http://schemas.livet-mvvm.net/2011/wpf"
+			 xmlns:kcvc="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
+			 xmlns:kcvi="http://schemes.grabacr.net/winfx/2015/kancolleviewer/interactivity"
+			 xmlns:kcvv="http://schemes.grabacr.net/winfx/2015/kancolleviewer/converters"
 			 xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro"
-			 xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 			 xmlns:views="clr-namespace:Grabacr07.KanColleViewer.Views"
-			 xmlns:vm="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
-			 xmlns:behaviors="clr-namespace:Grabacr07.KanColleViewer.Views.Behaviors"
-			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
+			 xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 			 xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
-			 xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
+			 xmlns:viewModels="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
+			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 mc:Ignorable="d"
 			 d:DesignWidth="800"
 			 d:DesignHeight="400"
 			 d:DataContext="{d:DesignInstance fleets:FleetsViewModel}">
 
 	<UserControl.Resources>
-		<converters:HasFlagConverter x:Key="HasFlagConverter" />
+		<kcvv:HasFlagConverter x:Key="HasFlagConverter" />
 	</UserControl.Resources>
 
 	<i:Interaction.Triggers>
@@ -33,42 +34,42 @@
 		</livet:InteractionMessageTrigger>
 	</i:Interaction.Triggers>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
+	<ScrollViewer VerticalScrollBarVisibility="Auto"
 				  PanningMode="Both">
-        <Grid d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+		<Grid d:DataContext="{d:DesignData /SampleData/FleetsViewModelSampleData.xaml}">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
-            <ListBox ItemsSource="{Binding Fleets}"
+			<ListBox ItemsSource="{Binding Fleets}"
 					 SelectedValue="{Binding SelectedFleet, Mode=TwoWay}"
 					 Style="{DynamicResource HorizontalFlatListBoxStyleKey}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Padding="10,0,10,5"
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border Padding="10,0,10,5"
 								Background="Transparent">
-                            <StackPanel Orientation="Horizontal">
-                                <contents:StateIconIndicator Width="14"
+							<StackPanel Orientation="Horizontal">
+								<contents:StateIconIndicator Width="14"
 															 Height="14"
 															 Margin="0,2,4,0" />
-                                <TextBlock Text="{Binding Name}"
+								<TextBlock Text="{Binding Name}"
 										   Style="{DynamicResource HeaderTextStyleKey}"
 										   Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}" />
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ListBox>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ListBox>
 
-            <contents:StateDetailIndicator Grid.Row="1"
+			<contents:StateDetailIndicator Grid.Row="1"
 										   Grid.Column="0"
 										   DataContext="{Binding SelectedFleet}"
 										   Margin="10,3" />
@@ -81,7 +82,7 @@
 									 Padding="12,8"
 									 MethodName="ShowFleetWindow" />
 
-            <Grid Grid.Row="3"
+			<Grid Grid.Row="3"
 				  Grid.Column="0"
 				  Grid.ColumnSpan="2"
 				  DataContext="{Binding SelectedFleet}"
@@ -177,10 +178,10 @@
 														<Run Text="/" />
 														<Run Text="{Binding Ship.HP.Maximum, Mode=OneWay}" />
 												</TextBlock>
-												<controls:ColorIndicator x:Name="HPIndicator"
-																		 Height="7"
-																		 Margin="1,3,0,0"
-																		 LimitedValue="{Binding Ship.HP, Mode=OneWay}" />
+												<kcvc:ColorIndicator x:Name="HPIndicator"
+																	 Height="7"
+																	 Margin="1,3,0,0"
+																	 LimitedValue="{Binding Ship.HP, Mode=OneWay}" />
 											</StackPanel>
 										</Grid>
 
@@ -205,10 +206,11 @@
 																			  SharedSizeGroup="SlotItemMaximum" />
 														</Grid.ColumnDefinitions>
 
-														<controls:SlotItemIcon Grid.Column="0"
-																			   Type="{Binding IconType}"
-																			   Width="20"
-																			   Height="20" />
+														<kcvc:SlotItemIcon Grid.Column="0"
+																		   Type="{Binding IconType}"
+																		   Mode="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}"
+																		   Width="20"
+																		   Height="20" />
 														<!--<TextBlock Grid.Column="1"
 																   Text="{Binding Name}"
 																   Margin="4,0,8,0"
@@ -242,46 +244,46 @@
 					</ItemsControl.ItemTemplate>
 				</ItemsControl>
 
-                <ItemsControl ItemsSource="{Binding Ships}"
+				<ItemsControl ItemsSource="{Binding Ships}"
 							  Margin="0,0,0,10"
 							  Grid.IsSharedSizeScope="True">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <StackPanel.Resources>
-                                    <Style TargetType="{x:Type TextBlock}"
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<StackPanel>
+								<StackPanel.Resources>
+									<Style TargetType="{x:Type TextBlock}"
 										   BasedOn="{StaticResource DefaultTextStyleKey}">
-                                        <Setter Property="Margin"
+										<Setter Property="Margin"
 												Value="10,0" />
-                                        <Setter Property="VerticalAlignment"
+										<Setter Property="VerticalAlignment"
 												Value="Bottom" />
-                                    </Style>
-                                </StackPanel.Resources>
-                                <Grid HorizontalAlignment="Left"
+									</Style>
+								</StackPanel.Resources>
+								<Grid HorizontalAlignment="Left"
 									  Margin="0,5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition SharedSizeGroup="Type"
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition SharedSizeGroup="Type"
 														  Width="Auto" />
-                                        <ColumnDefinition SharedSizeGroup="Name" />
-                                        <ColumnDefinition Width="Auto"
+										<ColumnDefinition SharedSizeGroup="Name" />
+										<ColumnDefinition Width="Auto"
 														  SharedSizeGroup="Level" />
-                                        <ColumnDefinition Width="Auto"
+										<ColumnDefinition Width="Auto"
 														  SharedSizeGroup="HP" />
-                                        <ColumnDefinition Width="Auto"
+										<ColumnDefinition Width="Auto"
 														  SharedSizeGroup="Condition" />
-                                        <ColumnDefinition Width="Auto"
+										<ColumnDefinition Width="Auto"
 														  SharedSizeGroup="Resources" />
-                                        <ColumnDefinition Width="Auto"
+										<ColumnDefinition Width="Auto"
 														  SharedSizeGroup="SlotItems" />
-                                    </Grid.ColumnDefinitions>
+									</Grid.ColumnDefinitions>
 
 
-                                    <TextBlock Grid.Column="1"
+									<TextBlock Grid.Column="1"
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
 											   HorizontalAlignment="Right"
@@ -291,41 +293,41 @@
 										<Run Text=""
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                                    </TextBlock>
+									</TextBlock>
 
-                                    <TextBlock Grid.Column="2"
+									<TextBlock Grid.Column="2"
 											   Grid.Row="0"
 											   Grid.RowSpan="2"
 											   Margin="4,0,5,0"
-                                               x:Name="ShipNameText"
+											   x:Name="ShipNameText"
 											   ToolTip="{Binding StatsToolTip, Mode=OneWay}"
 											   ToolTipService.InitialShowDelay="600">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                                    </TextBlock>
+									</TextBlock>
 
-                                    <TextBlock Grid.Column="3"
+									<TextBlock Grid.Column="3"
 											   Grid.Row="0"
 											   Margin="5,0,5,10"
-                                               x:Name="ShipLevelText"
+											   x:Name="ShipLevelText"
 											   Grid.RowSpan="2">
 										<Run Text="Lv." />
 										<Run Text="{Binding Ship.Level, Mode=OneWay}"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                                    </TextBlock>
-                                    <TextBlock Grid.Column="3"
+									</TextBlock>
+									<TextBlock Grid.Column="3"
 											   Grid.Row="1"
-                                               x:Name="ShipExpText"
+											   x:Name="ShipExpText"
 											   Margin="5,0,5,-1">
 										<Run Text="Next:"
 											 FontSize="9" />
 										<Run Text="{Binding Ship.ExpForNextLevel, Mode=OneWay}"
 											 FontSize="9" />
 										<!--<Run Text="&#x9;" />-->
-                                    </TextBlock>
+									</TextBlock>
 
-                                    <TextBlock x:Name="HPText"
+									<TextBlock x:Name="HPText"
 											   Grid.Column="4"
 											   Grid.Row="0"
 											   Margin="5,0,5,10"
@@ -336,28 +338,28 @@
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 										<Run Text="/" />
 										<Run Text="{Binding Ship.HP.Maximum, Mode=OneWay}" />
-                                    </TextBlock>
-                                    <controls:ColorIndicator x:Name="HPIndicator"
-															 Grid.Row="1"
-															 Grid.Column="4"
-															 Height="6"
-															 VerticalAlignment="Bottom"
-															 Margin="5,0,5,2"
-															 LimitedValue="{Binding Ship.HP, Mode=OneWay}" 
-															 ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
+									</TextBlock>
+									<kcvc:ColorIndicator x:Name="HPIndicator"
+														 Grid.Row="1"
+														 Grid.Column="4"
+														 Height="6"
+														 VerticalAlignment="Bottom"
+														 Margin="10,0,10,2"
+														 LimitedValue="{Binding Ship.HP, Mode=OneWay}"
+														 ToolTip="{Binding RepairToolTip, Mode=OneWay}"/>
 
-                                    <Grid x:Name="RepairIndicator"
+									<Grid x:Name="RepairIndicator"
 										  Grid.Column="4"
 										  Grid.Row="0"
 										  Grid.RowSpan="2"
 										  Visibility="Collapsed">
-                                        <Border Background="{DynamicResource FleetRepairingBrushKey}"
+										<Border Background="{DynamicResource FleetRepairingBrushKey}"
 												Opacity=".4"
 												Margin="5,0" />
 										<TextBlock Text="{Binding Resources.Ship_Repairing, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 												   Style="{DynamicResource EmphaticTextStyleKey}"
 												   HorizontalAlignment="Center" />
-                                    </Grid>
+									</Grid>
 
 									<Grid x:Name="EvacuationIndicator"
 										  Grid.Column="4"
@@ -367,118 +369,119 @@
 										<Border Background="{DynamicResource FleetRepairingBrushKey}"
 												Opacity=".4"
 												Margin="5,0" />
-                                        <TextBlock Text="{Binding Resources.Ship_Retreat, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+										<TextBlock Text="{Binding Resources.Ship_Retreat, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 												   Style="{DynamicResource EmphaticTextStyleKey}"
 												   HorizontalAlignment="Center" />
 									</Grid>
 
-                                    <TextBlock Grid.Column="5"
+									<TextBlock Grid.Column="5"
 											   Grid.Row="0"
-                                               x:Name="ShipConditionTypeText"
+											   x:Name="ShipConditionTypeText"
 											   Margin="5,0,5,10"
 											   Grid.RowSpan="2">
 										<InlineUIContainer>
-											<controls:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}" />
+											<kcvc:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}" />
 										</InlineUIContainer>
 										<Run Text="{Binding Ship.Condition, Mode=OneWay}"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
-                                    </TextBlock>
-                                    <TextBlock Grid.Column="5"
+									</TextBlock>
+									<TextBlock Grid.Column="5"
 											   Grid.Row="1"
-                                               x:Name="ShipConditionText"
+											   x:Name="ShipConditionText"
 											   Margin="5,0,5,-1">
 										<Run Text="condition"
 											 FontSize="9" />
-                                    </TextBlock>
+									</TextBlock>
 
-                                    <controls:ColorIndicator Grid.Column="6"
-															 Grid.Row="0"
-															 Width="55"
-															 LimitedValue="{Binding Ship.Fuel, Mode=OneWay}"
-															 Height="6"
-															 Margin="0,6,0,7" />
-                                    <controls:ColorIndicator Grid.Column="6"
-															 Grid.Row="1"
-															 Width="55"
-															 LimitedValue="{Binding Ship.Bull, Mode=OneWay}"
-															 Height="6"
-															 VerticalAlignment="Top" />
+									<kcvc:ColorIndicator Grid.Column="6"
+														 Grid.Row="0"
+														 Width="55"
+														 LimitedValue="{Binding Ship.Fuel, Mode=OneWay}"
+														 Height="6"
+														 Margin="0,6,0,7" />
+									<kcvc:ColorIndicator Grid.Column="6"
+														 Grid.Row="1"
+														 Width="55"
+														 LimitedValue="{Binding Ship.Bull, Mode=OneWay}"
+														 Height="6"
+														 VerticalAlignment="Top" />
 
-                                    <ItemsControl Grid.Column="7"
+									<ItemsControl Grid.Column="7"
 												  Grid.Row="0"
 												  Grid.RowSpan="2"
 												  x:Name="ShipSlotItems"
 												  ItemsSource="{Binding SlotItems}"
 												  Margin="5,0">
-                                        <ItemsControl.Template>
-                                            <ControlTemplate TargetType="{x:Type ItemsControl}">
-                                                <StackPanel IsItemsHost="True"
+										<ItemsControl.Template>
+											<ControlTemplate TargetType="{x:Type ItemsControl}">
+												<StackPanel IsItemsHost="True"
 															Orientation="Horizontal" />
-                                            </ControlTemplate>
-                                        </ItemsControl.Template>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                    <Border
+											</ControlTemplate>
+										</ItemsControl.Template>
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<Border
 														Background="Transparent">
-                                                    <Border.ToolTip>
-                                                        <StackPanel Orientation="Vertical">
-                                                            <TextBlock>
-                                                                <Run Text="{Binding Slot.Item.Info.Name, Mode=OneWay}" />
-                                                                <TextBlock Margin="5,0">
-                                                                    <TextBlock.Style>
-                                                                        <Style TargetType="{x:Type TextBlock}">
-                                                                            <Setter Property="Text"
-                                                                                    Value="{Binding Slot.Item.LevelText, Mode=OneWay}" />
-                                                                            <Setter Property="Foreground"
-                                                                                    Value="#FF45A9A5" />
-                                                                        </Style>
-                                                                    </TextBlock.Style>
-                                                                </TextBlock>
-                                                                <TextBlock Visibility="{Binding Slot.Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                                    <Run Text="[" />
-                                                                    <Run Text="{Binding Slot.Current}" />
-                                                                    <Run Text="/" />
-                                                                    <Run Text="{Binding Slot.Maximum}" />
-                                                                    <Run Text="]" />
-                                                                </TextBlock>
-                                                            </TextBlock>
-                                                            <TextBlock Text="{Binding Detail, Mode=OneWay}"
-                                                                       Visibility="{Binding IsHasDetail, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                                        </StackPanel>
-                                                    </Border.ToolTip>
-													<controls:SlotItemIcon x:Name="SlotItem"
-																		   Type="{Binding Slot.Item.Info.IconType}"																		   
-																		   Margin="0,0" />
-                                                    </Border>
-													<DataTemplate.Triggers>
+													<kcvc:SlotItemIcon Type="{Binding Slot.Item.Info.IconType}"
+																	   x:Name="SlotItem"
+																	   Mode="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}"
+																	   Margin="0,0" />
+													<Border.ToolTip>
+														<StackPanel Orientation="Vertical">
+															<TextBlock>
+																<Run Text="{Binding Slot.Item.Info.Name, Mode=OneWay}" />
+																<TextBlock Margin="5,0">
+																	<TextBlock.Style>
+																		<Style TargetType="{x:Type TextBlock}">
+																			<Setter Property="Text"
+																					Value="{Binding Slot.Item.LevelText, Mode=OneWay}" />
+																			<Setter Property="Foreground"
+																					Value="#FF45A9A5" />
+																		</Style>
+																	</TextBlock.Style>
+																</TextBlock>
+																<TextBlock Visibility="{Binding Slot.Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
+																	<Run Text="[" />
+																	<Run Text="{Binding Slot.Current}" />
+																	<Run Text="/" />
+																	<Run Text="{Binding Slot.Maximum}" />
+																	<Run Text="]" />
+																</TextBlock>
+															</TextBlock>
+															<TextBlock Text="{Binding Detail, Mode=OneWay}"
+																	   Visibility="{Binding IsHasDetail, Converter={StaticResource BooleanToVisibilityConverter}}" />
+														</StackPanel>
+													</Border.ToolTip>
+												</Border>
+												<DataTemplate.Triggers>
 													<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
-															<Setter TargetName="SlotItem"
+														<Setter TargetName="SlotItem"
 																Property="Margin"
 																Value="3,0" />
-														</DataTrigger>
-													</DataTemplate.Triggers>
-                                                </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </Grid>
-                                <Rectangle Height="1"
+													</DataTrigger>
+												</DataTemplate.Triggers>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</Grid>
+								<Rectangle Height="1"
 										   Style="{DynamicResource SeparatorRectangleStyleKey}"
 										   Margin="10,0" />
-                            </StackPanel>
+							</StackPanel>
 
-                            <DataTemplate.Triggers>
+							<DataTemplate.Triggers>
 								<DataTrigger Binding="{Binding Ship.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Repair}"
 											 Value="True">
-                                    <Setter TargetName="HPText"
+									<Setter TargetName="HPText"
 											Property="Opacity"
 											Value=".2" />
-                                    <Setter TargetName="HPIndicator"
+									<Setter TargetName="HPIndicator"
 											Property="Opacity"
 											Value=".2" />
-                                    <Setter TargetName="RepairIndicator"
+									<Setter TargetName="RepairIndicator"
 											Property="Visibility"
 											Value="Visible" />
-                                </DataTrigger>
+								</DataTrigger>
 								<DataTrigger Binding="{Binding Ship.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Evacuation}"
 											 Value="True">
 									<Setter TargetName="HPText"
@@ -503,37 +506,37 @@
 											Property="Visibility"
 											Value="Visible" />
 								</DataTrigger>
-                                <DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
-                                    <Setter TargetName="ShipNameText"
-											                Property="Margin"
-											                Value="4,0,10,0" />
-                                    <Setter TargetName="ShipLevelText"
-											                Property="Margin"
-											                Value="10,0,10,10" />
-                                    <Setter TargetName="ShipExpText"
-											                Property="Margin"
-											                Value="10,0,10,-1" />
-                                    <Setter TargetName="HPText"
-											                Property="Margin"
-											                Value="10,0,10,10" />
-                                    <Setter TargetName="HPIndicator"
-											                Property="Margin"
-											                Value="10,0,10,2" />
-                                    <Setter TargetName="ShipConditionTypeText"
-											                Property="Margin"
-											                Value="10,0,10,10" />
-                                    <Setter TargetName="ShipConditionText"
-											                Property="Margin"
-											                Value="10,0,10,-1" />
-                                    <Setter TargetName="ShipSlotItems"
-											                Property="Margin"
-											                Value="10,0" />
-                                </DataTrigger>
-                            </DataTemplate.Triggers>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-        </Grid>
-    </ScrollViewer>
+								<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
+									<Setter TargetName="ShipNameText"
+											Property="Margin"
+											Value="4,0,10,0" />
+									<Setter TargetName="ShipLevelText"
+											Property="Margin"
+											Value="10,0,10,10" />
+									<Setter TargetName="ShipExpText"
+											Property="Margin"
+											Value="10,0,10,-1" />
+									<Setter TargetName="HPText"
+											Property="Margin"
+											Value="10,0,10,10" />
+									<Setter TargetName="HPIndicator"
+											Property="Margin"
+											Value="10,0,10,2" />
+									<Setter TargetName="ShipConditionTypeText"
+											Property="Margin"
+											Value="10,0,10,10" />
+									<Setter TargetName="ShipConditionText"
+											Property="Margin"
+											Value="10,0,10,-1" />
+									<Setter TargetName="ShipSlotItems"
+											Property="Margin"
+											Value="10,0" />
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</Grid>
+		</Grid>
+	</ScrollViewer>
 </UserControl>

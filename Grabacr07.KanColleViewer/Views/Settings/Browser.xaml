@@ -46,7 +46,7 @@
 							   FontSize="13"
 							   HorizontalAlignment="Center">
 						<TextBlock.Text>
-							
+
 							<MultiBinding StringFormat="{}{0}{1}{2}">
 								<Binding Path="Resources.Settings_Browser_ResetZoom_Pre" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
 								<Binding Path="BrowserZoomFactor.CurrentParcentage" Mode="OneWay" />
@@ -74,22 +74,22 @@
 					   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 		</DockPanel>
 
-        <Rectangle Height="1"
+		<Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
-        <TextBlock Text="{Binding Resources.Settings_Browser_Position, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
+		<TextBlock Text="{Binding Resources.Settings_Browser_Position, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
 						   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 						   Margin="0,10,0,0"/>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding Resources.Settings_Browser_VerticalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-            <metro:PromptComboBox Margin="8"
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<TextBlock Text="{Binding Resources.Settings_Browser_VerticalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+			<metro:PromptComboBox Margin="8"
 										  HorizontalAlignment="Left"
 										  Prompt=""
 										  ItemsSource="{Binding BrowserVerticalPositionList}"
@@ -99,10 +99,10 @@
 										  MinWidth="70"
 										  Grid.Column="1"/>
 
-            <TextBlock Grid.Row="1"
+			<TextBlock Grid.Row="1"
 							   Text="{Binding Resources.Settings_Browser_HorizontalPosition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"/>
 
-            <metro:PromptComboBox Margin="8"
+			<metro:PromptComboBox Margin="8"
 										  HorizontalAlignment="Left"
 										  Prompt=""
 										  ItemsSource="{Binding BrowserHorizontalPositionList}"
@@ -113,9 +113,9 @@
 										  Grid.Column="1"
 										  Grid.Row="1" />
 
-        </Grid>
+		</Grid>
 
-        <Rectangle Height="1"
+		<Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 		<TextBlock Text="{Binding Resources.Settings_Flash, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
 						   Style="{DynamicResource SettingsHeaderTextStyleKey}"

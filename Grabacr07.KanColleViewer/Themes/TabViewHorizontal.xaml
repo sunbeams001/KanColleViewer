@@ -7,12 +7,12 @@
 					xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 					xmlns:vms="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
 					xmlns:dev="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Dev">
-    <Style x:Key="OrientationTabViewStyle"
+	<Style x:Key="OrientationTabViewStyle"
 		   TargetType="{x:Type metro:TabView}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type metro:TabView}">
-                    <StackPanel Background="{TemplateBinding Background}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type metro:TabView}">
+					<StackPanel Background="{TemplateBinding Background}">
 						<StackPanel IsItemsHost="True">
 							<StackPanel.Style>
 								<Style TargetType="{x:Type StackPanel}">
@@ -26,10 +26,10 @@
 							</StackPanel.Style>
 						</StackPanel>
 					</StackPanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-		
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
 		<Style.Triggers>
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=MenuIcon}" Value="True">
 				<Setter Property="ItemTemplate">

@@ -782,8 +782,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		{
 			try
 			{
-				if (!this.AppOnlineVersionURL.IsEmpty())
-					Process.Start(this.AppOnlineVersionURL);
+				Process.Start(this.AppOnlineVersionURL);
 			}
 			catch (Exception ex)
 			{

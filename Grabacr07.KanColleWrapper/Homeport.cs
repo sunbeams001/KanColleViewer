@@ -43,12 +43,7 @@ namespace Grabacr07.KanColleWrapper
 		/// 任務情報を取得します。
 		/// </summary>
 		public Quests Quests { get; private set; }
-
-		/// <summary>
-		/// Gets ranking information.
-		/// </summary>
-		public Rankings Rankings { get; private set; }
-
+		
 		/// <summary>
 		/// Logs events such as ship drops, crafts, and item developments.
 		/// </summary>
@@ -100,8 +95,6 @@ namespace Grabacr07.KanColleWrapper
 				});
 			proxy.api_get_member_basic.TryParse<kcsapi_basic>().Subscribe(x => this.UpdateAdmiral(x.Data));
 			proxy.api_req_member_updatecomment.TryParse().Subscribe(this.UpdateComment);
-
-			this.Rankings = new Rankings(proxy);
 		}
 
 

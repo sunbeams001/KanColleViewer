@@ -30,11 +30,11 @@
 
 
 
-            <CheckBox Content="{Binding Resources.Settings_Notifications_CriticalCondition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
-                      IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=NotifyCritical}" 
-                      Margin="0,5" />
-            
-            <CheckBox Content="{Binding Resources.Settings_Notifications_Construction_Enabled, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+			<CheckBox Content="{Binding Resources.Settings_Notifications_CriticalCondition, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 
+					  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=NotifyCritical}" 
+					  Margin="0,5" />
+
+			<CheckBox Content="{Binding Resources.Settings_Notifications_Construction_Enabled, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=NotifyBuildingCompleted}"
 					  Margin="0,5" />
 
@@ -57,30 +57,30 @@
 						Background="{DynamicResource ActiveBorderBrushKey}"
 						Margin="12,5,12,4" />
 
-                <StackPanel VerticalAlignment="Center">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="{DynamicResource ActiveForegroundBrushKey}">
+				<StackPanel VerticalAlignment="Center">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Foreground="{DynamicResource ActiveForegroundBrushKey}">
 						<Run Text="{Binding Resources.Settings_Notifications_AheadOfTime, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                        </TextBlock>
-                        <metro:PromptTextBox Margin="4,0"
+						</TextBlock>
+						<metro:PromptTextBox Margin="4,0"
 										 Prompt=""
 										 Width="35">
-                            <metro:PromptTextBox.Text>
-                                <Binding Source="{x:Static models:Settings.Current}"
+							<metro:PromptTextBox.Text>
+								<Binding Source="{x:Static models:Settings.Current}"
 									 Path="KanColleClientSettings.NotificationShorteningTime"
 									 UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <metro:Int32Rule Min="0" />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </metro:PromptTextBox.Text>
-                        </metro:PromptTextBox>
-                        <TextBlock Text="{Binding Resources.Settings_Notifications_AheadOfTime_Seconds, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+									<Binding.ValidationRules>
+										<metro:Int32Rule Min="0" />
+									</Binding.ValidationRules>
+								</Binding>
+							</metro:PromptTextBox.Text>
+						</metro:PromptTextBox>
+						<TextBlock Text="{Binding Resources.Settings_Notifications_AheadOfTime_Seconds, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 							   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
-                    </StackPanel>
-                    <TextBlock Text="{Binding Resources.Settings_Notifications_AheadOfTime_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+					</StackPanel>
+					<TextBlock Text="{Binding Resources.Settings_Notifications_AheadOfTime_Description, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 						   Style="{DynamicResource DetailTextStyleKey}" />
-                </StackPanel>
+				</StackPanel>
 			</DockPanel>
 
 			<Border Height="1"
@@ -91,7 +91,7 @@
 					  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=NotifyFleetRejuvenated}"
 					  Margin="0,5" />
 
-            <StackPanel Margin="20,0,0,0">
+			<StackPanel Margin="20,0,0,0">
 				<TextBlock Foreground="{DynamicResource ActiveForegroundBrushKey}"
 						   Margin="0,3,0,1">
 					<Run Text="{Binding Resources.Settings_Notifications_FleetsMorale_Threshold, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" /><Run Text=":" />
@@ -109,12 +109,12 @@
 		<Rectangle Height="1"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
 
-        <TextBlock Text="{Binding Resources.Settings_Notifications_NotificationPlugin, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+		<TextBlock Text="{Binding Resources.Settings_Notifications_NotificationPlugin, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 				   Style="{DynamicResource SettingsHeaderTextStyleKey}"
 				   Margin="0,10,0,8" />
 
 		<StackPanel Margin="20,0,0,0">
-            <TextBlock Text="{Binding Resources.Settings_Notifications_ActiveNotificationPlugin, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+			<TextBlock Text="{Binding Resources.Settings_Notifications_ActiveNotificationPlugin, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					   Style="{DynamicResource DetailTextStyleKey}"
 					   Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 

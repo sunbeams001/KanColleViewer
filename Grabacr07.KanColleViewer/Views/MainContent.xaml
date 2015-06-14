@@ -25,108 +25,108 @@
 			 d:DesignHeight="400"
 			 d:DataContext="{d:DesignInstance vm:MainContentViewModel}"
 			 Background="{DynamicResource ThemeBrushKey}">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Themes/Orientation.xaml" />
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../Themes/Orientation.xaml" />
 				<ResourceDictionary Source="../Themes/TabViewHorizontal.xaml" />
 				<ResourceDictionary Source="../Themes/Converters.xaml" />
 			</ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
+		</ResourceDictionary>
+	</UserControl.Resources>
 
-    <DockPanel>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                        VerticalScrollBarVisibility="Auto"
-                        Style="{DynamicResource DockOrientationFlip}">
-            <DockPanel Background="{DynamicResource ActiveBackgroundBrushKey}">
-                <DockPanel Style="{DynamicResource DockOrientation}">
-                    <metro:TabView ItemsSource="{Binding TabItems}"
-                        SelectedValue="{Binding SelectedItem}"
-                        Style="{DynamicResource OrientationTabViewStyle}"/>
-                </DockPanel>
-                <DockPanel Style="{DynamicResource DockOrientation}">
-                    <DockPanel Style="{DynamicResource ControlHorizontal}">
-                        <Rectangle Width="1"
-                        Margin="10,5"
-                        Fill="{DynamicResource InactiveForegroundBrushKey}"
-                        Opacity="0.5" />
-                    </DockPanel>
-                    <DockPanel Style="{DynamicResource ControlVertical}">
-                        <Rectangle Height="1"
-                            Margin="5,10"
-                            Fill="{DynamicResource InactiveForegroundBrushKey}"
-                            Opacity="0.5" />
-                    </DockPanel>
-                </DockPanel>
-                <DockPanel Style="{DynamicResource DockOrientation}">
-                    <metro:TabView ItemsSource="{Binding SystemTabItems}"
-                        SelectedValue="{Binding SelectedItem}"
-                        Style="{DynamicResource OrientationTabViewStyle}"/>
-                </DockPanel>
-                <DockPanel Style="{DynamicResource ControlHorizontal}" Margin="0,0,20,0"/>
-                <DockPanel Style="{DynamicResource ControlVertical}" Margin="0,0,0,20"/>
-            </DockPanel>
-        </ScrollViewer>
+	<DockPanel>
+		<ScrollViewer HorizontalScrollBarVisibility="Auto"
+					  VerticalScrollBarVisibility="Auto"
+					  Style="{DynamicResource DockOrientationFlip}">
+			<DockPanel Background="{DynamicResource ActiveBackgroundBrushKey}">
+				<DockPanel Style="{DynamicResource DockOrientation}">
+					<metro:TabView ItemsSource="{Binding TabItems}"
+								   SelectedValue="{Binding SelectedItem}"
+								   Style="{DynamicResource OrientationTabViewStyle}"/>
+				</DockPanel>
+				<DockPanel Style="{DynamicResource DockOrientation}">
+					<DockPanel Style="{DynamicResource ControlHorizontal}">
+						<Rectangle Width="1"
+								   Margin="10,5"
+								   Fill="{DynamicResource InactiveForegroundBrushKey}"
+								   Opacity="0.5" />
+					</DockPanel>
+					<DockPanel Style="{DynamicResource ControlVertical}">
+						<Rectangle Height="1"
+								   Margin="5,10"
+								   Fill="{DynamicResource InactiveForegroundBrushKey}"
+								   Opacity="0.5" />
+					</DockPanel>
+				</DockPanel>
+				<DockPanel Style="{DynamicResource DockOrientation}">
+					<metro:TabView ItemsSource="{Binding SystemTabItems}"
+								   SelectedValue="{Binding SelectedItem}"
+								   Style="{DynamicResource OrientationTabViewStyle}"/>
+				</DockPanel>
+				<DockPanel Style="{DynamicResource ControlHorizontal}" Margin="0,0,20,0"/>
+				<DockPanel Style="{DynamicResource ControlVertical}" Margin="0,0,0,20"/>
+			</DockPanel>
+		</ScrollViewer>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Disabled">
-            <Grid Margin="0,5,0,0">
-                <ItemsControl ItemsSource="{Binding TabItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <Grid />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type vm:TabItemViewModel}">
-                            <ContentControl Content="{Binding}"
+		<ScrollViewer HorizontalScrollBarVisibility="Auto"
+					  VerticalScrollBarVisibility="Disabled">
+			<Grid Margin="0,5,0,0">
+				<ItemsControl ItemsSource="{Binding TabItems}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<Grid />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate DataType="{x:Type vm:TabItemViewModel}">
+							<ContentControl Content="{Binding}"
 											    Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
 
-                <ItemsControl ItemsSource="{Binding SystemTabItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <Grid />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type vm:TabItemViewModel}">
-                            <ContentControl Content="{Binding}"
+				<ItemsControl ItemsSource="{Binding SystemTabItems}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<Grid />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate DataType="{x:Type vm:TabItemViewModel}">
+							<ContentControl Content="{Binding}"
 											    Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
 
-                <Grid.Resources>
-                    <DataTemplate DataType="{x:Type vmContents:OverviewViewModel}">
-                        <contents:Overview />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vmFleets:FleetsViewModel}">
-                        <contents:Fleets />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vmContents:ShipyardViewModel}">
-                        <contents:Shipyard />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vmContents:QuestsViewModel}">
-                        <contents:Quests />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vmContents:ExpeditionsViewModel}">
-                        <contents:Expeditions />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vmContents:ToolsViewModel}">
-                        <contents:Tools />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
-                        <settings:Settings />
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type devVm:DebugTabViewModel}">
-                        <dev:DebugTab />
-                    </DataTemplate>
-                </Grid.Resources>
-            </Grid>
-        </ScrollViewer>
-    </DockPanel>
+				<Grid.Resources>
+					<DataTemplate DataType="{x:Type vmContents:OverviewViewModel}">
+						<contents:Overview />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type vmFleets:FleetsViewModel}">
+						<contents:Fleets />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type vmContents:ShipyardViewModel}">
+						<contents:Shipyard />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type vmContents:QuestsViewModel}">
+						<contents:Quests />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type vmContents:ExpeditionsViewModel}">
+						<contents:Expeditions />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type vmContents:ToolsViewModel}">
+						<contents:Tools />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+						<settings:Settings />
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type devVm:DebugTabViewModel}">
+						<dev:DebugTab />
+					</DataTemplate>
+				</Grid.Resources>
+			</Grid>
+		</ScrollViewer>
+	</DockPanel>
 </UserControl>

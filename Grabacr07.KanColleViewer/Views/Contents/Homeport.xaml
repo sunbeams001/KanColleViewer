@@ -13,7 +13,7 @@
 			 xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 			 xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
-             xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
+			 xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
 			 mc:Ignorable="d"
 			 d:DesignWidth="600"
 			 d:DataContext="{d:DesignInstance viewModels:MainContentViewModel}">
@@ -28,7 +28,7 @@
 				<Setter Property="Margin"
 						Value="12,0" />
 			</Style>
-            <converters:RankIDToRankNameConverter x:Key="RankIDToRankNameConverterKey" />
+			<converters:RankIDToRankNameConverter x:Key="RankIDToRankNameConverterKey" />
 		</Grid.Resources>
 
 		<StackPanel Orientation="Horizontal"

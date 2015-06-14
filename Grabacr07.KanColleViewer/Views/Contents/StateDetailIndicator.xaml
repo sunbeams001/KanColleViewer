@@ -3,19 +3,21 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+			 xmlns:kcvc="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
+			 xmlns:kcvi="http://schemes.grabacr.net/winfx/2015/kancolleviewer/interactivity"
+			 xmlns:kcvv="http://schemes.grabacr.net/winfx/2015/kancolleviewer/converters"
 			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 			 xmlns:vm="clr-namespace:Grabacr07.KanColleViewer.ViewModels"
-			 xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
+			 xmlns:fleets="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents.Fleets"
 			 mc:Ignorable="d"
 			 d:DesignWidth="300"
 			 d:DesignHeight="30"
 			 d:DataContext="{d:DesignInstance fleets:FleetViewModel}">
 
 	<UserControl.Resources>
-		<converters:HasFlagConverter x:Key="HasFlagConverter" />
+		<kcvv:HasFlagConverter x:Key="HasFlagConverter" />
 	</UserControl.Resources>
 
 	<ContentControl Content="{Binding QuickStateView}">
@@ -45,30 +47,30 @@
 								Property="Text"
 								Value="{Binding Resources.StateDetail_MoraleRecovering, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 					</DataTrigger>-->
-                    <DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Homeport|InShortSupply}"
+					<DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Homeport|InShortSupply}"
 								 Value="True">
-                        <Setter TargetName="Text"
+						<Setter TargetName="Text"
 								Property="Text"
 								Value="{Binding Resources.StateDetail_ShortSupply, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=HeavilyDamaged}"
+					</DataTrigger>
+					<DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=HeavilyDamaged}"
 								 Value="True">
-                        <Setter TargetName="Text"
+						<Setter TargetName="Text"
 								Property="Text"
 								Value="{Binding Resources.StateDetail_CriticalDamage, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Homeport|Repairing}"
+					</DataTrigger>
+					<DataTrigger Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Homeport|Repairing}"
 								 Value="True">
-                        <Setter TargetName="Text"
+						<Setter TargetName="Text"
 								Property="Text">
-                            <Setter.Value>
-                                <MultiBinding StringFormat="{}{0} - {1}">
-                                    <Binding Path="Resources.StateDetail_Repairing" Source="{x:Static models:ResourceService.Current}" />
-                                    <Binding Path="Repairing.Remaining" />
-                                </MultiBinding>
-                            </Setter.Value>
-                        </Setter>
-                    </DataTrigger>
+							<Setter.Value>
+								<MultiBinding StringFormat="{}{0} - {1}">
+									<Binding Path="Resources.StateDetail_Repairing" Source="{x:Static models:ResourceService.Current}" />
+									<Binding Path="Repairing.Remaining" />
+								</MultiBinding>
+							</Setter.Value>
+						</Setter>
+					</DataTrigger>
 					<DataTrigger Binding="{Binding State.IsReady}"
 								 Value="True">
 						<Setter TargetName="Border"
