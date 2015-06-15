@@ -40,11 +40,13 @@
 									 Text="{TemplateBinding Title}"
 									 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 								<Run Text=" " />
-								<Run x:Name="State"
-									 Text=""
-									 FontSize="13"
-									 Style="{DynamicResource EmphaticTextElementStyleKey}"
-									 Background="Transparent" />
+								<TextBlock TextWrapping="NoWrap">
+									<Run x:Name="State"
+										 Text=""
+										 FontSize="13"
+										 Style="{DynamicResource EmphaticTextElementStyleKey}"
+										 Background="Transparent" />
+								</TextBlock>
 							</TextBlock>
 							<Border x:Name="DetailView"
 									Grid.Row="1"
