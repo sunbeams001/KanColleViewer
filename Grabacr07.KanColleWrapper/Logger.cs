@@ -27,7 +27,7 @@ namespace Grabacr07.KanColleWrapper
 		// ReSharper disable once AssignNullToNotNullAttribute
 		public static string LogFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Logs");
 
-	    public enum LogType
+		public enum LogType
 		{
 			BuildItem,
 			BuildShip,
@@ -35,12 +35,12 @@ namespace Grabacr07.KanColleWrapper
 			Materials
 		};
 
-	    public struct LogTypeInfo
+		public struct LogTypeInfo
 		{
 			public string Parameters;
-            public string FileName;
+			public string FileName;
 
-            public LogTypeInfo(string parameters, string fileName)
+			public LogTypeInfo(string parameters, string fileName)
 			{
 				this.Parameters = parameters;
 				this.FileName = fileName;
@@ -216,7 +216,7 @@ namespace Grabacr07.KanColleWrapper
 			{
 				w.Write(DateTime.Now.ToString(this.LogTimestampFormat) + ",");
 				w.Write(string.Join(",", args));
-                w.WriteLine();
+				w.WriteLine();
 			}
 		}
 
