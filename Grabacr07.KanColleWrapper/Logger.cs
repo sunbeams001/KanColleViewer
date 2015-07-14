@@ -214,9 +214,7 @@ namespace Grabacr07.KanColleWrapper
 
 			using (var w = File.AppendText(logPath))
 			{
-				w.Write(DateTime.Now.ToString(this.LogTimestampFormat) + ",");
-				w.Write(string.Join(",", args));
-				w.WriteLine();
+				w.WriteLine(DateTime.Now.ToString(this.LogTimestampFormat) + "," + string.Join(",", args));
 			}
 		}
 
