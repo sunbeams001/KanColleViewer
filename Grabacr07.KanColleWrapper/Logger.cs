@@ -33,7 +33,8 @@ namespace Grabacr07.KanColleWrapper
 			BuildItem,
 			BuildShip,
 			ShipDrop,
-			Materials
+			Materials,
+			Expedition
 		};
 
 		public struct LogTypeInfo
@@ -67,6 +68,10 @@ namespace Grabacr07.KanColleWrapper
 					LogType.Materials, new LogTypeInfo("Date,Fuel,Ammo,Steel,Bauxite,DevMats,Buckets,Flamethrowers,Screws",
 													   "MaterialsLog.csv") 
 				},
+				{
+					LogType.Expedition, new LogTypeInfo("Date,Expedition,Result,HQExp,Fuel,Ammunition,Steel,Bauxite,ItemFlags(,Ship,Level,Condition,HP,Fuel,Ammo,Exp,Drums)+",
+														"Expedition.csv")
+				},
 			};
 
 		internal Logger(KanColleProxy proxy)
@@ -83,6 +88,45 @@ namespace Grabacr07.KanColleWrapper
 			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.BattleResult(x.Data));
 			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => this.BattleResult(x.Data));
 			proxy.api_port.TryParse<kcsapi_port>().Subscribe(x => this.MaterialsHistory(x.Data));
+			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Expedition(x.Data, x.Request));
+		}
+
+		private void Expedition(kcsapi_mission_result res, NameValueCollection req)
+		{
+			try
+			{
+				Fleet fleet = KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])];
+
+				List<object> args = new List<object>();
+
+				args.AddRange(new object[] {
+					fleet.Expedition.Id, // Expedition
+					res.api_clear_result == 2 ? "GS" : res.api_clear_result == 1 ? "NS" : "Fail", // Result
+					res.api_get_exp, // HQExp
+					String.Join(",", res.api_get_material), // Fuel,Ammunition,Steel,Bauxite
+					String.Join("-", res.api_useitem_flag) // ItemFlags
+				});
+
+				for (int i = 0; i < fleet.Ships.Length; ++i)
+				{
+					args.AddRange(new object[] {
+						fleet.Ships[i].Info.Name, // Ship
+						fleet.Ships[i].Level, // Level
+						fleet.Ships[i].Condition, // Condition
+						fleet.Ships[i].HP.Current, // HP
+						fleet.Ships[i].Fuel.Current, // Fuel
+						fleet.Ships[i].Bull.Current, // Ammo
+						res.api_get_ship_exp[i], // Exp
+						fleet.Ships[i].EquippedSlots.Count(slot => slot.Item.Info.Id == 75) // Drums
+					});
+				}
+
+				this.Log(LogType.Expedition, args.ToArray());
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Expedition: {0}", ex);
+			}
 		}
 		
 		private void CreateItem(kcsapi_createitem item, NameValueCollection req)
@@ -252,4 +296,3 @@ namespace Grabacr07.KanColleWrapper
 		}
 	}
 }
-
