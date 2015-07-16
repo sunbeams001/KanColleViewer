@@ -23,6 +23,9 @@ namespace Grabacr07.KanColleWrapper
 		private readonly int[] mats;
 		private readonly string LogTimestampFormat = "yyyy-MM-dd HH:mm:ss";
 
+		// TODO: extend Organization, etc. with practice info instead (can be used in Overview view as well)
+		private int FleetInPractice;
+
 		public bool EnableLogging { get; set; }
 
 		// ReSharper disable once AssignNullToNotNullAttribute
@@ -34,7 +37,8 @@ namespace Grabacr07.KanColleWrapper
 			BuildShip,
 			ShipDrop,
 			Materials,
-			Expedition
+			Expedition,
+			Levels
 		};
 
 		public struct LogTypeInfo
@@ -72,6 +76,10 @@ namespace Grabacr07.KanColleWrapper
 					LogType.Expedition, new LogTypeInfo("Date,Expedition,Result,HQExp,Fuel,Ammunition,Steel,Bauxite,ItemFlags(,Ship,Level,Condition,HP,Fuel,Ammo,Exp,Drums)+",
 														"Expedition.csv")
 				},
+				{
+					LogType.Levels, new LogTypeInfo("Date,Name,Level",
+													"Levels.csv")
+				},
 			};
 
 		internal Logger(KanColleProxy proxy)
@@ -81,13 +89,20 @@ namespace Grabacr07.KanColleWrapper
 			this.shipmats = new int[5];
 			this.mats = new int[8];
 
-			// ちょっと考えなおす
 			proxy.api_req_kousyou_createitem.TryParse<kcsapi_createitem>().Subscribe(x => this.CreateItem(x.Data, x.Request));
 			proxy.api_req_kousyou_createship.TryParse<kcsapi_createship>().Subscribe(x => this.CreateShip(x.Request));
+
 			proxy.api_get_member_kdock.TryParse<kcsapi_kdock[]>().Subscribe(x => this.KDock(x.Data));
+
 			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.BattleResult(x.Data));
 			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => this.BattleResult(x.Data));
+
 			proxy.api_port.TryParse<kcsapi_port>().Subscribe(x => this.MaterialsHistory(x.Data));
+
+			// TODO: add kcsapi_practice_battle
+			proxy.api_req_practice_battle.TryParse().Subscribe(x => this.FleetInPractice = int.Parse(x.Request["api_deck_id"]));
+			proxy.api_req_practice_battle_result.TryParse <kcsapi_practice_battle_result>().Subscribe(x => this.Levels(x.Data));
+
 			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Expedition(x.Data, x.Request));
 		}
 
@@ -186,19 +201,60 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		private void BattleResult(kcsapi_battleresult br)
+		// TODO: log within levels too (e.g. each 1000 xp)
+		// TODO: support for combined fleet
+		// TODO: support for expeditions
+		private void Levels(int[] exps, Fleet fleet)
+		{
+			int i = 0;
+			foreach (int exp in exps)
+				if (exp != -1)
+				{
+					Ship ship = fleet.Ships[i];
+					if (ship.ExpForNextLevel != 0 && exp >= ship.ExpForNextLevel)
+						this.Log(LogType.Levels, ship.Info.Name, Ship.ExpToLevel(ship.Exp + exp));
+					++i;
+				}
+		}
+
+		private void Levels(kcsapi_practice_battle_result pr)
 		{
 			try
 			{
-				if (br.api_get_ship == null)
-					return;
+				Fleet fleet = KanColleClient.Current.Homeport.Organization.Fleets[FleetInPractice];
+				Levels(pr.api_get_ship_exp, fleet);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
 
+		private void BattleResult(kcsapi_battleresult br)
+		{
+			// Levels
+			try
+			{
+				Fleet fleet = KanColleClient.Current.Homeport.Organization.GetFleetInSortie();
+				Levels(br.api_get_ship_exp, fleet);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+
+			// Drops
+			try
+			{
+				if (br.api_get_ship != null)
+				{
 				this.Log(LogType.ShipDrop,
 						 KanColleClient.Current.Translations.GetTranslation(br.api_get_ship.api_ship_name, TranslationType.Ships, br), //Result
 						 KanColleClient.Current.Translations.GetTranslation(br.api_quest_name, TranslationType.OperationMaps, br), //Operation
 						 KanColleClient.Current.Translations.GetTranslation(br.api_enemy_info.api_deck_name, TranslationType.OperationSortie, br), //Enemy Fleet
 						 br.api_win_rank //Rank
 					);
+			}
 			}
 			catch (Exception)
 			{

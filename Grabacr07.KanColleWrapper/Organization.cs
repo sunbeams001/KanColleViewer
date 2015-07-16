@@ -130,6 +130,10 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
+		public Fleet GetFleetInSortie()
+		{
+			return this.Fleets.First(x => x.Value.IsInSortie).Value;
+		}
 
 		public Organization(Homeport parent, KanColleProxy proxy)
 		{
