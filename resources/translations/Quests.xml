@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Quests Version="1.1.21">
+<Quests Version="1.1.22">
   <Quest>
     <ID>101</ID>
     <JP-Name>はじめての「編成」！</JP-Name>
@@ -1286,7 +1286,7 @@
     <JP-Name>「第一水雷戦隊」北方ケ号作戦、再突入！</JP-Name>
     <TR-Name>First Torpedo Squadron 2nd Operation Ke, Sortie!</TR-Name>
     <JP-Detail>北方再突入準備の新編「一水戦」で北方キス島に再突入を敢行、同撤収作戦を完遂せよ！</JP-Detail>
-    <TR-Detail>Sortie Abukuma Kai-2 as flagship with Hibiki(Hibiki/Верный), Yuugumo, Naganami, Akigumo and Shimakaze to World 3-2 and sink the flagship at the boss.</TR-Detail>
+    <TR-Detail>Sortie Abukuma Kai-2 as flagship with Hibiki(Hibiki/Верный), Yuugumo, Naganami, Akigumo and Shimakaze to World 3-2 and obtain a S victory at the boss.</TR-Detail>
   </Quest>
   <Quest>
     <ID>309</ID>
