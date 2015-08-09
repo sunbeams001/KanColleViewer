@@ -848,6 +848,9 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Quests_Monthly" xml:space="preserve">
     <value>マンスリー任務</value>
   </data>
+  <data name="Quests_OneTime" xml:space="preserve">
+    <value>ワンタイム任務</value>
+  </data>
   <data name="CommonCatalog_GeneratingList" xml:space="preserve">
     <value>一覧を生成しています...</value>
   </data>

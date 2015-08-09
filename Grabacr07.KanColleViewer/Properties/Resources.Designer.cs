@@ -953,6 +953,15 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ワンタイム任務.
+        /// </summary>
+        public static string Quests_OneTime {
+            get {
+                return ResourceManager.GetString("Quests_OneTime", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to ゲーム内で [任務 (クエスト)] 画面を開いて、任務一覧を取得してください。.
         /// </summary>
         public static string Quests_Untaken {
