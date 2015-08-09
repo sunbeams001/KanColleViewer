@@ -33,18 +33,14 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 		{
 			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Organization)
 			{
-				{ "Ships", (sender, args) => this.Update() },
-			});
-			this.CompositeDisposable.Add(new PropertyChangedEventListener(KanColleClient.Current.Homeport.Organization.DroppedShips)
-			{
-				{ "Count", (sender, args) => this.Update() },
+				{ "ShipCount", (sender, args) => this.Update() },
 			});
 			this.Update();
 		}
 
 		private void Update()
 		{
-			this.Count = KanColleClient.Current.Homeport.Organization.Ships.Count + KanColleClient.Current.Homeport.Organization.DroppedShips.Count;
+			this.Count = KanColleClient.Current.Homeport.Organization.ShipCount;
 		}
 	}
 }

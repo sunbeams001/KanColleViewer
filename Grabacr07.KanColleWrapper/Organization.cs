@@ -44,6 +44,28 @@ namespace Grabacr07.KanColleWrapper
 
 		#endregion
 
+		#region ShipCount
+
+		private int _ShipCount;
+
+		/// <summary>
+		/// Ships.Count + DroppedShips.Count
+		/// </summary>
+		public int ShipCount
+		{
+			get { return this._ShipCount; }
+			private set
+			{
+				if (this._ShipCount != value)
+				{
+					this._ShipCount = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 		#region Fleets 変更通知プロパティ
 
 		private MemberTable<Fleet> _Fleets;
@@ -116,6 +138,7 @@ namespace Grabacr07.KanColleWrapper
 			this.Ships = new MemberTable<Ship>();
 			this.Fleets = new MemberTable<Fleet>();
 			this.DroppedShips = new ObservableCollection<DroppedShip>();
+			this.ShipCount = 0;
 
 			proxy.api_get_member_ship.TryParse<kcsapi_ship2[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_ship2.TryParse<kcsapi_ship2[]>().Subscribe(x =>
@@ -174,6 +197,7 @@ namespace Grabacr07.KanColleWrapper
 
 		private void RaiseShipsChanged()
 		{
+			this.ShipCount = this.Ships.Count;
 			this.RaisePropertyChanged("Ships");
 		}
 
@@ -201,6 +225,7 @@ namespace Grabacr07.KanColleWrapper
 			else
 			{
 				this.Ships = new MemberTable<Ship>(source.Select(x => new Ship(this.homeport, x)));
+				this.ShipCount = this.Ships.Count;
 
 				if (KanColleClient.Current.IsInSortie)
 				{
@@ -496,6 +521,7 @@ namespace Grabacr07.KanColleWrapper
 			if (source.api_get_ship == null) return;
 
 			this.DroppedShips.Add(new DroppedShip(source.api_get_ship));
+			++this.ShipCount;
 		}
 
 		private void DropShip(kcsapi_combined_battle_battleresult source)
@@ -503,6 +529,7 @@ namespace Grabacr07.KanColleWrapper
 			if (source.api_get_ship == null) return;
 
 			this.DroppedShips.Add(new DroppedShip(source.api_get_ship));
+			++this.ShipCount;
 		}
 		#endregion
 	}
