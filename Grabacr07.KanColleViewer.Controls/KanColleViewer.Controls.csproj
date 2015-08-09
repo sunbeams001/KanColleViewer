@@ -115,6 +115,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>Generic.xaml</DependentUpon>
     </Page>
+    <Page Include="Themes\Generic.SlotItemTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <DependentUpon>Generic.xaml</DependentUpon>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -150,6 +155,7 @@
     <Compile Include="Controls\Modernizable.cs" />
     <Compile Include="Controls\Quest.cs" />
     <Compile Include="Controls\SlotItemIcon.cs" />
+    <Compile Include="Controls\SlotItemTooltip.cs" />
     <Compile Include="Converters\HasFlagConverter.cs" />
     <Compile Include="Converters\QuestCategoryToColorConverter.cs" />
     <EmbeddedResource Include="Controls.Globalization\Resources.resx">
@@ -179,7 +185,7 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
