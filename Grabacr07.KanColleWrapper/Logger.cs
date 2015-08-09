@@ -20,6 +20,7 @@ namespace Grabacr07.KanColleWrapper
 		private bool waitingForShip;
 		private int dockid;
 		private readonly int[] shipmats;
+		private readonly int[] mats;
 		private readonly string LogTimestampFormat = "yyyy-MM-dd HH:mm:ss";
 
 		public bool EnableLogging { get; set; }
@@ -63,7 +64,7 @@ namespace Grabacr07.KanColleWrapper
 													   "ShipDropLog.csv") 
 				},
 				{ 
-					LogType.Materials, new LogTypeInfo("Date,Fuel,Ammunition,Steel,Bauxite,DevKits,Buckets,Flamethrowers",
+					LogType.Materials, new LogTypeInfo("Date,Fuel,Ammo,Steel,Bauxite,DevMats,Buckets,Flamethrowers,Screws",
 													   "MaterialsLog.csv") 
 				},
 			};
@@ -73,6 +74,7 @@ namespace Grabacr07.KanColleWrapper
 			this.EnableLogging = KanColleClient.Current.Settings.EnableLogging;
 
 			this.shipmats = new int[5];
+			this.mats = new int[8];
 
 			// ちょっと考えなおす
 			proxy.api_req_kousyou_createitem.TryParse<kcsapi_createitem>().Subscribe(x => this.CreateItem(x.Data, x.Request));
@@ -80,9 +82,7 @@ namespace Grabacr07.KanColleWrapper
 			proxy.api_get_member_kdock.TryParse<kcsapi_kdock[]>().Subscribe(x => this.KDock(x.Data));
 			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.BattleResult(x.Data));
 			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => this.BattleResult(x.Data));
-			proxy.api_get_member_material.TryParse<kcsapi_material[]>().Subscribe(x => this.MaterialsHistory(x.Data));
-			proxy.api_req_hokyu_charge.TryParse<kcsapi_charge>().Subscribe(x => this.MaterialsHistory(x.Data.api_material));
-			proxy.api_req_kousyou_destroyship.TryParse<kcsapi_destroyship>().Subscribe(x => this.MaterialsHistory(x.Data.api_material));
+			proxy.api_port.TryParse<kcsapi_port>().Subscribe(x => this.MaterialsHistory(x.Data));
 		}
 		
 		private void CreateItem(kcsapi_createitem item, NameValueCollection req)
@@ -182,25 +182,37 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		private void MaterialsHistory(kcsapi_material[] source)
+		private void MaterialsHistory(kcsapi_port source)
 		{
-			if (source == null || source.Length != 7)
-				return;
+			try
+			{
+				if (source.api_material[0].api_value != this.mats[0] ||
+					source.api_material[1].api_value != this.mats[1] ||
+					source.api_material[2].api_value != this.mats[2] ||
+					source.api_material[3].api_value != this.mats[3] ||
+					source.api_material[4].api_value != this.mats[6] ||
+					source.api_material[5].api_value != this.mats[5] ||
+					source.api_material[6].api_value != this.mats[4] ||
+					source.api_material[7].api_value != this.mats[7])
+				{
+					this.mats[0] = source.api_material[0].api_value;
+					this.mats[1] = source.api_material[1].api_value;
+					this.mats[2] = source.api_material[2].api_value;
+					this.mats[3] = source.api_material[3].api_value;
+					this.mats[6] = source.api_material[4].api_value;
+					this.mats[5] = source.api_material[5].api_value;
+					this.mats[4] = source.api_material[6].api_value;
+					this.mats[7] = source.api_material[7].api_value;
 
-			this.Log(LogType.Materials,
-				source[0].api_value, source[1].api_value, source[2].api_value, source[3].api_value, source[6].api_value, source[5].api_value, source[4].api_value);
-		}
-
-		private void MaterialsHistory(int[] source)
-		{
-			if (source == null || source.Length != 4)
-				return;
-
-			this.Log(LogType.Materials,
-				source[0], source[1], source[2], source[3], 
-				KanColleClient.Current.Homeport.Materials.DevelopmentMaterials, 
-				KanColleClient.Current.Homeport.Materials.InstantRepairMaterials, 
-				KanColleClient.Current.Homeport.Materials.InstantBuildMaterials);
+					this.Log(LogType.Materials,
+						this.mats[0], this.mats[1], this.mats[2], this.mats[3],
+						this.mats[4], this.mats[5], this.mats[6], this.mats[7]);
+				}
+			}
+			catch (Exception)
+			{
+				// ignored
+			}
 		}
 
 		private void Log(LogType type, params object[] args)
