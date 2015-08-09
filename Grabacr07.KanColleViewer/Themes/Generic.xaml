@@ -10,6 +10,7 @@
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.Modernizable.xaml" />
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.Quest.xaml" />
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemIcon.xaml" />
+		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemTooltip.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -172,7 +172,7 @@
 							<vContents:QuestViewSource x:Key="MonthlyQuestSourceKey"
 											   Source="{Binding Quests}"
 											   Type="Monthly" />
-							<views:QuestViewSource x:Key="OneTimeQuestSourceKey"
+							<vContents:QuestViewSource x:Key="OneTimeQuestSourceKey"
 											   Source="{Binding Quests}"
 											   Type="OneTime" />
                         </TabControl.Resources>

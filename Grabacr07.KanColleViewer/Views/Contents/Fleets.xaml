@@ -429,29 +429,13 @@
                                                     <Border
 														Background="Transparent">
                                                     <Border.ToolTip>
-                                                        <StackPanel Orientation="Vertical">
-                                                            <TextBlock>
-                                                                <Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
-                                                                <TextBlock Margin="5,0">
-                                                                    <TextBlock.Style>
-                                                                        <Style TargetType="{x:Type TextBlock}">
-                                                                            <Setter Property="Text"
-                                                                                    Value="{Binding Item.LevelText, Mode=OneWay}" />
-                                                                            <Setter Property="Foreground"
-                                                                                    Value="#FF45A9A5" />
-                                                                        </Style>
-                                                                    </TextBlock.Style>
-                                                                </TextBlock>
-                                                                <TextBlock Visibility="{Binding Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                                                    <Run Text="[" />
-                                                                    <Run Text="{Binding Current}" />
-                                                                    <Run Text="/" />
-                                                                    <Run Text="{Binding Maximum}" />
-                                                                    <Run Text="]" />
-                                                                </TextBlock>
-                                                            </TextBlock>
-															<TextBlock Text="{Binding Item.Info.AllStats, Mode=OneWay}" />
-														</StackPanel>
+														<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
+																				  LevelText="{Binding Item.LevelText}"
+																				  IsNumerable="{Binding Item.Info.IsNumerable}"
+																				  Current="{Binding Current}"
+																				  Maximum="{Binding Maximum}"
+																				  UntranslatedName="{Binding Item.Info.UntranslatedName}"
+																				  AllStats="{Binding Item.Info.AllStats}" />
                                                     </Border.ToolTip>
 													<controls:SlotItemIcon x:Name="SlotItem"
 																		   Type="{Binding Item.Info.IconType}"																		   
