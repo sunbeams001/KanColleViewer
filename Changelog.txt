@@ -2,6 +2,15 @@
 	KCV Change Log
 ========================
 
+v3.8.2 β r557 - 8/10/2015
+	* Fixed DMM link.
+	* Added bucket and dev. mat. counters on the top bar.
+	* Added one-time quests in Quests menu.
+	* Added Japanses tooltips for quest names and descriptions, ship types in
+		Ship List and equipment names in Equipment List and equipment tooltips.
+	* Added logging for screws in the material logger.
+	* Few other fixes.
+
 v3.8.2 r556 - 5/29/2015
 	* Fix ship count don't update when drop same ship type
 	* Web browser size auto stretch when not in game
