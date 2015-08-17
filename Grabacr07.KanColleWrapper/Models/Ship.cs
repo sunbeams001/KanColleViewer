@@ -267,7 +267,10 @@ namespace Grabacr07.KanColleWrapper.Models
 				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Torpedo, this.Torpedo.Current, (this.Torpedo.IsMax ? @"MAX" : "+" + (this.Torpedo.Max - this.Torpedo.Current).ToString()));
 				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_AntiAir, this.AA.Current, (this.AA.IsMax ? @"MAX" : "+" + (this.AA.Max - this.AA.Current).ToString()));
 				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Armor, this.Armer.Current, (this.Armer.IsMax ? @"MAX" : "+" + (this.Armer.Max - this.Armer.Current).ToString()));
-				details += string.Format("{0}: {1} ({2})", Resources.Stats_Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
+				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
+				details += string.Format("{0}: {1} (MAX: {2})\n", Resources.Stats_Evasion, this.Evasion.Current, this.Evasion.Maximum);
+				details += string.Format("{0}: {1} (MAX: {2})\n", Resources.Stats_AntiSub, this.AntiSub.Current, this.AntiSub.Maximum);
+				details += string.Format("{0}: {1} (MAX: {2})", Resources.Stats_SightRange, this.LineOfSight.Current, this.LineOfSight.Maximum);
 
 				return details;
 			}
