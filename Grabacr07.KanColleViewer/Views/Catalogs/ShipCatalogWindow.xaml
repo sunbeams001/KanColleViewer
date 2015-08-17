@@ -953,6 +953,7 @@
                                                         <Border.ToolTip>
 															<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
 																					  LevelText="{Binding Item.LevelText}"
+																					  AdeptText="{Binding Item.AdeptText}"
 																					  IsNumerable="{Binding Item.Info.IsNumerable}"
 																					  Current="{Binding Current}"
 																					  Maximum="{Binding Maximum}"

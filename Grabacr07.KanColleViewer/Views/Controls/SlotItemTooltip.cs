@@ -51,6 +51,18 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
 		#endregion
 
+		#region AdeptText
+
+		public string AdeptText
+		{
+			get { return (string)this.GetValue(AdeptTextProperty); }
+			set { this.SetValue(AdeptTextProperty, value); }
+		}
+		public static readonly DependencyProperty AdeptTextProperty =
+			DependencyProperty.Register("AdeptText", typeof(string), typeof(SlotItemTooltip), new UIPropertyMetadata(""));
+
+		#endregion
+
 		#region IsNumerable
 
 		public bool IsNumerable

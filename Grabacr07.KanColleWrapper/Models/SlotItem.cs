@@ -27,7 +27,17 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string NameWithLevel
 		{
-			get { return string.Format("{0}{1}", this.Info.Name, this.Level >= 1 ? (" " + this.LevelText) : ""); }
+			get { return string.Format("{0}{1}{2}", this.Info.Name, (this.Level >= 1 ? (" " + this.LevelText) : ""), (this.Adept >= 1 ? (" " + this.AdeptText) : "")); }
+		}
+
+		public int Adept
+		{
+			get { return this.RawData.api_alv; }
+		}
+
+		public string AdeptText
+		{
+			get { return this.Adept >= 1 ? (" +" + this.Adept) : ""; }
 		}
 
 		internal SlotItem(kcsapi_slotitem rawData)
@@ -48,7 +58,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public override string ToString()
 		{
-			return string.Format("ID = {0}, Name = \"{1}\", Level = {2}", this.Id, this.Info.Name, this.Level);
+			return string.Format("ID = {0}, Name = \"{1}\", Level = {2}, Rank = {3}", this.Id, this.Info.Name, this.Level, this.Adept);
 		}
 	}
 }

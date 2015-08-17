@@ -26,6 +26,16 @@
 								<Run Text="{Binding Maximum}" />
 								<Run Text="]" />
 							</TextBlock>
+							<TextBlock Margin="5,0">
+								<TextBlock.Style>
+									<Style TargetType="{x:Type TextBlock}">
+										<Setter Property="Text"
+												Value="{Binding AdeptText, RelativeSource={RelativeSource TemplatedParent}}" />
+										<Setter Property="Foreground"
+												Value="#FF45A9A5" />
+									</Style>
+								</TextBlock.Style>
+							</TextBlock>
 						</TextBlock>
 						<TextBlock Text="{TemplateBinding UntranslatedName}" />
 						<TextBlock Name="Stats" Text="{TemplateBinding AllStats}" />

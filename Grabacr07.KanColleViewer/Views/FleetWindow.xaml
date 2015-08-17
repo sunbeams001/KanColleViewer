@@ -347,6 +347,7 @@
 											<Border.ToolTip>
 												<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
 																						   LevelText="{Binding Item.LevelText}"
+																						   AdeptText="{Binding Item.AdeptText}"
 																						   IsNumerable="{Binding Item.Info.IsNumerable}"
 																						   Current="{Binding Current}"
 																						   Maximum="{Binding Maximum}"
@@ -402,6 +403,8 @@
 													
 													<Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
 													<Run Text="{Binding Item.LevelText, Mode=OneWay}"
+														 Foreground="#FF45A9A5" />
+													<Run Text="{Binding Item.AdeptText, Mode=OneWay}"
 														 Foreground="#FF45A9A5" />
 												</TextBlock>
 											</Grid>
