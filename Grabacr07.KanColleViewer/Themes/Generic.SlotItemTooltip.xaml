@@ -7,7 +7,7 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type controls:SlotItemTooltip}">
 					<StackPanel Orientation="Vertical">
-						<TextBlock>
+						<TextBlock Name="Header">
 							<Run Text="{TemplateBinding EqName}" />
 							<TextBlock Margin="5,0">
 								<TextBlock.Style>
@@ -28,7 +28,7 @@
 							</TextBlock>
 						</TextBlock>
 						<TextBlock Text="{TemplateBinding UntranslatedName}" />
-						<TextBlock Text="{TemplateBinding AllStats}" />
+						<TextBlock Name="Stats" Text="{TemplateBinding AllStats}" />
 					</StackPanel>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsNumerable" Value="False">
@@ -36,6 +36,15 @@
 						</Trigger>
 						<Trigger Property="IsNumerable" Value="True">
 							<Setter TargetName="Numerable" Property="Visibility" Value="Visible"/>
+						</Trigger>
+						<Trigger Property="ShowHeader" Value="False">
+							<Setter TargetName="Header" Property="Visibility" Value="Collapsed"/>
+						</Trigger>
+						<Trigger Property="ShowHeader" Value="True">
+							<Setter TargetName="Header" Property="Visibility" Value="Visible"/>
+						</Trigger>
+						<Trigger Property="AllStats" Value="">
+							<Setter TargetName="Stats" Property="Visibility" Value="Collapsed" />
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>

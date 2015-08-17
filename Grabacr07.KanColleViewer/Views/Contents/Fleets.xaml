@@ -287,7 +287,8 @@
 											   HorizontalAlignment="Right"
 											   Margin="5,0,0,0">
 										<Run Text="{Binding Ship.Info.ShipType.Name, Mode=OneWay}"
-											 FontSize="14" />
+											 FontSize="14"
+											 ToolTip="{Binding Ship.Info.ShipType.UntranslatedName, Mode=OneWay}" />
 										<Run Text=""
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
@@ -435,7 +436,8 @@
 																				  Current="{Binding Current}"
 																				  Maximum="{Binding Maximum}"
 																				  UntranslatedName="{Binding Item.Info.UntranslatedName}"
-																				  AllStats="{Binding Item.Info.AllStats}" />
+																				  AllStats="{Binding Item.Info.AllStats}"
+																				  ShowHeader="True" />
                                                     </Border.ToolTip>
 													<controls:SlotItemIcon x:Name="SlotItem"
 																		   Type="{Binding Item.Info.IconType}"																		   

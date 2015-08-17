@@ -128,11 +128,21 @@
 										Margin="10,0,10,0">
 								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
 									<Run Text="{Binding Info.ShipType.Name, Mode=OneWay}"
-										 FontSize="14" />
+										 FontSize="14"
+										 ToolTip="{Binding Info.ShipType.UntranslatedName, Mode=OneWay}" />
 									<LineBreak />
 									<Run Text="{Binding Info.Name, Mode=OneWay}"
 										 Style="{DynamicResource EmphaticTextElementStyleKey }"
 										 FontSize="18" />
+									<TextBlock.ToolTip>
+										<TextBlock Margin="0,-2,0,0">
+											<Run Text="{Binding Info.UntranslatedName, Mode=OneWay}"
+												 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+											<LineBreak />
+											<Run Text="{Binding AllStats, Mode=OneWay}"
+												 FontSize="11" />
+										</TextBlock>
+									</TextBlock.ToolTip>
 								</TextBlock>
 							</StackPanel>
 
@@ -177,7 +187,8 @@
 										Grid.Row="0"
 										Margin="10,1,20,0">
 								<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
-										   VerticalAlignment="Bottom">
+										   VerticalAlignment="Bottom"
+										   ToolTip="{Binding RepairTime, Mode=OneWay}">
 									<Run Text="HP:" />
 									<Run Text="{Binding HP.Current, Mode=OneWay}"
 										 Style="{DynamicResource EmphaticTextElementStyleKey}" />
@@ -187,7 +198,8 @@
 								<controls:ColorIndicator Height="7"
 														 VerticalAlignment="Bottom"
 														 Margin="1,4,0,2"
-														 LimitedValue="{Binding HP, Mode=OneWay}" />
+														 LimitedValue="{Binding HP, Mode=OneWay}"
+														 ToolTip="{Binding RepairTime, Mode=OneWay}" />
 							</StackPanel>
 
 							<TextBlock Grid.Column="3"
@@ -331,56 +343,69 @@
 										  Margin="20,0">
 								<ItemsControl.ItemTemplate>
 									<DataTemplate>
-										<Grid>
-											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="SlotItemNum" />
-												<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="SlotItemIcon" />
-												<ColumnDefinition Width="Auto"
-																  SharedSizeGroup="SlotItemName" />
-												<ColumnDefinition />
-											</Grid.ColumnDefinitions>
-											<TextBlock Grid.Column="0"
-													   HorizontalAlignment="Center"
-													   Margin="5,1">
-												<TextBlock.Style>
-													<Style TargetType="{x:Type TextBlock}"
-														   BasedOn="{StaticResource DefaultTextStyleKey}">
-														<Setter Property="Text"
-																Value="" />
-														<Style.Triggers>
-															<MultiDataTrigger>
-																<MultiDataTrigger.Conditions>
-																	<Condition Binding="{Binding Item.Info.IsNumerable}"
-																			   Value="True" />
-																</MultiDataTrigger.Conditions>
-																<Setter Property="Text">
-																	<Setter.Value>
-																		<MultiBinding StringFormat="[{0:00} / {1:00}]">
-																			<Binding Path="Current" />
-																			<Binding Path="Maximum" />
-																		</MultiBinding>
-																	</Setter.Value>
-																</Setter>
-															</MultiDataTrigger>
-														</Style.Triggers>
-													</Style>
-												</TextBlock.Style>
-											</TextBlock>
-											<controls:SlotItemIcon Grid.Column="1"
-																   Type="{Binding Item.Info.IconType, Mode=OneWay}"
-																   Width="14"
-																   Height="14" />
-											<TextBlock Grid.Column="2"
-													   Foreground="{DynamicResource ActiveForegroundBrushKey}"
-													   Style="{DynamicResource DefaultTextStyleKey}"
-													   Margin="5,1">
-												<Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
-												<Run Text="{Binding Item.LevelText, Mode=OneWay}"
-													 Foreground="#FF45A9A5" />
-											</TextBlock>
-										</Grid>
+										<Border	Background="Transparent">
+											<Border.ToolTip>
+												<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
+																						   LevelText="{Binding Item.LevelText}"
+																						   IsNumerable="{Binding Item.Info.IsNumerable}"
+																						   Current="{Binding Current}"
+																						   Maximum="{Binding Maximum}"
+																						   UntranslatedName="{Binding Item.Info.UntranslatedName}"
+																						   AllStats="{Binding Item.Info.AllStats}"
+																						   ShowHeader="False" />
+											</Border.ToolTip>
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="Auto"
+																	  SharedSizeGroup="SlotItemNum" />
+													<ColumnDefinition Width="Auto"
+																	  SharedSizeGroup="SlotItemIcon" />
+													<ColumnDefinition Width="Auto"
+																	  SharedSizeGroup="SlotItemName" />
+													<ColumnDefinition />
+												</Grid.ColumnDefinitions>
+												<TextBlock Grid.Column="0"
+														   HorizontalAlignment="Center"
+														   Margin="5,1">
+													<TextBlock.Style>
+														<Style TargetType="{x:Type TextBlock}"
+															   BasedOn="{StaticResource DefaultTextStyleKey}">
+															<Setter Property="Text"
+																	Value="" />
+															<Style.Triggers>
+																<MultiDataTrigger>
+																	<MultiDataTrigger.Conditions>
+																		<Condition Binding="{Binding Item.Info.IsNumerable}"
+																				   Value="True" />
+																	</MultiDataTrigger.Conditions>
+																	<Setter Property="Text">
+																		<Setter.Value>
+																			<MultiBinding StringFormat="[{0:00} / {1:00}]">
+																				<Binding Path="Current" />
+																				<Binding Path="Maximum" />
+																			</MultiBinding>
+																		</Setter.Value>
+																	</Setter>
+																</MultiDataTrigger>
+															</Style.Triggers>
+														</Style>
+													</TextBlock.Style>
+												</TextBlock>
+												<controls:SlotItemIcon Grid.Column="1"
+																	   Type="{Binding Item.Info.IconType, Mode=OneWay}"
+																	   Width="14"
+																	   Height="14" />
+												<TextBlock Grid.Column="2"
+														   Foreground="{DynamicResource ActiveForegroundBrushKey}"
+														   Style="{DynamicResource DefaultTextStyleKey}"
+														   Margin="5,1">
+													
+													<Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
+													<Run Text="{Binding Item.LevelText, Mode=OneWay}"
+														 Foreground="#FF45A9A5" />
+												</TextBlock>
+											</Grid>
+										</Border>
 									</DataTemplate>
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>

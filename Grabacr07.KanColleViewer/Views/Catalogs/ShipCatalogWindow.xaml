@@ -729,11 +729,11 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Width="50">
+                            <GridViewColumn Width="60">
                                 <GridViewColumn.Header>
                                     <metro2:SortButton MethodName="Sort"
 													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.CondColumn}">
-                                        <TextBlock Text="cond." />
+                                        <TextBlock Text="Condition" />
                                     </metro2:SortButton>
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
@@ -957,7 +957,8 @@
 																					  Current="{Binding Current}"
 																					  Maximum="{Binding Maximum}"
 																					  UntranslatedName="{Binding Item.Info.UntranslatedName}"
-																					  AllStats="{Binding Item.Info.AllStats}" />
+																					  AllStats="{Binding Item.Info.AllStats}"
+																					  ShowHeader="True" />
                                                         </Border.ToolTip>
                                                         <Viewbox>
                                                             <controls:SlotItemIcon Type="{Binding Item.Info.IconType}"

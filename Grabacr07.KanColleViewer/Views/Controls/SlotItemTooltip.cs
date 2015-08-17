@@ -63,6 +63,18 @@ namespace Grabacr07.KanColleViewer.Views.Controls
 
 		#endregion
 
+		#region ShowHeader
+
+		public bool ShowHeader
+		{
+			get { return (bool)this.GetValue(ShowHeaderProperty); }
+			set { this.SetValue(ShowHeaderProperty, value); }
+		}
+		public static readonly DependencyProperty ShowHeaderProperty =
+			DependencyProperty.Register("ShowHeader", typeof(bool), typeof(SlotItemTooltip), new UIPropertyMetadata(false));
+
+		#endregion
+
 		#region Current
 
 		public int Current
