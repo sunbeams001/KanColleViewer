@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Globalization;
 
@@ -30,7 +29,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Color
 		{
-			get { return "#FF204080"; }
+			get { return "#FF202080"; }
 		}
 	}
 
@@ -48,7 +47,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Color
 		{
-			get { return "#FF1A811A"; }
+			get { return "#FF208020"; }
 		}
 	}
 
@@ -66,7 +65,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Color
 		{
-			get { return "#FFF7F909"; }
+			get { return "#FFC0C020"; }
 		}
 	}
 
@@ -84,7 +83,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string Color
 		{
-			get { return "#FFF29919"; }
+			get { return "#FFC08020"; }
 		}
 	}
 
