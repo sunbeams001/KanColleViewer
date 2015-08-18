@@ -8,7 +8,6 @@ using System.Reactive.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Livet;
@@ -20,25 +19,31 @@ namespace Grabacr07.KanColleWrapper
 		private bool waitingForShip;
 		private int dockid;
 		private readonly int[] shipmats;
-		private readonly string LogTimestampFormat = "yyyy-MM-dd HH:mm:ss";
+		private readonly int[] mats;
+		private const string logTimestampFormat = "yyyy-MM-dd HH:mm:ss";
 
-		public bool EnableLogging { get; set; }
+		// TODO: extend Organization, etc. with practice info instead (can be used in Overview view as well)
+		private int fleetInPractice;
+
+		public bool EnableLogging { private get; set; }
 
 		// ReSharper disable once AssignNullToNotNullAttribute
-		public static string LogFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Logs");
+		public static readonly string LogFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Logs");
 
 		public enum LogType
 		{
 			BuildItem,
 			BuildShip,
 			ShipDrop,
-			Materials
+			Materials,
+			Expedition,
+			Levels
 		};
 
 		public struct LogTypeInfo
 		{
-			public string Parameters;
-			public string FileName;
+			public readonly string Parameters;
+			public readonly string FileName;
 
 			public LogTypeInfo(string parameters, string fileName)
 			{
@@ -47,7 +52,7 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		public static Dictionary<LogType, LogTypeInfo> LogParameters =
+		public static readonly Dictionary<LogType, LogTypeInfo> LogParameters =
 			new Dictionary<LogType, LogTypeInfo>
 			{
 				{
@@ -63,8 +68,16 @@ namespace Grabacr07.KanColleWrapper
 													   "ShipDropLog.csv") 
 				},
 				{ 
-					LogType.Materials, new LogTypeInfo("Date,Fuel,Ammunition,Steel,Bauxite,DevKits,Buckets,Flamethrowers",
+					LogType.Materials, new LogTypeInfo("Date,Fuel,Ammo,Steel,Bauxite,DevMats,Buckets,Flamethrowers,Screws",
 													   "MaterialsLog.csv") 
+				},
+				{
+					LogType.Expedition, new LogTypeInfo("Date,Expedition,Result,HQExp,Fuel,Ammo,Steel,Bauxite,ItemFlags", // (,Ship,Level,Condition,HP,Fuel,Ammo,Exp,Drums)+
+														"Expedition.csv")
+				},
+				{
+					LogType.Levels, new LogTypeInfo("Date,Name,Level",
+													"Levels.csv")
 				},
 			};
 
@@ -73,16 +86,64 @@ namespace Grabacr07.KanColleWrapper
 			this.EnableLogging = KanColleClient.Current.Settings.EnableLogging;
 
 			this.shipmats = new int[5];
+			this.mats = new int[8];
 
-			// ちょっと考えなおす
 			proxy.api_req_kousyou_createitem.TryParse<kcsapi_createitem>().Subscribe(x => this.CreateItem(x.Data, x.Request));
 			proxy.api_req_kousyou_createship.TryParse<kcsapi_createship>().Subscribe(x => this.CreateShip(x.Request));
+
 			proxy.api_get_member_kdock.TryParse<kcsapi_kdock[]>().Subscribe(x => this.KDock(x.Data));
+
 			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.BattleResult(x.Data));
 			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => this.BattleResult(x.Data));
-			proxy.api_get_member_material.TryParse<kcsapi_material[]>().Subscribe(x => this.MaterialsHistory(x.Data));
-			proxy.api_req_hokyu_charge.TryParse<kcsapi_charge>().Subscribe(x => this.MaterialsHistory(x.Data.api_material));
-			proxy.api_req_kousyou_destroyship.TryParse<kcsapi_destroyship>().Subscribe(x => this.MaterialsHistory(x.Data.api_material));
+
+			proxy.api_port.TryParse<kcsapi_port>().Subscribe(x => this.MaterialsHistory(x.Data));
+
+			// TODO: add kcsapi_practice_battle
+			proxy.api_req_practice_battle.TryParse().Subscribe(x => this.fleetInPractice = int.Parse(x.Request["api_deck_id"]));
+			proxy.api_req_practice_battle_result.TryParse <kcsapi_practice_battle_result>().Subscribe(x => this.Levels(x.Data));
+			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.Levels(x.Data));
+			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => this.Levels(x.Data));
+			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Levels(x.Data, x.Request));
+
+			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Expedition(x.Data, x.Request));
+		}
+
+		private void Expedition(kcsapi_mission_result res, NameValueCollection req)
+		{
+			try
+			{
+				var fleet = KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])];
+
+				var args = new List<object>();
+
+				args.AddRange(new object[] {
+					fleet.Expedition.Id, // Expedition
+					res.api_clear_result == 2 ? "GS" : res.api_clear_result == 1 ? "NS" : "Fail", // Result
+					res.api_get_exp, // HQExp
+					string.Join(",", res.api_get_material), // Fuel,Ammunition,Steel,Bauxite
+					string.Join("-", res.api_useitem_flag) // ItemFlags
+				});
+
+				for (var i = 0; i < fleet.Ships.Length; ++i)
+				{
+					args.AddRange(new object[] {
+						fleet.Ships[i].Info.Name, // Ship
+						fleet.Ships[i].Level, // Level
+						fleet.Ships[i].Condition, // Condition
+						fleet.Ships[i].HP.Current, // HP
+						fleet.Ships[i].Fuel.Current, // Fuel
+						fleet.Ships[i].Bull.Current, // Ammo
+						res.api_get_ship_exp[i], // Exp
+						fleet.Ships[i].EquippedSlots.Count(slot => slot.Item.Info.Id == 75) // Drums
+					});
+				}
+
+				this.Log(LogType.Expedition, args.ToArray());
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Expedition: {0}", ex);
+			}
 		}
 		
 		private void CreateItem(kcsapi_createitem item, NameValueCollection req)
@@ -108,12 +169,12 @@ namespace Grabacr07.KanColleWrapper
 		private void CreateShip(NameValueCollection req)
 		{
 			this.waitingForShip = true;
-			this.dockid = Int32.Parse(req["api_kdock_id"]);
-			this.shipmats[0] = Int32.Parse(req["api_item1"]);
-			this.shipmats[1] = Int32.Parse(req["api_item2"]);
-			this.shipmats[2] = Int32.Parse(req["api_item3"]);
-			this.shipmats[3] = Int32.Parse(req["api_item4"]);
-			this.shipmats[4] = Int32.Parse(req["api_item5"]);
+			this.dockid = int.Parse(req["api_kdock_id"]);
+			this.shipmats[0] = int.Parse(req["api_item1"]);
+			this.shipmats[1] = int.Parse(req["api_item2"]);
+			this.shipmats[2] = int.Parse(req["api_item3"]);
+			this.shipmats[3] = int.Parse(req["api_item4"]);
+			this.shipmats[4] = int.Parse(req["api_item5"]);
 		}
 
 		private void KDock(kcsapi_kdock[] docks)
@@ -142,19 +203,82 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
+		// TODO: log within levels too (e.g. each 1000 xp)?
+		private void Levels(int[] exps, Fleet fleet)
+		{
+			for (var i = 0; i < fleet.Ships.Length; ++i)
+			{
+				var ship = fleet.Ships[i];
+				var exp = exps[i];
+				if (ship.ExpForNextLevel == 0 || exp < ship.ExpForNextLevel) continue;
+				var lvl = Ship.ExpToLevel(ship.Exp + exp);
+				if (lvl > 3)
+					this.Log(LogType.Levels, ship.Info.Name, lvl);
+			}
+		}
+
+		private void Levels(kcsapi_practice_battle_result pr)
+		{
+			try
+			{
+				this.Levels(pr.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[this.fleetInPractice]);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
+		private void Levels(kcsapi_battleresult br)
+		{
+			try
+			{
+				this.Levels(br.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.GetFleetInSortie());
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
+		private void Levels(kcsapi_combined_battle_battleresult br)
+		{
+			try
+			{
+				this.Levels(br.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[1]);
+				this.Levels(br.api_get_ship_exp_combined.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[2]);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
+		private void Levels(kcsapi_mission_result br, NameValueCollection req)
+		{
+			try
+			{
+				this.Levels(br.api_get_ship_exp, KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])]);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
 		private void BattleResult(kcsapi_battleresult br)
 		{
 			try
 			{
-				if (br.api_get_ship == null)
-					return;
-
+				if (br.api_get_ship != null)
+				{
 				this.Log(LogType.ShipDrop,
 						 KanColleClient.Current.Translations.GetTranslation(br.api_get_ship.api_ship_name, TranslationType.Ships, br), //Result
 						 KanColleClient.Current.Translations.GetTranslation(br.api_quest_name, TranslationType.OperationMaps, br), //Operation
 						 KanColleClient.Current.Translations.GetTranslation(br.api_enemy_info.api_deck_name, TranslationType.OperationSortie, br), //Enemy Fleet
 						 br.api_win_rank //Rank
 					);
+			}
 			}
 			catch (Exception)
 			{
@@ -182,48 +306,60 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		private void MaterialsHistory(kcsapi_material[] source)
+		private void MaterialsHistory(kcsapi_port source)
 		{
-			if (source == null || source.Length != 7)
-				return;
+			try
+			{
+				if (source.api_material[0].api_value != this.mats[0] ||
+					source.api_material[1].api_value != this.mats[1] ||
+					source.api_material[2].api_value != this.mats[2] ||
+					source.api_material[3].api_value != this.mats[3] ||
+					source.api_material[4].api_value != this.mats[6] ||
+					source.api_material[5].api_value != this.mats[5] ||
+					source.api_material[6].api_value != this.mats[4] ||
+					source.api_material[7].api_value != this.mats[7])
+				{
+					this.mats[0] = source.api_material[0].api_value;
+					this.mats[1] = source.api_material[1].api_value;
+					this.mats[2] = source.api_material[2].api_value;
+					this.mats[3] = source.api_material[3].api_value;
+					this.mats[6] = source.api_material[4].api_value;
+					this.mats[5] = source.api_material[5].api_value;
+					this.mats[4] = source.api_material[6].api_value;
+					this.mats[7] = source.api_material[7].api_value;
 
-			this.Log(LogType.Materials,
-				source[0].api_value, source[1].api_value, source[2].api_value, source[3].api_value, source[6].api_value, source[5].api_value, source[4].api_value);
-		}
-
-		private void MaterialsHistory(int[] source)
-		{
-			if (source == null || source.Length != 4)
-				return;
-
-			this.Log(LogType.Materials,
-				source[0], source[1], source[2], source[3], 
-				KanColleClient.Current.Homeport.Materials.DevelopmentMaterials, 
-				KanColleClient.Current.Homeport.Materials.InstantRepairMaterials, 
-				KanColleClient.Current.Homeport.Materials.InstantBuildMaterials);
+					this.Log(LogType.Materials,
+						this.mats[0], this.mats[1], this.mats[2], this.mats[3],
+						this.mats[4], this.mats[5], this.mats[6], this.mats[7]);
+				}
+			}
+			catch (Exception)
+			{
+				// ignored
+			}
 		}
 
 		private void Log(LogType type, params object[] args)
 		{
 			if (!this.EnableLogging) return;
 
-			string logPath = this.CreateLogFile(type);
+			var logPath = CreateLogFile(type);
 
-			if (String.IsNullOrEmpty(logPath))
+			if (string.IsNullOrEmpty(logPath))
 				return;
 
 			using (var w = File.AppendText(logPath))
 			{
-				w.WriteLine(DateTime.Now.ToString(this.LogTimestampFormat) + "," + string.Join(",", args));
+				w.WriteLine(DateTime.Now.ToString(logTimestampFormat) + "," + string.Join(",", args));
 			}
 		}
 
-		private string CreateLogFile(LogType type)
+		private static string CreateLogFile(LogType type)
 		{
 			try
 			{
 				var info = LogParameters[type];
-				string fullPath = Path.Combine(LogFolder, info.FileName);
+				var fullPath = Path.Combine(LogFolder, info.FileName);
 
 				if (!Directory.Exists(LogFolder))
 					Directory.CreateDirectory(LogFolder);
@@ -240,4 +376,3 @@ namespace Grabacr07.KanColleWrapper
 		}
 	}
 }
-

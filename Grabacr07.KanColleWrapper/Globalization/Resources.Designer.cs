@@ -61,7 +61,7 @@ namespace Grabacr07.KanColleWrapper.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 通商破壊.
+		///   Looks up a localized string similar to 初動作戦.
         /// </summary>
         internal static string SallyArea_Area1_Name {
             get {
@@ -70,7 +70,7 @@ namespace Grabacr07.KanColleWrapper.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 攻略作戦.
+		///   Looks up a localized string similar to 機動部隊.
         /// </summary>
         internal static string SallyArea_Area2_Name {
             get {
@@ -79,14 +79,25 @@ namespace Grabacr07.KanColleWrapper.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 泊地攻撃.
+		///   Looks up a localized string similar to 挺身部隊.
         /// </summary>
         internal static string SallyArea_Area3_Name {
             get {
                 return ResourceManager.GetString("SallyArea_Area3_Name", resourceCulture);
             }
         }
-        
+
+		/// <summary>
+		///   Looks up a localized string similar to 西部方面.
+		/// </summary>
+		internal static string SallyArea_Area4_Name
+		{
+			get
+			{
+				return ResourceManager.GetString("SallyArea_Area4_Name", resourceCulture);
+			}
+		}
+
         /// <summary>
         ///   Looks up a localized string similar to 入渠: {0}.
         /// </summary>

@@ -28,6 +28,23 @@ namespace Grabacr07.KanColleWrapper.Models
 											850, 855, 860, 865, 870, 875, 880, 885, 890, 895, 900, 905, 910, 915};
 
 		/// <summary>
+		/// Completely experience table from 1 to 150. Each line = 20 levels
+		/// </summary>
+		public static int[] ExpTable = new int[] { 0, 0, 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500, 5500, 6600, 7800, 9100, 10500, 12000, 13600, 15300, 17100, 19000, 
+			21000, 23100, 25300, 27600, 30000, 32500, 35100, 37800, 40600, 43500, 46500, 49600, 52800, 56100, 59500, 63000, 66600, 70300, 74100, 78000, 
+			82000, 86100, 90300, 94600, 99000, 103500, 108100, 112800, 117600, 122500, 127500, 132700, 138100, 143700, 149500, 155500, 161700, 168100, 174700, 181500, 
+			188500, 195800, 203400, 211300, 219500, 228000, 236800, 245900, 255300, 265000, 275000, 285400, 296200, 307400, 319000, 331000, 343400, 356200, 369400, 383000, 
+			397000, 411500, 426500, 442000, 458000, 474500, 491500, 509000, 527000, 545500, 564500, 584500, 606500, 631500, 661500, 701500, 761500, 851500, 1000000, 1000000, 
+			1010000, 1011000, 1013000, 1016000, 1020000, 1025000, 1031000, 1038000, 1046000, 1055000, 1065000, 1077000, 1091000, 1107000, 1125000, 1145000, 1168000, 1194000, 1223000, 1255000, 
+			1290000, 1329000, 1372000, 1419000, 1470000, 1525000, 1584000, 1647000, 1714000, 1785000, 1860000, 1940000, 2025000, 2115000, 2210000, 2310000, 2415000, 2525000, 2640000, 2760000, 
+			2887000, 3021000, 3162000, 3310000, 3465000, 3628000, 3799000, 3978000, 4165000, 4360000 };
+
+		public static int ExpToLevel(int exp)
+		{
+			return Array.FindIndex(ExpTable, x => x > exp) - 1;
+		}
+
+		/// <summary>
 		/// この艦娘を識別する ID を取得します。
 		/// </summary>
 		public int Id
@@ -250,7 +267,10 @@ namespace Grabacr07.KanColleWrapper.Models
 				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Torpedo, this.Torpedo.Current, (this.Torpedo.IsMax ? @"MAX" : "+" + (this.Torpedo.Max - this.Torpedo.Current).ToString()));
 				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_AntiAir, this.AA.Current, (this.AA.IsMax ? @"MAX" : "+" + (this.AA.Max - this.AA.Current).ToString()));
 				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Armor, this.Armer.Current, (this.Armer.IsMax ? @"MAX" : "+" + (this.Armer.Max - this.Armer.Current).ToString()));
-				details += string.Format("{0}: {1} ({2})", Resources.Stats_Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
+				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
+				details += string.Format("{0}: {1} (MAX: {2})\n", Resources.Stats_Evasion, this.Evasion.Current, this.Evasion.Maximum);
+				details += string.Format("{0}: {1} (MAX: {2})\n", Resources.Stats_AntiSub, this.AntiSub.Current, this.AntiSub.Maximum);
+				details += string.Format("{0}: {1} (MAX: {2})", Resources.Stats_SightRange, this.LineOfSight.Current, this.LineOfSight.Maximum);
 
 				return details;
 			}
@@ -354,7 +374,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			get { return ConditionTypeHelper.ToConditionType(this.RawData.api_cond); }
 		}
-
+		
 		/// <summary>
 		/// この艦が出撃した海域を識別する整数値を取得します。
 		/// </summary>
@@ -383,7 +403,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 				if (minDockTime < 1200)
 					return this.RepairDockTime;
-
+					
 				return TimeSpan.FromMinutes((this.HP.Maximum - this.HP.Current) * 20).ToString();
 			}
 		}
@@ -422,7 +442,7 @@ namespace Grabacr07.KanColleWrapper.Models
 		}
 
 		#endregion
-
+        
 		internal Ship(Homeport parent, kcsapi_ship2 rawData)
 			: base(rawData)
 		{

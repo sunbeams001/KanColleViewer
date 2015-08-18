@@ -466,7 +466,7 @@
                     </Border>
 
 					<!-- Event only -->
-					<!--<Border BorderThickness="1"
+					<Border BorderThickness="1"
 							BorderBrush="{DynamicResource BorderBrushKey}"
 							Margin="0,8,0,0"
 							Padding="5">
@@ -495,7 +495,7 @@
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
 						</WrapPanel>
-					</Border>-->
+					</Border>
 				</StackPanel>
             </Expander>
 
@@ -684,7 +684,8 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Ship.Info.ShipType.Name, Mode=OneWay}"
-												   Margin="0,3" />
+												   Margin="0,3"
+												   ToolTip="{Binding Ship.Info.ShipType.UntranslatedName, Mode=OneWay}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -728,11 +729,11 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Width="50">
+                            <GridViewColumn Width="60">
                                 <GridViewColumn.Header>
                                     <metro2:SortButton MethodName="Sort"
 													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.CondColumn}">
-                                        <TextBlock Text="cond." />
+                                        <TextBlock Text="Condition" />
                                     </metro2:SortButton>
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
@@ -901,7 +902,7 @@
                             </GridViewColumn>
 
 							<!-- Event only -->
-							<!--<GridViewColumn Width="65">
+							<GridViewColumn Width="65">
 								<GridViewColumn.Header>
 									<TextBlock Text="{Binding Resources.ShipCatalog_SortieWaters, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 								</GridViewColumn.Header>
@@ -928,7 +929,7 @@
 										</DataTemplate.Triggers>
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>
-							</GridViewColumn>-->
+							</GridViewColumn>
 
 							<GridViewColumn Width="110">
                                 <GridViewColumn.Header>
@@ -950,29 +951,15 @@
 															Height="20"
 															Padding="0,1">
                                                         <Border.ToolTip>
-                                                            <StackPanel Orientation="Vertical">
-                                                                <TextBlock>
-																	<Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
-																	<TextBlock Margin="5,0">
-																			<TextBlock.Style>
-																				<Style TargetType="{x:Type TextBlock}">
-																					<Setter Property="Text"
-																						Value="{Binding Item.LevelText, Mode=OneWay}" />
-																					<Setter Property="Foreground"
-																						Value="#FF45A9A5" />
-																				</Style>
-																			</TextBlock.Style>
-																	</TextBlock>
-																	<TextBlock Visibility="{Binding Item.Info.IsNumerable, Converter={StaticResource BooleanToVisibilityConverter}}">
-																		<Run Text="[" />
-																		<Run Text="{Binding Current}" />
-																		<Run Text="/" />
-																		<Run Text="{Binding Maximum}" />
-																		<Run Text="]" />
-																	</TextBlock>
-																</TextBlock>
-																<TextBlock Text="{Binding Item.Info.AllStats, Mode=OneWay}" />
-                                                            </StackPanel>
+															<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
+																					  LevelText="{Binding Item.LevelText}"
+																					  AdeptText="{Binding Item.AdeptText}"
+																					  IsNumerable="{Binding Item.Info.IsNumerable}"
+																					  Current="{Binding Current}"
+																					  Maximum="{Binding Maximum}"
+																					  UntranslatedName="{Binding Item.Info.UntranslatedName}"
+																					  AllStats="{Binding Item.Info.AllStats}"
+																					  ShowHeader="True" />
                                                         </Border.ToolTip>
                                                         <Viewbox>
                                                             <controls:SlotItemIcon Type="{Binding Item.Info.IconType}"

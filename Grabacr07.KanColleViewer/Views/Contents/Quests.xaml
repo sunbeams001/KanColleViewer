@@ -63,7 +63,9 @@
                                 <DataTemplate>
                                     <controls:Quest IsUntaken="{Binding IsUntaken}"
 											Title="{Binding Title}"
+											TitleUntranslated="{Binding TitleUntranslated}"
 											Detail="{Binding Detail}"
+											DetailUntranslated="{Binding DetailUntranslated}"
 											Category="{Binding Category}"
 											Progress="{Binding Progress}"
 											State="{Binding State}"
@@ -145,7 +147,9 @@
                                                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                                                         <controls:Quest IsUntaken="{Binding IsUntaken}"
 																Title="{Binding Title}"
+																TitleUntranslated="{Binding TitleUntranslated}"
 																Detail="{Binding Detail}"
+																DetailUntranslated="{Binding DetailUntranslated}"
 																Category="{Binding Category}"
 																Progress="{Binding Progress}"
 																State="{Binding State}"
@@ -168,6 +172,9 @@
 							<vContents:QuestViewSource x:Key="MonthlyQuestSourceKey"
 											   Source="{Binding Quests}"
 											   Type="Monthly" />
+							<vContents:QuestViewSource x:Key="OneTimeQuestSourceKey"
+											   Source="{Binding Quests}"
+											   Type="OneTime" />
                         </TabControl.Resources>
 
                         <TabItem>
@@ -198,6 +205,16 @@
 								   FontSize="14" />
 							</TabItem.Header>
 							<ItemsControl ItemsSource="{Binding Source={StaticResource MonthlyQuestSourceKey}}" />
+						</TabItem>
+
+						<TabItem>
+							<TabItem.Header>
+								<TextBlock Text="{Binding Resources.Quests_OneTime, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+								   Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Foreground}"
+								   Margin="10,0,10,10"
+								   FontSize="14" />
+							</TabItem.Header>
+							<ItemsControl ItemsSource="{Binding Source={StaticResource OneTimeQuestSourceKey}}" />
 						</TabItem>
 					</TabControl>
                 </Grid>

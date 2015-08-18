@@ -120,10 +120,12 @@
 
                             <StackPanel x:Name="ExpeditionInfo">
                                 <TextBlock Text="{Binding Expedition.Mission.Title}"
-										   Style="{DynamicResource EmphaticTextStyleKey}" />
+										   Style="{DynamicResource EmphaticTextStyleKey}"
+										   ToolTip="{Binding Expedition.Mission.TitleUntranslated}" />
 								<Border Height="4" />
 								<TextBlock Text="{Binding Expedition.Mission.Detail}"
-										   Style="{DynamicResource DefaultTextStyleKey}" />
+										   Style="{DynamicResource DefaultTextStyleKey}"
+										   ToolTip="{Binding Expedition.Mission.DetailUntranslated}" />
 
 								<Border Height="1"
 										BorderThickness="1"

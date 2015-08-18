@@ -214,10 +214,16 @@
     <value>Fleet HQ</value>
   </data>
   <data name="Homeport_InstantBuild" xml:space="preserve">
-    <value>Instant Build:  </value>
+    <value>Flamethrowers:</value>
   </data>
   <data name="Homeport_InstantRepair" xml:space="preserve">
-    <value>Instant Repair:</value>
+    <value>Buckets:</value>
+  </data>
+  <data name="Homeport_DevelopmentMaterial" xml:space="preserve">
+    <value>DevMats:</value>
+  </data>
+  <data name="Homeport_ImprovementMaterial" xml:space="preserve">
+    <value>Screws:</value>
   </data>
   <data name="Homeport_NoOfEquipment" xml:space="preserve">
     <value>Equipment:</value>
@@ -842,6 +848,9 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Quests_Monthly" xml:space="preserve">
     <value>Monthly</value>
   </data>
+  <data name="Quests_OneTime" xml:space="preserve">
+    <value>One-time</value>
+  </data>
   <data name="CommonCatalog_GeneratingList" xml:space="preserve">
     <value>Generating list…</value>
   </data>
@@ -982,9 +991,6 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Shipyard_Drop" xml:space="preserve">
     <value>Drop</value>
-  </data>
-  <data name="Homeport_ImprovementMaterial" xml:space="preserve">
-    <value>Screws</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>

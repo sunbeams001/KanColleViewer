@@ -141,7 +141,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://yuyuvn.github.io/KanColleViewer/resources/Version.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/gakada/KanColleViewer/master/resources/Version.xml")]
         public global::System.Uri KCVUpdateUrl {
             get {
                 return ((global::System.Uri)(this["KCVUpdateUrl"]));
@@ -150,7 +150,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://yuyuvn.github.io/KanColleViewer/resources/Version.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/gakada/KanColleViewer/master/resources/Version.xml")]
         public global::System.Uri KCVUpdateTransUrl {
             get {
                 return ((global::System.Uri)(this["KCVUpdateTransUrl"]));

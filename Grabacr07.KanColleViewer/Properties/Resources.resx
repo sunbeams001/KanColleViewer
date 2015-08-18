@@ -219,6 +219,12 @@
   <data name="Homeport_InstantRepair" xml:space="preserve">
     <value>高速修復材:</value>
   </data>
+  <data name="Homeport_DevelopmentMaterial" xml:space="preserve">
+    <value>開発資材:</value>
+  </data>
+  <data name="Homeport_ImprovementMaterial" xml:space="preserve">
+    <value>改修資材:</value>
+  </data>
   <data name="Homeport_NoOfEquipment" xml:space="preserve">
     <value>保有装備:</value>
   </data>
@@ -842,6 +848,9 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="Quests_Monthly" xml:space="preserve">
     <value>マンスリー任務</value>
   </data>
+  <data name="Quests_OneTime" xml:space="preserve">
+    <value>ワンタイム任務</value>
+  </data>
   <data name="CommonCatalog_GeneratingList" xml:space="preserve">
     <value>一覧を生成しています...</value>
   </data>
@@ -982,9 +991,6 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="Shipyard_Drop" xml:space="preserve">
     <value>ドロップ</value>
-  </data>
-  <data name="Homeport_ImprovementMaterial" xml:space="preserve">
-    <value>改修資材:</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>情報</value>

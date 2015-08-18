@@ -118,12 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SallyArea_Area1_Name" xml:space="preserve">
-    <value>E3</value>
+    <value>E1/E2/E7</value>
   </data>
   <data name="SallyArea_Area2_Name" xml:space="preserve">
-    <value>E4</value>
+    <value>E3/E6/E7</value>
   </data>
   <data name="SallyArea_Area3_Name" xml:space="preserve">
+    <value>E4/E7</value>
+  </data>
+  <data name="SallyArea_Area4_Name" xml:space="preserve">
     <value>E5</value>
   </data>
   <data name="ViewRange_Type1_Description" xml:space="preserve">
