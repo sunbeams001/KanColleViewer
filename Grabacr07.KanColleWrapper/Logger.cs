@@ -8,7 +8,6 @@ using System.Reactive.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Livet;
@@ -21,15 +20,15 @@ namespace Grabacr07.KanColleWrapper
 		private int dockid;
 		private readonly int[] shipmats;
 		private readonly int[] mats;
-		private readonly string LogTimestampFormat = "yyyy-MM-dd HH:mm:ss";
+		private const string logTimestampFormat = "yyyy-MM-dd HH:mm:ss";
 
 		// TODO: extend Organization, etc. with practice info instead (can be used in Overview view as well)
-		private int FleetInPractice;
+		private int fleetInPractice;
 
-		public bool EnableLogging { get; set; }
+		public bool EnableLogging { private get; set; }
 
 		// ReSharper disable once AssignNullToNotNullAttribute
-		public static string LogFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Logs");
+		public static readonly string LogFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Logs");
 
 		public enum LogType
 		{
@@ -43,8 +42,8 @@ namespace Grabacr07.KanColleWrapper
 
 		public struct LogTypeInfo
 		{
-			public string Parameters;
-			public string FileName;
+			public readonly string Parameters;
+			public readonly string FileName;
 
 			public LogTypeInfo(string parameters, string fileName)
 			{
@@ -53,7 +52,7 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		public static Dictionary<LogType, LogTypeInfo> LogParameters =
+		public static readonly Dictionary<LogType, LogTypeInfo> LogParameters =
 			new Dictionary<LogType, LogTypeInfo>
 			{
 				{
@@ -73,7 +72,7 @@ namespace Grabacr07.KanColleWrapper
 													   "MaterialsLog.csv") 
 				},
 				{
-					LogType.Expedition, new LogTypeInfo("Date,Expedition,Result,HQExp,Fuel,Ammunition,Steel,Bauxite,ItemFlags(,Ship,Level,Condition,HP,Fuel,Ammo,Exp,Drums)+",
+					LogType.Expedition, new LogTypeInfo("Date,Expedition,Result,HQExp,Fuel,Ammo,Steel,Bauxite,ItemFlags", // (,Ship,Level,Condition,HP,Fuel,Ammo,Exp,Drums)+
 														"Expedition.csv")
 				},
 				{
@@ -100,8 +99,11 @@ namespace Grabacr07.KanColleWrapper
 			proxy.api_port.TryParse<kcsapi_port>().Subscribe(x => this.MaterialsHistory(x.Data));
 
 			// TODO: add kcsapi_practice_battle
-			proxy.api_req_practice_battle.TryParse().Subscribe(x => this.FleetInPractice = int.Parse(x.Request["api_deck_id"]));
+			proxy.api_req_practice_battle.TryParse().Subscribe(x => this.fleetInPractice = int.Parse(x.Request["api_deck_id"]));
 			proxy.api_req_practice_battle_result.TryParse <kcsapi_practice_battle_result>().Subscribe(x => this.Levels(x.Data));
+			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => this.Levels(x.Data));
+			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => this.Levels(x.Data));
+			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Levels(x.Data, x.Request));
 
 			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Expedition(x.Data, x.Request));
 		}
@@ -110,19 +112,19 @@ namespace Grabacr07.KanColleWrapper
 		{
 			try
 			{
-				Fleet fleet = KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])];
+				var fleet = KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])];
 
-				List<object> args = new List<object>();
+				var args = new List<object>();
 
 				args.AddRange(new object[] {
 					fleet.Expedition.Id, // Expedition
 					res.api_clear_result == 2 ? "GS" : res.api_clear_result == 1 ? "NS" : "Fail", // Result
 					res.api_get_exp, // HQExp
-					String.Join(",", res.api_get_material), // Fuel,Ammunition,Steel,Bauxite
-					String.Join("-", res.api_useitem_flag) // ItemFlags
+					string.Join(",", res.api_get_material), // Fuel,Ammunition,Steel,Bauxite
+					string.Join("-", res.api_useitem_flag) // ItemFlags
 				});
 
-				for (int i = 0; i < fleet.Ships.Length; ++i)
+				for (var i = 0; i < fleet.Ships.Length; ++i)
 				{
 					args.AddRange(new object[] {
 						fleet.Ships[i].Info.Name, // Ship
@@ -167,12 +169,12 @@ namespace Grabacr07.KanColleWrapper
 		private void CreateShip(NameValueCollection req)
 		{
 			this.waitingForShip = true;
-			this.dockid = Int32.Parse(req["api_kdock_id"]);
-			this.shipmats[0] = Int32.Parse(req["api_item1"]);
-			this.shipmats[1] = Int32.Parse(req["api_item2"]);
-			this.shipmats[2] = Int32.Parse(req["api_item3"]);
-			this.shipmats[3] = Int32.Parse(req["api_item4"]);
-			this.shipmats[4] = Int32.Parse(req["api_item5"]);
+			this.dockid = int.Parse(req["api_kdock_id"]);
+			this.shipmats[0] = int.Parse(req["api_item1"]);
+			this.shipmats[1] = int.Parse(req["api_item2"]);
+			this.shipmats[2] = int.Parse(req["api_item3"]);
+			this.shipmats[3] = int.Parse(req["api_item4"]);
+			this.shipmats[4] = int.Parse(req["api_item5"]);
 		}
 
 		private void KDock(kcsapi_kdock[] docks)
@@ -201,28 +203,62 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		// TODO: log within levels too (e.g. each 1000 xp)
-		// TODO: support for combined fleet
-		// TODO: support for expeditions
+		// TODO: log within levels too (e.g. each 1000 xp)?
 		private void Levels(int[] exps, Fleet fleet)
 		{
-			int i = 0;
-			foreach (int exp in exps)
-				if (exp != -1)
-				{
-					Ship ship = fleet.Ships[i];
-					if (ship.ExpForNextLevel != 0 && exp >= ship.ExpForNextLevel)
-						this.Log(LogType.Levels, ship.Info.Name, Ship.ExpToLevel(ship.Exp + exp));
-					++i;
-				}
+			for (var i = 0; i < fleet.Ships.Length; ++i)
+			{
+				var ship = fleet.Ships[i];
+				var exp = exps[i];
+				if (ship.ExpForNextLevel == 0 || exp < ship.ExpForNextLevel) continue;
+				var lvl = Ship.ExpToLevel(ship.Exp + exp);
+				if (lvl > 3)
+					this.Log(LogType.Levels, ship.Info.Name, lvl);
+			}
 		}
 
 		private void Levels(kcsapi_practice_battle_result pr)
 		{
 			try
 			{
-				Fleet fleet = KanColleClient.Current.Homeport.Organization.Fleets[FleetInPractice];
-				Levels(pr.api_get_ship_exp, fleet);
+				this.Levels(pr.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[this.fleetInPractice]);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
+		private void Levels(kcsapi_battleresult br)
+		{
+			try
+			{
+				this.Levels(br.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.GetFleetInSortie());
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
+		private void Levels(kcsapi_combined_battle_battleresult br)
+		{
+			try
+			{
+				this.Levels(br.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[1]);
+				this.Levels(br.api_get_ship_exp_combined.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[2]);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Logger.Levels: {0}", ex);
+			}
+		}
+
+		private void Levels(kcsapi_mission_result br, NameValueCollection req)
+		{
+			try
+			{
+				this.Levels(br.api_get_ship_exp, KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])]);
 			}
 			catch (Exception ex)
 			{
@@ -232,18 +268,6 @@ namespace Grabacr07.KanColleWrapper
 
 		private void BattleResult(kcsapi_battleresult br)
 		{
-			// Levels
-			try
-			{
-				Fleet fleet = KanColleClient.Current.Homeport.Organization.GetFleetInSortie();
-				Levels(br.api_get_ship_exp, fleet);
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine("Logger.Levels: {0}", ex);
-			}
-
-			// Drops
 			try
 			{
 				if (br.api_get_ship != null)
@@ -319,23 +343,23 @@ namespace Grabacr07.KanColleWrapper
 		{
 			if (!this.EnableLogging) return;
 
-			string logPath = this.CreateLogFile(type);
+			var logPath = CreateLogFile(type);
 
-			if (String.IsNullOrEmpty(logPath))
+			if (string.IsNullOrEmpty(logPath))
 				return;
 
 			using (var w = File.AppendText(logPath))
 			{
-				w.WriteLine(DateTime.Now.ToString(this.LogTimestampFormat) + "," + string.Join(",", args));
+				w.WriteLine(DateTime.Now.ToString(logTimestampFormat) + "," + string.Join(",", args));
 			}
 		}
 
-		private string CreateLogFile(LogType type)
+		private static string CreateLogFile(LogType type)
 		{
 			try
 			{
 				var info = LogParameters[type];
-				string fullPath = Path.Combine(LogFolder, info.FileName);
+				var fullPath = Path.Combine(LogFolder, info.FileName);
 
 				if (!Directory.Exists(LogFolder))
 					Directory.CreateDirectory(LogFolder);

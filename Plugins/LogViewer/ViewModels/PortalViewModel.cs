@@ -133,6 +133,48 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 		#endregion
 
+		#region SelectorExpedition 変更通知プロパティ
+
+		private bool selectorExpedition;
+
+		public bool SelectorExpedition
+		{
+			get { return this.selectorExpedition; }
+			set
+			{
+				if (this.selectorExpedition != value)
+				{
+					this.selectorExpedition = value;
+					if (value)
+						this.CurrentLogType = Logger.LogType.Expedition;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region SelectorLevels 変更通知プロパティ
+
+		private bool selectorLevels;
+
+		public bool SelectorLevels
+		{
+			get { return this.selectorLevels; }
+			set
+			{
+				if (this.selectorLevels != value)
+				{
+					this.selectorLevels = value;
+					if (value)
+						this.CurrentLogType = Logger.LogType.Levels;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
         #region CurrentLogType
 
         private Logger.LogType currentLogType;
@@ -282,10 +324,6 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 					lines.Skip(1).Reverse().Skip((this.CurrentPage - 1) * this.logPerPage).Take(this.logPerPage).ToList().ForEach(line =>
                     {
                         string[] elements = line.Split(',');
-
-                        if (elements.Length < 5)
-                            return;
-
                         items.Rows.Add(elements
                             .Take(items.Columns.Count)
                             .ToArray());
