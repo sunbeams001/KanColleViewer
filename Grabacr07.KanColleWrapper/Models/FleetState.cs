@@ -62,21 +62,65 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
-		#region AirSuperiorityPotential 変更通知プロパティ
+		#region AirPower 変更通知プロパティ
 
-		private int _AirSuperiorityPotential;
+		private int _AirPower;
 
 		/// <summary>
 		/// 艦隊の制空能力を取得します。
 		/// </summary>
-		public int AirSuperiorityPotential
+		public int AirPower
 		{
-			get { return this._AirSuperiorityPotential; }
+			get { return this._AirPower; }
 			private set
 			{
-				if (this._AirSuperiorityPotential != value)
+				if (this._AirPower != value)
 				{
-					this._AirSuperiorityPotential = value;
+					this._AirPower = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region MinAirPower 変更通知プロパティ
+
+		private int _MinAirPower;
+
+		/// <summary>
+		/// 艦隊の制空能力を取得します。
+		/// </summary>
+		public int MinAirPower
+		{
+			get { return this._MinAirPower; }
+			private set
+			{
+				if (this._MinAirPower != value)
+				{
+					this._MinAirPower = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region MaxAirPower 変更通知プロパティ
+
+		private int _MaxAirPower;
+
+		/// <summary>
+		/// 艦隊の制空能力を取得します。
+		/// </summary>
+		public int MaxAirPower
+		{
+			get { return this._MaxAirPower; }
+			private set
+			{
+				if (this._MaxAirPower != value)
+				{
+					this._MaxAirPower = value;
 					this.RaisePropertyChanged();
 				}
 			}
@@ -215,7 +259,9 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			this.TotalLevel = ships.HasItems() ? ships.Sum(x => x.Level) : 0;
 			this.AverageLevel = ships.HasItems() ? (double)this.TotalLevel / ships.Length : 0.0;
-			this.AirSuperiorityPotential = ships.Sum(s => s.CalcAirSuperiorityPotential());
+			this.AirPower = ships.Sum(s => s.CalcAirPower());
+			this.MinAirPower = ships.Sum(s => s.CalcMinAirPower());
+			this.MaxAirPower = ships.Sum(s => s.CalcMaxAirPower());
 			this.Speed = ships.All(x => x.Info.Speed == ShipSpeed.Fast)
 				? FleetSpeed.Fast
 				: ships.All(x => x.Info.Speed == ShipSpeed.Low)

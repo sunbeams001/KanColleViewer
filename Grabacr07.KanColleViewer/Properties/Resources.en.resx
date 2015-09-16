@@ -436,7 +436,7 @@
     <value>Welcome</value>
   </data>
   <data name="Fleets_AirSuperiorityPotential" xml:space="preserve">
-    <value>Air Superiority</value>
+    <value>Air Power</value>
   </data>
   <data name="Fleets_Average" xml:space="preserve">
     <value>Average</value>
@@ -1113,7 +1113,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Total</value>
   </data>
   <data name="FleetDetail_AirSuperiorityPotential" xml:space="preserve">
-    <value>Air Superiority</value>
+    <value>Air Power</value>
   </data>
   <data name="FleetDetail_AverageLevel" xml:space="preserve">
     <value>Average Level</value>
