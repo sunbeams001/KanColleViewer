@@ -738,13 +738,19 @@
   <PropertyGroup>
     <PostBuildEvent>
 xcopy /Y /E /I "$(SolutionDir)resources\Translations" "$(TargetDir)Translations"
-xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(TargetDir)Sounds"</PostBuildEvent>
+xcopy /Y /E /I "$(SolutionDir)resources\Sounds" "$(TargetDir)Sounds"
+xcopy /Y /E /I "$(SolutionDir)resources\Charts" "$(TargetDir)Charts"
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>rd /S /Q "$(TargetDir)Translations"
+    <PreBuildEvent>
+rd /S /Q "$(TargetDir)Translations"
 rd /S /Q "$(TargetDir)Sounds"
+rd /S /Q "$(TargetDir)Charts"
 md "$(TargetDir)Translations"
-md "$(TargetDir)Sounds"</PreBuildEvent>
+md "$(TargetDir)Sounds"
+md "$(TargetDir)Charts"
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
