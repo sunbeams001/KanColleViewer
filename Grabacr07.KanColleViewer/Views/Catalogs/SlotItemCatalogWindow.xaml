@@ -213,24 +213,61 @@
 																<TextBlock.Style>
 																	<Style TargetType="{x:Type TextBlock}">
 																		<Setter Property="Text"
-																				Value="{Binding Level, StringFormat=★+{0}}" />
+																				Value="{Binding LevelText}" />
 																		<Setter Property="Foreground"
 																				Value="#FF45A9A5" />
 																		<Setter Property="Opacity"
 																				Value="1.0" />
 																		<Style.Triggers>
-																			<DataTrigger Binding="{Binding Level}"
-																						 Value="0">
-																				<Setter Property="Foreground"
-																						Value="{DynamicResource InactiveForegroundBrushKey}" />
-																				<Setter Property="Opacity"
-																						Value=".5" />
-																			</DataTrigger>
-																			<DataTrigger Binding="{Binding Level}"
-																						 Value="10">
-																				<Setter Property="Text"
-																						Value="★max" />
-																			</DataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="1" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FF079AD4" />
+																			</MultiDataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="2" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FF079AD4" />
+																			</MultiDataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="3" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FF079AD4" />
+																			</MultiDataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="4" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FFD49A07" />
+																			</MultiDataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="5" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FFD49A07" />
+																			</MultiDataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="6" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FFD49A07" />
+																			</MultiDataTrigger>
+																			<MultiDataTrigger>
+																				<MultiDataTrigger.Conditions>
+																					<Condition Binding="{Binding IsPlane}" Value="True" />
+																					<Condition Binding="{Binding Level}" Value="7" />
+																				</MultiDataTrigger.Conditions>
+																				<Setter Property="Foreground" Value="#FFD49A07" />
+																			</MultiDataTrigger>	
 																		</Style.Triggers>
 																	</Style>
 																</TextBlock.Style>

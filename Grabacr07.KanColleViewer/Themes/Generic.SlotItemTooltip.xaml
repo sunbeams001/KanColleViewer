@@ -21,21 +21,12 @@
 							</TextBlock>
 							<TextBlock Name="Numerable">
 								<Run Text="[" />
-								<Run Text="{Binding Current}" />
+								<Run Text="{Binding Current, RelativeSource={RelativeSource TemplatedParent}}" />
 								<Run Text="/" />
-								<Run Text="{Binding Maximum}" />
+								<Run Text="{Binding Maximum, RelativeSource={RelativeSource TemplatedParent}}" />
 								<Run Text="]" />
 							</TextBlock>
-							<TextBlock Margin="5,0">
-								<TextBlock.Style>
-									<Style TargetType="{x:Type TextBlock}">
-										<Setter Property="Text"
-												Value="{Binding AdeptText, RelativeSource={RelativeSource TemplatedParent}}" />
-										<Setter Property="Foreground"
-												Value="#FF45A9A5" />
-									</Style>
-								</TextBlock.Style>
-							</TextBlock>
+							<TextBlock Margin="5,0" Name="PlaneRank" Text="{TemplateBinding AdeptText}" />
 						</TextBlock>
 						<TextBlock Text="{TemplateBinding UntranslatedName}" />
 						<TextBlock Name="Stats" Text="{TemplateBinding AllStats}" />
@@ -55,6 +46,27 @@
 						</Trigger>
 						<Trigger Property="AllStats" Value="">
 							<Setter TargetName="Stats" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value="|">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FF079AD4" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value="||">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FF079AD4" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value="|||">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FF079AD4" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value="\">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FFD49A07" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value="\\">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FFD49A07" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value="\\\">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FFD49A07" />
+						</Trigger>
+						<Trigger Property="AdeptText" Value=">>">
+							<Setter TargetName="PlaneRank" Property="Foreground" Value="#FFD49A07" />
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>

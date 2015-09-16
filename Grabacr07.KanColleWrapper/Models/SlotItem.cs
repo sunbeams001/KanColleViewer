@@ -22,12 +22,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public string LevelText
 		{
-			get { return this.Level >= 10 ? "★max" : this.Level >= 1 ? ("★+" + this.Level) : ""; }
-		}
-
-		public string NameWithLevel
-		{
-			get { return string.Format("{0}{1}{2}", this.Info.Name, (this.Level >= 1 ? (" " + this.LevelText) : ""), (this.Adept >= 1 ? (" " + this.AdeptText) : "")); }
+			get { return this.Level >= 10 ? "★max" : this.Level >= 1 ? "★+" + this.Level : ""; }
 		}
 
 		public int Adept
@@ -35,9 +30,11 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_alv; }
 		}
 
+		public static readonly string[] AdeptStrings = { "|", "||", "|||", "\\", "\\\\", "\\\\\\", ">>" };
+
 		public string AdeptText
 		{
-			get { return this.Adept >= 1 ? (" +" + this.Adept) : ""; }
+			get { return this.Adept >= 1 && this.Adept <= 7 ? AdeptStrings[this.Adept - 1] : ""; }
 		}
 
 		internal SlotItem(kcsapi_slotitem rawData)

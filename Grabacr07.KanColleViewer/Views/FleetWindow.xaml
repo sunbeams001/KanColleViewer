@@ -404,8 +404,35 @@
 													<Run Text="{Binding Item.Info.Name, Mode=OneWay}" />
 													<Run Text="{Binding Item.LevelText, Mode=OneWay}"
 														 Foreground="#FF45A9A5" />
-													<Run Text="{Binding Item.AdeptText, Mode=OneWay}"
-														 Foreground="#FF45A9A5" />
+													<Run Text="{Binding Item.AdeptText, Mode=OneWay}">
+														<Run.Style>
+															<Style TargetType="{x:Type Run}">
+																<Style.Triggers>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value="|">
+																		<Setter Property="Foreground" Value="#FF079AD4" />
+																	</DataTrigger>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value="||">
+																		<Setter Property="Foreground" Value="#FF079AD4" />
+																	</DataTrigger>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value="|||">
+																		<Setter Property="Foreground" Value="#FF079AD4" />
+																	</DataTrigger>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value="\">
+																		<Setter Property="Foreground" Value="#FFD49A07" />
+																	</DataTrigger>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value="\\">
+																		<Setter Property="Foreground" Value="#FFD49A07" />
+																	</DataTrigger>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value="\\\">
+																		<Setter Property="Foreground" Value="#FFD49A07" />
+																	</DataTrigger>
+																	<DataTrigger Binding="{Binding Item.AdeptText}" Value=">>">
+																		<Setter Property="Foreground" Value="#FFD49A07" />
+																	</DataTrigger>
+																</Style.Triggers>
+															</Style>
+														</Run.Style>
+													</Run>
 												</TextBlock>
 											</Grid>
 										</Border>
@@ -617,7 +644,6 @@
 
 							<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
 									   HorizontalAlignment="Right"
-									   VerticalAlignment="Bottom"
 									   Margin="1,2">
 									<Run Text="{Binding Resources.FleetDetail_TotalLevel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
@@ -626,14 +652,12 @@
 									   Grid.Column="1"
 									   Text="{Binding State.TotalLevel}"
 									   Style="{DynamicResource EmphaticTextStyleKey}"
-									   VerticalAlignment="Bottom"
 									   Margin="4,2" />
 
 							<TextBlock Grid.Row="1"
 									   Grid.Column="0"
 									   Style="{DynamicResource DefaultTextStyleKey}"
 									   HorizontalAlignment="Right"
-									   VerticalAlignment="Bottom"
 									   Margin="1,2">
 									<Run Text="{Binding Resources.FleetDetail_AverageLevel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
@@ -642,14 +666,12 @@
 									   Grid.Column="1"
 									   Text="{Binding State.AverageLevel}"
 									   Style="{DynamicResource EmphaticTextStyleKey}"
-									   VerticalAlignment="Bottom"
 									   Margin="4,2" />
 
 							<TextBlock Grid.Row="3"
 									   Grid.Column="0"
 									   Style="{DynamicResource DefaultTextStyleKey}"
 									   HorizontalAlignment="Right"
-									   VerticalAlignment="Bottom"
 									   Margin="1,2">
 									<Run Text="{Binding Resources.FleetDetail_LoSValue, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
@@ -658,14 +680,12 @@
 									   Grid.Column="1"
 									   Text="{Binding State.ViewRange}"
 									   Style="{DynamicResource EmphaticTextStyleKey}"
-									   VerticalAlignment="Bottom"
 									   Margin="4,2" />
 
 							<TextBlock Grid.Row="4"
 									   Grid.Column="0"
 									   Style="{DynamicResource DefaultTextStyleKey}"
 									   HorizontalAlignment="Right"
-									   VerticalAlignment="Bottom"
 									   Margin="1,2">
 									<Run Text="{Binding Resources.FleetDetail_AirSuperiorityPotential, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
 									<Run Text=":" />
