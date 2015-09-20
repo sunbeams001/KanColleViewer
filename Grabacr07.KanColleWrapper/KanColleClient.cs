@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
@@ -13,6 +15,8 @@ namespace Grabacr07.KanColleWrapper
 {
     public class KanColleClient : NotificationObject
     {
+		public static readonly string Directory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? "";
+
         #region singleton
 
         private static KanColleClient current = new KanColleClient();
