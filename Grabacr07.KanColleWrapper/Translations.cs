@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 using Grabacr07.KanColleWrapper.Models.Raw;
 using Livet;
@@ -15,13 +13,23 @@ namespace Grabacr07.KanColleWrapper
 {
 	public class Translations : NotificationObject
 	{
+		private static readonly string directory = Path.Combine(KanColleClient.Directory, "Translations");
+
+		private string currentCulture = "";
+
+		private string shipsFile;
+		private string shipTypesFile;
+		private string equipmentFile;
+		private string operationsFile;
+		private string questsFile;
+		private string expeditionsFile;
+
 		private XDocument shipsXml;
 		private XDocument shipTypesXml;
 		private XDocument equipmentXml;
 		private XDocument operationsXml;
 		private XDocument questsXml;
 		private XDocument expeditionsXml;
-		private string currentCulture;
 
 		public bool EnableTranslations { get; set; }
 		public bool EnableAddUntranslated { get; set; }
@@ -140,16 +148,23 @@ namespace Grabacr07.KanColleWrapper
 
         #endregion
 
-		internal Translations()
+		private void LoadTranslations()
 		{
 			try
 			{
-				if (File.Exists("Translations\\Ships.xml")) this.shipsXml = XDocument.Load("Translations\\Ships.xml");
-				if (File.Exists("Translations\\ShipTypes.xml")) this.shipTypesXml = XDocument.Load("Translations\\ShipTypes.xml");
-				if (File.Exists("Translations\\Equipment.xml")) this.equipmentXml = XDocument.Load("Translations\\Equipment.xml");
-				if (File.Exists("Translations\\Operations.xml")) this.operationsXml = XDocument.Load("Translations\\Operations.xml");
-				if (File.Exists("Translations\\Quests.xml")) this.questsXml = XDocument.Load("Translations\\Quests.xml");
-                if (File.Exists("Translations\\Expeditions.xml")) this.expeditionsXml = XDocument.Load("Translations\\Expeditions.xml");
+				this.shipsFile = Path.Combine(directory, this.currentCulture, "Ships.xml");
+				this.shipTypesFile = Path.Combine(directory, this.currentCulture, "ShipTypes.xml");
+				this.equipmentFile = Path.Combine(directory, this.currentCulture, "Equipment.xml");
+				this.operationsFile = Path.Combine(directory, this.currentCulture, "Operations.xml");
+				this.questsFile = Path.Combine(directory, this.currentCulture, "Quests.xml");
+				this.expeditionsFile = Path.Combine(directory, this.currentCulture, "Expeditions.xml");
+
+				if (File.Exists(this.shipsFile)) this.shipsXml = XDocument.Load(this.shipsFile);
+				if (File.Exists(this.shipTypesFile)) this.shipTypesXml = XDocument.Load(this.shipTypesFile);
+				if (File.Exists(this.equipmentFile)) this.equipmentXml = XDocument.Load(this.equipmentFile);
+				if (File.Exists(this.operationsFile)) this.operationsXml = XDocument.Load(this.operationsFile);
+				if (File.Exists(this.questsFile)) this.questsXml = XDocument.Load(this.questsFile);
+				if (File.Exists(this.expeditionsFile)) this.expeditionsXml = XDocument.Load(this.expeditionsFile);
 
 				this.GetVersions();
 			}
@@ -159,9 +174,14 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
+		internal Translations()
+		{
+			this.LoadTranslations();
+		}
+
 		public void ChangeCulture(string culture)
 		{
-			this.currentCulture = culture == "en-US" || culture == "en" ? "" : (culture == "ja-JP" || culture == "ja" ? "ja-JP" : (culture + "\\"));
+			this.currentCulture = culture == "en-US" || culture == "en" ? "" : culture == "ja-JP" || culture == "ja" ? "ja-JP" : culture;
 
 			this.shipsXml = null;
 			this.shipTypesXml = null;
@@ -176,22 +196,7 @@ namespace Grabacr07.KanColleWrapper
 				return;
 			}
 
-			try
-			{
-				if (!Directory.Exists("Translations")) Directory.CreateDirectory("Translations");
-				if (File.Exists("Translations\\Ships.xml")) this.shipsXml = XDocument.Load("Translations\\Ships.xml");
-				if (File.Exists("Translations\\ShipTypes.xml")) this.shipTypesXml = XDocument.Load("Translations\\ShipTypes.xml");
-				if (File.Exists("Translations\\Equipment.xml")) this.equipmentXml = XDocument.Load("Translations\\Equipment.xml");
-				if (File.Exists("Translations\\Operations.xml")) this.operationsXml = XDocument.Load("Translations\\Operations.xml");
-				if (File.Exists("Translations\\Quests.xml")) this.questsXml = XDocument.Load("Translations\\Quests.xml");
-                if (File.Exists("Translations\\Expeditions.xml")) this.expeditionsXml = XDocument.Load("Translations\\Expeditions.xml");
-
-				this.GetVersions();
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex);
-			}
+			this.LoadTranslations();
 
 			this.RaisePropertyChanged("CurrentCulture");
 		}
@@ -447,6 +452,7 @@ namespace Grabacr07.KanColleWrapper
 
 		public void AddTranslation(Object rawData, TranslationType type)
 		{
+			/*
 			if (rawData == null || !this.EnableAddUntranslated)
 				return;
             
@@ -475,7 +481,7 @@ namespace Grabacr07.KanColleWrapper
 							new XElement("TR-Name", shipData.api_name)
 						));
 
-						this.shipsXml.Save("Translations\\Ships.xml");
+						this.shipsXml.Save(this.shipsFile);
 						break;
 
 					case TranslationType.ShipTypes:
@@ -500,7 +506,7 @@ namespace Grabacr07.KanColleWrapper
 							new XElement("TR-Name", typeData.api_name)
 							));
 
-						this.shipTypesXml.Save("Translations\\ShipTypes.xml");
+						this.shipTypesXml.Save(this.shipTypesFile);
 						break;
 
 					case TranslationType.Equipment:
@@ -524,7 +530,7 @@ namespace Grabacr07.KanColleWrapper
 							new XElement("TR-Name", eqiupData.api_name)
 							));
 
-						this.equipmentXml.Save("Translations\\Equipment.xml");
+						this.equipmentXml.Save(this.equipmentFile);
 						break;
 
 					case TranslationType.OperationMaps:
@@ -560,7 +566,7 @@ namespace Grabacr07.KanColleWrapper
 								));
 						}
 
-						this.operationsXml.Save("Translations\\Operations.xml");
+						this.operationsXml.Save(this.operationsFile);
 						break;
 
 					case TranslationType.Quests:
@@ -646,8 +652,9 @@ namespace Grabacr07.KanColleWrapper
 						}
 						// ReSharper restore PossibleMultipleEnumeration
 
-						this.questsXml.Save("Translations\\Quests.xml");
+						this.questsXml.Save(this.questsFile);
 						break;
+
                     case TranslationType.Expeditions:
                     case TranslationType.ExpeditionTitle:
                     case TranslationType.ExpeditionDetail:
@@ -693,7 +700,7 @@ namespace Grabacr07.KanColleWrapper
                                 ));
                         }
 
-						this.expeditionsXml.Save("Translations\\Expeditions.xml");
+						this.expeditionsXml.Save(this.expeditionsFile);
 						// ReSharper restore PossibleMultipleEnumeration
 						break;
 				}
@@ -702,6 +709,7 @@ namespace Grabacr07.KanColleWrapper
 			{
 				Debug.WriteLine(ex);
 			}
+			 */
 		}
 	}
 }
