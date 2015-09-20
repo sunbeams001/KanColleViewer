@@ -1055,6 +1055,9 @@ Low: Performance over quality. Ugliest setting.</value>
   <data name="ShipCatalog_ShipType_Battleships" xml:space="preserve">
     <value>戦艦</value>
   </data>
+  <data name="ShipCatalog_ShipType_SlowBattleships" xml:space="preserve">
+    <value>低速戦艦</value>
+  </data>
   <data name="ShipCatalog_ShipType_Destroyers" xml:space="preserve">
     <value>駆逐艦</value>
   </data>

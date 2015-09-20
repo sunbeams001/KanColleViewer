@@ -175,6 +175,7 @@
                                         <x:Array Type="s:Int32">
                                             <s:Int32>3</s:Int32>
                                             <s:Int32>4</s:Int32>
+											<s:Int32>21</s:Int32>
                                         </x:Array>
                                     </metro2:CallMethodButton.MethodParameter>
                                 </metro2:CallMethodButton>
@@ -196,7 +197,15 @@
                                         </x:Array>
                                     </metro2:CallMethodButton.MethodParameter>
                                 </metro2:CallMethodButton>
-                                <metro2:CallMethodButton Content="{Binding Resources.ShipCatalog_ShipType_AircraftCarriers, Source={x:Static models:ResourceService.Current}, Mode=OneWay}">
+								<metro2:CallMethodButton Content="{Binding Resources.ShipCatalog_ShipType_SlowBattleships, Source={x:Static models:ResourceService.Current}, Mode=OneWay}">
+									<metro2:CallMethodButton.MethodParameter>
+										<x:Array Type="s:Int32">
+											<s:Int32>9</s:Int32>
+											<s:Int32>10</s:Int32>
+										</x:Array>
+									</metro2:CallMethodButton.MethodParameter>
+								</metro2:CallMethodButton>
+								<metro2:CallMethodButton Content="{Binding Resources.ShipCatalog_ShipType_AircraftCarriers, Source={x:Static models:ResourceService.Current}, Mode=OneWay}">
                                     <metro2:CallMethodButton.MethodParameter>
                                         <x:Array Type="s:Int32">
                                             <s:Int32>7</s:Int32>
@@ -225,11 +234,14 @@
                                 <metro2:CallMethodButton Content="{Binding Resources.ShipCatalog_ShipType_Others, Source={x:Static models:ResourceService.Current}, Mode=OneWay}">
                                     <metro2:CallMethodButton.MethodParameter>
                                         <x:Array Type="s:Int32">
+											<s:Int32>1</s:Int32>
+											<s:Int32>15</s:Int32>
+											<s:Int32>16</s:Int32>
                                             <s:Int32>17</s:Int32>
                                             <s:Int32>19</s:Int32>
                                             <s:Int32>20</s:Int32>
-                                            <s:Int32>21</s:Int32>
-                                        </x:Array>
+											<s:Int32>22</s:Int32>
+										</x:Array>
                                     </metro2:CallMethodButton.MethodParameter>
                                 </metro2:CallMethodButton>
                             </WrapPanel>
@@ -465,7 +477,7 @@
                         </WrapPanel>
                     </Border>
 
-					<!-- Event only -->
+					<!-- Event only
 					<Border BorderThickness="1"
 							BorderBrush="{DynamicResource BorderBrushKey}"
 							Margin="0,8,0,0"
@@ -496,6 +508,7 @@
 							</ItemsControl>
 						</WrapPanel>
 					</Border>
+					-->
 				</StackPanel>
             </Expander>
 
@@ -674,7 +687,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Width="90">
+                            <GridViewColumn Width="70">
                                 <GridViewColumn.Header>
                                     <metro2:SortButton MethodName="Sort"
 													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.StypeColumn}">
@@ -721,7 +734,8 @@
 											<Run Text="Lv." />
 											<Run Text="{Binding Ship.Level, Mode=OneWay}"
 												 FontSize="12"
-												 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+												 Foreground="{DynamicResource ActiveForegroundBrushKey}"
+												 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
 											<Run Text="" />
 											<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}" />
                                         </TextBlock>
@@ -729,7 +743,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Width="60">
+                            <GridViewColumn Width="64">
                                 <GridViewColumn.Header>
                                     <metro2:SortButton MethodName="Sort"
 													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.CondColumn}">
@@ -901,7 +915,7 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-							<!-- Event only -->
+							<!-- Event only
 							<GridViewColumn Width="65">
 								<GridViewColumn.Header>
 									<TextBlock Text="{Binding Resources.ShipCatalog_SortieWaters, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
@@ -930,6 +944,7 @@
 									</DataTemplate>
 								</GridViewColumn.CellTemplate>
 							</GridViewColumn>
+							-->
 
 							<GridViewColumn Width="110">
                                 <GridViewColumn.Header>

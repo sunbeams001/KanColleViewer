@@ -2623,6 +2623,17 @@ namespace Grabacr07.KanColleViewer.Properties {
                 return ResourceManager.GetString("ShipCatalog_ShipType_Battleships", resourceCulture);
             }
         }
+
+		/// <summary>
+		///   Looks up a localized string similar to 低速戦艦.
+		/// </summary>
+		public static string ShipCatalog_ShipType_SlowBattleships
+		{
+			get
+			{
+				return ResourceManager.GetString("ShipCatalog_ShipType_SlowBattleships", resourceCulture);
+			}
+		}
         
         /// <summary>
         ///   Looks up a localized string similar to 駆逐艦.

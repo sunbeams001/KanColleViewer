@@ -957,7 +957,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Select All</value>
   </data>
   <data name="ShipCatalog_ShipType" xml:space="preserve">
-    <value>Ship Types</value>
+    <value>Ship Type</value>
   </data>
   <data name="ShipCatalog_ShowAdditionalShipStats" xml:space="preserve">
     <value>Show Additional Ship Stats</value>
@@ -1054,6 +1054,9 @@ Low: Performance over quality. Ugliest setting.</value>
   </data>
   <data name="ShipCatalog_ShipType_Battleships" xml:space="preserve">
     <value>Battleships</value>
+  </data>
+  <data name="ShipCatalog_ShipType_SlowBattleships" xml:space="preserve">
+    <value>Slow Battleships</value>
   </data>
   <data name="ShipCatalog_ShipType_Destroyers" xml:space="preserve">
     <value>Destroyers</value>
