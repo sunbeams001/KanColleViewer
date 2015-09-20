@@ -734,7 +734,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			Task.Factory.StartNew(
 				() =>
 				{
-					int updateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations);
+					int updateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations, Settings.Current.Culture);
 					this.NotifyUpdate(updateStatus);
 				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(this.Culture), ts);
 
@@ -746,7 +746,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			Task.Factory.StartNew(
 				() =>
 				{
-					int updateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations, false);
+					int updateStatus = KanColleClient.Current.Updater.UpdateTranslations(KanColleClient.Current.Translations, Settings.Current.Culture, false);
 					this.NotifyUpdate(updateStatus);
 				}).ContinueWith(t => KanColleClient.Current.Translations.ChangeCulture(this.Culture), ts);
 

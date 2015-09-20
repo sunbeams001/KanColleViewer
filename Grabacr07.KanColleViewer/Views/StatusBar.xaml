@@ -59,9 +59,8 @@
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_AirSuperiorityPotential, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock MinWidth="90" Style="{DynamicResource DefaultTextStyleKey}">
 							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0} ({1}~{2})">
-									<Binding Path="State.AirPower" />
-									<Binding Path="State.MinAirPower" />
+                                <MultiBinding StringFormat="{}{0}-{1}">
+                                    <Binding Path="State.MinAirPower" />
 									<Binding Path="State.MaxAirPower" />
 								</MultiBinding>
 							</TextBlock.Text>
@@ -99,9 +98,8 @@
 						<TextBlock Text="{Binding Source={x:Static models:ResourceService.Current}, Path=Resources.Fleets_AirSuperiorityPotential, StringFormat='{}{0}: '}" Style="{DynamicResource DefaultTextStyleKey}" />
 						<TextBlock MinWidth="90" Style="{DynamicResource DefaultTextStyleKey}">
 							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0} ({1}~{2})">
-									<Binding Path="State.AirPower" />
-									<Binding Path="State.MinAirPower" />
+                                <MultiBinding StringFormat="{}{0}-{1}">
+                                    <Binding Path="State.MinAirPower" />
 									<Binding Path="State.MaxAirPower" />
 								</MultiBinding>
 							</TextBlock.Text>

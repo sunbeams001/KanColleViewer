@@ -696,9 +696,8 @@
 									   Style="{DynamicResource EmphaticTextStyleKey}"
 									   Margin="4,2">
 								<TextBlock.Text>
-									<MultiBinding StringFormat="{}{0} ({1}~{2})">
-										<Binding Path="State.AirPower" />
-										<Binding Path="State.MinAirPower" />
+                                    <MultiBinding StringFormat="{}{0}-{1}">
+                                        <Binding Path="State.MinAirPower" />
 										<Binding Path="State.MaxAirPower" />
 									</MultiBinding>
 								</TextBlock.Text>

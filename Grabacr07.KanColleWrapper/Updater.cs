@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 using System.Xml.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using Grabacr07.KanColleWrapper.Internal;
 using Grabacr07.KanColleWrapper.Models;
 
 namespace Grabacr07.KanColleWrapper
 {
 	public class Updater
 	{
+		private static readonly string directory = Path.Combine(KanColleClient.Directory, "Translations");
+		private static readonly string tmpDirectory = Path.Combine(directory, "tmp");
 
 		private XDocument VersionXML;
 
@@ -63,151 +62,78 @@ namespace Grabacr07.KanColleWrapper
 			return true;
 		}
 
+		private int UpdateFile(bool checkVersion, WebClient client, string culture, string path, TranslationType translationType, string version)
+		{
+			if (checkVersion && !this.IsOnlineVersionGreater(translationType, version)) return 0;
+			var file = Path.Combine(directory, culture, path);
+			var tmpFile = Path.Combine(tmpDirectory, path);
+			var url = this.GetOnlineVersion(translationType, true);
+			if (culture.Length > 0) url = new Uri(new Uri(url), "./" + culture + "/" + path).ToString();
+			client.DownloadFile(url, tmpFile);
+			try
+			{
+				if (File.Exists(file)) File.Delete(file);
+				File.Move(tmpFile, file);
+				return 1;
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+				return -1;
+			}
+		}
+
 		/// <summary>
 		/// Updates any translation files that differ from that found online.
 		/// </summary>
-		/// <param name="BaseTranslationURL">String URL folder that contains all the translation XML files.</param>
-		/// <param name="Culture">Language version to download</param>
-		/// <param name="TranslationsRef">Link to the translation engine to obtain current translation versions.</param>
+		/// <param name="translationsRef">Link to the translation engine to obtain current translation versions.</param>
+		/// <param name="culture">Language version to download</param>
+		/// <param name="checkVersion"></param>
 		/// <returns>Returns a state code depending on how it ran. [-1: Error, 0: Nothing to update, 1: Update Successful]</returns>
-		public int UpdateTranslations(Translations TranslationsRef, bool CheckVersion = true)
+		public int UpdateTranslations(Translations translationsRef, string culture, bool checkVersion = true)
 		{
-			using (WebClient Client = new WebClient())
+			culture = culture == null || culture == "en-US" || culture == "en" || culture == "ja-JP" || culture == "ja" ? "" : culture;
+
+			using (var client = new WebClient())
 			{
-				XDocument TestXML;
-				int ReturnValue = 0;
+				var updated = false;
+				var error = false;
 
 				try
 				{
-					if (!Directory.Exists("Translations")) Directory.CreateDirectory("Translations");
-					if (!Directory.Exists("Translations\\tmp\\")) Directory.CreateDirectory("Translations\\tmp\\");
+					var directoryCulture = Path.Combine(directory, culture);
+					if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
+					if (!Directory.Exists(directoryCulture)) Directory.CreateDirectory(directoryCulture);
+					if (!Directory.Exists(tmpDirectory)) Directory.CreateDirectory(tmpDirectory);
 
-					// In every one of these we download it to a temp folder, check if the file works, then move it over.
-					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Equipment, TranslationsRef.EquipmentVersion))
-					{
-						Client.DownloadFile(GetOnlineVersion(TranslationType.Equipment, true), "Translations\\tmp\\Equipment.xml");
-
-						try
-						{
-							TestXML = XDocument.Load("Translations\\tmp\\Equipment.xml");
-							if (File.Exists("Translations\\Equipment.xml")) 
-								File.Delete("Translations\\Equipment.xml");
-							File.Move("Translations\\tmp\\Equipment.xml", "Translations\\Equipment.xml");
-							ReturnValue = 1;
-						}
-						catch (Exception ex)
-						{
-							Debug.WriteLine(ex);
-							ReturnValue = -1;
-						}
-					}
-
-					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Operations, TranslationsRef.OperationsVersion))
-					{
-						Client.DownloadFile(GetOnlineVersion(TranslationType.Operations, true), "Translations\\tmp\\Operations.xml");
-
-						try
-						{
-							TestXML = XDocument.Load("Translations\\tmp\\Operations.xml");
-							if (File.Exists("Translations\\Operations.xml"))
-								File.Delete("Translations\\Operations.xml");
-							File.Move("Translations\\tmp\\Operations.xml", "Translations\\Operations.xml");
-							ReturnValue = 1;
-						}
-						catch (Exception ex)
-						{
-							Debug.WriteLine(ex);
-							ReturnValue = -1;
-						}
-					}
-
-					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Quests, TranslationsRef.QuestsVersion))
-					{
-						Client.DownloadFile(GetOnlineVersion(TranslationType.Quests, true), "Translations\\tmp\\Quests.xml");
-
-						try
-						{
-							TestXML = XDocument.Load("Translations\\tmp\\Quests.xml");
-							if (File.Exists("Translations\\Quests.xml"))
-								File.Delete("Translations\\Quests.xml");
-							File.Move("Translations\\tmp\\Quests.xml", "Translations\\Quests.xml");
-							ReturnValue = 1;
-						}
-						catch (Exception ex)
-						{
-							Debug.WriteLine(ex);
-							ReturnValue = -1;
-						}
-					}
-
-					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Ships, TranslationsRef.ShipsVersion))
-					{
-						Client.DownloadFile(GetOnlineVersion(TranslationType.Ships, true), "Translations\\tmp\\Ships.xml");
-
-						try
-						{
-							TestXML = XDocument.Load("Translations\\tmp\\Ships.xml");
-							if (File.Exists("Translations\\Ships.xml"))
-								File.Delete("Translations\\Ships.xml");
-							File.Move("Translations\\tmp\\Ships.xml", "Translations\\Ships.xml");
-							ReturnValue = 1;
-						}
-						catch (Exception ex)
-						{
-							Debug.WriteLine(ex);
-							ReturnValue = -1;
-						}
-					}
-
-					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.ShipTypes, TranslationsRef.ShipTypesVersion))
-					{
-						Client.DownloadFile(GetOnlineVersion(TranslationType.ShipTypes, true), "Translations\\tmp\\ShipTypes.xml");
-
-						try
-						{
-							TestXML = XDocument.Load("Translations\\tmp\\ShipTypes.xml");
-							if (File.Exists("Translations\\ShipTypes.xml"))
-								File.Delete("Translations\\ShipTypes.xml");
-							File.Move("Translations\\tmp\\ShipTypes.xml", "Translations\\ShipTypes.xml");
-							ReturnValue = 1;
-						}
-						catch (Exception ex)
-						{
-							Debug.WriteLine(ex);
-							ReturnValue = -1;
-						}
-					}
-
-					if (!CheckVersion || IsOnlineVersionGreater(TranslationType.Expeditions, TranslationsRef.ExpeditionsVersion))
-                    {
-						Client.DownloadFile(GetOnlineVersion(TranslationType.Expeditions, true), "Translations\\tmp\\Expeditions.xml");
-
-                        try
-                        {
-                            TestXML = XDocument.Load("Translations\\tmp\\Expeditions.xml");
-                            if (File.Exists("Translations\\Expeditions.xml"))
-                                File.Delete("Translations\\Expeditions.xml");
-                            File.Move("Translations\\tmp\\Expeditions.xml", "Translations\\Expeditions.xml");
-                            ReturnValue = 1;
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.WriteLine(ex);
-                            ReturnValue = -1;
-                        }
-                    }
-
+					var r = this.UpdateFile(checkVersion, client, culture, "Equipment.xml", TranslationType.Equipment, translationsRef.EquipmentVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
+					r = this.UpdateFile(checkVersion, client, culture, "Operations.xml", TranslationType.Operations, translationsRef.OperationsVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
+					r = this.UpdateFile(checkVersion, client, culture, "Quests.xml", TranslationType.Quests, translationsRef.QuestsVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
+					r = this.UpdateFile(checkVersion, client, culture, "Ships.xml", TranslationType.Ships, translationsRef.ShipsVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
+					r = this.UpdateFile(checkVersion, client, culture, "ShipTypes.xml", TranslationType.ShipTypes, translationsRef.ShipTypesVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
+					r = this.UpdateFile(checkVersion, client, culture, "Expeditions.xml", TranslationType.Expeditions, translationsRef.ExpeditionsVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
 				}
 				catch (Exception ex)
 				{
-					// Failed to download files.
 					Debug.WriteLine(ex);
-					return -1;
+					error = true;
 				}
 
-				if (Directory.Exists("Translations\\tmp\\")) Directory.Delete("Translations\\tmp\\");
+				if (Directory.Exists(tmpDirectory)) Directory.Delete(tmpDirectory);
 
-				return ReturnValue;
+				return updated ? 1 : error ? -1 : 0;
 			}
 		}
 
@@ -223,7 +149,7 @@ namespace Grabacr07.KanColleWrapper
 				return "";
 
 			IEnumerable<XElement> Versions = VersionXML.Root.Descendants("Item");
-			string ElementName =  !bGetURL ? "Version" : "URL";
+			string ElementName = !bGetURL ? "Version" : "URL";
 
 			try
 			{
@@ -251,7 +177,8 @@ namespace Grabacr07.KanColleWrapper
 						return Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value;
 
 				}
-			} catch
+			}
+			catch
 			{
 				return "";
 			}
