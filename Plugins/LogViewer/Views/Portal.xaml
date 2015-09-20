@@ -38,8 +38,10 @@
 				<RadioButton Content="Materials" IsChecked="{Binding SelectorMaterials, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Expeditions" IsChecked="{Binding SelectorExpedition, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Levels" IsChecked="{Binding SelectorLevels, Mode=TwoWay}" Margin="5,5,5,0"/>
-            </WrapPanel>
-        </Grid>
+				<metro2:CallMethodButton Content="Charts" Margin="5,5,5,0" MethodName="ShowCharts" />
+			</WrapPanel>
+			
+		</Grid>
 		
 		<Grid DockPanel.Dock="Bottom" Margin="3,0,3,0">
 			<Grid.ColumnDefinitions>

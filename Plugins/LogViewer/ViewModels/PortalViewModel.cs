@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Windows;
 using Grabacr07.KanColleWrapper;
 using Livet;
 
@@ -273,7 +275,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             try
             {
 
-                this._watcher = new FileSystemWatcher(Directory.GetParent(Logger.LogFolder).ToString())
+                this._watcher = new FileSystemWatcher(Directory.GetParent(Logger.Directory).ToString())
                 {
                     IncludeSubdirectories = true,
                     NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.CreationTime | NotifyFilters.FileName,
@@ -300,6 +302,19 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             this.IsReloading = false;
         }
 
+		private static IEnumerable<string> ReadLines(string path)
+		{
+			using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 0x1000, FileOptions.SequentialScan))
+			using (var sr = new StreamReader(fs, Encoding.UTF8))
+			{
+				string line;
+				while ((line = sr.ReadLine()) != null)
+				{
+					yield return line;
+				}
+			}
+		}
+
         private Task<LogItemCollection> UpdateCore()
         {
             LogItemCollection items = new LogItemCollection();
@@ -308,12 +323,12 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             {
                 try
                 {
-                    string file = Path.Combine(Logger.LogFolder,
-                        Logger.LogParameters[this.CurrentLogType].FileName);
+					string file = Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName);
+
                     if (!File.Exists(file))
                         return items;
 
-                    IEnumerable<string> lines = File.ReadLines(file);
+                    IEnumerable<string> lines = ReadLines(file);
 
 	                this.TotalPage = (lines.Count() - 1)/20 + 1;
 
@@ -331,8 +346,9 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
                     return items;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+					System.Diagnostics.Debug.WriteLine(ex.ToString());
                     return items;
                 }
             });
@@ -349,5 +365,22 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			++this.CurrentPage;
 			this.Update();
 		}
+
+		private static readonly string directory = Path.Combine(KanColleClient.Directory, "Charts");
+
+		public void ShowCharts()
+		{
+			try
+			{
+				var index = Path.Combine(directory, "index.html");
+				var chrome = Path.Combine(directory, "Chrome");
+				Process.Start("chrome.exe", string.Format("--allow-file-access-from-files --new-window \"{0}\" --user-data-dir=\"{1}\"", index, chrome));
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(string.Format("An error occurred \"{0}\", make sure Chrome is installed", ex.Message));
+			}
+		}
+
     }
 }
