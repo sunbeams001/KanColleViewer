@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Models;
@@ -27,8 +25,7 @@ namespace Grabacr07.KanColleWrapper
 
 		public bool EnableLogging { private get; set; }
 
-		// ReSharper disable once AssignNullToNotNullAttribute
-		public static readonly string LogFolder = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Logs");
+		public static readonly string Directory = Path.Combine(KanColleClient.Directory, "Logs");
 
 		public enum LogType
 		{
@@ -60,7 +57,7 @@ namespace Grabacr07.KanColleWrapper
 													   "BuildItemLog.csv")
 				},
 				{
-					LogType.BuildShip, new LogTypeInfo("Date,Result,Secretary,Secretary level,Fuel,Ammo,Steel,Bauxite,# of Build Materials",
+					LogType.BuildShip, new LogTypeInfo("Date,Result,Secretary,Secretary level,Fuel,Ammo,Steel,Bauxite,DevMats",
 													   "BuildShipLog.csv")
 				},
 				{ 
@@ -76,7 +73,7 @@ namespace Grabacr07.KanColleWrapper
 														"Expedition.csv")
 				},
 				{
-					LogType.Levels, new LogTypeInfo("Date,Name,Level",
+					LogType.Levels, new LogTypeInfo("Date,Name,Level,ID,Exp",
 													"Levels.csv")
 				},
 			};
@@ -140,9 +137,9 @@ namespace Grabacr07.KanColleWrapper
 
 				this.Log(LogType.Expedition, args.ToArray());
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				Debug.WriteLine("Logger.Expedition: {0}", ex);
+				// ignored
 			}
 		}
 		
@@ -177,7 +174,7 @@ namespace Grabacr07.KanColleWrapper
 			this.shipmats[4] = int.Parse(req["api_item5"]);
 		}
 
-		private void KDock(kcsapi_kdock[] docks)
+		private void KDock(IEnumerable<kcsapi_kdock> docks)
 		{
 			try
 			{
@@ -203,18 +200,31 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
-		// TODO: log within levels too (e.g. each 1000 xp)?
-		private void Levels(int[] exps, Fleet fleet)
+		// Ships
+		private void Levels(IReadOnlyList<int> exps, Fleet fleet)
 		{
 			for (var i = 0; i < fleet.Ships.Length; ++i)
 			{
 				var ship = fleet.Ships[i];
-				var exp = exps[i];
-				if (ship.ExpForNextLevel == 0 || exp < ship.ExpForNextLevel) continue;
-				var lvl = Ship.ExpToLevel(ship.Exp + exp);
-				if (lvl > 3)
-					this.Log(LogType.Levels, ship.Info.Name, lvl);
+				int exp = exps[i], currExp = ship.Exp, newExp = currExp + exp;
+				var lvl = Ship.ExpToLevel(newExp);
+				if (lvl > 4 &&
+					ship.ExpForNextLevel != 0 &&
+					(exp >= ship.ExpForNextLevel || newExp / 10000 > currExp / 10000 && newExp - Ship.ExpTable[lvl] >= 10000 && Ship.ExpTable[lvl + 1] - newExp >= 10000))
+					this.Log(LogType.Levels, ship.Info.Name, lvl, ship.Id, newExp);
 			}
+		}
+
+		// HQ
+		private void Levels(int exp)
+		{
+			int currExp = KanColleClient.Current.Homeport.Admiral.Experience, newExp = currExp + exp;
+			var expForNexeLevel = KanColleClient.Current.Homeport.Admiral.ExperienceForNexeLevel;
+			var lvl = KanColleClient.Current.Homeport.Admiral.Level;
+			lvl = lvl < 99 ? Ship.ExpToLevel(newExp) : exp >= expForNexeLevel ? lvl + 1 : lvl;
+			if (expForNexeLevel != 0 &&
+				(exp >= expForNexeLevel || newExp / 10000 > currExp / 10000 && (lvl >= 99 || newExp - Ship.ExpTable[lvl] >= 10000 && Ship.ExpTable[lvl + 1] - newExp >= 10000)))
+				this.Log(LogType.Levels, "HQ", lvl, "", newExp);
 		}
 
 		private void Levels(kcsapi_practice_battle_result pr)
@@ -222,10 +232,11 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				this.Levels(pr.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[this.fleetInPractice]);
+				this.Levels(pr.api_get_exp);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				Debug.WriteLine("Logger.Levels: {0}", ex);
+				// ignored
 			}
 		}
 
@@ -234,10 +245,11 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				this.Levels(br.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.GetFleetInSortie());
+				this.Levels(br.api_get_exp);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				Debug.WriteLine("Logger.Levels: {0}", ex);
+				// ignored
 			}
 		}
 
@@ -247,10 +259,11 @@ namespace Grabacr07.KanColleWrapper
 			{
 				this.Levels(br.api_get_ship_exp.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[1]);
 				this.Levels(br.api_get_ship_exp_combined.Skip(1).ToArray(), KanColleClient.Current.Homeport.Organization.Fleets[2]);
+				this.Levels(br.api_get_exp);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				Debug.WriteLine("Logger.Levels: {0}", ex);
+				// ignored
 			}
 		}
 
@@ -259,10 +272,11 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				this.Levels(br.api_get_ship_exp, KanColleClient.Current.Homeport.Organization.Fleets[int.Parse(req["api_deck_id"])]);
+				this.Levels(br.api_get_exp);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				Debug.WriteLine("Logger.Levels: {0}", ex);
+				// ignored
 			}
 		}
 
@@ -270,15 +284,15 @@ namespace Grabacr07.KanColleWrapper
 		{
 			try
 			{
-				if (br.api_get_ship != null)
-				{
+				if (br.api_get_ship == null)
+					return;
+
 				this.Log(LogType.ShipDrop,
 						 KanColleClient.Current.Translations.GetTranslation(br.api_get_ship.api_ship_name, TranslationType.Ships, br), //Result
 						 KanColleClient.Current.Translations.GetTranslation(br.api_quest_name, TranslationType.OperationMaps, br), //Operation
 						 KanColleClient.Current.Translations.GetTranslation(br.api_enemy_info.api_deck_name, TranslationType.OperationSortie, br), //Enemy Fleet
 						 br.api_win_rank //Rank
 					);
-			}
 			}
 			catch (Exception)
 			{
@@ -359,10 +373,10 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				var info = LogParameters[type];
-				var fullPath = Path.Combine(LogFolder, info.FileName);
+				var fullPath = Path.Combine(Directory, info.FileName);
 
-				if (!Directory.Exists(LogFolder))
-					Directory.CreateDirectory(LogFolder);
+				if (!System.IO.Directory.Exists(Directory))
+					System.IO.Directory.CreateDirectory(Directory);
 
 				if (!File.Exists(fullPath))
 					File.WriteAllText(fullPath, info.Parameters + Environment.NewLine, new UTF8Encoding(true));
