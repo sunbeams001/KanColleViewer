@@ -157,7 +157,8 @@
 									<Run Text="Lv." />
 									<Run Text="{Binding Level, Mode=OneWay}"
 										 FontSize="16"
-										 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+										 Style="{DynamicResource EmphaticTextElementStyleKey}"
+										 ToolTip="{Binding Exp, Mode=OneWay}" />
 								</TextBlock>
 								<TextBlock FontSize="10"
 										   Style="{DynamicResource DefaultTextStyleKey}">

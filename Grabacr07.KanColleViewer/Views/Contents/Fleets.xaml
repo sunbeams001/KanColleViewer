@@ -321,7 +321,8 @@
 											   Grid.RowSpan="2">
 										<Run Text="Lv." />
 										<Run Text="{Binding Ship.Level, Mode=OneWay}"
-											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+											 Style="{DynamicResource EmphaticTextElementStyleKey}"
+											 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
                                     </TextBlock>
                                     <TextBlock Grid.Column="3"
 											   Grid.Row="1"

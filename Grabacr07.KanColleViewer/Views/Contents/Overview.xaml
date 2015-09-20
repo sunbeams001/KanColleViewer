@@ -197,7 +197,8 @@
 													   x:Name="LevelText">
 												<Run Text="Lv." />
 												<Run Text="{Binding Ship.Level, Mode=OneWay}"
-													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+													 Style="{DynamicResource EmphaticTextElementStyleKey}"
+													 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
 												<LineBreak />
 												<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next: {0}, Mode=OneWay}"
 													 FontSize="9" />

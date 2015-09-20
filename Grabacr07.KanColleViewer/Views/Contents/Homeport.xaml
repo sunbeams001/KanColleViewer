@@ -51,7 +51,8 @@
 					 FontSize="14" />
 				<Run Text="{Binding Model.Level, Mode=OneWay}"
 					 Style="{DynamicResource EmphaticTextElementStyleKey}"
-					 FontSize="18" />
+					 FontSize="18"
+					 ToolTip="{Binding Model.Experience, Mode=OneWay}"/>
 				<LineBreak />
 				<Run Text="Next:" />
 				<Run Text="{Binding Model.ExperienceForNexeLevel, Mode=OneWay}" />
