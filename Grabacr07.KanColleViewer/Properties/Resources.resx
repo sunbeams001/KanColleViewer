@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -59,7 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -267,9 +267,6 @@
   <data name="MessageBar_ReSortie_Separator" xml:space="preserve">
     <value>・</value>
   </data>
-  <data name="MessageBar_ReSortie_Wounded" xml:space="preserve">
-    <value>中破以上の艦娘</value>
-  </data>
   <data name="Quests" xml:space="preserve">
     <value>任務</value>
   </data>
@@ -287,21 +284,6 @@
   </data>
   <data name="Quests_Weekly" xml:space="preserve">
     <value>ウィークリー任務</value>
-  </data>
-  <data name="Quest_Detail_Untaken" xml:space="preserve">
-    <value>任務画面の全ページにアクセスしてください。</value>
-  </data>
-  <data name="Quest_Progress_50" xml:space="preserve">
-    <value> 50 % </value>
-  </data>
-  <data name="Quest_Progress_80" xml:space="preserve">
-    <value> 80 % </value>
-  </data>
-  <data name="Quest_State_Accomplished" xml:space="preserve">
-    <value> 完了 </value>
-  </data>
-  <data name="Quest_Title_Untaken" xml:space="preserve">
-    <value>(未取得の任務)</value>
   </data>
   <data name="Repairyard" xml:space="preserve">
     <value>入渠ドック</value>
@@ -362,6 +344,9 @@
   </data>
   <data name="Settings_Network" xml:space="preserve">
     <value>通信設定</value>
+  </data>
+	<data name="Settings_Plugin" xml:space="preserve">
+    <value>プラグイン</value>
   </data>
   <data name="Settings_Operation" xml:space="preserve">
     <value>動作設定</value>
@@ -483,6 +468,9 @@
   <data name="StartContent_SetRegionCookieButton" xml:space="preserve">
     <value>クッキーの設定</value>
   </data>
+  <data name="MessageBar_ReSortie_Wounded" xml:space="preserve">
+    <value>中破以上の艦娘</value>
+  </data>
   <data name="StartContent_SetRegionCookieMessage" xml:space="preserve">
     <value>クッキーを設定しました</value>
   </data>
@@ -497,45 +485,6 @@
   </data>
   <data name="StartContent_SetRegionCookieToolTip" xml:space="preserve">
     <value>日本語を選ぶのは必要です</value>
-  </data>
-  <data name="Stats_Accuracy" xml:space="preserve">
-    <value>命中</value>
-  </data>
-  <data name="Stats_AntiAir" xml:space="preserve">
-    <value>対空</value>
-  </data>
-  <data name="Stats_AntiSub" xml:space="preserve">
-    <value>対潜</value>
-  </data>
-  <data name="Stats_Armor" xml:space="preserve">
-    <value>装甲</value>
-  </data>
-  <data name="Stats_DiveBomb" xml:space="preserve">
-    <value>爆装</value>
-  </data>
-  <data name="Stats_Evasion" xml:space="preserve">
-    <value>回避</value>
-  </data>
-  <data name="Stats_Firepower" xml:space="preserve">
-    <value>火力</value>
-  </data>
-  <data name="Stats_Health" xml:space="preserve">
-    <value>耐久</value>
-  </data>
-  <data name="Stats_Luck" xml:space="preserve">
-    <value>運</value>
-  </data>
-  <data name="Stats_SightRange" xml:space="preserve">
-    <value>索敵</value>
-  </data>
-  <data name="Stats_Speed" xml:space="preserve">
-    <value>速力</value>
-  </data>
-  <data name="Stats_Torpedo" xml:space="preserve">
-    <value>雷装</value>
-  </data>
-  <data name="Stats_AttackRange" xml:space="preserve">
-    <value>射程</value>
   </data>
   <data name="Notifications_CriticalCondition" xml:space="preserve">
     <value>{0} が大破しています</value>

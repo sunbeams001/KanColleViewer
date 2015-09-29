@@ -10,7 +10,10 @@
 			 d:DataContext="{d:DesignInstance counter:CounterViewModel}"
 			 d:DesignHeight="300"
 			 d:DesignWidth="300">
-	<DockPanel>
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
+				  VerticalScrollBarVisibility="Auto"
+				  PanningMode="Both">
+        <DockPanel Margin="8,0,8,8">
 		<TextBlock DockPanel.Dock="Bottom"
 				   Text="※Counter from application started"
 				   Style="{DynamicResource DefaultTextStyleKey}"
@@ -21,9 +24,8 @@
 					  Grid.IsSharedSizeScope="True">
 			<ItemsControl.Template>
 				<ControlTemplate TargetType="{x:Type ItemsControl}">
-                    <StackPanel IsItemsHost="True"
-									Margin="4" />
-                </ControlTemplate>
+					<StackPanel IsItemsHost="True" />
+				</ControlTemplate>
 			</ItemsControl.Template>
 
 			<ItemsControl.ItemTemplate>
@@ -55,4 +57,5 @@
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>
 	</DockPanel>
+	</ScrollViewer>
 </UserControl>

@@ -10,16 +10,20 @@
 				   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 				   xmlns:livet="http://schemas.livet-mvvm.net/2011/wpf"
 				   xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+				   xmlns:kcvc="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
+				   xmlns:kcvi="http://schemes.grabacr.net/winfx/2015/kancolleviewer/interactivity"
+				   xmlns:kcvv="http://schemes.grabacr.net/winfx/2015/kancolleviewer/converters"
 				   xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro"
+				   xmlns:metro2Converter="clr-namespace:Grabacr07.Desktop.Metro.Converters;assembly=Desktop.Metro"
 				   xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
 				   xmlns:views="clr-namespace:Grabacr07.KanColleViewer.Views"
-				   xmlns:viewModels="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Catalogs"
 				   xmlns:behaviors="clr-namespace:Grabacr07.KanColleViewer.Views.Behaviors"
 				   xmlns:controls="clr-namespace:Grabacr07.KanColleViewer.Views.Controls"
 				   xmlns:contents="clr-namespace:Grabacr07.KanColleViewer.Views.Contents"
 				   xmlns:catalogs="clr-namespace:Grabacr07.KanColleViewer.Views.Catalogs"
+				   xmlns:viewModels="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Catalogs"
 				   xmlns:contentsVm="clr-namespace:Grabacr07.KanColleViewer.ViewModels.Contents"
-                   xmlns:converters="clr-namespace:Grabacr07.KanColleViewer.Views.Converters"
+				   xmlns:kcvcn="http://schemes.grabacr.net/winfx/2015/kancolleviewer/controls"
                    xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 				   mc:Ignorable="d"
 				   d:DataContext="{d:DesignInstance viewModels:ShipCatalogWindowViewModel}"
@@ -653,7 +657,7 @@
                                 </Setter.Value>
                             </Setter>
                         </Style>
-                        <converters:BooleanToVisibilityConverter x:Key="BooleanToVsibilityConverterKey" />
+						<metro2Converter:UniversalBooleanToVisibilityConverter x:Key="BooleanToVsibilityConverterKey" />
                     </ListView.Resources>
                     <ListView.View>
                         <GridView>
@@ -755,7 +759,7 @@
                                         <TextBlock FontSize="9"
 												   Margin="0,3">
 											<InlineUIContainer>
-												<controls:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}"
+												<kcvc:ConditionIcon ConditionType="{Binding Ship.ConditionType, Mode=OneWay}"
 																		Width="9"
 																		Height="9" />
 											</InlineUIContainer>
@@ -776,7 +780,7 @@
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <catalogs:Modernizable Status="{Binding Ship.Firepower, Mode=OneWay}"
+										<kcvc:Modernizable Status="{Binding Ship.Firepower, Mode=OneWay}"
 															   Background="#7FB13B2A"
 															   MinWidth="64"
 															   Margin="-5,0" />
@@ -793,7 +797,7 @@
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <catalogs:Modernizable Status="{Binding Ship.Torpedo, Mode=OneWay}"
+										<kcvc:Modernizable Status="{Binding Ship.Torpedo, Mode=OneWay}"
 															   Background="#7F2970AB"
 															   MinWidth="64"
 															   Margin="-5,0" />
@@ -810,7 +814,7 @@
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <catalogs:Modernizable Status="{Binding Ship.AA, Mode=OneWay}"
+										<kcvc:Modernizable Status="{Binding Ship.AA, Mode=OneWay}"
 															   Background="#7FDF6A0C"
 															   MinWidth="64"
 															   Margin="-5,0" />
@@ -827,7 +831,7 @@
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <catalogs:Modernizable Status="{Binding Ship.Armer, Mode=OneWay}"
+										<kcvc:Modernizable Status="{Binding Ship.Armer, Mode=OneWay}"
 															   Background="#7FD8981A"
 															   MinWidth="64"
 															   Margin="-5,0" />
@@ -844,7 +848,7 @@
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <catalogs:Modernizable Status="{Binding Ship.Luck, Mode=OneWay}"
+										<kcvc:Modernizable Status="{Binding Ship.Luck, Mode=OneWay}"
 															   Background="#7F808080"
 															   MinWidth="64"
 															   Margin="-5,0" />
@@ -966,18 +970,18 @@
 															Height="20"
 															Padding="0,1">
                                                         <Border.ToolTip>
-															<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
-																					  LevelText="{Binding Item.LevelText}"
-																					  AdeptText="{Binding Item.AdeptText}"
-																					  IsNumerable="{Binding Item.Info.IsNumerable}"
-																					  Current="{Binding Current}"
-																					  Maximum="{Binding Maximum}"
-																					  UntranslatedName="{Binding Item.Info.UntranslatedName}"
-																					  AllStats="{Binding Item.Info.AllStats}"
-																					  ShowHeader="True" />
+                                                            <kcvc:SlotItemTooltip EqName="{Binding Item.Info.Name}"
+																				  LevelText="{Binding Item.LevelText}"
+																				  AdeptText="{Binding Item.AdeptText}"
+																				  IsNumerable="{Binding Item.Info.IsNumerable}"
+																				  Current="{Binding Current}"
+																				  Maximum="{Binding Maximum}"
+																				  UntranslatedName="{Binding Item.Info.UntranslatedName}"
+																				  AllStats="{Binding Item.Info.AllStats}"
+																				  ShowHeader="True" />
                                                         </Border.ToolTip>
                                                         <Viewbox>
-                                                            <controls:SlotItemIcon Type="{Binding Item.Info.IconType}"
+                                                            <kcvc:SlotItemIcon Type="{Binding Item.Info.IconType}"
 																				   Margin="0,0,4,0" />
                                                         </Viewbox>
                                                     </Border>

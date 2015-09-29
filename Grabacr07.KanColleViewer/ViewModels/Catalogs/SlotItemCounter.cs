@@ -12,7 +12,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		public SlotItemInfo Target { get; private set; }
 
-		public IEnumerable<SlotItemCounterByLevel> Levels
+		public IReadOnlyCollection<SlotItemCounterByLevel> Levels
 		{
 			get { return this.itemsByLevel.OrderBy(x => x.Key).Select(x => x.Value).ToList(); }
 		}
@@ -25,6 +25,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 		public SlotItemCounter(SlotItemInfo target, IEnumerable<SlotItem> items)
 		{
 			this.Target = target;
+
 			this.itemsByLevel = items
 				.GroupBy(x => x.Adept > 0 ? 10 + x.Adept : x.Level)
 				.ToDictionary(x => x.Key > 10 ? x.Key - 10 : x.Key, x => new SlotItemCounterByLevel

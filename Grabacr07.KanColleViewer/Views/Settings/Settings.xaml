@@ -83,6 +83,14 @@
 				</TabItem.Header>
 				<settings:Network Margin="10,0" />
 			</TabItem>
+			
+			<TabItem>
+				<TabItem.Header>
+                    <TextBlock Text="{Binding Resources.Settings_Plugin, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+							   Style="{StaticResource TabHeaderTextStyleKey}" />
+				</TabItem.Header>
+				<settings:Plugins Margin="10,0" />
+			</TabItem>
 
 			<TabItem>
 				<TabItem.Header>

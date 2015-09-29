@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -11,6 +13,7 @@ using Grabacr07.KanColleViewer.ViewModels.Composition;
 using Grabacr07.KanColleViewer.ViewModels.Messages;
 using Grabacr07.KanColleWrapper;
 using Grabacr07.KanColleWrapper.Models;
+using Livet;
 using Livet.EventListeners;
 using Livet.Messaging;
 using Livet.Messaging.IO;
@@ -537,24 +540,44 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
 		#endregion
 
-		#region ToolPlugins 変更通知プロパティ
+		#region AllPlugins 変更通知プロパティ
 
-		private List<ToolViewModel> _ToolPlugins;
+		private List<PluginViewModel> _AllPlugins;
 
-		public List<ToolViewModel> ToolPlugins
+		public List<PluginViewModel> AllPlugins
 		{
-			get { return this._ToolPlugins; }
+			get { return this._AllPlugins; }
 			set
 			{
-				if (this._ToolPlugins != value)
+				if (this._AllPlugins != value)
 				{
-					this._ToolPlugins = value;
+					this._AllPlugins = value;
 					this.RaisePropertyChanged();
 				}
 			}
 		}
 
 		#endregion
+
+		#region BlacklistedPlugins 変更通知プロパティ
+
+		private ReadOnlyDispatcherCollection<BlacklistedPluginViewModel> _BlacklistedPlugins;
+
+		public ReadOnlyDispatcherCollection<BlacklistedPluginViewModel> BlacklistedPlugins
+		{
+			get { return this._BlacklistedPlugins; }
+			set
+			{
+				if (this._BlacklistedPlugins != value)
+				{
+					this._BlacklistedPlugins = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
 
 		#region ViewRangeSettingsCollection 変更通知プロパティ
 
@@ -782,7 +805,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		{
 			try
 			{
-				if (!this.AppOnlineVersionURL.IsEmpty())
 					Process.Start(this.AppOnlineVersionURL);
 			}
 			catch (Exception ex)
@@ -794,7 +816,18 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		public void ReloadPlugins()
 		{
 			this.NotifierPlugins = new List<NotifierViewModel>(PluginHost.Instance.Notifiers.Select(x => new NotifierViewModel(x)));
-			this.ToolPlugins = new List<ToolViewModel>(PluginHost.Instance.Tools.Select(x => new ToolViewModel(x)));
+
+			var plugins = PluginHost.Instance.Plugins.Select(x => new PluginViewModel(x))
+				.Concat(PluginHost.Instance.Notifiers.Select(x => new NotifierViewModel(x)))
+				.Concat(PluginHost.Instance.Tools.Select(x => new ToolViewModel(x)));
+			this.AllPlugins = new List<PluginViewModel>(plugins);
+
+			var collection = ViewModelHelper.CreateReadOnlyDispatcherCollection(
+				Settings.Current.BlacklistedPlugins,
+				x => new BlacklistedPluginViewModel(x),
+				DispatcherHelper.UIDispatcher);
+			this.CompositeDisposable.Add(collection);
+			this.BlacklistedPlugins = collection;
 		}
 
 

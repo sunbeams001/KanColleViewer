@@ -4,30 +4,30 @@
 					xmlns:properties="clr-namespace:Grabacr07.KanColleViewer.Properties"
 					xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
 					xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro">
-    <Style x:Key="BroswerDockOrientation">
+	<Style x:Key="BroswerDockOrientation">
 		<Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserVerticalPosition}"/>
-        <Style.Triggers>
+		<Style.Triggers>
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
-                <Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserHorizontalPosition}"/>
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="DockOrientation">
+				<Setter Property="DockPanel.Dock" Value="{Binding Source={x:Static models:Settings.Current}, Path=BrowserHorizontalPosition}"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="DockOrientation">
 		<Setter Property="DockPanel.Dock" Value="Top"/>
-        <Style.Triggers>
+		<Style.Triggers>
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
-                <Setter Property="DockPanel.Dock" Value="Left"/>
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="DockOrientationFlip">
+				<Setter Property="DockPanel.Dock" Value="Left"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="DockOrientationFlip">
 		<Setter Property="DockPanel.Dock" Value="Left"/>
-        <Style.Triggers>
+		<Style.Triggers>
 			<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
-                <Setter Property="DockPanel.Dock" Value="Top"/>
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
+				<Setter Property="DockPanel.Dock" Value="Top"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
 	<Style x:Key="ControlVertical"
 		   TargetType="{x:Type FrameworkElement}">
 		<Setter Property="Visibility" Value="Visible"/>

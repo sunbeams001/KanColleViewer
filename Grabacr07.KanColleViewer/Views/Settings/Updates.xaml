@@ -34,7 +34,7 @@
 				<RowDefinition />
 				<RowDefinition />
 				<RowDefinition />
-                <RowDefinition />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
@@ -44,7 +44,7 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
-			
+
 			<metro2:CallMethodButton Width="140"
 									 Content="{Binding Resources.Settings_Updates_CheckUpdatesBtn, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 									 ToolTip="{Binding Resources.Settings_Updates_CheckUpdatesBtn_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
@@ -71,7 +71,7 @@
 									 Padding="3"
 									 Grid.Row="4"
 									 Grid.RowSpan="2"/>
-			
+
 			<metro2:CallMethodButton Width="140"
 									 Content="{Binding Resources.Settings_Updates_ForceUpdateTransBtn, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 									 ToolTip="{Binding Resources.Settings_Updates_ForceUpdateTransBtn_ToolTip, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
@@ -199,16 +199,16 @@
 					<Run Text="{Binding ShipTypesOnlineVersion, Mode=OneWay}" />
 				</metro2:HyperlinkEx>
 			</TextBlock>
-            
-            <TextBlock Grid.Column="2"
+
+			<TextBlock Grid.Column="2"
 					   Grid.Row="7"
 					   Margin="8,0">Expeditions</TextBlock>
-            <TextBlock Grid.Column="3"
+			<TextBlock Grid.Column="3"
 					   Grid.Row="7"
 					   Margin="0,2"
 					   HorizontalAlignment="Center"
 					   Text="{Binding ExpeditionsVersion, Mode=OneWay}"/>
-            <TextBlock Grid.Column="4"
+			<TextBlock Grid.Column="4"
 					   Grid.Row="7"
 					   Margin="0,2"
 					   HorizontalAlignment="Center">
@@ -216,13 +216,13 @@
 									ToolTip="{Binding ExpeditionsOnlineVersionURL, Mode=OneWay}">
 					<Run Text="{Binding ExpeditionsOnlineVersion, Mode=OneWay}" />
 				</metro2:HyperlinkEx>
-            </TextBlock>
-        </Grid>
+			</TextBlock>
+		</Grid>
 
 		<Rectangle Height="1"
 				   Margin="0,10"
 				   Style="{DynamicResource SeparatorRectangleStyleKey}" />
-		
+
 		<TextBlock Text="{Binding Resources.Settings_Updates_Option, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" Style="{DynamicResource SettingsHeaderTextStyleKey}" />
 
 		<CheckBox Content="{Binding Resources.Settings_Updates_UpdateOnStartup, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" 

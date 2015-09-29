@@ -9,7 +9,7 @@
 			 xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
 			 xmlns:metro2="clr-namespace:Grabacr07.Desktop.Metro.Controls;assembly=Desktop.Metro"
 			 xmlns:root="clr-namespace:Grabacr07.KanColleViewer"
-             xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
+			 xmlns:models="clr-namespace:Grabacr07.KanColleViewer.Models"
 			 mc:Ignorable="d"
 			 d:DesignWidth="800"
 			 DataContext="{Binding Source={x:Static root:App.ViewModelRoot}, Path=Navigator}">

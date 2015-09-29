@@ -51,7 +51,7 @@ namespace Grabacr07.KanColleWrapper.Models
             var repairyards = KanColleClient.Current.Homeport.Repairyard.Docks.Values.Where(x => x.Ship != null)
                 .Where(x => shipIds.Any(X => X == x.ShipId));
 
-            this.RepairingDock = repairyards.Any() ? repairyards.MaxBy(x => x.Remaining).First() : null;
+			this.RepairingDock = repairyards.Any() ? repairyards.OrderByDescending(x => x.Remaining).First() : null;
         }
     }
 }

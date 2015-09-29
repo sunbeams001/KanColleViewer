@@ -97,28 +97,25 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Interactive">
-      <HintPath>..\packages\Ix-Main.1.2.2\lib\net45\System.Interactive.dll</HintPath>
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Reactive.Core, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Core.2.2.4\lib\net45\System.Reactive.Core.dll</HintPath>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Interfaces.2.2.4\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Linq.2.2.4\lib\net45\System.Reactive.Linq.dll</HintPath>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-PlatformServices.2.2.4\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Windows.Threading, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Xaml.2.2.4\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    <Reference Include="System.Reactive.Windows.Threading, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-XAML.2.2.5\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -141,15 +138,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Composition\AggregateNotifier.cs" />
-    <Compile Include="Composition\INotifier.cs" />
-    <Compile Include="Composition\IPluginMetadata.cs" />
-    <Compile Include="Composition\IToolPlugin.cs" />
-    <Compile Include="Composition\NotifyType.cs" />
+    <Compile Include="Composition\BlacklistedPluginData.cs" />
     <Compile Include="Composition\PluginHost.cs" />
     <Compile Include="Models\IOrientationMode.cs" />
     <Compile Include="Models\WindowOrientaionMode.cs" />
+    <Compile Include="Composition\PluginMetadata.cs" />
     <Compile Include="Models\BrowserZoomFactor.cs" />
-    <Compile Include="Composition\IPlugin.cs" />
     <Compile Include="Models\IZoomFactor.cs" />
     <Compile Include="Models\NotifierHost.cs" />
     <Compile Include="Models\OrientationType.cs" />
@@ -176,10 +170,11 @@
     <Compile Include="ViewModels\Catalogs\SlotItemCatalogViewModel.cs" />
     <Compile Include="ViewModels\Catalogs\SlotItemCounter.cs" />
     <Compile Include="ViewModels\Catalogs\ShipCatalogSortWorker.cs" />
+    <Compile Include="ViewModels\Composition\BlacklistedPluginViewModel.cs" />
     <Compile Include="ViewModels\Contents\Fleets\CombinedFleetViewModel.cs" />
     <Compile Include="ViewModels\Composition\NotifierViewModel.cs" />
     <Compile Include="ViewModels\Composition\PluginViewModel.cs" />
-    <Compile Include="ViewModels\Composition\PluginViewModelBase.cs" />
+    <Compile Include="ViewModels\Composition\DerivedPluginViewModelBase.cs" />
     <Compile Include="ViewModels\Composition\ToolViewModel.cs" />
     <Compile Include="ViewModels\Contents\AdmiralViewModel.cs" />
     <Compile Include="ViewModels\Contents\BuildingDockViewModel.cs" />
@@ -223,14 +218,12 @@
     <Compile Include="ViewModels\Contents\ToolsViewModel.cs" />
     <Compile Include="ViewModels\VolumeViewModel.cs" />
     <Compile Include="Views\Behaviors\GridViewBehaviors.cs" />
-    <Compile Include="Views\Behaviors\CountdownBehavior.cs" />
     <Compile Include="Views\Behaviors\FlickFleetsAction.cs" />
     <Compile Include="Views\Behaviors\FlickTrigger.cs" />
     <Compile Include="Views\Behaviors\NavigatorBehavior.cs" />
     <Compile Include="Views\Behaviors\ScreenshotAction.cs" />
     <Compile Include="Views\Behaviors\SetStyleSheetBehavior.cs" />
     <Compile Include="Views\Behaviors\SetWindowLocationAction.cs" />
-    <Compile Include="Views\Behaviors\TimerBehavior.cs" />
     <Compile Include="Views\Contents\Overviews\Repairyard.xaml.cs">
       <DependentUpon>Repairyard.xaml</DependentUpon>
     </Compile>
@@ -264,7 +257,6 @@
     <Compile Include="Views\BrowserNavigator.xaml.cs">
       <DependentUpon>BrowserNavigator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Catalogs\Modernizable.cs" />
     <Compile Include="Views\Catalogs\ShipCatalogWindow.xaml.cs">
       <DependentUpon>ShipCatalogWindow.xaml</DependentUpon>
     </Compile>
@@ -282,10 +274,6 @@
     </Compile>
     <Compile Include="Views\Contents\QuestViewSource.cs" />
     <Compile Include="Views\Controls\AppIcon.cs" />
-    <Compile Include="Views\Controls\BuildingDock.cs" />
-    <Compile Include="Views\Controls\Quest.cs" />
-    <Compile Include="Views\Controls\SlotItemIcon.cs" />
-    <Compile Include="Views\Controls\SlotItemTooltip.cs" />
     <Compile Include="Views\Contents\Shipyard.xaml.cs">
       <DependentUpon>Shipyard.xaml</DependentUpon>
     </Compile>
@@ -295,8 +283,6 @@
     <Compile Include="Views\Controls\ZoomFactorSelector.xaml.cs">
       <DependentUpon>ZoomFactorSelector.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Converters\HasFlagConverter.cs" />
-    <Compile Include="Views\Converters\QuestCategoryToColorConverter.cs" />
     <Compile Include="Views\Dev\DebugTab.xaml.cs">
       <DependentUpon>DebugTab.xaml</DependentUpon>
     </Compile>
@@ -324,6 +310,9 @@
     <Compile Include="Views\Settings\PluginInfo.xaml.cs">
       <DependentUpon>PluginInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\Plugins.xaml.cs">
+      <DependentUpon>Plugins.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\VersionInfo.xaml.cs">
       <DependentUpon>VersionInfo.xaml</DependentUpon>
     </Compile>
@@ -347,35 +336,6 @@
     <Compile Include="Win32\DVTARGETDEVICE.cs" />
     <Compile Include="Win32\IServiceProvider.cs" />
     <Compile Include="Win32\RECT.cs" />
-    <Page Include="Styles\Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Controls.HorizontalFlatListBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.xaml</DependentUpon>
-    </Page>
-    <Page Include="Styles\Controls.ListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.xaml</DependentUpon>
-    </Page>
-    <Page Include="Styles\Controls.PinButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.xaml</DependentUpon>
-    </Page>
-    <Page Include="Styles\Controls.TabControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.xaml</DependentUpon>
-    </Page>
-    <Page Include="Styles\Controls.Text.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.xaml</DependentUpon>
-    </Page>
     <Page Include="Styles\Controls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -389,48 +349,13 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.AppIcon.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.BuildingDock.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.ColorIndicator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.ConditionIcon.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
       <DependentUpon>Generic.xaml</DependentUpon>
     </Page>
     <Page Include="Themes\Generic.KanColleHost.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.Modernizable.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.Quest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.SlotItemIcon.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Generic.xaml</DependentUpon>
-    </Page>
-    <Page Include="Themes\Generic.SlotItemTooltip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
       <DependentUpon>Generic.xaml</DependentUpon>
     </Page>
     <Page Include="Themes\Generic.xaml">
@@ -545,6 +470,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Settings\Plugins.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Settings\VersionInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -597,8 +526,6 @@
     <Compile Include="ViewModels\StartContentViewModel.cs" />
     <Compile Include="ViewModels\Contents\ShipViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
-    <Compile Include="Views\Controls\ColorIndicator.cs" />
-    <Compile Include="Views\Controls\ConditionIcon.cs" />
     <Compile Include="Views\Contents\Fleets.xaml.cs">
       <DependentUpon>Fleets.xaml</DependentUpon>
     </Compile>
@@ -653,6 +580,14 @@
     <ProjectReference Include="..\Grabacr07.Desktop.Metro\Desktop.Metro.csproj">
       <Project>{f00fc570-2a80-4f61-8364-798cd44514b2}</Project>
       <Name>Desktop.Metro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grabacr07.KanColleViewer.Composition\KanColleViewer.Composition.csproj">
+      <Project>{cc139e98-d847-41da-b20f-8aca4564f375}</Project>
+      <Name>KanColleViewer.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grabacr07.KanColleViewer.Controls\KanColleViewer.Controls.csproj">
+      <Project>{978239d0-3129-4c54-aac6-493f0de48bf5}</Project>
+      <Name>KanColleViewer.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Grabacr07.KanColleWrapper\KanColleWrapper.csproj">
       <Project>{0bc8cf79-76d9-46ad-867f-fec6c6ad4594}</Project>
@@ -732,6 +667,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

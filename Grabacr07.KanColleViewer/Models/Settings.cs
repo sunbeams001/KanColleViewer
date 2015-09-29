@@ -5,9 +5,9 @@ using System.Linq;
 using System.Windows;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Grabacr07.KanColleViewer.Composition;
 using Grabacr07.KanColleViewer.Models.Data.Xml;
 using Grabacr07.KanColleWrapper;
-using Grabacr07.KanColleWrapper.Models;
 using Livet;
 
 namespace Grabacr07.KanColleViewer.Models
@@ -396,6 +396,47 @@ namespace Grabacr07.KanColleViewer.Models
 				{
 					this._BrowserZoomFactor = value;
 					this._BrowserZoomFactorPercentage = (int)(value * 100);
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region BlacklistedPlugins 変更通知プロパティ
+
+		private ObservableSynchronizedCollection<BlacklistedPluginData> _BlacklistedPlugins = new ObservableSynchronizedCollection<BlacklistedPluginData>();
+
+		/// <summary>
+		/// ロードに失敗したプラグインのリストを取得または設定します。
+		/// </summary>
+		public ObservableSynchronizedCollection<BlacklistedPluginData> BlacklistedPlugins
+		{
+			get { return this._BlacklistedPlugins; }
+			set
+			{
+				if (this._BlacklistedPlugins != value)
+				{
+					this._BlacklistedPlugins = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
+
+		#region FailReboot 変更通知プロパティ
+
+		private bool _FailReboot;
+
+		public bool FailReboot
+		{
+			get { return this._FailReboot; }
+			set
+			{
+				if (this._FailReboot != value)
+				{
+					this._FailReboot = value;
 					this.RaisePropertyChanged();
 				}
 			}
