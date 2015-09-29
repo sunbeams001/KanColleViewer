@@ -64,6 +64,7 @@
 				</metro:PromptTextBox>
 			</Grid>
 
+			<!--
 			<CheckBox Content="{Binding Resources.Settings_Proxy_Enable_4_SSL, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 					  IsChecked="{Binding Source={x:Static models:Settings.Current}, Path=ProxySettings.IsEnabledOnSSL}"
 					  Margin="0,4" />
@@ -102,6 +103,17 @@
 					</i:Interaction.Triggers>
 				</PasswordBox>
 			</Grid>
+			-->
+
+			<TextBlock Text="※反映にはアプリケーションの再起動が必要です。"
+					   Style="{DynamicResource DetailTextStyleKey}"
+					   Margin="0,4"/>
+			<TextBlock Text="※サーバーをホスト名で指定した場合、動作が遅くなることがあるため、IPアドレスでの指定を推奨します。"
+					   Style="{DynamicResource DetailTextStyleKey}"
+					   Margin="0,4"/>
+			<TextBlock Text="※設定しなかった場合や HTTP プロトコル以外は、アプリケーション起動時の Internet Explorer の設定が使用されます。"
+					   Style="{DynamicResource DetailTextStyleKey}"
+					   Margin="0,4"/>
 		</StackPanel>
 
 		<Rectangle Height="1"
