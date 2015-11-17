@@ -2,12 +2,12 @@
 <Versions>
   <Item>
     <Name>App</Name>
-    <Version>3.8.2.559</Version>
-    <URL>https://github.com/gakada/KanColleViewer/releases/tag/v3.8.2r559</URL>
+    <Version>3.8.2.560</Version>
+    <URL>https://github.com/gakada/KanColleViewer/releases/tag/v3.8.2r560</URL>
   </Item>
   <Item>
     <Name>Equipment</Name>
-    <Version>1.0.31</Version>
+    <Version>1.0.32</Version>
     <URL>https://raw.githubusercontent.com/gakada/KanColleViewer-Translations/release/Equipment.xml</URL>
   </Item>
   <Item>
@@ -22,7 +22,7 @@
   </Item>
   <Item>
     <Name>Quests</Name>
-    <Version>1.0.43</Version>
+    <Version>1.0.44</Version>
     <URL>https://raw.githubusercontent.com/gakada/KanColleViewer-Translations/release/Quests.xml</URL>
   </Item>
   <Item>

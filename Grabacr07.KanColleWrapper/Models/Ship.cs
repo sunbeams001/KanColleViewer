@@ -288,7 +288,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 					var details = "";
 					details += $"{Resources.Stats_Firepower}: {ShowStat(this.Firepower, totalFirepower)}\n";
-					details += $"{Resources.Stats_Torpedo}: {ShowStat(this.Torpedo, totalTorpedo)}{(diveBomb > 0 ? $", divebomb: {diveBomb}" : "")}\n";
+					details += $"{Resources.Stats_Torpedo}: {ShowStat(this.Torpedo, totalTorpedo)}{(diveBomb > 0 ? $", {Resources.Stats_DiveBomb}: {diveBomb}" : "")}\n";
 					details += $"{Resources.Stats_AntiAir}: {ShowStat(this.AA, totalAA)}\n";
 					details += $"{Resources.Stats_Armor}: {ShowStat(this.Armer, totalArmor)}\n";
 					details += $"{Resources.Stats_Luck}: {ShowStat(this.Luck, null)}\n";
