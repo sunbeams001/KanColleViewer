@@ -22,11 +22,9 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             get { return this.logCollection; }
             set
             {
-                if (this.logCollection != value)
-                {
-                    this.logCollection = value;
-                    this.RaisePropertyChanged();
-                }
+	            if (this.logCollection == value) return;
+	            this.logCollection = value;
+	            this.RaisePropertyChanged();
             }
         }
 
@@ -36,16 +34,14 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
         private bool isReloading;
 
-        public bool IsReloading
+	    private bool IsReloading
         {
             get { return this.isReloading; }
             set
             {
-                if (this.isReloading != value)
-                {
-                    this.isReloading = value;
-                    this.RaisePropertyChanged();
-                }
+	            if (this.isReloading == value) return;
+	            this.isReloading = value;
+	            this.RaisePropertyChanged();
             }
         }
 
@@ -60,13 +56,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             get { return this.selectorBuildItem; }
             set
             {
-                if (this.selectorBuildItem != value)
-                {
-                    this.selectorBuildItem = value;
-                    if (value)
-                        this.CurrentLogType = Logger.LogType.BuildItem;
-                    this.RaisePropertyChanged();
-                }
+	            if (this.selectorBuildItem == value) return;
+	            this.selectorBuildItem = value;
+	            if (value)
+		            this.CurrentLogType = Logger.LogType.BuildItem;
+	            this.RaisePropertyChanged();
             }
         }
 
@@ -81,13 +75,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             get { return this.selectorBuildShip; }
             set
             {
-                if (this.selectorBuildShip != value)
-                {
-                    this.selectorBuildShip = value;
-                    if (value)
-                        this.CurrentLogType = Logger.LogType.BuildShip;
-                    this.RaisePropertyChanged();
-                }
+	            if (this.selectorBuildShip == value) return;
+	            this.selectorBuildShip = value;
+	            if (value)
+		            this.CurrentLogType = Logger.LogType.BuildShip;
+	            this.RaisePropertyChanged();
             }
         }
 
@@ -102,13 +94,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             get { return this.selectorShipDrop; }
             set
             {
-                if (this.selectorShipDrop != value)
-                {
-                    this.selectorShipDrop = value;
-                    if (value)
-                        this.CurrentLogType = Logger.LogType.ShipDrop;
-                    this.RaisePropertyChanged();
-                }
+	            if (this.selectorShipDrop == value) return;
+	            this.selectorShipDrop = value;
+	            if (value)
+		            this.CurrentLogType = Logger.LogType.ShipDrop;
+	            this.RaisePropertyChanged();
             }
         }
 
@@ -123,13 +113,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this.selectorMaterials; }
 			set
 			{
-				if (this.selectorMaterials != value)
-				{
-					this.selectorMaterials = value;
-					if (value)
-						this.CurrentLogType = Logger.LogType.Materials;
-					this.RaisePropertyChanged();
-				}
+				if (this.selectorMaterials == value) return;
+				this.selectorMaterials = value;
+				if (value)
+					this.CurrentLogType = Logger.LogType.Materials;
+				this.RaisePropertyChanged();
 			}
 		}
 
@@ -144,13 +132,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this.selectorExpedition; }
 			set
 			{
-				if (this.selectorExpedition != value)
-				{
-					this.selectorExpedition = value;
-					if (value)
-						this.CurrentLogType = Logger.LogType.Expedition;
-					this.RaisePropertyChanged();
-				}
+				if (this.selectorExpedition == value) return;
+				this.selectorExpedition = value;
+				if (value)
+					this.CurrentLogType = Logger.LogType.Expedition;
+				this.RaisePropertyChanged();
 			}
 		}
 
@@ -165,36 +151,51 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this.selectorLevels; }
 			set
 			{
-				if (this.selectorLevels != value)
-				{
-					this.selectorLevels = value;
-					if (value)
-						this.CurrentLogType = Logger.LogType.Levels;
-					this.RaisePropertyChanged();
-				}
+				if (this.selectorLevels == value) return;
+				this.selectorLevels = value;
+				if (value)
+					this.CurrentLogType = Logger.LogType.Levels;
+				this.RaisePropertyChanged();
 			}
 		}
 
 		#endregion
 
-        #region CurrentLogType
+		#region SelectorQuests 変更通知プロパティ
 
-        private Logger.LogType currentLogType;
+		private bool selectorQuests;
+
+		public bool SelectorQuests
+		{
+			get { return this.selectorQuests; }
+			set
+			{
+				if (this.selectorQuests == value) return;
+				this.selectorQuests = value;
+				if (value)
+					this.CurrentLogType = Logger.LogType.Quests;
+				this.RaisePropertyChanged();
+			}
+		}
+
+		#endregion
+
+		#region CurrentLogType
+
+		private Logger.LogType currentLogType;
 
         private Logger.LogType CurrentLogType
         {
             get { return this.currentLogType; }
             set
             {
-                if (this.currentLogType != value)
-                {
-                    this.currentLogType = value;
+	            if (this.currentLogType == value) return;
+	            this.currentLogType = value;
 
-	                this._watcher.Filter = Logger.LogParameters[value].FileName;
+	            this._watcher.Filter = Logger.LogParameters[value].FileName;
 
-					this.CurrentPage = 1;
-                    this.Update();
-                }
+	            this.CurrentPage = 1;
+	            this.Update();
             }
         }
 
@@ -202,38 +203,30 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 		#region HasPreviousPage 変更通知プロパティ
 
-		public bool HasPreviousPage
-		{
-			get { return this.TotalPage > 1 && this.CurrentPage > 1; }
-		}
+		public bool HasPreviousPage => this.TotalPage > 1 && this.CurrentPage > 1;
 
-		#endregion
+	    #endregion
 
 		#region HasNextPage 変更通知プロパティ
 
-		public bool HasNextPage
-		{
-			get { return this.TotalPage > 1 && this.CurrentPage < this.TotalPage; }
-		}
+		public bool HasNextPage => this.TotalPage > 1 && this.CurrentPage < this.TotalPage;
 
-		#endregion
+	    #endregion
 
 		#region CurrentPage 変更通知プロパティ
 
 		private int _CurrentPage;
 
-		public int CurrentPage
+	    private int CurrentPage
 		{
 			get { return this._CurrentPage; }
 			set
 			{
-				if (this._CurrentPage != value)
-				{
-					this._CurrentPage = value;
-					this.RaisePropertyChanged("HasPreviousPage");
-					this.RaisePropertyChanged("HasNextPage");
-					this.RaisePropertyChanged();
-				}
+				if (this._CurrentPage == value) return;
+				this._CurrentPage = value;
+				this.RaisePropertyChanged("HasPreviousPage");
+				this.RaisePropertyChanged("HasNextPage");
+				this.RaisePropertyChanged();
 			}
 		}
 
@@ -243,18 +236,16 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 		private int _TotalPage;
 
-		public int TotalPage
+	    private int TotalPage
 		{
 			get { return this._TotalPage; }
 			set
 			{
-				if (this._TotalPage != value)
-				{
-					this._TotalPage = value;
-					this.RaisePropertyChanged("HasPreviousPage");
-					this.RaisePropertyChanged("HasNextPage");
-					this.RaisePropertyChanged();
-				}
+				if (this._TotalPage == value) return;
+				this._TotalPage = value;
+				this.RaisePropertyChanged("HasPreviousPage");
+				this.RaisePropertyChanged("HasNextPage");
+				this.RaisePropertyChanged();
 			}
 		}
 
@@ -274,7 +265,6 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
             try
             {
-
                 this._watcher = new FileSystemWatcher(Directory.GetParent(Logger.Directory).ToString())
                 {
                     IncludeSubdirectories = true,
@@ -295,7 +285,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             }
         }
 
-        public async void Update()
+	    private async void Update()
         {
             this.IsReloading = true;
             this.LogCollection = await this.UpdateCore();
@@ -317,20 +307,21 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
         private Task<LogItemCollection> UpdateCore()
         {
-            LogItemCollection items = new LogItemCollection();
+            var items = new LogItemCollection();
 
             return Task.Factory.StartNew(() =>
             {
                 try
                 {
-					string file = Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName);
+					var file = Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName);
 
                     if (!File.Exists(file))
                         return items;
 
-                    IEnumerable<string> lines = ReadLines(file);
+                    var lines = ReadLines(file);
 
-	                this.TotalPage = (lines.Count() - 1)/20 + 1;
+					// ReSharper disable once PossibleMultipleEnumeration
+					this.TotalPage = (lines.Count() - 1)/20 + 1;
 
 	                // ReSharper disable once PossibleMultipleEnumeration
                     lines.Take(1).First().Split(',').ToList().ForEach((col => items.Columns.Add(col)));
@@ -338,7 +329,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 	                // ReSharper disable once PossibleMultipleEnumeration
 					lines.Skip(1).Reverse().Skip((this.CurrentPage - 1) * this.logPerPage).Take(this.logPerPage).ToList().ForEach(line =>
                     {
-                        string[] elements = line.Split(',');
+                        var elements = line.Split(',');
                         items.Rows.Add(elements
                             .Take(items.Columns.Count)
                             .ToArray());
@@ -374,13 +365,25 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			{
 				var index = Path.Combine(directory, "index.html");
 				var chrome = Path.Combine(directory, "Chrome");
-				Process.Start("chrome.exe", string.Format("--allow-file-access-from-files --new-window \"{0}\" --user-data-dir=\"{1}\"", index, chrome));
+				Process.Start("chrome.exe", $"--allow-file-access-from-files --new-window \"{index}\" --user-data-dir=\"{chrome}\"");
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(string.Format("An error occurred \"{0}\", make sure Chrome is installed", ex.Message));
+				MessageBox.Show($"An error occurred \"{ex.Message}\", make sure Chrome is installed");
 			}
 		}
 
-    }
+		public void OpenCsv()
+		{
+			try
+			{
+				System.Diagnostics.Process.Start(Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName));
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"An error occurred \"{ex.Message}\"");
+			}
+		}
+
+	}
 }

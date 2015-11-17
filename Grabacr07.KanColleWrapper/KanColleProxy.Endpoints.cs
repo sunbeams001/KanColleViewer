@@ -358,5 +358,10 @@ namespace Grabacr07.KanColleWrapper
 			get { return this.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_combined_battle/goback_port"); }
 		}
 
+		public IObservable<Session> api_req_quest_clearitemget
+		{
+			get { return this.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_quest/clearitemget"); }
+		}
+
 	}
 }

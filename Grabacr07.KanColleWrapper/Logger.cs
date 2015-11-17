@@ -34,7 +34,8 @@ namespace Grabacr07.KanColleWrapper
 			ShipDrop,
 			Materials,
 			Expedition,
-			Levels
+			Levels,
+			Quests,
 		};
 
 		public struct LogTypeInfo
@@ -76,6 +77,10 @@ namespace Grabacr07.KanColleWrapper
 					LogType.Levels, new LogTypeInfo("Date,Name,Level,ID,Exp",
 													"Levels.csv")
 				},
+				{
+					LogType.Quests, new LogTypeInfo("Date,ID,Title",
+													"Quests.csv")
+				},
 			};
 
 		internal Logger(KanColleProxy proxy)
@@ -103,6 +108,9 @@ namespace Grabacr07.KanColleWrapper
 			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Levels(x.Data, x.Request));
 
 			proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Subscribe(x => this.Expedition(x.Data, x.Request));
+
+			// TODO: kcsapi_quest_clearitemget
+			proxy.api_req_quest_clearitemget.TryParse().Subscribe(x => this.Quests(x.Request));
 		}
 
 		private void Expedition(kcsapi_mission_result res, NameValueCollection req)
@@ -136,6 +144,20 @@ namespace Grabacr07.KanColleWrapper
 				}
 
 				this.Log(LogType.Expedition, args.ToArray());
+			}
+			catch (Exception)
+			{
+				// ignored
+			}
+		}
+
+		private void Quests(NameValueCollection request)
+		{
+			try
+			{
+				var id = int.Parse(request["api_quest_id"]);
+				var title = KanColleClient.Current.Translations.GetQuestTranslation(id);
+				this.Log(LogType.Quests, id, title?.Replace(',', ';') ?? "untranslated quest");
 			}
 			catch (Exception)
 			{

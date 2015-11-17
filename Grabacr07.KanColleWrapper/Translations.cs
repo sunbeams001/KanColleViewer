@@ -301,6 +301,25 @@ namespace Grabacr07.KanColleWrapper
 			return null;
 		}
 
+		public string GetQuestTranslation(int id)
+		{
+			try
+			{
+				IEnumerable<XElement> translationList = this.GetTranslationList(TranslationType.QuestTitle);
+				foreach (var el in translationList)
+				{
+					if (int.Parse(el.Element("ID").Value) == id)
+						return el.Element("TR-Name").Value;
+				}
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+
+			return null;
+		}
+
 		public string GetTranslation(string jpString, TranslationType type, Object rawData, int id = -1)
 		{
 			if (!this.EnableTranslations || this.currentCulture == "ja-JP")

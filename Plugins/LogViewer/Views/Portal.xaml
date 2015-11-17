@@ -30,17 +30,18 @@
     </UserControl.Resources>
 
     <DockPanel Margin="3,0,3,3">
-        <Grid DockPanel.Dock="Top" Margin="3,0,3,0">
-			<WrapPanel>
+		<Grid DockPanel.Dock="Top" Margin="3,0,3,0">
+			<UniformGrid Columns="5">
 				<RadioButton Content="Drops" IsChecked="{Binding SelectorShipDrop, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Construction" IsChecked="{Binding SelectorBuildShip, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Development" IsChecked="{Binding SelectorBuildItem, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Materials" IsChecked="{Binding SelectorMaterials, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Expeditions" IsChecked="{Binding SelectorExpedition, Mode=TwoWay}" Margin="5,5,5,0"/>
 				<RadioButton Content="Levels" IsChecked="{Binding SelectorLevels, Mode=TwoWay}" Margin="5,5,5,0"/>
+				<RadioButton Content="Quests" IsChecked="{Binding SelectorQuests, Mode=TwoWay}" Margin="5,5,5,0"/>
+				<metro2:CallMethodButton Content="Open CSV" Margin="5,5,5,0" MethodName="OpenCsv" />
 				<metro2:CallMethodButton Content="Charts" Margin="5,5,5,0" MethodName="ShowCharts" />
-			</WrapPanel>
-			
+			</UniformGrid>
 		</Grid>
 		
 		<Grid DockPanel.Dock="Bottom" Margin="3,0,3,0">
