@@ -175,7 +175,7 @@
 											<TextBlock ToolTipService.Placement="Relative"
 													   ToolTipService.HorizontalOffset="-9"
 													   ToolTipService.VerticalOffset="-3"
-                                                       ToolTipService.InitialShowDelay="600">
+                                                       ToolTipService.ShowDuration="60000">
 												<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 													 Style="{DynamicResource EmphaticTextElementStyleKey}" />
 												<LineBreak />

@@ -126,7 +126,8 @@
 							<StackPanel Grid.RowSpan="2"
 										VerticalAlignment="Center"
 										Margin="10,0,10,0">
-								<TextBlock Style="{DynamicResource DefaultTextStyleKey}">
+								<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+										   ToolTipService.ShowDuration="60000">
 									<Run Text="{Binding Info.ShipType.Name, Mode=OneWay}"
 										 FontSize="14"
 										 ToolTip="{Binding Info.ShipType.UntranslatedName, Mode=OneWay}" />
@@ -203,13 +204,30 @@
 														 ToolTip="{Binding RepairTime, Mode=OneWay}" />
 							</StackPanel>
 
-							<TextBlock Grid.Column="3"
-									   Grid.Row="1"
-									   Grid.ColumnSpan="2"
-									   TextAlignment="Center"
-									   Margin="10,2,20,0"
-									   Padding="4">
-								<TextBlock.Style>
+                            <DockPanel Grid.Column="3"
+ 									   Grid.Row="1"
+ 									   Grid.ColumnSpan="2"
+									   Margin="10,2,20,0">
+                                <Border Background="Transparent">
+                                    <Border.ToolTip>
+                                        <controls:SlotItemTooltip EqName="{Binding ExSlot.Item.Info.Name}"
+																					LevelText="{Binding ExSlot.Item.LevelText}"
+																					AdeptText="{Binding ExSlot.Item.AdeptText}"
+																					IsNumerable="{Binding ExSlot.Item.Info.IsNumerable}"
+																					Current="{Binding ExSlot.Current}"
+																					Maximum="{Binding ExSlot.Maximum}"
+																					UntranslatedName="{Binding ExSlot.Item.Info.UntranslatedName}"
+																					AllStats="{Binding ExSlot.Item.Info.AllStats}"
+																					ShowHeader="True" />
+                                    </Border.ToolTip>
+                                    <Viewbox Margin="0,0,4,0">
+                                        <controls:SlotItemIcon Type="{Binding ExSlot.Item.Info.IconType}"
+															   Visibility="{Binding ExSlot.Equipped, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    </Viewbox>
+                                </Border>
+                                <TextBlock TextAlignment="Center"
+										   Padding="4">
+                                    <TextBlock.Style>
 									<Style TargetType="{x:Type TextBlock}"
 										   BasedOn="{StaticResource DefaultTextStyleKey}">
 										<Setter Property="Text"
@@ -281,9 +299,10 @@
 									</Style>
 								</TextBlock.Style>
 							</TextBlock>
+                            </DockPanel>
 
 
-							<DockPanel Grid.Column="5"
+                            <DockPanel Grid.Column="5"
 									   Grid.Row="0"
 									   VerticalAlignment="Center"
 									   Margin="10,3,10,0">
@@ -340,7 +359,7 @@
 							<ItemsControl Grid.Column="6"
 										  Grid.Row="0"
 										  Grid.RowSpan="3"
-										  ItemsSource="{Binding EquippedSlots}"
+										  ItemsSource="{Binding Slots}"
 										  Margin="20,0">
 								<ItemsControl.ItemTemplate>
 									<DataTemplate>
@@ -356,7 +375,7 @@
 																						   AllStats="{Binding Item.Info.AllStats}"
 																						   ShowHeader="False" />
 											</Border.ToolTip>
-											<Grid>
+                                            <Grid x:Name="SlotItem">
 												<Grid.ColumnDefinitions>
 													<ColumnDefinition Width="Auto"
 																	  SharedSizeGroup="SlotItemNum" />
@@ -437,7 +456,15 @@
 												</TextBlock>
 											</Grid>
 										</Border>
-									</DataTemplate>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding Equipped}"
+														 Value="False">
+                                                <Setter TargetName="SlotItem"
+														Property="Visibility"
+														Value="Collapsed" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
 

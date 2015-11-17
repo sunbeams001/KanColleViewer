@@ -258,21 +258,53 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+		private static string ShowStat(ModernizableStatus stat, int? total)
+		{
+			return $"{stat.Current} ({(stat.IsMax ? "MAX" : "+" + (stat.Max - stat.Current))}){(total != null && total != stat.Current ? $", {total} with equipment" : "")}";
+		}
+
+		private static string ShowStat(LimitedValue stat, bool showCurrent = false)
+		{
+			return $"{stat.Minimum} ({(stat.Maximum == stat.Minimum ? "MAX" : "+" + (stat.Maximum - stat.Minimum))}){(showCurrent && stat.Current > stat.Minimum ? $", {stat.Current} with equipment" : "")}";
+		}
+
 		public string AllStats
 		{
 			get
 			{
-				string details = "";
-				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Firepower, this.Firepower.Current, (this.Firepower.IsMax ? @"MAX" : "+" + (this.Firepower.Max - this.Firepower.Current).ToString()));
-				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Torpedo, this.Torpedo.Current, (this.Torpedo.IsMax ? @"MAX" : "+" + (this.Torpedo.Max - this.Torpedo.Current).ToString()));
-				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_AntiAir, this.AA.Current, (this.AA.IsMax ? @"MAX" : "+" + (this.AA.Max - this.AA.Current).ToString()));
-				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Armor, this.Armer.Current, (this.Armer.IsMax ? @"MAX" : "+" + (this.Armer.Max - this.Armer.Current).ToString()));
-				details += string.Format("{0}: {1} ({2})\n", Resources.Stats_Luck, this.Luck.Current, (this.Luck.IsMax ? @"MAX" : "+" + (this.Luck.Max - this.Luck.Current).ToString()));
-				details += string.Format("{0}: {1} (MAX: {2})\n", Resources.Stats_Evasion, this.Evasion.Current, this.Evasion.Maximum);
-				details += string.Format("{0}: {1} (MAX: {2})\n", Resources.Stats_AntiSub, this.AntiSub.Current, this.AntiSub.Maximum);
-				details += string.Format("{0}: {1} (MAX: {2})", Resources.Stats_SightRange, this.LineOfSight.Current, this.LineOfSight.Maximum);
+				try
+				{
+					var totalFirepower = this.Firepower.Current + this.EquippedSlots.Sum(slot => slot.Item.Info.Firepower);
+					var totalTorpedo = this.Torpedo.Current + this.EquippedSlots.Sum(slot => slot.Item.Info.Torpedo);
+					var totalAA = this.AA.Current + this.EquippedSlots.Sum(slot => slot.Item.Info.AA);
+					var totalArmor = this.Armer.Current + this.EquippedSlots.Sum(slot => slot.Item.Info.Armor);
+					var equipmentAntiSub = this.EquippedSlots.Sum(slot => slot.Item.Info.AntiSub);
 
-				return details;
+					var diveBomb = this.EquippedSlots.Sum(slot => slot.Item.Info.DiveBomb);
+					var accuracy = this.EquippedSlots.Sum(slot => slot.Item.Info.Accuracy);
+					var range = this.EquippedSlots.Select(slot => slot.Item.Info.AttackRange).DefaultIfEmpty().Max();
+					var airPowerMin = this.CalcMinAirPower();
+					var airPowerMax = this.CalcMaxAirPower();
+
+					var details = "";
+					details += $"{Resources.Stats_Firepower}: {ShowStat(this.Firepower, totalFirepower)}\n";
+					details += $"{Resources.Stats_Torpedo}: {ShowStat(this.Torpedo, totalTorpedo)}{(diveBomb > 0 ? $", divebomb: {diveBomb}" : "")}\n";
+					details += $"{Resources.Stats_AntiAir}: {ShowStat(this.AA, totalAA)}\n";
+					details += $"{Resources.Stats_Armor}: {ShowStat(this.Armer, totalArmor)}\n";
+					details += $"{Resources.Stats_Luck}: {ShowStat(this.Luck, null)}\n";
+					details += $"{Resources.Stats_Evasion}: {ShowStat(this.Evasion, true)}\n";
+					details += $"{Resources.Stats_AntiSub}: {ShowStat(this.AntiSub)}{(equipmentAntiSub > 0 ? $", equipment: {equipmentAntiSub}" : "")}\n";
+					details += $"{Resources.Stats_SightRange}: {ShowStat(this.LineOfSight, true)}";
+					if (accuracy > 0) details += $"\nEquipment accuracy: {accuracy}";
+					if (range > 0) details += $"\nEquipment range: {range}";
+					if (airPowerMin > 0 || airPowerMax > 0) details += $"\nAir power: {airPowerMin}-{airPowerMax}";
+
+					return details;
+				}
+				catch (Exception)
+				{
+					return "can't show stats";
+				}
 			}
 		}
 
@@ -327,6 +359,24 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		#endregion
 
+		#region ExSlot 変更通知プロパティ
+
+		private ShipSlot _ExSlot;
+
+		public ShipSlot ExSlot
+		{
+			get { return this._ExSlot; }
+			set
+			{
+				if (this._ExSlot != value)
+				{
+					this._ExSlot = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
+		#endregion
 
 		/// <summary>
 		/// 装備によるボーナスを含めた索敵ステータス値を取得します。
@@ -468,20 +518,7 @@ namespace Grabacr07.KanColleWrapper.Models
 				this.Luck = new ModernizableStatus(this.Info.RawData.api_luck, this.RawData.api_kyouka[4]);
 			}
 
-			this.Slots = this.RawData.api_slot
-				.Select(id => this.homeport.Itemyard.SlotItems[id])
-				.Select((t, i) => new ShipSlot(t, this.Info.RawData.api_maxeq.Get(i) ?? 0, this.RawData.api_onslot.Get(i) ?? 0))
-				.ToArray();
-			this.EquippedSlots = this.Slots.Where(x => x.Equipped).ToArray();
-
-			if (this.EquippedSlots.Any(x => x.Item.Info.Type == SlotItemType.応急修理要員))
-			{
-				this.Situation |= ShipSituation.DamageControlled;
-			}
-			else
-			{
-				this.Situation &= ~ShipSituation.DamageControlled;
-			}
+			this.UpdateSlots();
 
 			// Minimum removes equipped values.
 			int eqAntiSub = 0, eqEvasion = 0, eqLineOfSight = 0;
@@ -501,6 +538,25 @@ namespace Grabacr07.KanColleWrapper.Models
 			this.LineOfSight = new LimitedValue(this.RawData.api_sakuteki[0], this.RawData.api_sakuteki[1], this.RawData.api_sakuteki[0] - eqLineOfSight);
 		}
 
+		public void UpdateSlots()
+		{
+			this.Slots = this.RawData.api_slot
+				.Select(id => this.homeport.Itemyard.SlotItems[id])
+				.Select((t, i) => new ShipSlot(t, this.Info.RawData.api_maxeq.Get(i) ?? 0, this.RawData.api_onslot.Get(i) ?? 0))
+				.ToArray();
+			this.ExSlot = new ShipSlot(this.homeport.Itemyard.SlotItems[this.RawData.api_slot_ex], 0, 0);
+			this.EquippedSlots = this.EnumerateAllEquippedItems().ToArray();
+
+			if (this.EquippedSlots.Any(x => x.Item.Info.Type == SlotItemType.応急修理要員))
+			{
+				this.Situation |= ShipSituation.DamageControlled;
+
+			}
+			else
+			{
+				this.Situation &= ~ShipSituation.DamageControlled;
+			}
+		}
 
 		internal void Charge(int fuel, int bull, int[] onslot)
 		{
@@ -519,5 +575,12 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			return string.Format("ID = {0}, Name = \"{1}\", ShipType = \"{2}\", Level = {3}", this.Id, this.Info.Name, this.Info.ShipType.Name, this.Level);
 		}
+
+		private IEnumerable<ShipSlot> EnumerateAllEquippedItems()
+		{
+			foreach (var slot in this.Slots.Where(x => x.Equipped)) yield return slot;
+			if (this.ExSlot.Equipped) yield return this.ExSlot;
+		}
+
 	}
 }

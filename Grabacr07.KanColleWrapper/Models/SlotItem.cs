@@ -57,5 +57,8 @@ namespace Grabacr07.KanColleWrapper.Models
 		{
 			return string.Format("ID = {0}, Name = \"{1}\", Level = {2}, Rank = {3}", this.Id, this.Info.Name, this.Level, this.Adept);
 		}
+
+		public static SlotItem Dummy { get; } = new SlotItem(new kcsapi_slotitem { api_slotitem_id = -1, });
+
 	}
 }

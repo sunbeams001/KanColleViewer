@@ -278,6 +278,8 @@
 														  SharedSizeGroup="Resources" />
                                         <ColumnDefinition Width="Auto"
 														  SharedSizeGroup="SlotItems" />
+                                        <ColumnDefinition Width="Auto"
+														  SharedSizeGroup="ExSlotItem" />
                                     </Grid.ColumnDefinitions>
 
 
@@ -299,7 +301,7 @@
 											   Grid.RowSpan="2"
 											   Margin="4,0,5,0"
                                                x:Name="ShipNameText"
-											   ToolTipService.InitialShowDelay="600">
+											   ToolTipService.ShowDuration="60000">
 										<Run Text="{Binding Ship.Info.Name, Mode=OneWay}"
 											 FontSize="22"
 											 Style="{DynamicResource EmphaticTextElementStyleKey}" />
@@ -418,7 +420,7 @@
 												  Grid.Row="0"
 												  Grid.RowSpan="2"
 												  x:Name="ShipSlotItems"
-												  ItemsSource="{Binding Ship.EquippedSlots}"
+												  ItemsSource="{Binding Ship.Slots}"
 												  Margin="5,0">
                                         <ItemsControl.Template>
                                             <ControlTemplate TargetType="{x:Type ItemsControl}">
@@ -428,33 +430,64 @@
                                         </ItemsControl.Template>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                    <Border
+                                                <Border x:Name="Elements"
 														Background="Transparent">
-                                                    <Border.ToolTip>
+													<Border.ToolTip>
 														<controls:SlotItemTooltip EqName="{Binding Item.Info.Name}"
-																				  LevelText="{Binding Item.LevelText}"
-																				  AdeptText="{Binding Item.AdeptText}"
-																				  IsNumerable="{Binding Item.Info.IsNumerable}"
-																				  Current="{Binding Current}"
-																				  Maximum="{Binding Maximum}"
-																				  UntranslatedName="{Binding Item.Info.UntranslatedName}"
-																				  AllStats="{Binding Item.Info.AllStats}"
-																				  ShowHeader="True" />
-                                                    </Border.ToolTip>
+																					LevelText="{Binding Item.LevelText}"
+																					AdeptText="{Binding Item.AdeptText}"
+																					IsNumerable="{Binding Item.Info.IsNumerable}"
+																					Current="{Binding Current}"
+																					Maximum="{Binding Maximum}"
+																					UntranslatedName="{Binding Item.Info.UntranslatedName}"
+																					AllStats="{Binding Item.Info.AllStats}"
+																					ShowHeader="True" />
+													</Border.ToolTip>
 													<controls:SlotItemIcon x:Name="SlotItem"
 																		   Type="{Binding Item.Info.IconType}"																		   
 																		   Margin="0,0" />
-                                                    </Border>
-													<DataTemplate.Triggers>
+												</Border>
+												<DataTemplate.Triggers>
 													<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
-															<Setter TargetName="SlotItem"
-																Property="Margin"
-																Value="3,0" />
-														</DataTrigger>
-													</DataTemplate.Triggers>
-                                                </DataTemplate>
+														<Setter TargetName="SlotItem"
+															Property="Margin"
+															Value="3,0" />
+													</DataTrigger>
+                                                    <DataTrigger Binding="{Binding Equipped}"
+																 Value="False">
+                                                        <Setter TargetName="Elements"
+																Property="Visibility"
+																Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </DataTemplate.Triggers>
+											</DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
+
+                                    <DockPanel Grid.Column="8"
+											   Grid.Row="0"
+											   Grid.RowSpan="2"
+											   Visibility="{Binding Ship.ExSlot.Equipped, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <Rectangle Width="1"
+												   Style="{DynamicResource SeparatorRectangleStyleKey}"
+												   Margin="12,4,0,3" />
+                                        <Border Background="Transparent">
+                                            <Border.ToolTip>
+                                                <controls:SlotItemTooltip EqName="{Binding Ship.ExSlot.Item.Info.Name}"
+																						  LevelText="{Binding Ship.ExSlot.Item.LevelText}"
+																						  AdeptText="{Binding Ship.ExSlot.Item.AdeptText}"
+																						  IsNumerable="{Binding Ship.ExSlot.Item.Info.IsNumerable}"
+																						  Current="{Binding Ship.ExSlot.Current}"
+																						  Maximum="{Binding Ship.ExSlot.Maximum}"
+																						  UntranslatedName="{Binding Ship.ExSlot.Item.Info.UntranslatedName}"
+																						  AllStats="{Binding Ship.ExSlot.Item.Info.AllStats}"
+																						  ShowHeader="True" />
+                                            </Border.ToolTip>
+                                            <controls:SlotItemIcon Type="{Binding Ship.ExSlot.Item.Info.IconType}"
+														   Margin="3,0" />
+											</Border>
+                                    </DockPanel>
+
                                 </Grid>
                                 <Rectangle Height="1"
 										   Style="{DynamicResource SeparatorRectangleStyleKey}"

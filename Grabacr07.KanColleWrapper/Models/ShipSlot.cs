@@ -12,10 +12,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public int Maximum { get; private set; }
 
-		public bool Equipped
-		{
-			get { return this.Item != null; }
-		}
+		public bool Equipped => this.Item != null && this.Item != SlotItem.Dummy;
 
 		#region Current 変更通知プロパティ
 
@@ -38,7 +35,7 @@ namespace Grabacr07.KanColleWrapper.Models
 
 		public ShipSlot(SlotItem item, int maximum, int current)
 		{
-			this.Item = item;
+			this.Item = item ?? SlotItem.Dummy;
 			this.Maximum = maximum;
 			this.Current = current;
 		}
