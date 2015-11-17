@@ -53,7 +53,7 @@ namespace Grabacr07.KanColleViewer.Properties {
     margin:0;
 }
 
-#spacing_top, #sectionWrap {
+#spacing_top, #sectionWrap, .area-pickupgame, .area-menu {
     visibility: hidden !important;
     height:0 !important;
     display: none !important;
