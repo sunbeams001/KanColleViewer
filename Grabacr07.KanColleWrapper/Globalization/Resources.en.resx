@@ -148,7 +148,7 @@
     <value>Armor</value>
   </data>
   <data name="Stats_AttackRange" xml:space="preserve">
-    <value>Attack Rng</value>
+    <value>Attack Range</value>
   </data>
   <data name="Stats_DiveBomb" xml:space="preserve">
     <value>Dive Bomb</value>
@@ -166,7 +166,7 @@
     <value>Luck</value>
   </data>
   <data name="Stats_SightRange" xml:space="preserve">
-    <value>Range</value>
+    <value>LoS</value>
   </data>
   <data name="Stats_Speed" xml:space="preserve">
     <value>Speed</value>

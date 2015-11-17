@@ -213,8 +213,20 @@
   <data name="Homeport_FleetHQ" xml:space="preserve">
     <value>Fleet HQ</value>
   </data>
-  <data name="Homeport_InstantBuild" xml:space="preserve">
-    <value>Flamethrowers:</value>
+	<data name="Homeport_Fuel" xml:space="preserve">
+    <value>Fuel:</value>
+  </data>
+	<data name="Homeport_Steel" xml:space="preserve">
+    <value>Steel:</value>
+  </data>
+	<data name="Homeport_Ammo" xml:space="preserve">
+    <value>Ammo:</value>
+  </data>
+	<data name="Homeport_Bauxite" xml:space="preserve">
+    <value>Bauxite:</value>
+  </data>
+	<data name="Homeport_InstantBuild" xml:space="preserve">
+    <value>Builds:</value>
   </data>
   <data name="Homeport_InstantRepair" xml:space="preserve">
     <value>Buckets:</value>
@@ -229,7 +241,7 @@
     <value>Equipment:</value>
   </data>
   <data name="Homeport_NoOfShips" xml:space="preserve">
-    <value>Ship Girls:  </value>
+    <value>Ship Girls:</value>
   </data>
   <data name="IntegratedView" xml:space="preserve">
     <value>Overview</value>
@@ -526,7 +538,7 @@
     <value>Luck</value>
   </data>
   <data name="Stats_SightRange" xml:space="preserve">
-    <value>Range</value>
+    <value>LoS</value>
   </data>
   <data name="Stats_Speed" xml:space="preserve">
     <value>Speed</value>
@@ -535,7 +547,7 @@
     <value>Torpedo</value>
   </data>
   <data name="Stats_AttackRange" xml:space="preserve">
-    <value>Attack Rng</value>
+    <value>Attack Range</value>
   </data>
   <data name="Notifications_CriticalCondition" xml:space="preserve">
     <value>{0} has a ship is in critical condition!</value>

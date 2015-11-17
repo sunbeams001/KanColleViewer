@@ -149,7 +149,7 @@ namespace Grabacr07.KanColleWrapper.Models
 				if (this.Evasion != 0) details.Add(this.StatFormat(this.Evasion, Resources.Stats_Evasion));
 				if (this.Accuracy != 0) details.Add(this.StatFormat(this.Accuracy, Resources.Stats_Accuracy));
 				if (this.DiveBomb != 0) details.Add(this.StatFormat(this.DiveBomb, Resources.Stats_DiveBomb));
-				if (this.AttackRange > 0) details.Add(string.Format(" {1}({0})", this.AttackRange, Resources.Stats_AttackRange));
+				if (this.AttackRange > 0) details.Add(string.Format(" {1}: {0}", this.AttackRange, Resources.Stats_AttackRange));
 
 				return String.Join("\n", details);
 			}

@@ -19,8 +19,8 @@
 			 d:DataContext="{d:DesignInstance viewModels:MainContentViewModel}">
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 		<Grid.Resources>
 			<Style TargetType="{x:Type TextBlock}"
@@ -32,7 +32,9 @@
 		</Grid.Resources>
 
 		<StackPanel Orientation="Horizontal"
-					DataContext="{Binding Admiral}">
+					DataContext="{Binding Admiral}"
+					HorizontalAlignment="Left">
+
 			<TextBlock TextWrapping="NoWrap">
 				<Run Text="{Binding Model.Nickname, Mode=OneWay}"
 					 Style="{DynamicResource EmphaticTextElementStyleKey}"
@@ -61,7 +63,68 @@
 		</StackPanel>
 
 		<StackPanel Grid.Column="1"
-					Orientation="Horizontal">
+					Orientation="Horizontal"
+					HorizontalAlignment="Right">
+			
+			<Grid>
+				<!--Grid.Style>
+					<Style TargetType="Grid">
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
+								<Setter Property="Visibility" Value="Visible"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
+								<Setter Property="Visibility" Value="Collapsed"/>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</Grid.Style-->
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Grid.Column="1">
+					<Run Text="{Binding Resources.Homeport_Fuel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+					<Run Text="{Binding Materials.Model.Fuel, Mode=OneWay}"
+						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+					<LineBreak />
+					<Run Text="{Binding Resources.Homeport_Ammo, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+					<Run Text="{Binding Materials.Model.Ammunition, Mode=OneWay}"
+						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+				</TextBlock>
+			</Grid>
+
+			<Grid>
+				<!--Grid.Style>
+					<Style TargetType="Grid">
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Horizontal">
+								<Setter Property="Visibility" Value="Visible"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Source={x:Static models:Settings.Current}, Path=Orientation.Mode}" Value="Vertical">
+								<Setter Property="Visibility" Value="Collapsed"/>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</Grid.Style-->
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Grid.Column="1">
+					<Run Text="{Binding Resources.Homeport_Steel, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+					<Run Text="{Binding Materials.Model.Steel, Mode=OneWay}"
+						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+					<LineBreak />
+					<Run Text="{Binding Resources.Homeport_Bauxite, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+					<Run Text="{Binding Materials.Model.Bauxite, Mode=OneWay}"
+						 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+				</TextBlock>
+			</Grid>
 
 			<Grid>
 				<Grid.ColumnDefinitions>

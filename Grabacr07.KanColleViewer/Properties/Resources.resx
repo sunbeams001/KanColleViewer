@@ -213,6 +213,18 @@
   <data name="Homeport_FleetHQ" xml:space="preserve">
     <value>司令部</value>
   </data>
+	<data name="Homeport_Fuel" xml:space="preserve">
+    <value>燃料:</value>
+  </data>
+	<data name="Homeport_Steel" xml:space="preserve">
+    <value>鋼鉄:</value>
+  </data>
+	<data name="Homeport_Ammo" xml:space="preserve">
+    <value>弾薬:</value>
+  </data>
+	<data name="Homeport_Bauxite" xml:space="preserve">
+    <value>ボーキサイト:</value>
+  </data>	
   <data name="Homeport_InstantBuild" xml:space="preserve">
     <value>高速建造材:</value>
   </data>
