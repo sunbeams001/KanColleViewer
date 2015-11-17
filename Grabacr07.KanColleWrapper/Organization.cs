@@ -159,10 +159,12 @@ namespace Grabacr07.KanColleWrapper
 			proxy.api_get_member_deck.TryParse<kcsapi_deck[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_deck_port.TryParse<kcsapi_deck[]>().Subscribe(x => this.Update(x.Data));
 			proxy.api_get_member_ship_deck.TryParse<kcsapi_ship_deck>().Subscribe(x => this.Update(x.Data));
+			proxy.api_req_hensei_preset_select.TryParse<kcsapi_deck>().Subscribe(x => this.Update(x.Data));
 
 			proxy.api_req_hensei_change.TryParse().Subscribe(this.Change);
 			proxy.api_req_hokyu_charge.TryParse<kcsapi_charge>().Subscribe(x => this.Charge(x.Data));
 			proxy.api_req_kaisou_powerup.TryParse<kcsapi_powerup>().Subscribe(this.Powerup);
+			proxy.api_req_kaisou_slot_exchange_index.TryParse<kcsapi_slot_exchange_index>().Subscribe(this.ExchangeSlot);
 			proxy.api_req_kousyou_getship.TryParse<kcsapi_kdock_getship>().Subscribe(x => this.GetShip(x.Data));
 			proxy.api_req_kousyou_destroyship.TryParse<kcsapi_destroyship>().Subscribe(this.DestoryShip);
 			proxy.api_req_member_updatedeckname.TryParse().Subscribe(this.UpdateFleetName);
@@ -221,9 +223,7 @@ namespace Grabacr07.KanColleWrapper
 					if (target == null) continue;
 
 					target.Update(ship);
-
-					var fleet = this.GetFleet(target.Id);
-					if (fleet != null) fleet.State.Calculate();
+					this.GetFleet(target.Id)?.State.Calculate();
 				}
 			}
 			else
@@ -236,6 +236,12 @@ namespace Grabacr07.KanColleWrapper
 					foreach (var id in this.evacuatedShipsIds) this.Ships[id].Situation |= ShipSituation.Evacuation;
 					foreach (var id in this.towShipIds) this.Ships[id].Situation |= ShipSituation.Tow;
 				}
+
+				foreach (var fleet in this.Fleets.Values)
+				{
+					fleet.State.Update();
+					fleet.State.Calculate();
+				}
 			}
 		}
 
@@ -247,17 +253,19 @@ namespace Grabacr07.KanColleWrapper
 		{
 			if (this.Fleets.Count == source.Length)
 			{
-				foreach (var raw in source)
-				{
-					var target = this.Fleets[raw.api_id];
-					if (target != null) target.Update(raw);
-				}
+				foreach (var raw in source) this.Fleets[raw.api_id]?.Update(raw);
 			}
 			else
 			{
-				this.Fleets.ForEach(x => x.Value.SafeDispose());
+				foreach (var fleet in this.Fleets) fleet.Value?.Dispose();
 				this.Fleets = new MemberTable<Fleet>(source.Select(x => new Fleet(this.homeport, x)));
 			}
+		}
+
+
+		internal void Update(kcsapi_deck source)
+		{
+			this.Fleets[source.api_id]?.Update(source);
 		}
 
 
@@ -309,10 +317,31 @@ namespace Grabacr07.KanColleWrapper
 
 		private void Combine(bool combine)
 		{
-			this.CombinedFleet.SafeDispose();
+			this.CombinedFleet?.Dispose();
 			this.CombinedFleet = combine
 				? new CombinedFleet(this.homeport, this.Fleets.OrderBy(x => x.Key).Select(x => x.Value).Take(2).ToArray())
 				: null;
+		}
+
+		private void ExchangeSlot(SvData<kcsapi_slot_exchange_index> data)
+		{
+			try
+			{
+				var ship = this.Ships[int.Parse(data.Request["api_id"])];
+				if (ship == null) return;
+
+				ship.RawData.api_slot = data.Data.api_slot;
+				ship.UpdateSlots();
+
+				var fleet = this.Fleets.Values.FirstOrDefault(x => x.Ships.Any(y => y.Id == ship.Id));
+				if (fleet == null) return;
+
+				fleet.State.Calculate();
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine("装備の入れ替えに失敗しました: {0}", ex);
+			}
 		}
 
 		#endregion
@@ -321,7 +350,7 @@ namespace Grabacr07.KanColleWrapper
 
 		private void Charge(kcsapi_charge source)
 		{
-			Fleet fleet = null;	// 補給した艦が所属している艦隊。艦隊をまたいで補給はできないので、必ず 1 つに絞れる
+			Fleet fleet = null; // 補給した艦が所属している艦隊。艦隊をまたいで補給はできないので、必ず 1 つに絞れる
 
 			foreach (var ship in source.api_ship)
 			{
@@ -347,11 +376,7 @@ namespace Grabacr07.KanColleWrapper
 		{
 			try
 			{
-				var target = this.Ships[svd.Data.api_ship.api_id];
-				if (target != null)
-				{
-					target.Update(svd.Data.api_ship);
-				}
+				this.Ships[svd.Data.api_ship.api_id]?.Update(svd.Data.api_ship);
 
 				var items = svd.Request["api_id_items"]
 					.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
@@ -500,17 +525,20 @@ namespace Grabacr07.KanColleWrapper
 		}
 
 		private void Update(kcsapi_ship_deck source)
-        {
-            if (source.api_ship_data != null)
-            {
-                foreach (var ship in source.api_ship_data)
-                {
-                    var target = this.Ships[ship.api_id];
-                    target.Update(ship);
-                }
-            }
+		{
+			if (source.api_ship_data != null)
+			{
+				foreach (var ship in source.api_ship_data)
+				{
+					var target = this.Ships[ship.api_id];
+					target.Update(ship);
 
-            if (source.api_deck_data != null)
+					if (this.evacuatedShipsIds.Any(x => target.Id == x)) target.Situation |= ShipSituation.Evacuation;
+					if (this.towShipIds.Any(x => target.Id == x)) target.Situation |= ShipSituation.Tow;
+				}
+			}
+
+			if (source.api_deck_data != null)
 			{
 				foreach (var deck in source.api_deck_data)
 				{
