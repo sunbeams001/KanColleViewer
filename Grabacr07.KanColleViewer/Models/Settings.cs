@@ -1108,6 +1108,125 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 		#endregion
 
+		#region DisplayMaterial1 変更通知プロパティ
+		private string _DisplayMaterial1;
+
+		public string DisplayMaterial1
+		{
+			get { return this._DisplayMaterial1; }
+			set
+			{
+				if (this._DisplayMaterial1 != value)
+				{
+					this._DisplayMaterial1 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region DisplayMaterial2 変更通知プロパティ
+		private string _DisplayMaterial2;
+
+		public string DisplayMaterial2
+		{
+			get { return this._DisplayMaterial2; }
+			set
+			{
+				if (this._DisplayMaterial2 != value)
+				{
+					this._DisplayMaterial2 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region DisplayMaterial3 変更通知プロパティ
+		private string _DisplayMaterial3;
+
+		public string DisplayMaterial3
+		{
+			get { return this._DisplayMaterial3; }
+			set
+			{
+				if (this._DisplayMaterial3 != value)
+				{
+					this._DisplayMaterial3 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region DisplayMaterial4 変更通知プロパティ
+		private string _DisplayMaterial4;
+
+		public string DisplayMaterial4
+		{
+			get { return this._DisplayMaterial4; }
+			set
+			{
+				if (this._DisplayMaterial4 != value)
+				{
+					this._DisplayMaterial4 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region DisplayMaterial5 変更通知プロパティ
+		private string _DisplayMaterial5;
+
+		public string DisplayMaterial5
+		{
+			get { return this._DisplayMaterial5; }
+			set
+			{
+				if (this._DisplayMaterial5 != value)
+				{
+					this._DisplayMaterial5 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region DisplayMaterial6 変更通知プロパティ
+		private string _DisplayMaterial6;
+
+		public string DisplayMaterial6
+		{
+			get { return this._DisplayMaterial6; }
+			set
+			{
+				if (this._DisplayMaterial6 != value)
+				{
+					this._DisplayMaterial6 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
+		#region DisplayMaterial7 変更通知プロパティ
+		private string _DisplayMaterial7;
+
+		public string DisplayMaterial7
+		{
+			get { return this._DisplayMaterial7; }
+			set
+			{
+				if (this._DisplayMaterial7 != value)
+				{
+					this._DisplayMaterial7 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
 		public void Save()
 		{
 			if (!this.ShipCatalog_SaveFilters)

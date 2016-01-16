@@ -214,34 +214,34 @@
     <value>司令部</value>
   </data>
 	<data name="Homeport_Fuel" xml:space="preserve">
-    <value>燃料:</value>
+    <value>燃料</value>
   </data>
 	<data name="Homeport_Steel" xml:space="preserve">
-    <value>鋼鉄:</value>
+    <value>鋼材</value>
   </data>
 	<data name="Homeport_Ammo" xml:space="preserve">
-    <value>弾薬:</value>
+    <value>弾薬</value>
   </data>
 	<data name="Homeport_Bauxite" xml:space="preserve">
-    <value>ボーキサイト:</value>
+    <value>ボーキ</value>
   </data>	
   <data name="Homeport_InstantBuild" xml:space="preserve">
-    <value>高速建造材:</value>
+    <value>建造</value>
   </data>
   <data name="Homeport_InstantRepair" xml:space="preserve">
-    <value>高速修復材:</value>
+    <value>修復</value>
   </data>
   <data name="Homeport_DevelopmentMaterial" xml:space="preserve">
-    <value>開発資材:</value>
+    <value>開発</value>
   </data>
   <data name="Homeport_ImprovementMaterial" xml:space="preserve">
-    <value>改修資材:</value>
+    <value>改修</value>
   </data>
   <data name="Homeport_NoOfEquipment" xml:space="preserve">
-    <value>保有装備:</value>
+    <value>保有装備</value>
   </data>
   <data name="Homeport_NoOfShips" xml:space="preserve">
-    <value>所属艦娘:</value>
+    <value>所属艦娘</value>
   </data>
   <data name="IntegratedView" xml:space="preserve">
     <value>総合</value>

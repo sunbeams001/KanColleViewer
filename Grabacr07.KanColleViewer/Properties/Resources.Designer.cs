@@ -583,7 +583,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 弾薬:.
+        ///   Looks up a localized string similar to 弾薬.
         /// </summary>
         public static string Homeport_Ammo {
             get {
@@ -592,7 +592,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ボーキサイト:.
+        ///   Looks up a localized string similar to ボーキ.
         /// </summary>
         public static string Homeport_Bauxite {
             get {
@@ -601,7 +601,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 開発資材:.
+        ///   Looks up a localized string similar to 開発.
         /// </summary>
         public static string Homeport_DevelopmentMaterial {
             get {
@@ -619,7 +619,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 燃料:.
+        ///   Looks up a localized string similar to 燃料.
         /// </summary>
         public static string Homeport_Fuel {
             get {
@@ -628,7 +628,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 改修資材:.
+        ///   Looks up a localized string similar to 改修.
         /// </summary>
         public static string Homeport_ImprovementMaterial {
             get {
@@ -637,7 +637,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 高速建造材:.
+        ///   Looks up a localized string similar to 建造.
         /// </summary>
         public static string Homeport_InstantBuild {
             get {
@@ -646,7 +646,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 高速修復材:.
+        ///   Looks up a localized string similar to 修復.
         /// </summary>
         public static string Homeport_InstantRepair {
             get {
@@ -655,7 +655,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 保有装備:.
+        ///   Looks up a localized string similar to 保有装備.
         /// </summary>
         public static string Homeport_NoOfEquipment {
             get {
@@ -664,7 +664,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 所属艦娘:.
+        ///   Looks up a localized string similar to 所属艦娘.
         /// </summary>
         public static string Homeport_NoOfShips {
             get {
@@ -673,7 +673,7 @@ namespace Grabacr07.KanColleViewer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 鋼鉄:.
+        ///   Looks up a localized string similar to 鋼材.
         /// </summary>
         public static string Homeport_Steel {
             get {

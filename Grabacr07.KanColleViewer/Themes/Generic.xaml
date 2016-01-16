@@ -11,6 +11,7 @@
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.Quest.xaml" />
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemIcon.xaml" />
 		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.SlotItemTooltip.xaml" />
+		<ResourceDictionary Source="/KanColleViewer;component/Themes/Generic.MetroComboBox.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

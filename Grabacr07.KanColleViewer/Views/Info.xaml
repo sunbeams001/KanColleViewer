@@ -33,8 +33,7 @@
         <contents:Homeport />
 
         <StackPanel Grid.Column="1"
-						Orientation="Horizontal"
-						Margin="8,0">
+						Orientation="Horizontal">
             <metro2:CallMethodButton DataContext="{Binding Volume}"
 										 MethodName="ToggleMute"
 										 Style="{DynamicResource CircleButtonStyleKey}"
