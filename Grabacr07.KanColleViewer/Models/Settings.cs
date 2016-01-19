@@ -51,9 +51,7 @@ namespace Grabacr07.KanColleViewer.Models
 				ScreenshotFilename = "KanColle-{0:d04}.png",
 				ScreenshotImageFormat = SupportedImageFormat.Png,
 				CanDisplayBuildingShipName = false,
-				EnableLogging = true,
 				EnableTranslations = true,
-				EnableAddUntranslated = false,
 				EnableUpdateNotification = true,
 				EnableUpdateTransOnStart = true,
 				ShipCatalog_SaveFilters = false,
@@ -432,24 +430,6 @@ namespace Grabacr07.KanColleViewer.Models
 				if (this._EnableTranslations != value)
 				{
 					this._EnableTranslations = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-		#endregion
-
-		#region EnableAddUntranslated 変更通知プロパティ
-
-		private bool _EnableAddUntranslated;
-
-		public bool EnableAddUntranslated
-		{
-			get { return this._EnableAddUntranslated; }
-			set
-			{
-				if (this._EnableAddUntranslated != value)
-				{
-					this._EnableAddUntranslated = value;
 					this.RaisePropertyChanged();
 				}
 			}
@@ -926,24 +906,6 @@ namespace Grabacr07.KanColleViewer.Models
 				if (this._CustomSoundVolume != value)
 				{
 					this._CustomSoundVolume = value;
-					this.RaisePropertyChanged();
-				}
-			}
-		}
-		#endregion
-
-		#region EnableLogging 変更通知プロパティ
-
-		private bool _EnableLogging;
-
-		public bool EnableLogging
-		{
-			get { return this._EnableLogging; }
-			set 
-			{ 
-				if (this._EnableLogging != value)
-				{
-					this._EnableLogging = value;
 					this.RaisePropertyChanged();
 				}
 			}

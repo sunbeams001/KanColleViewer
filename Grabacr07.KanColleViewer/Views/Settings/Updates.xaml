@@ -34,7 +34,8 @@
 				<RowDefinition />
 				<RowDefinition />
 				<RowDefinition />
-                <RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
@@ -217,6 +218,25 @@
 					<Run Text="{Binding ExpeditionsOnlineVersion, Mode=OneWay}" />
 				</metro2:HyperlinkEx>
             </TextBlock>
+
+			<TextBlock Grid.Column="2"
+					   Grid.Row="8"
+					   Margin="8,0">Data</TextBlock>
+			<TextBlock Grid.Column="3"
+					   Grid.Row="8"
+					   Margin="0,2"
+					   HorizontalAlignment="Center"
+					   Text="{Binding DataVersion, Mode=OneWay}"/>
+			<TextBlock Grid.Column="4"
+					   Grid.Row="8"
+					   Margin="0,2"
+					   HorizontalAlignment="Center">
+				<metro2:HyperlinkEx Uri="{Binding DataOnlineVersionURL, Mode=OneWay}"
+									ToolTip="{Binding DataOnlineVersionURL, Mode=OneWay}">
+					<Run Text="{Binding DataOnlineVersion, Mode=OneWay}" />
+				</metro2:HyperlinkEx>
+			</TextBlock>
+
         </Grid>
 
 		<Rectangle Height="1"

@@ -52,7 +52,6 @@ namespace Grabacr07.KanColleViewer
 			ResourceService.Current.ChangeCulture(Settings.Current.Culture);
 			// Initialize translations
 			KanColleClient.Current.Translations.EnableTranslations = Settings.Current.EnableTranslations;
-			KanColleClient.Current.Translations.EnableAddUntranslated = Settings.Current.EnableAddUntranslated;
 			KanColleClient.Current.Translations.ChangeCulture(Settings.Current.Culture);
 
 			// Update notification and download new translations (if enabled)

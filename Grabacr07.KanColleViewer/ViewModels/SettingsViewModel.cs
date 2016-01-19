@@ -207,24 +207,6 @@ namespace Grabacr07.KanColleViewer.ViewModels
 
         #endregion
 
-        #region EnableAddUntranslated 変更通知プロパティ
-
-        public bool EnableAddUntranslated
-        {
-            get { return Settings.Current.EnableAddUntranslated; }
-            set
-            {
-                if (Settings.Current.EnableAddUntranslated != value)
-                {
-                    Settings.Current.EnableAddUntranslated = value;
-                    KanColleClient.Current.Translations.EnableAddUntranslated = value;
-                    this.RaisePropertyChanged();
-                }
-            }
-        }
-
-        #endregion
-
 		#region BrowserZoomFactor 変更通知プロパティ
 
 		private BrowserZoomFactor _BrowserZoomFactor;
@@ -362,7 +344,20 @@ namespace Grabacr07.KanColleViewer.ViewModels
             }
         }
 
-        #endregion
+		#endregion
+
+		public string DataVersion
+		{
+			get { return KanColleClient.Current.Translations.DataVersion; }
+			set
+			{
+				if (KanColleClient.Current.Translations.DataVersion != value)
+				{
+					KanColleClient.Current.Translations.DataVersion = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
 
 		// ReSharper disable InconsistentNaming
 		#region AppOnlineVersion 変更通知プロパティ
@@ -514,8 +509,25 @@ namespace Grabacr07.KanColleViewer.ViewModels
             }
         }
 
-        #endregion
-		
+		#endregion
+
+		public string DataOnlineVersionURL { get; set; }
+
+		private string _DataOnlineVersion;
+		public string DataOnlineVersion
+		{
+			get { return this._DataOnlineVersion; }
+			set
+			{
+				if (this._DataOnlineVersion != value)
+				{
+					this._DataOnlineVersion = value;
+					this.RaisePropertyChanged();
+					this.RaisePropertyChanged("DataOnlineVersionURL");
+				}
+			}
+		}
+
 		// ReSharper restore InconsistentNaming
 
 		#region NotifierPlugins 変更通知プロパティ
@@ -709,6 +721,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 						this.ShipsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships, true);
 						this.ShipTypesOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes, true);
 						this.ExpeditionsOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions, true);
+						this.DataOnlineVersionURL = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Data, true);
 
 						this.AppOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.App);
 						this.EquipmentOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Equipment);
@@ -717,6 +730,7 @@ namespace Grabacr07.KanColleViewer.ViewModels
 						this.ShipsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Ships);
 						this.ShipTypesOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.ShipTypes);
 						this.ExpeditionsOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Expeditions);
+						this.DataOnlineVersion = KanColleClient.Current.Updater.GetOnlineVersion(TranslationType.Data);
 					}
 					else
 					{

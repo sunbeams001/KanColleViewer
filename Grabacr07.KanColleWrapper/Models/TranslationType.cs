@@ -72,5 +72,10 @@ namespace Grabacr07.KanColleWrapper.Models
         /// Expedition title translations only
         /// </summary>
         ExpeditionTitle = 12,
-    }
+
+		/// <summary>
+		/// Generic data (e.g. map node labels), not translations
+		/// </summary>
+		Data = 13,
+	}
 }

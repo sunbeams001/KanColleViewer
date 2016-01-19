@@ -47,7 +47,7 @@ namespace Grabacr07.KanColleWrapper
 							if (!node.Element("Name").Value.Equals("App"))
 							{
 								var OldNode = Versions.Where(x => x.Element("Name").Value.Equals(node.Element("Name").Value)).FirstOrDefault();
-								OldNode.ReplaceWith(node);
+								OldNode?.ReplaceWith(node);
 							}
 						}
 					}
@@ -124,6 +124,9 @@ namespace Grabacr07.KanColleWrapper
 					r = this.UpdateFile(checkVersion, client, culture, "Expeditions.xml", TranslationType.Expeditions, translationsRef.ExpeditionsVersion);
 					if (r == 1) updated = true;
 					if (r == -1) error = true;
+					r = this.UpdateFile(checkVersion, client, "", "Data.xml", TranslationType.Data, translationsRef.DataVersion);
+					if (r == 1) updated = true;
+					if (r == -1) error = true;
 				}
 				catch (Exception ex)
 				{
@@ -175,7 +178,8 @@ namespace Grabacr07.KanColleWrapper
 					case TranslationType.ExpeditionDetail:
 					case TranslationType.ExpeditionTitle:
 						return Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value;
-
+					case TranslationType.Data:
+						return Versions.Where(x => x.Element("Name").Value.Equals("Data")).FirstOrDefault().Element(ElementName).Value;
 				}
 			}
 			catch
@@ -224,6 +228,8 @@ namespace Grabacr07.KanColleWrapper
 					case TranslationType.ExpeditionDetail:
 					case TranslationType.ExpeditionTitle:
 						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Expeditions")).FirstOrDefault().Element(ElementName).Value)) < 0;
+					case TranslationType.Data:
+						return LocalVersion.CompareTo(new Version(Versions.Where(x => x.Element("Name").Value.Equals("Data")).FirstOrDefault().Element(ElementName).Value)) < 0; ;
 				}
 			}
 			catch
