@@ -118,9 +118,10 @@
 							Background="Transparent"
 							Padding="8,4">
 						<TextBlock x:Name="Text"
-								   Text="{Binding Resources.StateDetail_OnSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
 								   Style="{DynamicResource DefaultTextStyleKey}"
 								   Foreground="{DynamicResource ActiveForegroundBrushKey}">
+							<Run Text="{Binding Resources.StateDetail_OnSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+							<Run Text="{Binding SortieInfo.Formatted, Mode=OneWay}" />
 							<i:Interaction.Behaviors>
 								<ei:DataStateBehavior Binding="{Binding State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Sortie|HeavilyDamaged}"
 													  Value="True"

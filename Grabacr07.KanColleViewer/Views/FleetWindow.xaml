@@ -816,8 +816,14 @@
 										<Style.Triggers>
 											<DataTrigger Binding="{Binding Source.State.Situation, Converter={StaticResource HasFlagConverter}, ConverterParameter=Sortie}"
 														 Value="True">
-												<Setter Property="Text"
-														Value="{Binding Resources.StateDetail_OnSortie, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+												<Setter Property="Text">
+													<Setter.Value>
+														<MultiBinding StringFormat="{}{0} {1}">
+															<Binding Path="Resources.StateDetail_OnSortie" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
+															<Binding Path="Source.SortieInfo.Formatted" Mode="OneWay" />
+														</MultiBinding>
+													</Setter.Value>
+												</Setter>
 												<Setter Property="Foreground"
 														Value="{DynamicResource ActiveForegroundBrushKey}" />
 												<Setter Property="Background"
