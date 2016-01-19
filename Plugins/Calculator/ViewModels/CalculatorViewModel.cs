@@ -22,12 +22,12 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		public IEnumerable<string> SeaList { get; private set; }
 		public static Dictionary<string, int> SeaExpTable = new Dictionary<string, int> 
 		{
-			{"1-1", 30}, {"1-2", 50}, {"1-3", 80}, {"1-4", 100}, {"1-5", 150},
+			{"1-1", 30}, {"1-2", 50}, {"1-3", 80}, {"1-4", 100}, {"1-5", 150}, {"1-6", 220},
 			{"2-1", 120}, {"2-2", 150}, {"2-3", 200},{"2-4", 300}, {"2-5", 250},
 			{"3-1", 310}, {"3-2", 320}, {"3-3", 330}, {"3-4", 350}, {"3-5", 400},
-			{"4-1", 310}, {"4-2", 320}, {"4-3", 330}, {"4-4", 340},
+			{"4-1", 310}, {"4-2", 320}, {"4-3", 330}, {"4-4", 340}, {"4-5", 440},
 			{"5-1", 360}, {"5-2", 380}, {"5-3", 400}, {"5-4", 420}, {"5-5", 450},
-			{"6-1", 400}, {"6-2", 420},
+			{"6-1", 400}, {"6-2", 420}, {"6-3", 400}
 		};
 
 		public IEnumerable<string> ResultList { get; private set; }
@@ -72,7 +72,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 					if (value != null)
 					{
 						this.CurrentLevel = this.CurrentShip.Level;
-						this.TargetLevel = Math.Min(this.CurrentShip.Level + 1, 150);
+						this.TargetLevel = Math.Min(this.CurrentShip.Level + 1, 155);
 						this.CurrentExp = this.CurrentShip.Exp;
 						this.UpdateExpCalculator();
 						this.RaisePropertyChanged();
@@ -92,11 +92,11 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this._CurrentLevel; }
 			set
 			{
-				if (this._CurrentLevel != value && value >= 1 && value <= 150)
+				if (this._CurrentLevel != value && value >= 1 && value <= 155)
 				{
 					this._CurrentLevel = value;
 					this.CurrentExp = Ship.ExpTable[value];
-					this.TargetLevel = Math.Max(this.TargetLevel, Math.Min(value + 1, 150));
+					this.TargetLevel = Math.Max(this.TargetLevel, Math.Min(value + 1, 155));
 					this.RaisePropertyChanged();
 					this.UpdateExpCalculator();
 				}
@@ -114,7 +114,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 			get { return this._TargetLevel; }
 			set
 			{
-				if (this._TargetLevel != value && value >= 1 && value <= 150)
+				if (this._TargetLevel != value && value >= 1 && value <= 155)
 				{
 					this._TargetLevel = value;
 					this.TargetExp = Ship.ExpTable[value];
