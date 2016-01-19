@@ -135,6 +135,11 @@ namespace Grabacr07.KanColleWrapper
 			return this.Fleets.First(x => x.Value.IsInSortie).Value;
 		}
 
+		public Fleet[] GetFleetsInSortie()
+		{
+			return this.Fleets.Where(x => x.Value.IsInSortie).Select(x => x.Value).ToArray();
+		}
+
 		public Organization(Homeport parent, KanColleProxy proxy)
 		{
 			this.homeport = parent;
@@ -485,8 +490,72 @@ namespace Grabacr07.KanColleWrapper
 				this.DropShip(x.Data);
 			});
 
+			proxy.api_req_map_start.TryParse<kcsapi_map_start>().Subscribe(x => { UpdateSortieInfo(x); });
+			proxy.api_req_sortie_battle.TryParse().Subscribe(x => { UpdateSortieInfo(); });
+			proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => { UpdateSortieInfo(x); });
+			proxy.api_req_combined_battle_battleresult.TryParse<kcsapi_combined_battle_battleresult>().Subscribe(x => { UpdateSortieInfo(x); });
+			proxy.api_req_map_next.TryParse<kcsapi_map_start>().Subscribe(x => { UpdateSortieInfo(x); });
 		}
 
+		private void UpdateSortieInfo() // kcsapi_battle
+		{
+			try
+			{
+				foreach (var fleet in GetFleetsInSortie())
+				{
+					fleet.UpdateSortieInfo();
+				}
+			}
+			catch { }
+		}
+
+		private void UpdateSortieInfo(SvData<kcsapi_battleresult> data)
+		{
+			try
+			{
+				if (data == null || !data.IsSuccess) return;
+				foreach (var fleet in GetFleetsInSortie())
+				{
+					fleet.UpdateSortieInfo(data.Data);
+				}
+			}
+			catch { }
+		}
+
+		private void UpdateSortieInfo(SvData<kcsapi_combined_battle_battleresult> data)
+		{
+			try
+			{
+				if (data == null || !data.IsSuccess) return;
+				foreach (var fleet in GetFleetsInSortie())
+				{
+					fleet.UpdateSortieInfo(data.Data);
+				}
+			}
+			catch { }
+		}
+
+		private void UpdateSortieInfo(SvData<kcsapi_map_start> data) // kcsapi_map_start/kcsapi_map_next
+		{
+			try
+			{
+				if (data == null || !data.IsSuccess) return;
+				int id;
+				if (int.TryParse(data.Request["api_deck_id"], out id))
+				{
+					this.Fleets[id].UpdateSortieInfo(data.Data);
+					if (this.Combined && id == 1) this.Fleets[2].UpdateSortieInfo(data.Data);
+				}
+				else
+				{
+					foreach (var fleet in GetFleetsInSortie())
+					{
+						fleet.UpdateSortieInfo(data.Data);
+					}
+				}
+			}
+			catch { }
+		}
 
 		private void Sortie(SvData data)
 		{

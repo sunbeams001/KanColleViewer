@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper.Models.Raw;
 
 namespace Grabacr07.KanColleWrapper.Models
@@ -91,8 +90,10 @@ namespace Grabacr07.KanColleWrapper.Models
 
 			this.State = new FleetState(parent, this);
 			this.Expedition = new Expedition(this);
+			this.SortieInfo = new SortieInfo();
 			this.CompositeDisposable.Add(this.State);
 			this.CompositeDisposable.Add(this.Expedition);
+			this.CompositeDisposable.Add(this.SortieInfo);
 
 			this.Update(rawData);
 		}
@@ -172,6 +173,41 @@ namespace Grabacr07.KanColleWrapper.Models
 		}
 
 		#endregion
+
+		private SortieInfo _SortieInfo;
+		public SortieInfo SortieInfo
+		{
+			get { return _SortieInfo; }
+			set {
+				_SortieInfo = value;
+				RaisePropertyChanged();
+			}
+		}
+
+		public void UpdateSortieInfo(kcsapi_map_start data)
+		{
+			SortieInfo.World = data.api_maparea_id;
+			SortieInfo.Map = data.api_mapinfo_no;
+			SortieInfo.Path = data.api_no;
+			SortieInfo.IsNextBoss = data.api_no == data.api_bosscell_no;
+			SortieInfo.IsInBattle = false;
+			SortieInfo.BattleRank = null;
+		}
+
+		public void UpdateSortieInfo() // kcsapi_battle
+		{
+			SortieInfo.IsInBattle = true;
+		}
+
+		public void UpdateSortieInfo(kcsapi_battleresult data)
+		{
+			SortieInfo.BattleRank = data.api_win_rank;
+		}
+
+		public void UpdateSortieInfo(kcsapi_combined_battle_battleresult data)
+		{
+			SortieInfo.BattleRank = data.api_win_rank;
+		}
 
 		#region 出撃 (Sortie, Homing)
 

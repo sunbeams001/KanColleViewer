@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Livet.EventListeners.WeakEvents;
 
 namespace Grabacr07.KanColleWrapper.Models
@@ -233,6 +231,10 @@ namespace Grabacr07.KanColleWrapper.Models
 		public event EventHandler Calculated;
         public event EventHandler<HeavilyDamagedEventArgs> HeavilyDamaged;
 
+		public Fleet GetFleet()
+		{
+			return source[0];
+		}
 
 		public FleetState(Homeport homeport, params Fleet[] fleets)
 		{

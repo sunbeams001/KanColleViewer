@@ -144,6 +144,7 @@
     <Compile Include="Models\ShipSituation.cs" />
     <Compile Include="Models\ShipSlot.cs" />
     <Compile Include="Models\SlotItemType.cs" />
+    <Compile Include="Models\SortieInfo.cs" />
     <Compile Include="Models\ViewRange.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="KanColleProxy.Endpoints.cs">
