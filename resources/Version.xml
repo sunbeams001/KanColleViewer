@@ -5,6 +5,7 @@
     <Version>3.8.2.560</Version>
     <URL>https://github.com/gakada/KanColleViewer/releases/tag/v3.8.2r560</URL>
   </Item>
+  <!-- Legacy entries for <= r560 -->
   <Item>
     <Name>Equipment</Name>
     <Version>1.0.33</Version>
@@ -17,17 +18,17 @@
   </Item>
   <Item>
     <Name>Operations</Name>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <URL>https://raw.githubusercontent.com/gakada/KanColleViewer-Translations/release/Operations.xml</URL>
   </Item>
   <Item>
     <Name>Quests</Name>
-    <Version>1.0.50</Version>
+    <Version>1.0.51</Version>
     <URL>https://raw.githubusercontent.com/gakada/KanColleViewer-Translations/release/Quests.xml</URL>
   </Item>
   <Item>
     <Name>Ships</Name>
-    <Version>1.0.33</Version>
+    <Version>1.0.34</Version>
     <URL>https://raw.githubusercontent.com/gakada/KanColleViewer-Translations/release/Ships.xml</URL>
   </Item>
   <Item>
