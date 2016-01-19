@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Grabacr07.KanColleWrapper;
 using Livet;
 
@@ -175,6 +173,29 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 
 		#endregion
 
+		#region SelectedItem8 変更通知プロパティ
+
+		private MaterialViewModel _SelectedItem8;
+
+		public MaterialViewModel SelectedItem8
+		{
+			get { return this._SelectedItem8; }
+			set
+			{
+				if (this._SelectedItem8 != value)
+				{
+					this._SelectedItem8 = value;
+					this.RaisePropertyChanged();
+					if (value != null)
+					{
+						Models.Settings.Current.DisplayMaterial8 = value.Key;
+					}
+				}
+			}
+		}
+
+		#endregion
+
 		public MaterialsViewModel()
 		{
 			this.Model = KanColleClient.Current.Homeport.Materials;
@@ -208,7 +229,8 @@ namespace Grabacr07.KanColleViewer.ViewModels.Contents
 			this._SelectedItem4 = this.Values.FirstOrDefault(x => x.Key == Models.Settings.Current.DisplayMaterial4) ?? bauxite;
 			this._SelectedItem5 = this.Values.FirstOrDefault(x => x.Key == Models.Settings.Current.DisplayMaterial5) ?? develop;
 			this._SelectedItem6 = this.Values.FirstOrDefault(x => x.Key == Models.Settings.Current.DisplayMaterial6) ?? repair;
-			this._SelectedItem7 = this.Values.FirstOrDefault(x => x.Key == Models.Settings.Current.DisplayMaterial7) ?? blank;
+			this._SelectedItem7 = this.Values.FirstOrDefault(x => x.Key == Models.Settings.Current.DisplayMaterial7) ?? build;
+			this._SelectedItem8 = this.Values.FirstOrDefault(x => x.Key == Models.Settings.Current.DisplayMaterial8) ?? improvement;
 
 			this.Model.PropertyChanged += (sender, args) =>
 			{

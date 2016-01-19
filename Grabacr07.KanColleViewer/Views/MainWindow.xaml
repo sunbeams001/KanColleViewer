@@ -138,7 +138,7 @@
             </ContentControl.Resources>
         </ContentControl>
 
-		<DockPanel Grid.Row="2" Background="Black">
+		<DockPanel Grid.Row="2" Background="Transparent">
                 <controls:KanColleHost x:Name="KanColleHost"
 									   Style="{DynamicResource BroswerDockOrientation}"
                                        ZoomFactor="{Binding Settings.BrowserZoomFactor.Current}">

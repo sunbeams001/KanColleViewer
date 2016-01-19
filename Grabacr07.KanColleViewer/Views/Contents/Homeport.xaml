@@ -27,7 +27,7 @@
 			<Style TargetType="{x:Type TextBlock}"
 				   BasedOn="{StaticResource DefaultTextStyleKey}">
 				<Setter Property="Margin"
-						Value="8,0" />
+						Value="4,0" />
 			</Style>
 			<converters:RankIDToRankNameConverter x:Key="RankIDToRankNameConverterKey" />
 		</Grid.Resources>
@@ -62,7 +62,8 @@
 					Orientation="Horizontal"
 					HorizontalAlignment="Right">
 			<UniformGrid Columns="1"
-						 MaxHeight="40">
+						 MaxHeight="40"
+						 MinWidth="60">
 				<Panel.Resources>
 					<DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
 						<Grid>
@@ -89,7 +90,8 @@
 			</UniformGrid>
 
 			<UniformGrid Columns="1"
-						 MaxHeight="40">
+						 MaxHeight="40"
+						 MinWidth="60">
 				<Panel.Resources>
 					<DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
 						<Grid>
@@ -116,7 +118,8 @@
 			</UniformGrid>
 
 			<UniformGrid Columns="1"
-						 MaxHeight="40">
+						 MaxHeight="40"
+						 MinWidth="60">
 				<Panel.Resources>
 					<DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
 						<Grid>
@@ -140,6 +143,34 @@
 										SelectedItem="{Binding Materials.SelectedItem5, Mode=TwoWay}" />
 				<controls:MetroComboBox ItemsSource="{Binding Materials.Values}"
 										SelectedItem="{Binding Materials.SelectedItem6, Mode=TwoWay}" />
+			</UniformGrid>
+
+			<UniformGrid Columns="1"
+						 MaxHeight="40"
+						 MinWidth="60">
+				<Panel.Resources>
+					<DataTemplate DataType="{x:Type contentsVm:MaterialsViewModel+MaterialViewModel}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+									   VerticalAlignment="Bottom"
+									   Margin="0,0,4,0">
+								<Run Text="{Binding Display, Mode=OneWay}" />
+							</TextBlock>
+							<TextBlock Grid.Column="1"
+									   Text="{Binding Value, Mode=OneWay}"
+									   Style="{DynamicResource EmphaticTextStyleKey}"
+									   HorizontalAlignment="Right" />
+						</Grid>
+					</DataTemplate>
+				</Panel.Resources>
+				<controls:MetroComboBox ItemsSource="{Binding Materials.Values}"
+										SelectedItem="{Binding Materials.SelectedItem7, Mode=TwoWay}" />
+				<controls:MetroComboBox ItemsSource="{Binding Materials.Values}"
+										SelectedItem="{Binding Materials.SelectedItem8, Mode=TwoWay}" />
 			</UniformGrid>
 
 			<Grid>

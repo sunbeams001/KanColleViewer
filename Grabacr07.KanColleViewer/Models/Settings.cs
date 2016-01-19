@@ -1227,6 +1227,23 @@ namespace Grabacr07.KanColleViewer.Models
 		}
 		#endregion
 
+		#region DisplayMaterial8 変更通知プロパティ
+		private string _DisplayMaterial8;
+
+		public string DisplayMaterial8
+		{
+			get { return this._DisplayMaterial8; }
+			set
+			{
+				if (this._DisplayMaterial8 != value)
+				{
+					this._DisplayMaterial8 = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+		#endregion
+
 		public void Save()
 		{
 			if (!this.ShipCatalog_SaveFilters)
