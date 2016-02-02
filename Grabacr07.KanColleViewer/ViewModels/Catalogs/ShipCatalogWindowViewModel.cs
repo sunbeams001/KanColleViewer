@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using System.Threading.Tasks;
-using Grabacr07.KanColleViewer.ViewModels.Contents;
 using Grabacr07.KanColleWrapper;
 using Livet.EventListeners;
 using Settings = Grabacr07.KanColleViewer.Models.Settings;
@@ -151,11 +148,11 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
 
 		public void ResetFilters ()
 		{
-			this.ShipLevelFilter.Level2OrMore = true;
-			this.ShipLevelFilter.Both = this.ShipLevelFilter.Level1 = false;
+			this.ShipLevelFilter.Both = true;
+			this.ShipLevelFilter.Level2OrMore = this.ShipLevelFilter.Level1 = false;
 
-			this.ShipLockFilter.Locked = true;
-			this.ShipLockFilter.Both = this.ShipLockFilter.Unlocked = false;
+			this.ShipLockFilter.Both = true;
+			this.ShipLockFilter.Locked = this.ShipLockFilter.Unlocked = false;
 
 			this.ShipSpeedFilter.Both = true;
 			this.ShipSpeedFilter.Fast = this.ShipSpeedFilter.Low = false;

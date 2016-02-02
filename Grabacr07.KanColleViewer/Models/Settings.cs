@@ -19,11 +19,11 @@ namespace Grabacr07.KanColleViewer.Models
 
 		private static readonly string filePath = Path.Combine(
 			Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-			"grabacr.net",
+			"gakada",
 			"KanColleViewer",
 			"Settings.xml");
 
-		private static readonly string CurrentSettingsVersion = "1.11";
+		private static readonly string CurrentSettingsVersion = "1.12";
 
 		public static Settings Current { get; set; }
 
@@ -31,7 +31,7 @@ namespace Grabacr07.KanColleViewer.Models
 		{
 			try
 			{
-                Current = filePath.ReadXml<Settings>();
+				Current = filePath.ReadXml<Settings>();
 				if (Current.SettingsVersion != CurrentSettingsVersion)
 					Current = GetInitialSettings();
 			}
@@ -50,21 +50,23 @@ namespace Grabacr07.KanColleViewer.Models
 				ScreenshotFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
 				ScreenshotFilename = "KanColle-{0:d04}.png",
 				ScreenshotImageFormat = SupportedImageFormat.Png,
-				CanDisplayBuildingShipName = false,
+				CanDisplayBuildingShipName = true,
 				EnableTranslations = true,
 				EnableUpdateNotification = true,
 				EnableUpdateTransOnStart = true,
-				ShipCatalog_SaveFilters = false,
-				ShipCatalog_LevelFilter_Level2OrMore = true,
-				ShipCatalog_LockFilter_Locked = true,
+				Culture = "en",
+				ShipCatalog_SaveFilters = true,
+				ShipCatalog_LevelFilter_Both = true,
+				ShipCatalog_LockFilter_Both = true,
 				ShipCatalog_SpeedFilter_Both = true,
 				ShipCatalog_RemodelFilter_Both = true,
 				ShipCatalog_ModernFilter_Both = true,
-				ShipCatalog_ShowMoreStats = false,
+				ShipCatalog_ShowMoreStats = true,
 				NotifyBuildingCompleted = true,
 				NotifyRepairingCompleted = true,
-                NotifyExpeditionReturned = true,
-                NotifyCritical = true,
+				NotifyExpeditionReturned = true,
+				NotifyFleetRejuvenated = true,
+				NotifyCritical = true,
 				FlashQuality = "High",
 				FlashWindow = "Opaque",
 				CustomSoundVolume = 50,
@@ -72,13 +74,14 @@ namespace Grabacr07.KanColleViewer.Models
 				{
 					EnableLogging = true,
 					LoggerFolder = Path.Combine(KanColleClient.Directory, "Logs"),
+					ViewRangeCalcType = "KanColleViewer.Type3",
 				},
 				OrientationMode = OrientationType.Auto,
 				MenuIcon = false,
-				HorizontalSize = new Point(1280,0),
-				VerticalSize = new Point(0,1000),
-                BrowserVerticalPosition = "Top",
-                BrowserHorizontalPosition = "Left",
+				HorizontalSize = new Point(1280, 0),
+				VerticalSize = new Point(0, 1000),
+				BrowserVerticalPosition = "Top",
+				BrowserHorizontalPosition = "Left",
 				CloseConfirm = true,
 				CloseConfirmOnlyInSortie = true,
 			};
@@ -1214,11 +1217,11 @@ namespace Grabacr07.KanColleViewer.Models
 		{
 			if (!this.ShipCatalog_SaveFilters)
 			{
-				this.ShipCatalog_LevelFilter_Level2OrMore = true;
-				this.ShipCatalog_LevelFilter_Level1 = this.ShipCatalog_LevelFilter_Both = false;
+				this.ShipCatalog_LevelFilter_Both = true;
+				this.ShipCatalog_LevelFilter_Level2OrMore = this.ShipCatalog_LevelFilter_Level1 = false;
 
-				this.ShipCatalog_LockFilter_Locked = true;
-				this.ShipCatalog_LockFilter_Both = this.ShipCatalog_LockFilter_Unlocked = false;
+				this.ShipCatalog_LockFilter_Both = true;
+				this.ShipCatalog_LockFilter_Locked = this.ShipCatalog_LockFilter_Unlocked = false;
 
 				this.ShipCatalog_ExpeditionFilter_WithoutExpedition = false;
 
