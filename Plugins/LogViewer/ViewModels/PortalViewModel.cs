@@ -180,6 +180,32 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
 		#endregion
 
+		private bool selectorBattle;
+		public bool SelectorBattle
+		{
+			get { return this.selectorBattle; }
+			set
+			{
+				if (this.selectorBattle == value) return;
+				this.selectorBattle = value;
+				if (value) this.CurrentLogType = Logger.LogType.Battle;
+				this.RaisePropertyChanged();
+			}
+		}
+
+		private bool selectorSortie;
+		public bool SelectorSortie
+		{
+			get { return this.selectorSortie; }
+			set
+			{
+				if (this.selectorSortie == value) return;
+				this.selectorSortie = value;
+				if (value) this.CurrentLogType = Logger.LogType.Sortie;
+				this.RaisePropertyChanged();
+			}
+		}
+
 		#region CurrentLogType
 
 		private Logger.LogType currentLogType;
@@ -191,9 +217,10 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             {
 	            if (this.currentLogType == value) return;
 	            this.currentLogType = value;
-
-	            this._watcher.Filter = Logger.LogParameters[value].FileName;
-
+				if (this._watcher != null)
+				{
+					this._watcher.Filter = Logger.LogParameters[value].FileName;
+				}
 	            this.CurrentPage = 1;
 	            this.Update();
             }
@@ -339,7 +366,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
                 }
                 catch (Exception ex)
                 {
-					System.Diagnostics.Debug.WriteLine(ex.ToString());
+					Debug.WriteLine(ex.ToString());
                     return items;
                 }
             });
@@ -377,7 +404,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		{
 			try
 			{
-				System.Diagnostics.Process.Start(Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName));
+				Process.Start(Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName));
 			}
 			catch (Exception ex)
 			{
