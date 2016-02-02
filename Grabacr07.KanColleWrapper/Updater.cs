@@ -31,10 +31,7 @@ namespace Grabacr07.KanColleWrapper
 			try
 			{
 				VersionXML = XDocument.Load(UpdateURL);
-
-				if (VersionXML == null)
-					return false;
-
+				if (VersionXML == null) return false;
 				if (UpdateURL != UpdateTransURL)
 				{
 					XDocument TransVersionXML = XDocument.Load(UpdateTransURL);
@@ -43,12 +40,15 @@ namespace Grabacr07.KanColleWrapper
 						IEnumerable<XElement> Versions = VersionXML.Root.Descendants("Item");
 						foreach (XElement node in TransVersionXML.Root.Elements("Item"))
 						{
-							// skip app version
-							if (!node.Element("Name").Value.Equals("App"))
+							var oldNode = Versions.Where(x => x.Element("Name").Value.Equals(node.Element("Name").Value)).FirstOrDefault();
+							if (oldNode != null)
 							{
-								var OldNode = Versions.Where(x => x.Element("Name").Value.Equals(node.Element("Name").Value)).FirstOrDefault();
-								OldNode?.ReplaceWith(node);
+								oldNode.ReplaceWith(node);
 							}
+							else
+							{
+								VersionXML.Root.Add(node);
+                            }
 						}
 					}
 				}
@@ -58,7 +58,6 @@ namespace Grabacr07.KanColleWrapper
 				Debug.WriteLine(ex);
 				return false;
 			}
-
 			return true;
 		}
 

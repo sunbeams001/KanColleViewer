@@ -818,7 +818,7 @@
 														 Value="True">
 												<Setter Property="Text">
 													<Setter.Value>
-														<MultiBinding StringFormat="{}{0} {1}">
+														<MultiBinding StringFormat="{}{0} - {1}">
 															<Binding Path="Resources.StateDetail_OnSortie" Source="{x:Static models:ResourceService.Current}" Mode="OneWay" />
 															<Binding Path="Source.SortieInfo.Formatted" Mode="OneWay" />
 														</MultiBinding>

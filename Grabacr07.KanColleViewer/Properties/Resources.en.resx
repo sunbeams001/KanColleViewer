@@ -256,10 +256,10 @@
     <value> Remaining Time:</value>
   </data>
   <data name="MessageBar_Repairing" xml:space="preserve">
-    <value>There are ships in your fleet currently docked for repairs. Completion Time: {0:MM/dd HH\:mm}  Remaining Time: {1}:{2:mm\:ss}</value>
+    <value>There are ships in your fleet docked for repairs. Completion Time: {0:MM/dd HH\:mm}  Remaining Time: {1}:{2:mm\:ss}</value>
   </data>
   <data name="MessageBar_Repairing_Null" xml:space="preserve">
-    <value>There are ships in your fleet currently docked for repairs.</value>
+    <value>There are ships in your fleet docked for repairs.</value>
   </data>
   <data name="MessageBar_ReSortie_BadCondition" xml:space="preserve">
     <value>are fatigued</value>
@@ -789,7 +789,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>On</value>
   </data>
   <data name="StateDetail_OnSortie" xml:space="preserve">
-    <value>On sortie!</value>
+    <value>On sortie</value>
   </data>
   <data name="Notifications_MoraleRestored" xml:space="preserve">
     <value>Morale Restored</value>
@@ -852,7 +852,7 @@ Low: Performance over quality. Ugliest setting.</value>
     <value>Check lastest translations version</value>
   </data>
   <data name="StateDetail_Repairing" xml:space="preserve">
-    <value>There are ships currently docked for repairs.</value>
+    <value>There are ships docked for repairs</value>
   </data>
   <data name="StateDetail_ShortSupply" xml:space="preserve">
     <value>There are ships need resupplying.</value>

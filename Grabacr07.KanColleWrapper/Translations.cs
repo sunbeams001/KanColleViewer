@@ -171,19 +171,22 @@ namespace Grabacr07.KanColleWrapper
 				this.shipTypesFile = Path.Combine(directory, this.currentCulture, "ShipTypes.xml");
 				this.equipmentFile = Path.Combine(directory, this.currentCulture, "Equipment.xml");
 				this.operationsFile = Path.Combine(directory, this.currentCulture, "Operations.xml");
-				this.dataFile = Path.Combine(directory, "Data.xml");
 				this.questsFile = Path.Combine(directory, this.currentCulture, "Quests.xml");
 				this.expeditionsFile = Path.Combine(directory, this.currentCulture, "Expeditions.xml");
+				this.dataFile = Path.Combine(directory, "Data.xml");
 
 				if (File.Exists(this.shipsFile)) this.shipsXml = XDocument.Load(this.shipsFile);
 				if (File.Exists(this.shipTypesFile)) this.shipTypesXml = XDocument.Load(this.shipTypesFile);
 				if (File.Exists(this.equipmentFile)) this.equipmentXml = XDocument.Load(this.equipmentFile);
 				if (File.Exists(this.operationsFile)) this.operationsXml = XDocument.Load(this.operationsFile);
-				if (File.Exists(this.dataFile)) this.dataXml = XDocument.Load(this.dataFile);
 				if (File.Exists(this.questsFile)) this.questsXml = XDocument.Load(this.questsFile);
 				if (File.Exists(this.expeditionsFile)) this.expeditionsXml = XDocument.Load(this.expeditionsFile);
+				if (File.Exists(this.dataFile)) this.dataXml = XDocument.Load(this.dataFile);
 
 				this.GetVersions();
+
+				CompileData();
+				dataXml = null;
 			}
 			catch (Exception ex)
 			{
@@ -194,7 +197,6 @@ namespace Grabacr07.KanColleWrapper
 		internal Translations()
 		{
 			LoadTranslations();
-			CompileData();
 		}
 
 		public void ChangeCulture(string culture)
@@ -358,7 +360,6 @@ namespace Grabacr07.KanColleWrapper
 				}
 			}
 			catch { }
-			dataXml = null;
 		}
 
 		public Tuple<string, string> GetMapLabels(int world, int map, int path)
