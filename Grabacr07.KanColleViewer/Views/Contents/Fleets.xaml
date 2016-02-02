@@ -331,8 +331,10 @@
                                                x:Name="ShipExpText"
 											   Margin="5,0,5,-1">
 										<Run Text="Next:"
+											 ToolTip="{Binding Ship.NextRemodelingInfo, Mode=OneWay}"
 											 FontSize="9" />
 										<Run Text="{Binding Ship.ExpForNextLevel, Mode=OneWay}"
+											 ToolTip="{Binding Ship.NextRemodelingInfo, Mode=OneWay}"
 											 FontSize="9" />
 										<!--<Run Text="&#x9;" />-->
                                     </TextBlock>

@@ -612,6 +612,9 @@
 						  ItemContainerStyle="{DynamicResource GridViewItemContainerStyleKey}"
 						  ScrollViewer.PanningMode="Both">
                     <ListView.Resources>
+                        <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource {x:Type ToolTip}}">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Margin"
 									Value="5,4" />
@@ -712,11 +715,20 @@
                                 </GridViewColumn.Header>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Ship.Info.Name, Mode=OneWay}"
-												   Foreground="{DynamicResource ActiveForegroundBrushKey}"
+                                        <TextBlock Foreground="{DynamicResource ActiveForegroundBrushKey}"
 												   Margin="0,3"
-												   ToolTip="{Binding Ship.AllStats, Mode=OneWay}"
-												   ToolTipService.ShowDuration="60000" />
+												   ToolTipService.ShowDuration="60000">
+											<Run Text="{Binding Ship.Info.Name, Mode=OneWay}" />
+                                            <TextBlock.ToolTip>
+                                                <TextBlock Margin="0,-2,0,0">
+													<Run Text="{Binding Ship.Info.UntranslatedName, Mode=OneWay}"
+														 Style="{DynamicResource EmphaticTextElementStyleKey}" />
+													<LineBreak />
+													<Run Text="{Binding Ship.AllStats, Mode=OneWay}"
+														 FontSize="11" />
+                                                </TextBlock>
+                                            </TextBlock.ToolTip>
+                                        </TextBlock>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -738,7 +750,8 @@
 												 Foreground="{DynamicResource ActiveForegroundBrushKey}"
 												 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
 											<Run Text="" />
-											<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}" />
+											<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}"
+												 ToolTip="{Binding Ship.NextRemodelingInfo, Mode=OneWay}" />
                                         </TextBlock>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -764,6 +777,45 @@
 												 FontSize="12"
 												 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
                                         </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Width="64">
+                                <GridViewColumn.Header>
+                                    <metro2:SortButton MethodName="Sort"
+													   MethodParameter="{x:Static viewModels:ShipCatalogSortWorker.HPColumn}">
+                                        <TextBlock Text="HP" />
+                                    </metro2:SortButton>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="9"
+												   Margin="0,3"
+												   Name="HP">
+											<Run Name="CurrentHP"
+												 Text="{Binding Ship.HP.Current, Mode=OneWay}"
+												 FontSize="12"
+												 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+											<Run Text="/" />
+											<Run Text="{Binding Ship.HP.Maximum, Mode=OneWay}"
+												 FontSize="12"
+												 Foreground="{DynamicResource ActiveForegroundBrushKey}" />
+                                        </TextBlock>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding Ship.IsDamaged}" Value="True">
+                                                <Setter TargetName="HP" Property="ToolTip" Value="{Binding Ship.RepairTime}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Ship.IsLightlyDamaged}" Value="True">
+                                                <Setter TargetName="CurrentHP" Property="Foreground" Value="Yellow" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Ship.IsModeratelyDamaged}" Value="True">
+                                                <Setter TargetName="CurrentHP" Property="Foreground" Value="Orange" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Ship.IsBadlyDamaged}" Value="True">
+                                                <Setter TargetName="CurrentHP" Property="Foreground" Value="Red" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -947,7 +999,7 @@
 							</GridViewColumn>
 							-->
 
-							<GridViewColumn Width="150">
+							<GridViewColumn Width="130">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="{Binding Resources.ShipCatalog_Equips, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
                                 </GridViewColumn.Header>

@@ -152,6 +152,11 @@
 										Grid.RowSpan="2"
 										VerticalAlignment="Center"
 										Margin="10,0,20,0">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource {x:Type ToolTip}}">
+                                        <Setter Property="FontSize" Value="12" />
+                                    </Style>
+                                </StackPanel.Resources>
 								<TextBlock FontSize="13"
 										   Style="{DynamicResource DefaultTextStyleKey}"
 										   VerticalAlignment="Bottom">
@@ -163,8 +168,10 @@
 								</TextBlock>
 								<TextBlock FontSize="10"
 										   Style="{DynamicResource DefaultTextStyleKey}">
-									<Run Text="Next:" />
-									<Run Text="{Binding ExpForNextLevel, Mode=OneWay}" />
+									<Run Text="Next:"
+										 ToolTip="{Binding NextRemodelingInfo, Mode=OneWay}" />
+									<Run Text="{Binding ExpForNextLevel, Mode=OneWay}"
+										 ToolTip="{Binding NextRemodelingInfo, Mode=OneWay}" />
 								</TextBlock>
 							</StackPanel>
 

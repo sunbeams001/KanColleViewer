@@ -99,6 +99,27 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_exp.Get(1) ?? 0; }
 		}
 
+		public int ExpForNextRemodelingLevel
+		{
+			get
+			{
+				var lvl = Info.NextRemodelingLevel;
+				if (lvl != null && ExpTable[lvl.Value] > Exp)
+				{
+					return ExpTable[lvl.Value] - Exp;
+				}
+				return 0;
+			}
+		}
+
+		public string NextRemodelingInfo
+		{
+			get {
+				return ExpForNextRemodelingLevel > 0
+					? $"Next remodel: {Info.NextRemodelingLevel} lv, {ExpForNextRemodelingLevel} exp."
+					: "max. remodel";
+			}
+		}
 
 		#region HP 変更通知プロパティ
 
@@ -293,8 +314,8 @@ namespace Grabacr07.KanColleWrapper.Models
 
 					var details = "";
 					details += $"{Resources.Stats_Firepower}: {ShowStat(this.Firepower, totalFirepower)}\n";
-					details += $"{Resources.Stats_Torpedo}: {ShowStat(this.Torpedo, totalTorpedo)}{(diveBomb > 0 ? $", {Resources.Stats_DiveBomb}: {diveBomb}" : "")}\n";
-					details += $"{Resources.Stats_AntiAir}: {ShowStat(this.AA, totalAA)}\n";
+					details += $"{Resources.Stats_Torpedo}: {ShowStat(this.Torpedo, totalTorpedo)}{(diveBomb > 0 ? $", {Resources.Stats_DiveBomb}: {diveBomb}" : "")}{(totalFirepower > 0 && totalTorpedo > 0 ? $", {totalFirepower + totalTorpedo} with firepower" : "")}\n";
+                    details += $"{Resources.Stats_AntiAir}: {ShowStat(this.AA, totalAA)}\n";
 					details += $"{Resources.Stats_Armor}: {ShowStat(this.Armer, totalArmor)}\n";
 					details += $"{Resources.Stats_Luck}: {ShowStat(this.Luck, null)}\n";
 					details += $"{Resources.Stats_Evasion}: {ShowStat(this.Evasion, true)}\n";
@@ -471,6 +492,11 @@ namespace Grabacr07.KanColleWrapper.Models
 		public bool IsLightlyDamaged
 		{
 			get { return this.IsDamaged && (this.HP.Current / (double)this.HP.Maximum) > 0.5; }
+		}
+
+		public bool IsModeratelyDamaged
+		{
+			get { return this.IsDamaged && (this.HP.Current / (double)this.HP.Maximum) <= 0.5 && (this.HP.Current / (double)this.HP.Maximum) > 0.25; }
 		}
 
 		public bool IsBadlyDamaged

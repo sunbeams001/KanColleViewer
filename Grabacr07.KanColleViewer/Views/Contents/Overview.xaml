@@ -200,7 +200,8 @@
 													 Style="{DynamicResource EmphaticTextElementStyleKey}"
 													 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
 												<LineBreak />
-												<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next: {0}, Mode=OneWay}"
+												<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}"
+													 ToolTip="{Binding Ship.NextRemodelingInfo, Mode=OneWay}"
 													 FontSize="9" />
 											</TextBlock>
 
