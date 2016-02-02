@@ -72,6 +72,20 @@ namespace Grabacr07.KanColleWrapper
 			}
 		}
 
+		private string _LoggerFolder;
+		public string LoggerFolder
+		{
+			get { return this._LoggerFolder; }
+			set
+			{
+				if (this._LoggerFolder != value)
+				{
+					this._LoggerFolder = value;
+					this.RaisePropertyChanged();
+				}
+			}
+		}
+
 		#endregion
 
 		#region ViewRangeCalcType 変更通知プロパティ

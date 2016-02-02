@@ -23,8 +23,6 @@ namespace Grabacr07.KanColleWrapper
 
 		public bool EnableLogging { private get; set; }
 
-		public static readonly string Directory = System.IO.Path.Combine(KanColleClient.Directory, "Logs");
-
 		public enum LogType
 		{
 			BuildItem,
@@ -500,10 +498,11 @@ namespace Grabacr07.KanColleWrapper
 		{
 			try
 			{
+				var dir = KanColleClient.Current.Settings.LoggerFolder;
 				var info = LogParameters[type];
-				var fullPath = System.IO.Path.Combine(Directory, info.FileName);
-				if (!System.IO.Directory.Exists(Directory))
-					System.IO.Directory.CreateDirectory(Directory);
+				var fullPath = System.IO.Path.Combine(dir, info.FileName);
+				if (!System.IO.Directory.Exists(dir))
+					System.IO.Directory.CreateDirectory(dir);
 				if (!System.IO.File.Exists(fullPath))
 					System.IO.File.WriteAllText(fullPath, info.Parameters + Environment.NewLine, new UTF8Encoding(true));
 				return fullPath;

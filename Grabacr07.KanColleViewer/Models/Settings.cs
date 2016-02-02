@@ -68,8 +68,12 @@ namespace Grabacr07.KanColleViewer.Models
 				FlashQuality = "High",
 				FlashWindow = "Opaque",
 				CustomSoundVolume = 50,
-				KanColleClientSettings = new KanColleClientSettings { EnableLogging = true },
-                OrientationMode = OrientationType.Auto,
+				KanColleClientSettings = new KanColleClientSettings
+				{
+					EnableLogging = true,
+					LoggerFolder = Path.Combine(KanColleClient.Directory, "Logs"),
+				},
+				OrientationMode = OrientationType.Auto,
 				MenuIcon = false,
 				HorizontalSize = new Point(1280,0),
 				VerticalSize = new Point(0,1000),

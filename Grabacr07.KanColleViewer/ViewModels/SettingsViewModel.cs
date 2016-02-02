@@ -40,6 +40,25 @@ namespace Grabacr07.KanColleViewer.ViewModels
         public IEnumerable<string> BrowserHorizontalPositionList { get; private set; }
         public string[] BrowserHorizontalPositions = { "Left", "Right" };
 
+		public string LoggerFolder
+		{
+			get { return Settings.Current.KanColleClientSettings.LoggerFolder; }
+			set
+			{
+				if (Settings.Current.KanColleClientSettings.LoggerFolder != value)
+				{
+					Settings.Current.KanColleClientSettings.LoggerFolder = value;
+					this.RaisePropertyChanged();
+					this.RaisePropertyChanged("CanOpenLoggerFolder");
+				}
+			}
+		}
+
+		public bool CanOpenLoggerFolder
+		{
+			get { return Directory.Exists(LoggerFolder); }
+		}
+
 		#region ScreenshotFolder 変更通知プロパティ
 
 		public string ScreenshotFolder
@@ -662,24 +681,63 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			this.ReloadPlugins();
 		}
 
+		public void OpenLoggerFolderSelectionDialog()
+		{
+			try
+			{
+				var message = new FolderSelectionMessage("OpenFolderDialog/Screenshot")
+				{
+					Title = "",
+					DialogPreference = Helper.IsWindows8OrGreater
+						? FolderSelectionDialogPreference.CommonItemDialog
+						: FolderSelectionDialogPreference.FolderBrowser,
+					SelectedPath = this.CanOpenLoggerFolder
+						? this.LoggerFolder
+						: ""
+				};
+				this.Messenger.Raise(message);
+				if (Directory.Exists(message.Response))
+				{
+					this.LoggerFolder = message.Response;
+				}
+			} catch { }
+		}
+
+		public void OpenLoggerFolder()
+		{
+			if (this.CanOpenLoggerFolder)
+			{
+				try
+				{
+					Process.Start(this.LoggerFolder);
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex);
+				}
+			}
+		}
+
 		public void OpenScreenshotFolderSelectionDialog()
 		{
-			var message = new FolderSelectionMessage("OpenFolderDialog/Screenshot")
+			try
 			{
-				Title = Resources.Settings_Screenshot_FolderSelectionDialog_Title,
-				DialogPreference = Helper.IsWindows8OrGreater
-					? FolderSelectionDialogPreference.CommonItemDialog
-					: FolderSelectionDialogPreference.FolderBrowser,
-				SelectedPath = this.CanOpenScreenshotFolder
-					? this.ScreenshotFolder
-					: ""
-			};
-			this.Messenger.Raise(message);
-
-			if (Directory.Exists(message.Response))
-			{
-				this.ScreenshotFolder = message.Response;
-			}
+				var message = new FolderSelectionMessage("OpenFolderDialog/Screenshot")
+				{
+					Title = Resources.Settings_Screenshot_FolderSelectionDialog_Title,
+					DialogPreference = Helper.IsWindows8OrGreater
+						? FolderSelectionDialogPreference.CommonItemDialog
+						: FolderSelectionDialogPreference.FolderBrowser,
+					SelectedPath = this.CanOpenScreenshotFolder
+						? this.ScreenshotFolder
+						: ""
+				};
+				this.Messenger.Raise(message);
+				if (Directory.Exists(message.Response))
+				{
+					this.ScreenshotFolder = message.Response;
+				}
+			} catch { }
 		}
 
 		public void OpenScreenshotFolder()

@@ -96,7 +96,37 @@
 		<TextBlock Text="{Binding Resources.Settings_Logging, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" Style="{DynamicResource SettingsHeaderTextStyleKey}" />
 		<CheckBox Content="{Binding Resources.Settings_Logging_Enable, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" IsChecked="{Binding EnableLogging}" Height="17" Margin="15,0,0,10"/>
 
-
+        <Grid Margin="20,0,0,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="0,6">
+				<Run Text="{Binding Resources.Settings_Screenshot_FolderTextBox_Label, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+				<Run Text=":  " />
+            </TextBlock>
+            <metro:PromptTextBox Grid.Row="0"
+								 Grid.Column="1"
+								 Text="{Binding LoggerFolder, UpdateSourceTrigger=PropertyChanged}"
+								 Prompt="{Binding Resources.Settings_Screenshot_FolderTextBox_Prompt, Source={x:Static models:ResourceService.Current}, Mode=OneWay}" />
+            <metro2:CallMethodButton Grid.Row="0"
+									 Grid.Column="2"
+									 Content="{Binding Resources.Settings_Screenshot_FolderSelectionDialog_OpenButton, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+									 MethodName="OpenLoggerFolderSelectionDialog"
+									 Margin="6,0" />
+            <metro2:CallMethodButton Grid.Row="0"
+									 Grid.Column="3"
+									 Content="{Binding Resources.Settings_Screenshot_OpenFolderButton, Source={x:Static models:ResourceService.Current}, Mode=OneWay}"
+									 IsEnabled="{Binding CanOpenLoggerFolder}"
+									 MethodName="OpenLoggerFolder"
+									 Margin="0" />
+        </Grid>
 
 		<Rectangle Height="1"
 				   Margin="0,5"

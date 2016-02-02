@@ -292,7 +292,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 
             try
             {
-                this._watcher = new FileSystemWatcher(Directory.GetParent(Logger.Directory).ToString())
+                this._watcher = new FileSystemWatcher(Directory.GetParent(KanColleClient.Current.Settings.LoggerFolder).ToString())
                 {
                     IncludeSubdirectories = true,
                     NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.CreationTime | NotifyFilters.FileName,
@@ -340,7 +340,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
             {
                 try
                 {
-					var file = Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName);
+					var file = Path.Combine(KanColleClient.Current.Settings.LoggerFolder, Logger.LogParameters[this.CurrentLogType].FileName);
 
                     if (!File.Exists(file))
                         return items;
@@ -404,7 +404,7 @@ namespace Grabacr07.KanColleViewer.Plugins.ViewModels
 		{
 			try
 			{
-				Process.Start(Path.Combine(Logger.Directory, Logger.LogParameters[this.CurrentLogType].FileName));
+				Process.Start(Path.Combine(KanColleClient.Current.Settings.LoggerFolder, Logger.LogParameters[this.CurrentLogType].FileName));
 			}
 			catch (Exception ex)
 			{
