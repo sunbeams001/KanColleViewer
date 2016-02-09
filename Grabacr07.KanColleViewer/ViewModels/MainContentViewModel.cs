@@ -6,6 +6,7 @@ using Grabacr07.KanColleViewer.ViewModels.Contents;
 using Grabacr07.KanColleViewer.ViewModels.Contents.Fleets;
 using Grabacr07.KanColleViewer.ViewModels.Dev;
 using Livet;
+using Grabacr07.KanColleWrapper;
 
 namespace Grabacr07.KanColleViewer.ViewModels
 {
@@ -20,6 +21,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 		public ShipyardViewModel Shipyard { get; private set; }
 		public QuestsViewModel Quests { get; private set; }
 		public ExpeditionsViewModel Expeditions { get; private set; }
+
+		public CurrentTime CurrentTime { get; }
 
 		public IList<TabItemViewModel> TabItems { get; set; }
 		public IList<TabItemViewModel> SystemTabItems { get; set; }
@@ -59,6 +62,8 @@ namespace Grabacr07.KanColleViewer.ViewModels
 			this.Shipyard = new ShipyardViewModel();
 			this.Quests = new QuestsViewModel();
 			this.Expeditions = new ExpeditionsViewModel(this.Fleets);
+
+			this.CurrentTime = new CurrentTime();
 
 			this.TabItems = new List<TabItemViewModel>
 			{

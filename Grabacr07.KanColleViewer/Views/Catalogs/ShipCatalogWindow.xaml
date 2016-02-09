@@ -750,7 +750,7 @@
 												 Foreground="{DynamicResource ActiveForegroundBrushKey}"
 												 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
 											<Run Text="" />
-											<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}"
+											<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next: {0}, Mode=OneWay}"
 												 ToolTip="{Binding Ship.NextRemodelingInfo, Mode=OneWay}" />
                                         </TextBlock>
                                     </DataTemplate>

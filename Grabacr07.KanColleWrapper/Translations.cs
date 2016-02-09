@@ -366,6 +366,10 @@ namespace Grabacr07.KanColleWrapper
 		{
 			try
 			{
+				if (world > 6)
+				{
+					world = 7;
+				}
 				var code = (world - 1) * 6 + (map - 1);
 				if (code >= 0 && code < 6 * 6 + 8 && path > 0 && path <= 32)
 				{

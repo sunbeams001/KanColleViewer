@@ -200,7 +200,7 @@
 													 Style="{DynamicResource EmphaticTextElementStyleKey}"
 													 ToolTip="{Binding Ship.Exp, Mode=OneWay}" />
 												<LineBreak />
-												<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next:{0}, Mode=OneWay}"
+												<Run Text="{Binding Ship.ExpForNextLevel, StringFormat=Next: {0}, Mode=OneWay}"
 													 ToolTip="{Binding Ship.NextRemodelingInfo, Mode=OneWay}"
 													 FontSize="9" />
 											</TextBlock>
@@ -630,6 +630,21 @@
                         </ItemsControl>
                     </StackPanel>
                 </metro2:CallMethodButton>
+
+                <Border Grid.Row="0"
+						Grid.Column="0">
+                    <StackPanel>
+                        <TextBlock Text="JST" />
+                        <Rectangle Height="1"
+								   Margin="0,3,0,0"
+								   Style="{DynamicResource SeparatorRectangleStyleKey}" />
+                        <TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+								   Margin="0,4,0,0">
+							<Run Text="{Binding Content.CurrentTime.TimeString, Mode=OneWay}" />
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
             </StackPanel>
         </Grid>
     </ScrollViewer>

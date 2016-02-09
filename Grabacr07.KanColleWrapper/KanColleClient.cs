@@ -15,7 +15,9 @@ namespace Grabacr07.KanColleWrapper
 {
     public class KanColleClient : NotificationObject
     {
-		public static readonly string Directory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? "";
+		public static string Directory {
+			get { return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) ?? Environment.CurrentDirectory ?? ""; }
+		}
 
         #region singleton
 
