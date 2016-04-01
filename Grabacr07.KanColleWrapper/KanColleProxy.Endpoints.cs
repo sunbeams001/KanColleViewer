@@ -39,6 +39,14 @@ namespace Grabacr07.KanColleWrapper
 		}
 
 		/// <summary>
+		/// エンド ポイント "/kcsapi/api_get_member/require_info" からのセッションを配信します。
+		/// </summary>
+		public IObservable<Session> api_get_member_require_info
+		{
+			get { return this.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/require_info"); }
+		}
+
+		/// <summary>
 		/// エンド ポイント "/kcsapi/api_get_member/ship" からのセッションを配信します。
 		/// </summary>
 		public IObservable<Session> api_get_member_ship

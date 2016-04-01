@@ -11,6 +11,7 @@
 		"/kcsapi/api_start2",
 		"/kcsapi/api_port/port",
 		"/kcsapi/api_get_member/basic",
+		"/kcsapi/api_get_member/require_info",
 		"/kcsapi/api_get_member/ship",
 		"/kcsapi/api_get_member/ship2",
 		"/kcsapi/api_get_member/ship3",
