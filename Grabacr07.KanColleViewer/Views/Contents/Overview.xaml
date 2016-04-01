@@ -428,6 +428,19 @@
                             </Grid>
                         </StackPanel>
                     </metro2:CallMethodButton>
+
+                    <Border Grid.Row="0"
+							Grid.Column="0"
+							Margin="5,5">
+                        <StackPanel>
+                            <TextBlock Style="{DynamicResource DefaultTextStyleKey}"
+									   Margin="0,4,0,0">
+								<Run Text="JST:" />
+								<Run Text="{Binding Content.CurrentTime.TimeString, Mode=OneWay}" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+
                 </StackPanel>
             </Grid>
 
