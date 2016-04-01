@@ -99,25 +99,12 @@ namespace Grabacr07.KanColleWrapper.Models
 			get { return this.RawData.api_exp.Get(1) ?? 0; }
 		}
 
-		public int ExpForNextRemodelingLevel
-		{
-			get
-			{
-				var lvl = Info.NextRemodelingLevel;
-				if (lvl != null && ExpTable[lvl.Value] > Exp)
-				{
-					return ExpTable[lvl.Value] - Exp;
-				}
-				return 0;
-			}
-		}
-
 		public string NextRemodelingInfo
 		{
 			get {
-				return ExpForNextRemodelingLevel > 0
-					? $"Next remodel: {Info.NextRemodelingLevel} lv, {ExpForNextRemodelingLevel} exp."
-					: "max. remodel";
+				return Info.RawData.api_afterlv == 0
+					? (Level < 99 ? $"Exp. for lv99: {ExpTable[99] - Exp}" : Level < 155 ? $"Exp. for lv155: {ExpTable[155] - Exp}" : "Max. level")
+					: Level < Info.RawData.api_afterlv ? $"Next remodel: lv{Info.RawData.api_afterlv}, {ExpTable[Info.RawData.api_afterlv] - Exp} exp." : $"Ready for remodel (lv{Info.RawData.api_afterlv})";
 			}
 		}
 

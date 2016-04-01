@@ -27,7 +27,7 @@ namespace Grabacr07.KanColleViewer.ViewModels.Catalogs
         public static readonly SortableColumn AAColumn = new SortableColumn { Name = Resources.ShipCatalog_AntiAir, KeySelector = x => x.AA.Current, DefaultIsDescending = true, };
         public static readonly SortableColumn ArmerColumn = new SortableColumn { Name = Resources.ShipCatalog_Armor, KeySelector = x => x.Armer.Current, DefaultIsDescending = true, };
         public static readonly SortableColumn LuckColumn = new SortableColumn { Name = Resources.ShipCatalog_Luck, KeySelector = x => x.Luck.Current, DefaultIsDescending = true, };
-        public static readonly SortableColumn HPColumn = new SortableColumn { Name = Resources.ShipCatalog_HP, KeySelector = x => x.HP.Maximum, DefaultIsDescending = true, };
+        public static readonly SortableColumn HPColumn = new SortableColumn { Name = Resources.ShipCatalog_HP, KeySelector = x => x.HP.Current, DefaultIsDescending = true, };
         public static readonly SortableColumn ViewRangeColumn = new SortableColumn { Name = Resources.ShipCatalog_LoS, KeySelector = x => x.ViewRange, DefaultIsDescending = true, };
         public static readonly SortableColumn EvasionColumn = new SortableColumn { Name = Resources.ShipCatalog_Evasion, KeySelector = x => x.Evasion.Current, DefaultIsDescending = true, };
         public static readonly SortableColumn AntiSubColumn = new SortableColumn { Name = Resources.ShipCatalog_AntiSub, KeySelector = x => x.AntiSub.Current, DefaultIsDescending = true, };
