@@ -49,6 +49,7 @@ namespace Grabacr07.KanColleViewer.Plugins
 
 			ErrorHelper.VerifySucceeded(newShortcut.SetPath(exePath));
 			ErrorHelper.VerifySucceeded(newShortcut.SetArguments(""));
+			ErrorHelper.VerifySucceeded(newShortcut.SetWorkingDirectory(KanColleWrapper.KanColleClient.Directory));
 
 			var newShortcutProperties = (IPropertyStore)newShortcut;
 
